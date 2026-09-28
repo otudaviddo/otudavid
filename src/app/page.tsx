@@ -14,6 +14,11 @@ export default function Home() {
           <Choice d={disciplines.osteo} delay="d2" />
           <Choice d={disciplines.kine} delay="d3" />
         </div>
+
+        <p className="rise d3 mx-auto mt-16 max-w-xl text-sm leading-relaxed text-ivory/60">
+          Cabinet de kinésithérapie et d&rsquo;ostéopathie à <strong className="text-ivory/80 font-normal">Ixelles</strong> (rue de Hennin)
+          et à <strong className="text-ivory/80 font-normal">Woluwe-Saint-Pierre</strong> (rue de la Station), à Bruxelles.
+        </p>
       </section>
       <Contact />
     </>

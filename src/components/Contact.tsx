@@ -16,7 +16,7 @@ export default function Contact() {
             <address key={a.label} className="not-italic text-ivory/85">
               <p className="mb-2 font-serif text-lg tracking-[0.1em] text-ivory">{a.label}</p>
               <p>{a.street}</p>
-              <p>{a.city}</p>
+              <p>{a.postalCode} {a.city}</p>
             </address>
           ))}
         </div>
