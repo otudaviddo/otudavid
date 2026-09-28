@@ -1,5 +1,6 @@
 import { site, disciplines } from "@/config/site";
 import Choice from "@/components/Choice";
+import Testimonials from "@/components/Testimonials";
 import Contact from "@/components/Contact";
 
 export default function Home() {
@@ -15,11 +16,15 @@ export default function Home() {
           <Choice d={disciplines.kine} delay="d3" />
         </div>
 
-        <p className="rise d3 mx-auto mt-16 max-w-xl text-sm leading-relaxed text-ivory/60">
-          Cabinet de kinésithérapie et d&rsquo;ostéopathie à <strong className="text-ivory/80 font-normal">Ixelles</strong> (rue de Hennin)
-          et à <strong className="text-ivory/80 font-normal">Woluwe-Saint-Pierre</strong> (rue de la Station), à Bruxelles.
+        <p className="rise d3 mx-auto mt-16 max-w-2xl text-sm leading-relaxed text-ivory/60">
+          {site.about}
+        </p>
+        <p className="rise d3 mx-auto mt-6 max-w-xl text-sm leading-relaxed text-ivory/50">
+          Cabinet à <strong className="text-ivory/70 font-normal">Ixelles</strong> (rue de Hennin)
+          et à <strong className="text-ivory/70 font-normal">Woluwe-Saint-Pierre</strong> (rue de la Station), à Bruxelles.
         </p>
       </section>
+      <Testimonials />
       <Contact />
     </>
   );

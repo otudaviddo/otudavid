@@ -11,12 +11,22 @@ export default function BookingPage({ d }: { d: D }) {
 
       <p className="rise d1 max-w-md text-sm leading-relaxed text-ivory/70">{d.intro}</p>
 
+      <ul className="rise d1 mt-8 flex flex-wrap justify-center gap-x-6 gap-y-2 text-xs uppercase tracking-[0.15em] text-steel">
+        {d.specialties.map((s) => (
+          <li key={s}>{s}</li>
+        ))}
+      </ul>
+
       <a
         href={d.url}
         className="rise d2 mt-10 inline-flex min-h-[56px] items-center border border-ivory/40 px-10 text-xs uppercase tracking-[0.25em] transition-colors duration-500 hover:border-steel hover:text-steel"
       >
         Accéder au profil Doctoranytime →
       </a>
+
+      <p className="rise d2 mt-6 text-xs uppercase tracking-[0.2em] text-ivory/50">
+        {site.reviews.averageLabel} · {site.reviews.countLabel}
+      </p>
 
       <div className="rise d2 mt-16 grid gap-8 text-left text-sm text-ivory/70 sm:grid-cols-2">
         {site.addresses.map((a) => (
