@@ -25,7 +25,7 @@ export default function BookingPage({ d }: { d: D }) {
       </a>
 
       <p className="rise d2 mt-6 text-xs uppercase tracking-[0.2em] text-ivory/50">
-        {site.reviews.averageLabel} · {site.reviews.countLabel}
+        {site.reviews.label}
       </p>
 
       <div className="rise d2 mt-16 grid gap-8 text-left text-sm text-ivory/70 sm:grid-cols-2">

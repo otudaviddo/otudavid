@@ -37,9 +37,27 @@ export const site = {
   about:
     "Chaque prise en charge débute par un bilan complet, pour identifier la cause de vos symptômes plutôt que le seul symptôme. Thérapie manuelle, exercices ciblés et conseils, fondés sur les données scientifiques les plus récentes.",
   reviews: {
-    averageLabel: "Note moyenne proche de 10/10",
-    countLabel: "40+ avis vérifiés sur Doctoranytime",
+    label: "Avis vérifiés sur Doctoranytime",
   },
+  // Parcours : quelques repères, pas le CV complet.
+  parcours: [
+    {
+      title: "Formation",
+      text: "ULB — Master en kinésithérapie et réadaptation, et master de spécialisation en ostéopathie.",
+    },
+    {
+      title: "En cabinet depuis 2023",
+      text: "Ostéopathe au Centre Médical & Dentaire Station Woluwe.",
+    },
+    {
+      title: "Suivi médico-sportif",
+      text: "RSD Jette (D2 amateur ACFF) et Royal Racing Club de Waterloo.",
+    },
+    {
+      title: "Association professionnelle",
+      text: "Membre de l'UPOB, Union professionnelle des ostéopathes de Belgique.",
+    },
+  ],
   seo: {
     title: "OTU DAVID — Kinésithérapeute & Ostéopathe D.O. à Ixelles et Woluwe-Saint-Pierre",
     description:

@@ -1,5 +1,6 @@
 import { site, disciplines } from "@/config/site";
 import Choice from "@/components/Choice";
+import Parcours from "@/components/Parcours";
 import Testimonials from "@/components/Testimonials";
 import Contact from "@/components/Contact";
 
@@ -24,6 +25,7 @@ export default function Home() {
           et à <strong className="text-ivory/70 font-normal">Woluwe-Saint-Pierre</strong> (rue de la Station), à Bruxelles.
         </p>
       </section>
+      <Parcours />
       <Testimonials />
       <Contact />
     </>

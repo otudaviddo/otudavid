@@ -6,9 +6,10 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        night: "#0A1428",   // bleu nuit profond (fond)
-        ivory: "#F2EDE2",   // ivoire (texte)
-        steel: "#8FA3C7",   // bleu plus clair (interactions, textes secondaires)
+        night: "#0A1428",       // bleu nuit profond (fond principal)
+        nightSoft: "#0E1B33",   // bleu nuit légèrement plus clair (sections alternées)
+        ivory: "#F2EDE2",       // ivoire (texte)
+        steel: "#8FA3C7",       // bleu plus clair (interactions, textes secondaires)
       },
       fontFamily: {
         serif: ["var(--font-serif)", "Georgia", "serif"],
