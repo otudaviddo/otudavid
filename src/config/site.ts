@@ -4,8 +4,8 @@
  */
 
 // ⬇️ REMPLACEZ CES DEUX URLS par vos profils Doctoranytime ⬇️
-export const OSTEO_DOCTORANYTIME_URL = "https://www.doctoranytime.be"; // TODO: URL profil ostéopathie
-export const KINE_DOCTORANYTIME_URL = "https://www.doctoranytime.be"; // TODO: URL profil kinésithérapie
+export const OSTEO_DOCTORANYTIME_URL = "https://www.doctoranytime.be/d/osteopathe/david-otu"; // TODO: URL profil ostéopathie
+export const KINE_DOCTORANYTIME_URL = "https://www.doctoranytime.be/d/kinesitherapeute/david-otu-2"; // TODO: URL profil kinésithérapie
 
 // URL définitive du site (utilisée pour le SEO : sitemap, données structurées, Open Graph).
 export const SITE_URL = "https://otudavid.be";
