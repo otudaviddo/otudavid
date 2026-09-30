@@ -131,9 +131,10 @@ export default function Choice({ d, image, position = "center", kind }: {
         className="panel-img absolute inset-0 h-full w-full object-cover"
         style={{ objectPosition: position }}
       />
-      <span aria-hidden className="absolute inset-0 bg-night/30 transition-colors duration-700 group-hover:bg-night/10" />
+      <span aria-hidden className="absolute inset-0 bg-night/10 transition-colors duration-700 group-hover:bg-transparent" />
+      <span aria-hidden className="absolute inset-x-0 top-0 h-[22%] bg-gradient-to-b from-night/45 to-transparent" />
       {/* voile bas pour la lisibilité du texte */}
-      <span aria-hidden className="absolute inset-x-0 bottom-0 h-[55%] bg-gradient-to-t from-night/85 via-night/40 to-transparent" />
+      <span aria-hidden className="absolute inset-x-0 bottom-0 h-[50%] bg-gradient-to-t from-night/80 via-night/30 to-transparent" />
 
       {/* Lueur au survol */}
       <span aria-hidden className="panel-glow pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-700 group-hover:opacity-100 group-focus-visible:opacity-100" />

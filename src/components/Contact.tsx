@@ -4,8 +4,14 @@ const label = "text-[11px] uppercase tracking-[0.28em] text-steelDeep";
 
 export default function Contact() {
   return (
-    <section id="contact" aria-labelledby="contact-title" className="w-full border-t border-night/10 bg-ivoryDeep text-night">
-      <div className="mx-auto max-w-6xl px-6 py-24 md:px-10 md:py-32">
+    <section id="contact" aria-labelledby="contact-title" className="relative w-full overflow-hidden border-t border-night/10 bg-ivoryDeep text-night">
+      {/* Gravure au bâton en filigrane (clin d'œil au verso de la carte de visite) */}
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src="/images/ecorche-baton.webp" alt="" aria-hidden width={862} height={1500} loading="lazy"
+        className="pointer-events-none absolute -right-20 bottom-0 h-[92%] w-auto select-none opacity-[0.16] mix-blend-multiply md:-right-6"
+      />
+      <div className="relative mx-auto max-w-6xl px-6 py-24 md:px-10 md:py-32">
         <div className="text-center">
           <h2 id="contact-title" className="font-serif text-3xl tracking-[0.25em] sm:text-4xl">CONTACT</h2>
           <p className="mt-4 text-xs uppercase tracking-[0.25em] text-night/60">{site.title}</p>

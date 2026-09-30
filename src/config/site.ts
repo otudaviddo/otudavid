@@ -46,13 +46,14 @@ export const site = {
   parcours: {
     intro: "Formé à l'ULB en ostéopathie, puis en kinésithérapie.",
     highlights: [
-      { value: "2023", label: "Ostéopathe D.O.", detail: "Master de spécialisation en ostéopathie, ULB" },
-      { value: "2026", label: "Kinésithérapeute", detail: "Master en kinésithérapie et réadaptation, ULB" },
-      { value: "Depuis 2023", label: "Staff médical", detail: "Royal Racing Club de Waterloo" },
+      { value: "Double diplôme", label: "Ostéopathie & kinésithérapie", detail: "Deux cursus complets à l'ULB" },
+      { value: "8 années", label: "De formation universitaire", detail: "Université libre de Bruxelles" },
+      { value: "Hôpital & sport", label: "Expérience de terrain", detail: "Stages hospitaliers et suivi d'équipes sportives" },
     ],
     formation: [
       {
         group: "Kinésithérapie",
+        summary: "Bachelier passerelle et Master · ULB",
         items: [
           { years: "2025 – 2026", title: "Master en kinésithérapie et réadaptation", detail: "ULB" },
           { years: "2024 – 2025", title: "Bachelier en sciences de la motricité, kinésithérapie", detail: "ULB · passerelle" },
@@ -60,6 +61,7 @@ export const site = {
       },
       {
         group: "Ostéopathie",
+        summary: "Bachelier, Master et Master de spécialisation · ULB",
         items: [
           { years: "2022 – 2023", title: "Master de spécialisation en ostéopathie", detail: "ULB" },
           { years: "2020 – 2022", title: "Master en sciences de la motricité", detail: "ULB · finalité spécialisée ostéopathie" },
@@ -70,19 +72,22 @@ export const site = {
     experience: [
       {
         group: "Cabinet",
+        summary: "Ostéopathe · Station Woluwe, depuis 2023",
         items: [
           { years: "2023 – aujourd'hui", title: "Ostéopathe", detail: "Centre Médical & Dentaire Station Woluwe" },
         ],
       },
       {
         group: "Sport",
+        summary: "Staff médical · RRC Waterloo et RSD Jette",
         items: [
-          { years: "2023 – aujourd'hui", title: "Staff médical", detail: "Royal Racing Club de Waterloo" },
-          { years: "", title: "Staff médical", detail: "RSD Jette" }, // années à compléter
+          { years: "2023 – 2024", title: "Staff médical", detail: "Royal Racing Club de Waterloo" },
+          { years: "2023 – 2024", title: "Staff médical", detail: "RSD Jette" },
         ],
       },
       {
         group: "Stages cliniques · kinésithérapie",
+        summary: "5 stages : hôpital, revalidation et performance",
         items: [
           { years: "2026", title: "Pneumologie — prise en charge respiratoire et réhabilitation", detail: "Hôpital Iris Sud" },
           { years: "2025", title: "Revalidation neuro-orthopédique", detail: "Hôpital Saint-Jean, site Méridien" },
@@ -93,6 +98,7 @@ export const site = {
       },
       {
         group: "Stages d'observation · ostéopathie",
+        summary: "3 stages : chirurgie orthopédique et cabinets privés",
         items: [
           { years: "2022 – 2023", title: "Cabinet privé", detail: "Cassiel Van Slijpe" },
           { years: "2022 – 2023", title: "Cabinet privé", detail: "Sergio Giunta" },

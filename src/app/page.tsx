@@ -36,6 +36,9 @@ export default function Home() {
             <p className="text-[11px] uppercase tracking-[0.3em] text-steel">À propos</p>
             <h2 id="apropos-title" className="mt-5 font-serif text-4xl tracking-[0.12em] sm:text-5xl">David Otu</h2>
             <p className="mt-3 text-xs uppercase tracking-[0.25em] text-ivory/70">{site.title}</p>
+            <p className="mt-6 inline-flex gap-6 border border-steel/40 px-5 py-2 text-[11px] uppercase tracking-[0.25em] text-steel">
+              <span>Rééducation</span><span>Thérapie manuelle</span>
+            </p>
             <span className="mt-8 block h-px w-12 bg-steel/60" />
             <p className="mt-8 max-w-xl text-base leading-relaxed text-ivory/80">{site.about}</p>
             <p className="mt-5 max-w-xl text-base leading-relaxed text-ivory/65">
