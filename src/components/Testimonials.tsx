@@ -62,7 +62,7 @@ export default function Testimonials() {
   const arrow = "flex h-12 w-12 items-center justify-center border border-night/20 text-night/70 transition-colors duration-300 hover:border-night hover:bg-night hover:text-ivory";
 
   return (
-    <section id="avis" aria-labelledby="avis-title" className="relative w-full bg-ivory text-night">
+    <section id="avis" data-tone="light" aria-labelledby="avis-title" className="relative w-full bg-ivory text-night">
       <div data-reveal className="mx-auto flex max-w-6xl flex-col items-center gap-8 px-6 pb-12 pt-24 text-center md:flex-row md:items-end md:justify-between md:px-10 md:pt-32 md:text-left">
         <div>
           <h2 id="avis-title" className="font-serif text-3xl tracking-[0.25em] sm:text-4xl">AVIS</h2>

@@ -26,6 +26,24 @@ section[id] { scroll-margin-top: 80px; }
 /* Au retrait de la souris, le dessin s'efface sans délai */
 .panel:not(:hover):not(:focus-visible):not(.is-visible) .draw * { transition-delay: 0ms !important; transition-duration: .6s; }
 
+/* ---------- Effet verre (inspiré d'Apple) ---------- */
+/* Flou de ce qui passe dessous + reflet en haut. La teinte s'adapte au fond :
+   verre clair sur les sections sombres, verre bleu nuit sur les sections claires. */
+.glass {
+  background: rgba(10, 20, 40, 0.9);
+  border: 1px solid rgba(242, 237, 226, 0.18);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.22), 0 14px 34px rgba(5, 10, 22, 0.35);
+}
+.glass-on-dark { background: rgba(38, 52, 82, 0.92); border-color: rgba(242, 237, 226, 0.3); }
+.glass-on-light { background: rgba(10, 20, 40, 0.92); }
+.glass-strong { background: rgba(10, 20, 40, 0.94); }
+@supports ((-webkit-backdrop-filter: blur(1px)) or (backdrop-filter: blur(1px))) {
+  .glass { -webkit-backdrop-filter: blur(24px) saturate(180%); backdrop-filter: blur(24px) saturate(180%); }
+  .glass-on-dark { background: rgba(242, 237, 226, 0.2); border-color: rgba(242, 237, 226, 0.38); }
+  .glass-on-light { background: rgba(10, 20, 40, 0.78); }
+  .glass-strong { background: rgba(10, 20, 40, 0.8); }
+}
+
 /* ---------- Apparition douce au défilement ---------- */
 .reveal { opacity: 0; transform: translateY(18px); transition: opacity .9s ease-out, transform .9s cubic-bezier(.2,.7,.2,1); }
 .reveal.is-in { opacity: 1; transform: none; }

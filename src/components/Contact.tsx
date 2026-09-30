@@ -4,7 +4,7 @@ const label = "text-[11px] uppercase tracking-[0.28em] text-steelDeep";
 
 export default function Contact() {
   return (
-    <section id="contact" aria-labelledby="contact-title" className="relative w-full overflow-hidden border-t border-night/10 bg-ivoryDeep text-night">
+    <section id="contact" data-tone="light" aria-labelledby="contact-title" className="relative w-full overflow-hidden border-t border-night/10 bg-ivoryDeep text-night">
       {/* Gravure au bâton en filigrane (clin d'œil au verso de la carte de visite) */}
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img

@@ -10,7 +10,7 @@ export default function Home() {
   return (
     <>
       {/* Accueil : deux grands choix */}
-      <section aria-labelledby="accueil-title" className="relative">
+      <section aria-labelledby="accueil-title" data-tone="dark" className="relative">
         <h1 id="accueil-title" className="sr-only">
           {site.name} — Kinésithérapeute et ostéopathe D.O. à Ixelles et Woluwe-Saint-Pierre
         </h1>
@@ -22,7 +22,7 @@ export default function Home() {
       </section>
 
       {/* Présentation */}
-      <section aria-labelledby="apropos-title" className="w-full bg-night">
+      <section aria-labelledby="apropos-title" data-tone="dark" className="w-full bg-night">
         <div className="mx-auto grid max-w-6xl items-center gap-12 px-6 py-24 md:grid-cols-[5fr_7fr] md:gap-20 md:px-10 md:py-32">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img

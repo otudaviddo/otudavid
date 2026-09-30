@@ -9,6 +9,7 @@ import { disciplines } from "@/config/site";
 export default function MobileBooking() {
   const [show, setShow] = useState(false);
   const [open, setOpen] = useState(false);
+  const [onLight, setOnLight] = useState(false); // fond clair sous le bouton ?
 
   useEffect(() => {
     const onScroll = () => {
@@ -17,6 +18,10 @@ export default function MobileBooking() {
       const contact = document.getElementById("contact");
       const atContact = contact ? contact.getBoundingClientRect().top < window.innerHeight * 0.6 : false;
       setShow(past && !atContact);
+      // Le bouton s'adapte à la section qui passe dessous (comme le verre d'Apple).
+      const y = window.innerHeight - 60;
+      const under = document.elementsFromPoint(window.innerWidth / 2, y).find((el) => el.closest("[data-tone]"));
+      setOnLight(under?.closest("[data-tone]")?.getAttribute("data-tone") === "light");
     };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
@@ -36,50 +41,51 @@ export default function MobileBooking() {
       <div
         aria-hidden
         onClick={() => setOpen(false)}
-        className={`fixed inset-0 z-30 bg-night/60 transition-opacity duration-300 ${open ? "opacity-100" : "pointer-events-none opacity-0"}`}
+        className={`fixed inset-0 z-30 bg-night/40 backdrop-blur-[2px] transition-opacity duration-300 ${open ? "opacity-100" : "pointer-events-none opacity-0"}`}
       />
 
-      {/* Choix Ostéo / Kiné qui monte du bas */}
+      {/* Choix Ostéo / Kiné qui monte du bas, effet verre */}
       <div
         role="dialog"
         aria-modal="true"
         aria-label="Choisir le type de rendez-vous"
-        className={`fixed inset-x-0 bottom-0 z-40 border-t border-ivory/15 bg-night px-6 pb-[max(1.5rem,env(safe-area-inset-bottom))] pt-6 transition-transform duration-500 ease-out ${open ? "translate-y-0" : "translate-y-full"}`}
+        className={`glass glass-strong fixed inset-x-3 bottom-[max(0.75rem,env(safe-area-inset-bottom))] z-40 rounded-[28px] px-5 pb-5 pt-3 transition-all duration-500 ease-out ${open ? "translate-y-0 opacity-100" : "pointer-events-none translate-y-[110%] opacity-0"}`}
       >
-        <div className="flex items-center justify-between">
-          <p className="text-[11px] uppercase tracking-[0.28em] text-steel">Prendre rendez-vous</p>
+        <span aria-hidden className="mx-auto block h-1 w-10 rounded-full bg-ivory/30" />
+        <div className="mt-3 flex items-center justify-between">
+          <p className="text-[11px] uppercase tracking-[0.28em] text-ivory/70">Prendre rendez-vous</p>
           <button type="button" onClick={() => setOpen(false)} className="-mr-2 p-2 text-xs uppercase tracking-[0.2em] text-ivory/70" tabIndex={open ? 0 : -1}>
             Fermer
           </button>
         </div>
-        <div className="mt-5 flex flex-col gap-3">
+        <div className="mt-4 flex flex-col gap-3">
           {[disciplines.osteo, disciplines.kine].map((d) => (
             <a
               key={d.slug}
               href={d.url}
               tabIndex={open ? 0 : -1}
-              className="flex min-h-[64px] items-center justify-between border border-ivory/25 px-5 font-serif text-2xl tracking-[0.12em] text-ivory active:bg-ivory/5"
+              className="flex min-h-[64px] items-center justify-between rounded-2xl border border-ivory/15 bg-ivory/[0.06] px-5 font-serif text-2xl tracking-[0.12em] text-ivory transition-colors active:bg-ivory/15"
             >
               {d.upper}
               <span className="font-sans text-sm text-steel">→</span>
             </a>
           ))}
         </div>
-        <p className="mt-4 text-center text-[11px] uppercase tracking-[0.2em] text-ivory/45">Réservation en ligne via Doctoranytime</p>
+        <p className="mt-4 text-center text-[11px] uppercase tracking-[0.2em] text-ivory/50">Réservation en ligne via Doctoranytime</p>
       </div>
 
-      {/* Bouton fixe */}
+      {/* Bouton flottant, effet verre, à hauteur du pouce */}
       <div
-        className={`fixed inset-x-0 bottom-0 z-20 border-t border-ivory/10 bg-night/95 px-5 pb-[max(0.75rem,env(safe-area-inset-bottom))] pt-3 transition-transform duration-500 ease-out ${show && !open ? "translate-y-0" : "translate-y-full"}`}
+        className={`pointer-events-none fixed inset-x-0 bottom-[calc(env(safe-area-inset-bottom)+1.75rem)] z-20 flex justify-center px-6 transition-all duration-500 ease-out ${show && !open ? "translate-y-0 opacity-100" : "translate-y-24 opacity-0"}`}
       >
         <button
           type="button"
           onClick={() => setOpen(true)}
           aria-haspopup="dialog"
           tabIndex={show ? 0 : -1}
-          className="flex min-h-[52px] w-full items-center justify-center gap-3 bg-ivory text-xs uppercase tracking-[0.25em] text-night"
+          className={`glass ${onLight ? "glass-on-light" : "glass-on-dark"} flex h-14 w-full max-w-[20rem] items-center justify-center gap-3 rounded-full text-xs uppercase tracking-[0.25em] text-ivory transition-[transform,background-color,border-color] duration-300 active:scale-[0.97] ${show && !open ? "pointer-events-auto" : "pointer-events-none"}`}
         >
-          Prendre rendez-vous <span aria-hidden>→</span>
+          Prendre rendez-vous <span aria-hidden className="text-steel">→</span>
         </button>
       </div>
     </div>

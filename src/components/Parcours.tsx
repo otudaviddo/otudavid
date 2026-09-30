@@ -66,7 +66,7 @@ function Column({ heading, groups, prefix }: { heading: string; groups: readonly
 export default function Parcours() {
   const p = site.parcours;
   return (
-    <section id="parcours" aria-labelledby="parcours-title" className="relative w-full overflow-hidden bg-nightSoft">
+    <section id="parcours" data-tone="dark" aria-labelledby="parcours-title" className="relative w-full overflow-hidden bg-nightSoft">
       {/* Gravure anatomique en filigrane (clin d'œil à la carte de visite) */}
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
