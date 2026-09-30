@@ -42,8 +42,8 @@ export default function Home() {
             <span className="mt-8 block h-px w-12 bg-steel/60" />
             <p className="mt-8 max-w-xl text-base leading-relaxed text-ivory/80">{site.about}</p>
             <p className="mt-5 max-w-xl text-base leading-relaxed text-ivory/65">
-              Cabinets à <strong className="font-normal text-ivory">Ixelles</strong> (rue de Hennin)
-              et à <strong className="font-normal text-ivory">Woluwe-Saint-Pierre</strong> (rue de la Station), à Bruxelles.
+              Cabinets à <a href="/ixelles" className="text-ivory underline decoration-ivory/30 underline-offset-4 hover:decoration-steel">Ixelles</a> (lundi, mercredi, vendredi)
+              et à <a href="/woluwe-saint-pierre" className="text-ivory underline decoration-ivory/30 underline-offset-4 hover:decoration-steel">Woluwe-Saint-Pierre</a> (mardi, jeudi), à Bruxelles.
             </p>
             <div className="mt-10 flex flex-wrap gap-x-10 gap-y-4">
               <a href="/osteo" className="border-b border-ivory/30 pb-1 text-xs uppercase tracking-[0.25em] transition-colors hover:border-steel hover:text-steel">Ostéopathie →</a>

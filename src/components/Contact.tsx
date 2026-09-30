@@ -52,12 +52,21 @@ export default function Contact() {
               <p className="mt-4 font-serif text-3xl tracking-[0.08em]">{a.label}</p>
               <p className="mt-3 text-[12px] uppercase tracking-[0.2em] text-night/70">{a.street}</p>
               <p className="mt-1 text-[12px] uppercase tracking-[0.2em] text-night/70">{a.postalCode} {a.city}</p>
-              <a
-                href={a.mapsUrl}
-                className="mt-5 inline-block border-b border-night/25 pb-0.5 text-[11px] uppercase tracking-[0.25em] text-night/80 transition-colors duration-300 hover:border-steelDeep hover:text-steelDeep"
-              >
-                Itinéraire →
-              </a>
+              <p className="mt-3 font-serif text-lg italic text-night/80">{a.days}</p>
+              <div className="mt-5 flex justify-center gap-6">
+                <a
+                  href={`/${a.slug}`}
+                  className="inline-block border-b border-night/25 pb-0.5 text-[11px] uppercase tracking-[0.25em] text-night/80 transition-colors duration-300 hover:border-steelDeep hover:text-steelDeep"
+                >
+                  Le cabinet →
+                </a>
+                <a
+                  href={a.mapsUrl}
+                  className="inline-block border-b border-night/25 pb-0.5 text-[11px] uppercase tracking-[0.25em] text-night/80 transition-colors duration-300 hover:border-steelDeep hover:text-steelDeep"
+                >
+                  Itinéraire →
+                </a>
+              </div>
             </address>
           ))}
         </div>

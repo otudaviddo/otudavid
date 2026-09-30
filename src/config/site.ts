@@ -22,11 +22,19 @@ export const site = {
   addresses: [
     {
       label: "Woluwe-Saint-Pierre",
-      street: "Rue de la station 113",
+      street: "Rue de la Station 113",
       postalCode: "1150",
       city: "Woluwe-Saint-Pierre",
-      lines: "Rue de la station 113, 1150 Woluwe-Saint-Pierre",
+      lines: "Rue de la Station 113, 1150 Woluwe-Saint-Pierre",
       mapsUrl: "https://www.google.com/maps/search/?api=1&query=Rue+de+la+Station+113,+1150+Woluwe-Saint-Pierre",
+      mapsEmbed: "https://maps.google.com/maps?q=Rue+de+la+Station+113,+1150+Woluwe-Saint-Pierre&z=16&output=embed",
+      slug: "woluwe-saint-pierre",
+      days: "Mardi · Jeudi",
+      daysSentence: "le mardi et le jeudi",
+      dayCodes: ["Tuesday", "Thursday"],
+      metaTitle: "Ostéopathe & kinésithérapeute à Woluwe-Saint-Pierre — David Otu",
+      metaDescription:
+        "David Otu, ostéopathe D.O. et kinésithérapeute à Woluwe-Saint-Pierre, rue de la Station 113. Consultations le mardi et le jeudi. Rendez-vous en ligne.",
     },
     {
       label: "Ixelles",
@@ -35,6 +43,14 @@ export const site = {
       city: "Ixelles",
       lines: "Rue de Hennin 99, 1050 Ixelles",
       mapsUrl: "https://www.google.com/maps/search/?api=1&query=Rue+de+Hennin+99,+1050+Ixelles",
+      mapsEmbed: "https://maps.google.com/maps?q=Rue+de+Hennin+99,+1050+Ixelles&z=16&output=embed",
+      slug: "ixelles",
+      days: "Lundi · Mercredi · Vendredi",
+      daysSentence: "le lundi, le mercredi et le vendredi",
+      dayCodes: ["Monday", "Wednesday", "Friday"],
+      metaTitle: "Ostéopathe & kinésithérapeute à Ixelles — David Otu",
+      metaDescription:
+        "David Otu, ostéopathe D.O. et kinésithérapeute à Ixelles, rue de Hennin 99. Consultations le lundi, le mercredi et le vendredi. Rendez-vous en ligne.",
     },
   ],
   // Bio courte, affichée sur la page d'accueil.
