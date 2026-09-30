@@ -96,7 +96,6 @@ function PerformanceDrawing() {
       {curve.slice(1).map((p, i) => (
         <circle key={i} cx={p[0]} cy={p[1]} r={3} pathLength={1} stroke="currentColor" strokeWidth="1" style={{ transitionDelay: `${1500 + i * 150}ms` }} />
       ))}
-      <text x={120} y={278} className="draw-label" fill="currentColor" fontSize="8.5" letterSpacing="1.8">RETOUR AU SPORT</text>
     </svg>
   );
 }

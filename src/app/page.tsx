@@ -12,9 +12,6 @@ export default function Home() {
         <h1 id="accueil-title" className="sr-only">
           {site.name} — Kinésithérapeute et ostéopathe D.O. à Ixelles et Woluwe-Saint-Pierre
         </h1>
-        <p className="rise absolute left-1/2 top-6 z-20 -translate-x-1/2 whitespace-nowrap font-serif text-lg italic text-ivory/90 md:top-8 md:text-xl">
-          {site.tagline}
-        </p>
         <div className="flex flex-col md:h-[calc(100svh-72px)] md:min-h-[600px] md:flex-row">
           <Choice d={disciplines.osteo} kind="osteo" image="/images/osteopathie-mains.webp" position="50% 55%" />
           <span aria-hidden className="h-px w-full bg-ivory/15 md:h-auto md:w-px" />

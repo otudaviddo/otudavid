@@ -46,7 +46,7 @@ export const site = {
   parcours: {
     intro: "Formé à l'ULB en ostéopathie, puis en kinésithérapie.",
     highlights: [
-      { value: "Double diplôme", label: "Ostéopathie & kinésithérapie", detail: "Deux cursus complets à l'ULB" },
+      { value: "Approche globale", label: "Ostéopathie & kinésithérapie", detail: "Deux formations complètes réunies dans une même prise en charge" },
       { value: "8 années", label: "De formation universitaire", detail: "Université libre de Bruxelles" },
       { value: "Hôpital & sport", label: "Expérience de terrain", detail: "Stages hospitaliers et suivi d'équipes sportives" },
     ],
