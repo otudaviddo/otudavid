@@ -5,8 +5,10 @@
 
 # Les fichiers techniques de Next.js ont un nom unique à chaque version : on peut les garder longtemps.
 /_next/static/*
+  ! Cache-Control
   Cache-Control: public, max-age=31536000, immutable
 
 # Photos et gravures : gardées 1 jour, puis revérifiées.
 /images/*
+  ! Cache-Control
   Cache-Control: public, max-age=86400, must-revalidate
