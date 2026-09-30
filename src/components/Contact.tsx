@@ -1,27 +1,58 @@
-import { site } from "@/config/site";
+import { site, disciplines } from "@/config/site";
+
+const label = "text-[11px] uppercase tracking-[0.28em] text-steelDeep";
 
 export default function Contact() {
   return (
-    <section id="contact" aria-labelledby="contact-title" className="w-full bg-nightSoft">
-      <div className="mx-auto max-w-6xl px-6 py-28 md:px-10">
-        <div className="border-t border-ivory/15 pt-16">
-          <h2 id="contact-title" className="font-serif text-2xl tracking-[0.3em]">{site.name}</h2>
-          <p className="mt-2 text-xs uppercase tracking-[0.22em] text-ivory/60">{site.title}</p>
-
-          <div className="mt-12 grid gap-12 md:grid-cols-3">
-            <div className="space-y-2 text-ivory/85">
-              <a href={site.phoneHref} className="block py-1 transition-colors duration-300 hover:text-steel">{site.phone}</a>
-              <a href={`mailto:${site.email}`} className="block break-all py-1 transition-colors duration-300 hover:text-steel">{site.email}</a>
-            </div>
-            {site.addresses.map((a) => (
-              <address key={a.label} className="not-italic text-ivory/85">
-                <p className="mb-2 font-serif text-lg tracking-[0.1em] text-ivory">{a.label}</p>
-                <p>{a.street}</p>
-                <p>{a.postalCode} {a.city}</p>
-              </address>
-            ))}
-          </div>
+    <section id="contact" aria-labelledby="contact-title" className="w-full border-t border-night/10 bg-ivoryDeep text-night">
+      <div className="mx-auto max-w-6xl px-6 py-24 md:px-10 md:py-32">
+        <div className="text-center">
+          <h2 id="contact-title" className="font-serif text-3xl tracking-[0.25em] sm:text-4xl">CONTACT</h2>
+          <p className="mt-4 text-xs uppercase tracking-[0.25em] text-night/60">{site.title}</p>
         </div>
+
+        <div className="mt-16 grid gap-14 text-center md:grid-cols-3 md:gap-10">
+          <div>
+            <p className={label}>Téléphone &amp; e-mail</p>
+            <a href={site.phoneHref} className="mt-4 block font-serif text-3xl tracking-[0.08em] transition-colors duration-300 hover:text-steelDeep">
+              {site.phone}
+            </a>
+            <a href={`mailto:${site.email}`} className="mt-4 inline-block break-all border-b border-night/30 pb-0.5 text-[13px] tracking-[0.08em] text-night/80 transition-colors duration-300 hover:border-steelDeep hover:text-steelDeep">
+              {site.email}
+            </a>
+          </div>
+
+          {site.addresses.map((a) => (
+            <address key={a.label} className="not-italic md:border-l md:border-night/10">
+              <p className={label}>Cabinet</p>
+              <p className="mt-4 font-serif text-3xl tracking-[0.08em]">{a.label}</p>
+              <p className="mt-3 text-[12px] uppercase tracking-[0.2em] text-night/70">{a.street}</p>
+              <p className="mt-1 text-[12px] uppercase tracking-[0.2em] text-night/70">{a.postalCode} {a.city}</p>
+              <a
+                href={a.mapsUrl}
+                className="mt-5 inline-block border-b border-night/25 pb-0.5 text-[11px] uppercase tracking-[0.25em] text-night/80 transition-colors duration-300 hover:border-steelDeep hover:text-steelDeep"
+              >
+                Itinéraire →
+              </a>
+            </address>
+          ))}
+        </div>
+
+        <div className="mx-auto mt-20 flex max-w-2xl flex-col gap-4 sm:flex-row">
+          {[disciplines.osteo, disciplines.kine].map((d) => (
+            <a
+              key={d.slug}
+              href={d.url}
+              className="flex min-h-[56px] flex-1 items-center justify-center border border-night/35 px-6 text-xs uppercase tracking-[0.25em] transition-colors duration-500 hover:border-night hover:bg-night hover:text-ivory"
+            >
+              Rendez-vous · {d.slug === "osteo" ? "Ostéo" : "Kiné"}
+            </a>
+          ))}
+        </div>
+
+        <p className="mt-20 border-t border-night/10 pt-8 text-center text-[11px] uppercase tracking-[0.22em] text-night/45">
+          © {new Date().getFullYear()} {site.name} · {site.title}
+        </p>
       </div>
     </section>
   );

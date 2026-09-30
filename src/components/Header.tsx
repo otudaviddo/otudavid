@@ -1,40 +1,74 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { site } from "@/config/site";
 
 const links = [
   { href: "/osteo", label: "Ostéopathie" },
   { href: "/kine", label: "Kinésithérapie" },
+  { href: "/#parcours", label: "Parcours" },
+  { href: "/#avis", label: "Avis" },
   { href: "/#contact", label: "Contact" },
 ];
 
 export default function Header() {
   const [open, setOpen] = useState(false);
-  const link = "text-sm tracking-[0.18em] uppercase text-ivory/80 transition-colors duration-300 hover:text-steel";
+
+  // Empêche la page de défiler derrière le menu mobile ouvert.
+  useEffect(() => {
+    document.body.style.overflow = open ? "hidden" : "";
+    return () => { document.body.style.overflow = ""; };
+  }, [open]);
+
   return (
-    <header className="mx-auto flex max-w-6xl items-center justify-between px-6 py-7 md:px-10">
-      <Link href="/" className="font-serif text-xl tracking-[0.3em]" onClick={() => setOpen(false)}>
-        {site.name}
-      </Link>
-      <nav aria-label="Navigation principale" className="hidden gap-10 md:flex">
-        {links.map((l) => (<Link key={l.href} href={l.href} className={link}>{l.label}</Link>))}
-      </nav>
-      <button
-        className="-mr-3 p-3 text-xs tracking-[0.2em] uppercase md:hidden"
-        aria-expanded={open}
-        aria-controls="menu-mobile"
-        onClick={() => setOpen(!open)}
-      >
-        {open ? "Fermer" : "Menu"}
-      </button>
-      {open && (
-        <nav id="menu-mobile" aria-label="Menu mobile" className="absolute inset-x-0 top-[76px] z-10 flex flex-col gap-2 bg-night px-6 pb-8 md:hidden">
+    <header className="sticky top-0 z-40 w-full border-b border-ivory/10 bg-night">
+      <div className="mx-auto flex h-[72px] max-w-7xl items-center justify-between px-6 md:px-10">
+        <Link href="/" className="font-serif text-xl tracking-[0.3em]" onClick={() => setOpen(false)}>
+          {site.name}
+        </Link>
+
+        <nav aria-label="Navigation principale" className="hidden items-center gap-8 lg:flex">
           {links.map((l) => (
-            <Link key={l.href} href={l.href} className={`${link} py-4 text-base`} onClick={() => setOpen(false)}>{l.label}</Link>
+            <Link key={l.href} href={l.href} className="text-[12px] uppercase tracking-[0.2em] text-ivory/80 transition-colors duration-300 hover:text-steel">
+              {l.label}
+            </Link>
           ))}
         </nav>
-      )}
+
+        <button
+          className="-mr-3 flex items-center gap-3 p-3 text-xs uppercase tracking-[0.25em] lg:hidden"
+          aria-expanded={open}
+          aria-controls="menu-mobile"
+          onClick={() => setOpen(!open)}
+        >
+          <span>{open ? "Fermer" : "Menu"}</span>
+          <span aria-hidden className="relative block h-3 w-5">
+            <span className={`absolute left-0 top-0 h-px w-5 bg-ivory transition-transform duration-300 ${open ? "translate-y-1.5 rotate-45" : ""}`} />
+            <span className={`absolute bottom-0 left-0 h-px w-5 bg-ivory transition-transform duration-300 ${open ? "-translate-y-1.5 -rotate-45" : ""}`} />
+          </span>
+        </button>
+      </div>
+
+      {/* Menu mobile plein écran */}
+      <nav
+        id="menu-mobile"
+        aria-label="Menu mobile"
+        className={`fixed inset-x-0 bottom-0 top-[72px] z-40 flex flex-col justify-center gap-2 bg-night px-8 transition-opacity duration-500 lg:hidden ${open ? "opacity-100" : "pointer-events-none opacity-0"}`}
+      >
+        {links.map((l, i) => (
+          <Link
+            key={l.href}
+            href={l.href}
+            tabIndex={open ? 0 : -1}
+            onClick={() => setOpen(false)}
+            className="flex items-baseline gap-5 border-b border-ivory/10 py-5 font-serif text-3xl tracking-[0.12em] text-ivory transition-colors duration-300 hover:text-steel"
+          >
+            <span className="font-sans text-[11px] tracking-[0.2em] text-steel">0{i + 1}</span>
+            {l.label}
+          </Link>
+        ))}
+        <a href={site.phoneHref} tabIndex={open ? 0 : -1} className="mt-10 text-xs uppercase tracking-[0.25em] text-ivory/60">{site.phone}</a>
+      </nav>
     </header>
   );
 }

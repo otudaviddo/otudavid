@@ -24,6 +24,7 @@ export const site = {
       postalCode: "1150",
       city: "Woluwe-Saint-Pierre",
       lines: "Rue de la station 113, 1150 Woluwe-Saint-Pierre",
+      mapsUrl: "https://www.google.com/maps/search/?api=1&query=Rue+de+la+Station+113,+1150+Woluwe-Saint-Pierre",
     },
     {
       label: "Ixelles",
@@ -31,6 +32,7 @@ export const site = {
       postalCode: "1050",
       city: "Ixelles",
       lines: "Rue de Hennin 99, 1050 Ixelles",
+      mapsUrl: "https://www.google.com/maps/search/?api=1&query=Rue+de+Hennin+99,+1050+Ixelles",
     },
   ],
   // Bio courte, affichée sur la page d'accueil.

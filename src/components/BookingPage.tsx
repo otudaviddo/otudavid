@@ -36,6 +36,11 @@ export default function BookingPage({ d }: { d: D }) {
           </address>
         ))}
       </div>
+
+      <div className="rise d2 mt-10 flex flex-col items-center gap-3 text-sm sm:flex-row sm:gap-8">
+        <a href={site.phoneHref} className="border-b border-ivory/30 pb-0.5 tracking-[0.08em] text-ivory/85 transition-colors hover:border-steel hover:text-steel">{site.phone}</a>
+        <a href={`mailto:${site.email}`} className="border-b border-ivory/30 pb-0.5 tracking-[0.08em] text-ivory/85 transition-colors hover:border-steel hover:text-steel">{site.email}</a>
+      </div>
     </section>
   );
 }
