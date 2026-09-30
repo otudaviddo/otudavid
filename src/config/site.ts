@@ -39,25 +39,67 @@ export const site = {
   reviews: {
     label: "Avis vérifiés sur Doctoranytime",
   },
-  // Parcours : quelques repères, pas le CV complet.
-  parcours: [
-    {
-      title: "Formation",
-      text: "ULB — Master en kinésithérapie et réadaptation, et master de spécialisation en ostéopathie.",
-    },
-    {
-      title: "En cabinet depuis 2023",
-      text: "Ostéopathe au Centre Médical & Dentaire Station Woluwe.",
-    },
-    {
-      title: "Suivi médico-sportif",
-      text: "RSD Jette (D2 amateur ACFF) et Royal Racing Club de Waterloo.",
-    },
-    {
-      title: "Association professionnelle",
-      text: "Membre de l'UPOB, Union professionnelle des ostéopathes de Belgique.",
-    },
-  ],
+  // Parcours : repris fidèlement du CV (rien d'ajouté). Pour modifier une ligne,
+  // changez simplement le texte ci-dessous ; l'ordre affiché = l'ordre ici.
+  parcours: {
+    intro: "Formé à l'ULB en ostéopathie, puis en kinésithérapie.",
+    highlights: [
+      { value: "2023", label: "Ostéopathe D.O.", detail: "Master de spécialisation en ostéopathie, ULB" },
+      { value: "2026", label: "Kinésithérapeute", detail: "Master en kinésithérapie et réadaptation, ULB" },
+      { value: "Depuis 2023", label: "Staff médical", detail: "Royal Racing Club de Waterloo" },
+    ],
+    formation: [
+      {
+        group: "Kinésithérapie",
+        items: [
+          { years: "2025 – 2026", title: "Master en kinésithérapie et réadaptation", detail: "ULB" },
+          { years: "2024 – 2025", title: "Bachelier en sciences de la motricité, kinésithérapie", detail: "ULB · passerelle" },
+        ],
+      },
+      {
+        group: "Ostéopathie",
+        items: [
+          { years: "2022 – 2023", title: "Master de spécialisation en ostéopathie", detail: "ULB" },
+          { years: "2020 – 2022", title: "Master en sciences de la motricité", detail: "ULB · finalité spécialisée ostéopathie" },
+          { years: "2017 – 2020", title: "Bachelier en sciences de la motricité", detail: "ULB · orientation générale" },
+        ],
+      },
+    ],
+    experience: [
+      {
+        group: "Cabinet",
+        items: [
+          { years: "2023 – aujourd'hui", title: "Ostéopathe", detail: "Centre Médical & Dentaire Station Woluwe" },
+        ],
+      },
+      {
+        group: "Sport",
+        items: [
+          { years: "2023 – aujourd'hui", title: "Staff médical", detail: "Royal Racing Club de Waterloo" },
+          { years: "", title: "Staff médical", detail: "RSD Jette" }, // années à compléter
+        ],
+      },
+      {
+        group: "Stages cliniques · kinésithérapie",
+        items: [
+          { years: "2026", title: "Pneumologie — prise en charge respiratoire et réhabilitation", detail: "Hôpital Iris Sud" },
+          { years: "2025", title: "Revalidation neuro-orthopédique", detail: "Hôpital Saint-Jean, site Méridien" },
+          { years: "2025", title: "Revalidation cardio-respiratoire", detail: "Clinique Sainte-Elisabeth" },
+          { years: "2025", title: "Rééducation fonctionnelle orthopédique", detail: "Point of Motion, cabinet privé" },
+          { years: "2025", title: "Performance et rééducation fonctionnelle", detail: "LAB Physio × Animo Studio Cinquantenaire, cabinet privé" },
+        ],
+      },
+      {
+        group: "Stages d'observation · ostéopathie",
+        items: [
+          { years: "2022 – 2023", title: "Cabinet privé", detail: "Cassiel Van Slijpe" },
+          { years: "2022 – 2023", title: "Cabinet privé", detail: "Sergio Giunta" },
+          { years: "2021 – 2022", title: "Chirurgie orthopédique", detail: "Hôpital Iris Sud" },
+        ],
+      },
+    ],
+    languages: ["Français", "Anglais"],
+  },
   seo: {
     title: "OTU DAVID — Kinésithérapeute & Ostéopathe D.O. à Ixelles et Woluwe-Saint-Pierre",
     description:

@@ -13,6 +13,14 @@ export default function StructuredData() {
     telephone: site.phoneHref.replace("tel:", ""),
     email: site.email,
     priceRange: "€€",
+    knowsLanguage: ["fr", "en"],
+    founder: {
+      "@type": "Person",
+      name: "David Otu",
+      jobTitle: ["Kinésithérapeute", "Ostéopathe D.O."],
+      alumniOf: { "@type": "CollegeOrUniversity", name: "Université libre de Bruxelles (ULB)" },
+      knowsLanguage: ["fr", "en"],
+    },
     medicalSpecialty: ["Physiotherapy", "Osteopathic"],
     areaServed: [
       { "@type": "City", name: "Ixelles" },
