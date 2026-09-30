@@ -1,4 +1,5 @@
 import { site, disciplines } from "@/config/site";
+import { PhoneIcon, MailIcon, InstagramIcon } from "@/components/Icons";
 
 const label = "text-[11px] uppercase tracking-[0.28em] text-steelDeep";
 
@@ -26,6 +27,23 @@ export default function Contact() {
             <a href={`mailto:${site.email}`} className="mt-4 inline-block break-all border-b border-night/30 pb-0.5 text-[13px] tracking-[0.08em] text-night/80 transition-colors duration-300 hover:border-steelDeep hover:text-steelDeep">
               {site.email}
             </a>
+            <div className="mt-6 flex justify-center gap-4">
+              {[
+                { href: site.phoneHref, label: `Appeler le ${site.phone}`, Icon: PhoneIcon },
+                { href: `mailto:${site.email}`, label: `Écrire à ${site.email}`, Icon: MailIcon },
+                { href: site.instagram, label: `Instagram ${site.instagramHandle}`, Icon: InstagramIcon },
+              ].map(({ href, label, Icon }) => (
+                <a
+                  key={label}
+                  href={href}
+                  aria-label={label}
+                  {...(href.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                  className="flex h-12 w-12 items-center justify-center rounded-full border border-night/25 text-night/80 transition-colors duration-300 hover:border-night hover:bg-night hover:text-ivory"
+                >
+                  <Icon className="h-5 w-5" />
+                </a>
+              ))}
+            </div>
           </div>
 
           {site.addresses.map((a) => (

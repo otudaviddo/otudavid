@@ -17,6 +17,8 @@ export const site = {
   phone: "0492.95.30.43",
   phoneHref: "tel:0492953043",
   email: "otudavid.do@gmail.com",
+  instagram: "https://www.instagram.com/otu.care/",
+  instagramHandle: "@otu.care",
   addresses: [
     {
       label: "Woluwe-Saint-Pierre",

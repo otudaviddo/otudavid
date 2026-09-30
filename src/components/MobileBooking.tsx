@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
-import { disciplines } from "@/config/site";
+import { site, disciplines } from "@/config/site";
+import { PhoneIcon } from "@/components/Icons";
 
 /**
  * Bouton « Prendre rendez-vous » fixé en bas de l'écran, sur mobile uniquement.
@@ -76,14 +77,22 @@ export default function MobileBooking() {
 
       {/* Bouton flottant, effet verre, à hauteur du pouce */}
       <div
-        className={`pointer-events-none fixed inset-x-0 bottom-[calc(env(safe-area-inset-bottom)+1.75rem)] z-20 flex justify-center px-6 transition-all duration-500 ease-out ${show && !open ? "translate-y-0 opacity-100" : "translate-y-24 opacity-0"}`}
+        className={`pointer-events-none fixed inset-x-0 bottom-[calc(env(safe-area-inset-bottom)+1.75rem)] z-20 flex justify-center gap-3 px-6 transition-all duration-500 ease-out ${show && !open ? "translate-y-0 opacity-100" : "translate-y-24 opacity-0"}`}
       >
+        <a
+          href={site.phoneHref}
+          aria-label={`Appeler le ${site.phone}`}
+          tabIndex={show ? 0 : -1}
+          className={`glass ${onLight ? "glass-on-light" : "glass-on-dark"} flex h-14 w-14 shrink-0 items-center justify-center rounded-full text-ivory transition-[transform,background-color,border-color] duration-300 active:scale-[0.94] ${show && !open ? "pointer-events-auto" : "pointer-events-none"}`}
+        >
+          <PhoneIcon className="h-5 w-5" />
+        </a>
         <button
           type="button"
           onClick={() => setOpen(true)}
           aria-haspopup="dialog"
           tabIndex={show ? 0 : -1}
-          className={`glass ${onLight ? "glass-on-light" : "glass-on-dark"} flex h-14 w-full max-w-[20rem] items-center justify-center gap-3 rounded-full text-xs uppercase tracking-[0.25em] text-ivory transition-[transform,background-color,border-color] duration-300 active:scale-[0.97] ${show && !open ? "pointer-events-auto" : "pointer-events-none"}`}
+          className={`glass ${onLight ? "glass-on-light" : "glass-on-dark"} flex h-14 min-w-0 flex-1 max-w-[17rem] items-center justify-center gap-2 rounded-full text-[11px] uppercase tracking-[0.22em] text-ivory transition-[transform,background-color,border-color] duration-300 active:scale-[0.97] ${show && !open ? "pointer-events-auto" : "pointer-events-none"}`}
         >
           Prendre rendez-vous <span aria-hidden className="text-steel">→</span>
         </button>

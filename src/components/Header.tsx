@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { site } from "@/config/site";
+import { PhoneIcon, MailIcon, InstagramIcon } from "@/components/Icons";
 
 const links = [
   { href: "/osteo", label: "Ostéopathie" },
@@ -67,7 +68,24 @@ export default function Header() {
             {l.label}
           </Link>
         ))}
-        <a href={site.phoneHref} tabIndex={open ? 0 : -1} className="mt-10 text-xs uppercase tracking-[0.25em] text-ivory/60">{site.phone}</a>
+        <div className="mt-10 flex gap-4">
+          {[
+            { href: site.phoneHref, label: `Appeler le ${site.phone}`, Icon: PhoneIcon },
+            { href: `mailto:${site.email}`, label: `Écrire à ${site.email}`, Icon: MailIcon },
+            { href: site.instagram, label: `Instagram ${site.instagramHandle}`, Icon: InstagramIcon },
+          ].map(({ href, label, Icon }) => (
+            <a
+              key={label}
+              href={href}
+              aria-label={label}
+              tabIndex={open ? 0 : -1}
+              {...(href.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+              className="flex h-12 w-12 items-center justify-center rounded-full border border-ivory/25 text-ivory/85 transition-colors hover:border-steel hover:text-steel"
+            >
+              <Icon className="h-5 w-5" />
+            </a>
+          ))}
+        </div>
       </nav>
     </header>
   );

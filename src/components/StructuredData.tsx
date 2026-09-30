@@ -12,6 +12,7 @@ export default function StructuredData() {
     url: SITE_URL,
     telephone: site.phoneHref.replace("tel:", ""),
     email: site.email,
+    sameAs: [site.instagram],
     priceRange: "€€",
     knowsLanguage: ["fr", "en"],
     founder: {
