@@ -26,6 +26,10 @@ section[id] { scroll-margin-top: 80px; }
 /* Au retrait de la souris, le dessin s'efface sans délai */
 .panel:not(:hover):not(:focus-visible):not(.is-visible) .draw * { transition-delay: 0ms !important; transition-duration: .6s; }
 
+/* ---------- Apparition douce au défilement ---------- */
+.reveal { opacity: 0; transform: translateY(18px); transition: opacity .9s ease-out, transform .9s cubic-bezier(.2,.7,.2,1); }
+.reveal.is-in { opacity: 1; transform: none; }
+
 /* ---------- Bandeau d'avis ---------- */
 .no-scrollbar { scrollbar-width: none; }
 .no-scrollbar::-webkit-scrollbar { display: none; }

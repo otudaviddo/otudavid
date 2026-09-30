@@ -11,13 +11,13 @@ export default function Contact() {
         src="/images/ecorche-baton.webp" alt="" aria-hidden width={862} height={1500} loading="lazy"
         className="pointer-events-none absolute -right-20 bottom-0 h-[92%] w-auto select-none opacity-[0.16] mix-blend-multiply md:-right-6"
       />
-      <div className="relative mx-auto max-w-6xl px-6 py-24 md:px-10 md:py-32">
-        <div className="text-center">
+      <div className="relative mx-auto max-w-6xl px-6 pb-36 pt-24 md:px-10 md:py-32">
+        <div className="text-center" data-reveal>
           <h2 id="contact-title" className="font-serif text-3xl tracking-[0.25em] sm:text-4xl">CONTACT</h2>
           <p className="mt-4 text-xs uppercase tracking-[0.25em] text-night/60">{site.title}</p>
         </div>
 
-        <div className="mt-16 grid gap-14 text-center md:grid-cols-3 md:gap-10">
+        <div data-reveal className="mt-16 grid gap-14 text-center md:grid-cols-3 md:gap-10">
           <div>
             <p className={label}>Téléphone &amp; e-mail</p>
             <a href={site.phoneHref} className="mt-4 block font-serif text-3xl tracking-[0.08em] transition-colors duration-300 hover:text-steelDeep">
@@ -44,7 +44,7 @@ export default function Contact() {
           ))}
         </div>
 
-        <div className="mx-auto mt-20 flex max-w-2xl flex-col gap-4 sm:flex-row">
+        <div data-reveal className="mx-auto mt-20 flex max-w-2xl flex-col gap-4 sm:flex-row">
           {[disciplines.osteo, disciplines.kine].map((d) => (
             <a
               key={d.slug}

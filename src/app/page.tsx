@@ -3,6 +3,8 @@ import Choice from "@/components/Choice";
 import Parcours from "@/components/Parcours";
 import Testimonials from "@/components/Testimonials";
 import Contact from "@/components/Contact";
+import Reveal from "@/components/Reveal";
+import MobileBooking from "@/components/MobileBooking";
 
 export default function Home() {
   return (
@@ -28,8 +30,9 @@ export default function Home() {
             alt="David Otu, kinésithérapeute et ostéopathe D.O."
             width={1025} height={1281} loading="lazy"
             className="mx-auto aspect-[4/5] w-full max-w-sm object-cover md:max-w-none"
+            data-reveal
           />
-          <div>
+          <div data-reveal>
             <p className="text-[11px] uppercase tracking-[0.3em] text-steel">À propos</p>
             <h2 id="apropos-title" className="mt-5 font-serif text-4xl tracking-[0.12em] sm:text-5xl">David Otu</h2>
             <p className="mt-3 text-xs uppercase tracking-[0.25em] text-ivory/70">{site.title}</p>
@@ -53,6 +56,8 @@ export default function Home() {
       <Parcours />
       <Testimonials />
       <Contact />
+      <Reveal />
+      <MobileBooking />
     </>
   );
 }

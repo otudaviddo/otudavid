@@ -74,13 +74,13 @@ export default function Parcours() {
         className="pointer-events-none absolute -left-24 top-10 h-[70%] w-auto select-none opacity-[0.07] md:-left-10 md:h-[85%] md:opacity-[0.09]"
       />
       <div className="relative mx-auto max-w-6xl px-6 py-24 md:px-10 md:py-32">
-        <div className="text-center">
+        <div className="text-center" data-reveal>
           <h2 id="parcours-title" className="font-serif text-3xl tracking-[0.25em] sm:text-4xl">PARCOURS</h2>
           <p className="mt-5 font-serif text-lg italic text-ivory/70 sm:text-xl">{p.intro}</p>
         </div>
 
         {/* Trois repères clés */}
-        <dl className="mx-auto mt-16 grid max-w-5xl border-y border-ivory/15 sm:grid-cols-3">
+        <dl data-reveal className="mx-auto mt-16 grid max-w-5xl border-y border-ivory/15 sm:grid-cols-3">
           {p.highlights.map((h, i) => (
             <div
               key={h.label}
@@ -94,7 +94,7 @@ export default function Parcours() {
         </dl>
 
         {/* Formation et expérience : rubriques dépliables */}
-        <div className="mx-auto mt-20 grid max-w-5xl gap-14 md:grid-cols-2 md:gap-16">
+        <div data-reveal className="mx-auto mt-20 grid max-w-5xl gap-14 md:grid-cols-2 md:gap-16">
           <Column heading="Formation" groups={p.formation} prefix="formation" />
           <Column heading="Expérience" groups={p.experience} prefix="experience" />
         </div>
