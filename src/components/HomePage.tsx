@@ -21,9 +21,9 @@ export default function HomePage({ lang = "fr" }: { lang?: Lang }) {
           {site.name} — {t.heroH1}
         </h1>
         <div className="flex flex-col md:h-[100svh] md:min-h-[640px] md:flex-row">
-          <Choice d={c.disciplines.osteo} kind="osteo" image="/images/osteopathie-mains.webp" position="50% 55%" alt={t.altOsteo} pro={t.osteoPro} cta={t.book} ctaNote={t.bookOn} more={t.more} moreHref={c.routes.osteo} label={c.disciplines.osteo.label} />
+          <Choice d={c.disciplines.osteo} kind="osteo" image="/images/osteopathie-mains.webp" position="50% 55%" alt={t.altOsteo} pro={t.osteoPro} cta={t.book} more={t.more} moreHref={c.routes.osteo} label={c.disciplines.osteo.label} />
           <span aria-hidden className="h-px w-full bg-ivory/15 md:h-auto md:w-px" />
-          <Choice d={c.disciplines.kine} kind="kine" image="/images/kinesitherapie-genou.webp" position="50% 50%" alt={t.altKine} pro={t.kinePro} cta={t.book} ctaNote={t.bookOn} more={t.more} moreHref={c.routes.kine} label={c.disciplines.kine.label} />
+          <Choice d={c.disciplines.kine} kind="kine" image="/images/kinesitherapie-genou.webp" position="50% 50%" alt={t.altKine} pro={t.kinePro} cta={t.book} more={t.more} moreHref={c.routes.kine} label={c.disciplines.kine.label} />
         </div>
       </section>
 

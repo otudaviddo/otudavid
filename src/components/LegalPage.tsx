@@ -52,8 +52,8 @@ export default function LegalPage({ lang = "fr" }: { lang?: Lang }) {
             <h2 className={h2}>{fr ? "Vos données" : "Your data"}</h2>
             <p className={p}>
               {fr
-                ? "Ce site ne contient aucun formulaire et ne dépose aucun cookie. Il ne vous demande aucune donnée personnelle."
-                : "This site has no forms and sets no cookies. It does not ask you for any personal data."}
+                ? "Ce site ne contient aucun formulaire et ne dépose lui-même aucun cookie. Il ne vous demande aucune donnée personnelle."
+                : "This site has no forms and sets no cookies of its own. It does not ask you for any personal data."}
             </p>
             <ul className="mt-4 list-disc space-y-3 pl-5 text-base leading-relaxed text-night/80">
               <li>
@@ -63,8 +63,8 @@ export default function LegalPage({ lang = "fr" }: { lang?: Lang }) {
               </li>
               <li>
                 {fr
-                  ? "Carte : sur les pages des cabinets, la carte Google ne se charge que si vous cliquez sur « Afficher la carte Google ». Google peut alors déposer ses propres cookies."
-                  : "Map: on the practice pages, the Google map only loads if you click \u201cShow the Google map\u201d. Google may then set its own cookies."}
+                  ? "Carte : les pages des cabinets affichent une carte fournie par Google, qui peut déposer ses propres cookies sur ces pages."
+                  : "Map: the practice pages show a map provided by Google, which may set its own cookies on those pages."}
               </li>
               <li>
                 {fr

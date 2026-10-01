@@ -29,7 +29,7 @@ export function alternate(path: string): { lang: Lang; href: string } {
 const uiFr = {
   nav: { osteo: "Ostéopathie", kine: "Kinésithérapie", parcours: "Parcours", avis: "Avis", contact: "Contact" },
   menu: "Menu", close: "Fermer",
-  book: "Prendre rendez-vous", bookShort: "Rendez-vous", call: "Appeler", more: "En savoir plus", bookOn: "sur Doctoranytime",
+  book: "Prendre rendez-vous", bookShort: "Rendez-vous", call: "Appeler", more: "En savoir plus",
   callAria: (p: string) => `Appeler le ${p}`, mailAria: (m: string) => `Écrire à ${m}`,
   osteoPro: "Ostéopathe D.O.", kinePro: "Kinésithérapeute",
   heroH1: "Kinésithérapeute et ostéopathe D.O. à Ixelles et Woluwe-Saint-Pierre",
@@ -71,14 +71,13 @@ const uiFr = {
     motifsText: (c: string) => `Au cabinet de ${c}, David Otu prend en charge les douleurs aiguës (lumbago, dos bloqué, torticolis, sciatique), les douleurs chroniques du dos et de la nuque, les blessures sportives et la rééducation après une entorse, une fracture ou une opération (prothèse de genou ou de hanche, ligaments croisés).`,
     reimb: "Remboursement", also: "David Otu consulte aussi à", back: "Retour à l'accueil",
   },
-  map: { show: "Afficher la carte Google", note: "La carte est fournie par Google, qui peut déposer des cookies. Elle ne se charge que si vous cliquez." },
   lang: { switch: "EN", aria: "English version" },
 };
 
 const uiEn: typeof uiFr = {
   nav: { osteo: "Osteopathy", kine: "Physiotherapy", parcours: "Background", avis: "Reviews", contact: "Contact" },
   menu: "Menu", close: "Close",
-  book: "Book an appointment", bookShort: "Book", call: "Call", more: "Learn more", bookOn: "on Doctoranytime",
+  book: "Book an appointment", bookShort: "Book", call: "Call", more: "Learn more",
   callAria: (p) => `Call ${p}`, mailAria: (m) => `Email ${m}`,
   osteoPro: "Osteopath D.O.", kinePro: "Physiotherapist",
   heroH1: "English-speaking physiotherapist and osteopath D.O. in Ixelles and Woluwe-Saint-Pierre, Brussels",
@@ -120,7 +119,6 @@ const uiEn: typeof uiFr = {
     motifsText: (c) => `At the ${c} practice, David Otu treats acute pain (acute low back pain, locked back, stiff neck, sciatica), chronic back and neck pain, sports injuries, and rehabilitation after a sprain, a fracture or surgery (knee or hip replacement, cruciate ligaments).`,
     reimb: "Reimbursement", also: "David Otu also practises in", back: "Back to home",
   },
-  map: { show: "Show the Google map", note: "The map is provided by Google, which may set cookies. It only loads if you click." },
   lang: { switch: "FR", aria: "Version française" },
 };
 

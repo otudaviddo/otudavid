@@ -1,6 +1,5 @@
 import { site, SITE_URL } from "@/config/site";
 import { content, type Lang } from "@/i18n";
-import MapOnDemand from "@/components/MapOnDemand";
 
 
 /* Page dédiée à un cabinet : pensée pour les recherches « ostéopathe + commune »
@@ -86,14 +85,12 @@ export default function CabinetPage({ slug, lang = "fr" }: { slug: string; lang?
             </div>
           </div>
 
-          <MapOnDemand
-            src={a.mapsEmbed}
+          <iframe
             title={t.mapTitle(a.city)}
-            address={`${a.street}, ${a.postalCode} ${a.city}`}
-            show={C.ui.map.show}
-            note={C.ui.map.note}
-            route={C.ui.contact.route}
-            routeHref={a.mapsUrl}
+            src={a.mapsEmbed}
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            className="h-[360px] w-full rounded-2xl border border-night/15 md:h-full md:min-h-[460px]"
           />
         </div>
       </section>

@@ -100,9 +100,8 @@ function PerformanceDrawing() {
 
 /* ---------- Panneau cliquable ---------- */
 
-export default function Choice({ d, image, position = "center", kind, alt = "", pro, cta, ctaNote, more, moreHref, label }: {
+export default function Choice({ d, image, position = "center", kind, alt = "", pro, cta, more, moreHref, label }: {
   d: D; image: string; position?: string; kind: "osteo" | "kine"; alt?: string; pro: string; cta: string;
-  /** Précision sous le bouton (« sur Doctoranytime ») */ ctaNote: string;
   /** Lien secondaire vers la page du site */ more: string; moreHref: string; label: string;
 }) {
   const ref = useRef<HTMLDivElement>(null);
@@ -166,8 +165,8 @@ export default function Choice({ d, image, position = "center", kind, alt = "", 
         </span>
       </span>
 
-      {/* Tout le panneau mène à la prise de rendez-vous (Doctoranytime) */}
-      <a href={d.url} aria-label={`${cta} ${ctaNote} : ${label}`} className="absolute inset-0 z-[5]" />
+      {/* Tout le panneau mène à la prise de rendez-vous */}
+      <a href={d.url} aria-label={`${cta} : ${label}`} className="absolute inset-0 z-[5]" />
 
       {/* Texte */}
       <span className="panel-text pointer-events-none relative z-10 mt-auto flex flex-col gap-4 p-7 md:p-12">
@@ -178,7 +177,7 @@ export default function Choice({ d, image, position = "center", kind, alt = "", 
         <span className="h-px w-12 bg-ivory/40 transition-all duration-700 group-hover:w-24 group-hover:bg-steel" />
         <span className="flex flex-wrap items-baseline gap-x-8 gap-y-3">
           <span className="text-xs uppercase tracking-[0.25em] text-ivory/90 transition-transform duration-500 group-hover:translate-x-1">
-            {cta} <span className="normal-case tracking-normal text-ivory/70">{ctaNote}</span>
+            {cta}
           </span>
           {/* Lien secondaire : la page du site, pour ceux qui veulent d'abord se renseigner */}
           <a href={moreHref} aria-label={`${more} : ${label}`} className="pointer-events-auto text-xs uppercase tracking-[0.25em] text-ivory/80 underline decoration-ivory/40 decoration-1 underline-offset-[6px] transition-colors hover:text-steel hover:decoration-steel">
