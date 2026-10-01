@@ -100,10 +100,12 @@ function PerformanceDrawing() {
 
 /* ---------- Panneau cliquable ---------- */
 
-export default function Choice({ d, image, position = "center", kind, alt = "", pro, cta }: {
+export default function Choice({ d, image, position = "center", kind, alt = "", pro, cta, ctaNote, more, moreHref, label }: {
   d: D; image: string; position?: string; kind: "osteo" | "kine"; alt?: string; pro: string; cta: string;
+  /** Précision sous le bouton (« sur Doctoranytime ») */ ctaNote: string;
+  /** Lien secondaire vers la page du site */ more: string; moreHref: string; label: string;
 }) {
-  const ref = useRef<HTMLAnchorElement>(null);
+  const ref = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
 
   // Sur écran tactile (pas de survol), l'animation se joue quand le panneau apparaît.
@@ -137,9 +139,8 @@ export default function Choice({ d, image, position = "center", kind, alt = "", 
   }, []);
 
   return (
-    <a
+    <div
       ref={ref}
-      href={d.url}
       className={`panel group relative flex min-h-[50svh] flex-1 overflow-hidden md:min-h-0 md:transition-[flex-grow] md:duration-700 md:ease-out md:hover:flex-[1.3] ${visible ? "is-visible" : ""}`}
     >
       {/* Photo */}
@@ -156,7 +157,7 @@ export default function Choice({ d, image, position = "center", kind, alt = "", 
       <span aria-hidden className="absolute inset-x-0 bottom-0 h-[50%] bg-gradient-to-t from-night/80 via-night/30 to-transparent" />
 
       {/* Lueur au survol */}
-      <span aria-hidden className="panel-glow pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-700 group-hover:opacity-100 group-focus-visible:opacity-100" />
+      <span aria-hidden className="panel-glow pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-700 group-hover:opacity-100 group-focus-within:opacity-100" />
 
       {/* Dessin technique */}
       <span aria-hidden className="pointer-events-none absolute right-[6%] top-[22%] h-[38%] text-ivory/90 md:top-1/2 md:h-[50%] md:-translate-y-1/2">
@@ -165,17 +166,26 @@ export default function Choice({ d, image, position = "center", kind, alt = "", 
         </span>
       </span>
 
+      {/* Tout le panneau mène à la prise de rendez-vous (Doctoranytime) */}
+      <a href={d.url} aria-label={`${cta} ${ctaNote} : ${label}`} className="absolute inset-0 z-[5]" />
+
       {/* Texte */}
-      <span className="panel-text relative z-10 mt-auto flex flex-col gap-4 p-7 md:p-12">
+      <span className="panel-text pointer-events-none relative z-10 mt-auto flex flex-col gap-4 p-7 md:p-12">
         <span className="text-[11px] uppercase tracking-[0.3em] text-ivory/75">
           {pro}
         </span>
         <span className="font-serif text-[clamp(1.9rem,8.2vw,2.6rem)] leading-none tracking-[0.12em] text-ivory md:text-[clamp(2rem,3.3vw,3.6rem)]">{d.upper}</span>
         <span className="h-px w-12 bg-ivory/40 transition-all duration-700 group-hover:w-24 group-hover:bg-steel" />
-        <span className="text-xs uppercase tracking-[0.25em] text-ivory/90 transition-transform duration-500 group-hover:translate-x-1">
-          {cta}
+        <span className="flex flex-wrap items-baseline gap-x-8 gap-y-3">
+          <span className="text-xs uppercase tracking-[0.25em] text-ivory/90 transition-transform duration-500 group-hover:translate-x-1">
+            {cta} <span className="normal-case tracking-normal text-ivory/70">{ctaNote}</span>
+          </span>
+          {/* Lien secondaire : la page du site, pour ceux qui veulent d'abord se renseigner */}
+          <a href={moreHref} aria-label={`${more} : ${label}`} className="pointer-events-auto text-xs uppercase tracking-[0.25em] text-ivory/80 underline decoration-ivory/40 decoration-1 underline-offset-[6px] transition-colors hover:text-steel hover:decoration-steel">
+            {more}
+          </a>
         </span>
       </span>
-    </a>
+    </div>
   );
 }

@@ -1,5 +1,6 @@
 import { site, SITE_URL } from "@/config/site";
 import { content, type Lang } from "@/i18n";
+import MapOnDemand from "@/components/MapOnDemand";
 
 
 /* Page dédiée à un cabinet : pensée pour les recherches « ostéopathe + commune »
@@ -43,7 +44,7 @@ export default function CabinetPage({ slug, lang = "fr" }: { slug: string; lang?
               <a
                 key={d.slug}
                 href={d.url}
-                className="flex min-h-[56px] items-center justify-center border border-ivory/40 px-8 text-xs uppercase tracking-[0.25em] transition-colors duration-500 hover:border-ivory hover:bg-ivory hover:text-night"
+                className="flex min-h-[56px] items-center justify-center rounded-full border border-ivory/40 px-8 text-xs uppercase tracking-[0.25em] transition-colors duration-500 hover:border-ivory hover:bg-ivory hover:text-night"
               >
                 {C.ui.bookShort} · {d.label}
               </a>
@@ -85,12 +86,14 @@ export default function CabinetPage({ slug, lang = "fr" }: { slug: string; lang?
             </div>
           </div>
 
-          <iframe
-            title={t.mapTitle(a.city)}
+          <MapOnDemand
             src={a.mapsEmbed}
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-            className="h-[360px] w-full border border-night/15 md:h-full md:min-h-[460px]"
+            title={t.mapTitle(a.city)}
+            address={`${a.street}, ${a.postalCode} ${a.city}`}
+            show={C.ui.map.show}
+            note={C.ui.map.note}
+            route={C.ui.contact.route}
+            routeHref={a.mapsUrl}
           />
         </div>
       </section>
@@ -105,7 +108,7 @@ export default function CabinetPage({ slug, lang = "fr" }: { slug: string; lang?
             <ul className="mt-8 flex flex-wrap gap-3">
               {C.allSoins.map((s) => (
                 <li key={s.slug}>
-                  <a href={`${C.soinsOsteo.some((x) => x.slug === s.slug) ? C.routes.osteo : C.routes.kine}#${s.slug}`} className="inline-block border border-ivory/20 px-4 py-2 text-sm text-ivory/85 transition-colors hover:border-ivory hover:bg-ivory hover:text-night">{s.card}</a>
+                  <a href={`${C.soinsOsteo.some((x) => x.slug === s.slug) ? C.routes.osteo : C.routes.kine}#${s.slug}`} className="inline-block rounded-full border border-ivory/20 px-5 py-2 text-sm text-ivory/85 transition-colors hover:border-ivory hover:bg-ivory hover:text-night">{s.card}</a>
                 </li>
               ))}
             </ul>
@@ -114,7 +117,7 @@ export default function CabinetPage({ slug, lang = "fr" }: { slug: string; lang?
             <h2 className="font-serif text-3xl">{t.reimb}</h2>
             <p className="mt-5 text-base leading-relaxed text-ivory/75"><strong className="font-normal text-ivory">{C.disciplines.osteo.label}</strong> ({C.duration.osteo}) : {C.reimbursement.osteo}</p>
             <p className="mt-4 text-base leading-relaxed text-ivory/75"><strong className="font-normal text-ivory">{C.disciplines.kine.label}</strong> ({C.duration.kine}) : {C.reimbursement.kine}</p>
-            <p className="mt-6 text-sm text-ivory/60">
+            <p className="mt-6 text-sm text-ivory/75">
               {C.languages}{" "}
               <a href={site.upob.url} target="_blank" rel="noopener noreferrer" className="text-ivory/85 underline decoration-ivory/30 underline-offset-4 hover:decoration-steel">{C.upobShort}</a>.
             </p>

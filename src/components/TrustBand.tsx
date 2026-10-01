@@ -14,7 +14,7 @@ export default function TrustBand({ lang = "fr" }: { lang?: Lang }) {
           const inner = (
             <>
               <span className="block font-serif text-xl leading-tight sm:text-2xl">{it.t}</span>
-              <span className="mt-1 block text-sm text-night/60">{it.d}</span>
+              <span className="mt-1 block text-sm text-night/70">{it.d}</span>
             </>
           );
           return (

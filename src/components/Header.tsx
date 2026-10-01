@@ -47,11 +47,11 @@ export default function Header({ lang = "fr" }: { lang?: Lang }) {
               {l.label}
             </Link>
           ))}
-          {langLink("ml-2 border-l border-ivory/15 pl-6 text-[12px] tracking-[0.2em] text-ivory/50 transition-colors hover:text-steel")}
+          {langLink("ml-2 border-l border-ivory/15 pl-6 text-[12px] tracking-[0.2em] text-ivory/65 transition-colors hover:text-steel")}
         </nav>
 
         <div className="flex items-center gap-2 lg:hidden">
-        {langLink("p-2 text-[11px] tracking-[0.2em] text-ivory/50")}
+        {langLink("p-2 text-[11px] tracking-[0.2em] text-ivory/65")}
         <button
           className="-mr-3 flex items-center gap-3 p-3 text-xs uppercase tracking-[0.25em]"
           aria-expanded={open}

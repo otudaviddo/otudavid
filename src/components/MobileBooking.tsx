@@ -75,7 +75,7 @@ export default function MobileBooking({ lang = "fr" }: { lang?: Lang }) {
             </a>
           ))}
         </div>
-        <p className="mt-4 text-center text-[11px] uppercase tracking-[0.2em] text-ivory/50">{t.mobile.via}</p>
+        <p className="mt-4 text-center text-[11px] uppercase tracking-[0.2em] text-ivory/65">{t.mobile.via}</p>
       </div>
 
       {/* Bouton flottant, effet verre, à hauteur du pouce */}

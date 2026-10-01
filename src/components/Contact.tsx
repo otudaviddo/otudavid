@@ -14,7 +14,7 @@ export default function Contact({ lang = "fr" }: { lang?: Lang }) {
       {/* Gravure au bâton en filigrane (clin d'œil au verso de la carte de visite) */}
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
-        src="/images/ecorche-baton.webp" alt="" aria-hidden width={862} height={1500} loading="lazy"
+        src="/images/ecorche-baton.webp" alt="" aria-hidden width={546} height={950} loading="lazy"
         className="pointer-events-none absolute -right-20 bottom-0 h-[92%] w-auto select-none opacity-[0.16] mix-blend-multiply md:-right-6"
       />
       <div className="relative mx-auto max-w-6xl px-6 pb-36 pt-24 md:px-10 md:py-32">
@@ -79,7 +79,7 @@ export default function Contact({ lang = "fr" }: { lang?: Lang }) {
             <a
               key={d.slug}
               href={d.url}
-              className="flex min-h-[56px] flex-1 items-center justify-center border border-night/35 px-6 text-xs uppercase tracking-[0.25em] transition-colors duration-500 hover:border-night hover:bg-night hover:text-ivory"
+              className="flex min-h-[56px] flex-1 items-center justify-center rounded-full border border-night/35 px-6 text-xs uppercase tracking-[0.25em] transition-colors duration-500 hover:border-night hover:bg-night hover:text-ivory"
             >
               {c.ui.bookShort} · {d.label}
             </a>
@@ -110,7 +110,11 @@ export default function Contact({ lang = "fr" }: { lang?: Lang }) {
 
         <div className="mt-12 flex flex-wrap items-center justify-between gap-x-8 gap-y-4 border-t border-night/10 pt-10 text-night">
           <Logo className="h-9 w-auto" accent="fill-steelDeep" />
-          <p className="text-xs text-night/55">© {new Date().getFullYear()} David Otu, {c.title}</p>
+          <p className="text-xs leading-relaxed text-night/70 sm:text-right">
+            © {new Date().getFullYear()} David Otu, {c.title}
+            <br />{t.inami} {site.legal.inami} · {t.bce} {site.legal.bce}
+            <br /><a href={c.routes.legal} className="underline decoration-night/35 decoration-1 underline-offset-4 hover:text-steelDeep">{t.legal}</a>
+          </p>
         </div>
       </div>
     </section>

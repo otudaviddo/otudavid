@@ -21,7 +21,7 @@ function Row({ g, id }: { g: Group; id: string }) {
           <span className="block font-serif text-2xl leading-tight text-ivory transition-colors duration-300 group-hover:text-steel">
             {g.group}
           </span>
-          <span className="mt-1.5 block text-sm text-ivory/55">{g.summary}</span>
+          <span className="mt-1.5 block text-sm text-ivory/70">{g.summary}</span>
         </span>
         {/* + qui devient × */}
         <span aria-hidden className="relative block h-4 w-4 shrink-0">
@@ -40,10 +40,10 @@ function Row({ g, id }: { g: Group; id: string }) {
               <li key={i} className="relative pb-6 pl-6 last:pb-0">
                 <span aria-hidden className="absolute -left-[3px] top-[7px] h-[5px] w-[5px] rounded-full bg-steel/70" />
                 {it.years && (
-                  <p className="mb-1 text-xs text-ivory/50 tabular-nums">{it.years}</p>
+                  <p className="mb-1 text-xs text-ivory/65 tabular-nums">{it.years}</p>
                 )}
                 <p className="font-serif text-lg leading-snug text-ivory/90">{it.title}</p>
-                <p className="mt-0.5 text-sm text-ivory/55">{it.detail}</p>
+                <p className="mt-0.5 text-sm text-ivory/70">{it.detail}</p>
               </li>
             ))}
           </ol>
@@ -73,7 +73,7 @@ export default function Parcours({ lang = "fr" }: { lang?: Lang }) {
       {/* Gravure anatomique en filigrane (clin d'œil à la carte de visite) */}
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
-        src="/images/ecorche-marche.webp" alt="" aria-hidden width={828} height={1500} loading="lazy"
+        src="/images/ecorche-marche.webp" alt="" aria-hidden width={524} height={950} loading="lazy"
         className="pointer-events-none absolute -left-24 top-10 h-[70%] w-auto select-none opacity-[0.07] md:-left-10 md:h-[85%] md:opacity-[0.09]"
       />
       <div className="relative mx-auto max-w-6xl px-6 py-24 md:px-10 md:py-32">
@@ -91,7 +91,7 @@ export default function Parcours({ lang = "fr" }: { lang?: Lang }) {
             >
               <dt className="font-serif text-3xl tracking-[0.04em] text-ivory md:text-[2.1rem]">{h.value}</dt>
               <dd className="mt-3 text-sm text-steel">{h.label}</dd>
-              <dd className="mt-1 max-w-[18rem] text-sm leading-relaxed text-ivory/55">{h.detail}</dd>
+              <dd className="mt-1 max-w-[18rem] text-sm leading-relaxed text-ivory/70">{h.detail}</dd>
             </div>
           ))}
         </dl>
@@ -102,7 +102,7 @@ export default function Parcours({ lang = "fr" }: { lang?: Lang }) {
           <Column heading={t.experience} groups={p.experience} prefix="experience" />
         </div>
 
-        <p className="mt-14 text-sm text-ivory/55">
+        <p className="mt-14 text-sm text-ivory/70">
           {t.languages}{lang === "fr" ? " : " : ": "}<span className="text-ivory/85">{p.languages.join(", ").toLowerCase()}</span>
         </p>
       </div>

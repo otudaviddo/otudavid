@@ -137,6 +137,8 @@ export const site = {
     kine: "Kinésithérapeute conventionné : séances remboursées par l'INAMI sur prescription médicale.",
   },
   duration: { osteo: "45 minutes", kine: "30 minutes" },
+  // Numéros officiels communiqués par David Otu (affichés dans les mentions légales et le pied de page).
+  legal: { inami: "5-01942-18-527", bce: "1002.011.285" },
   languages: "Consultations en français et en anglais.",
   seo: {
     title: "Ostéopathe & kiné à Ixelles et Woluwe-Saint-Pierre | David Otu",

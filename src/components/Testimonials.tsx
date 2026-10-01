@@ -6,11 +6,11 @@ import { content, reviewDate, type Lang } from "@/i18n";
 
 function Card({ t, lang }: { t: (typeof testimonials)[number]; lang: Lang }) {
   return (
-    <figure className="flex w-[280px] shrink-0 flex-col justify-between border border-night/15 bg-ivory px-6 py-7 sm:w-[360px] sm:px-7 sm:py-8">
-      <blockquote className="font-serif text-base italic leading-relaxed text-night/85 sm:text-lg">
+    <figure className="flex w-[300px] shrink-0 flex-col justify-between rounded-2xl border border-night/15 bg-white/50 px-6 py-7 sm:w-[400px] sm:px-8 sm:py-8">
+      <blockquote className="font-serif text-lg leading-relaxed text-night/90 sm:text-xl">
         &laquo;&nbsp;{t.quote}&nbsp;&raquo;
       </blockquote>
-      <figcaption className="mt-6 flex items-center justify-between text-xs text-night/55">
+      <figcaption className="mt-6 flex items-center justify-between text-xs text-night/70">
         <span>{t.author}</span>
         <span>{reviewDate(lang, t.date)}</span>
       </figcaption>
@@ -67,14 +67,14 @@ export default function Testimonials({ lang = "fr" }: { lang?: Lang }) {
     setTimeout(() => { paused.current = false; }, 4000);
   };
 
-  const arrow = "flex h-12 w-12 items-center justify-center border border-night/20 text-night/70 transition-colors duration-300 hover:border-night hover:bg-night hover:text-ivory";
+  const arrow = "flex h-12 w-12 items-center justify-center rounded-full border border-night/20 text-night/70 transition-colors duration-300 hover:border-night hover:bg-night hover:text-ivory";
 
   return (
     <section id="avis" data-tone="light" aria-labelledby="avis-title" className="relative w-full bg-ivory text-night">
       <div className="mx-auto flex max-w-6xl flex-col gap-8 px-6 pb-12 pt-24 md:flex-row md:items-end md:justify-between md:px-10 md:pt-32">
         <div>
           <h2 id="avis-title" className="font-serif text-4xl leading-[1.1] sm:text-5xl">{t.title}</h2>
-          <p className="mt-4 text-sm text-night/60">{c.reviewsLabel}</p>
+          <p className="mt-4 text-sm text-night/70">{c.reviewsLabel}</p>
         </div>
         <div className="flex gap-3">
           <button type="button" aria-label={t.prev} onClick={() => step(-1)} className={arrow}>←</button>

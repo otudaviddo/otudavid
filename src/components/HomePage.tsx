@@ -21,9 +21,9 @@ export default function HomePage({ lang = "fr" }: { lang?: Lang }) {
           {site.name} — {t.heroH1}
         </h1>
         <div className="flex flex-col md:h-[100svh] md:min-h-[640px] md:flex-row">
-          <Choice d={c.disciplines.osteo} kind="osteo" image="/images/osteopathie-mains.webp" position="50% 55%" alt={t.altOsteo} pro={t.osteoPro} cta={t.book} />
+          <Choice d={c.disciplines.osteo} kind="osteo" image="/images/osteopathie-mains.webp" position="50% 55%" alt={t.altOsteo} pro={t.osteoPro} cta={t.book} ctaNote={t.bookOn} more={t.more} moreHref={c.routes.osteo} label={c.disciplines.osteo.label} />
           <span aria-hidden className="h-px w-full bg-ivory/15 md:h-auto md:w-px" />
-          <Choice d={c.disciplines.kine} kind="kine" image="/images/kinesitherapie-genou.webp" position="50% 50%" alt={t.altKine} pro={t.kinePro} cta={t.book} />
+          <Choice d={c.disciplines.kine} kind="kine" image="/images/kinesitherapie-genou.webp" position="50% 50%" alt={t.altKine} pro={t.kinePro} cta={t.book} ctaNote={t.bookOn} more={t.more} moreHref={c.routes.kine} label={c.disciplines.kine.label} />
         </div>
       </section>
 
@@ -35,13 +35,13 @@ export default function HomePage({ lang = "fr" }: { lang?: Lang }) {
           {/* Portrait en relief : un cadre fin en retrait, la photo devant */}
           <div className="mx-auto w-full max-w-sm pb-4 pr-4 md:max-w-none">
             <div className="relative">
-              <span aria-hidden className="absolute inset-0 translate-x-4 translate-y-4 border border-steel/45" />
+              <span aria-hidden className="absolute inset-0 translate-x-4 translate-y-4 rounded-2xl border border-steel/45" />
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src="/images/portrait-david-otu.webp"
                 alt={t.altPortrait}
                 width={1025} height={1281} loading="lazy"
-                className="relative aspect-[4/5] w-full object-cover shadow-[0_30px_60px_-28px_rgba(0,0,0,.65)]"
+                className="relative aspect-[4/5] w-full rounded-2xl object-cover shadow-[0_30px_60px_-28px_rgba(0,0,0,.65)]"
               />
             </div>
           </div>
@@ -53,7 +53,7 @@ export default function HomePage({ lang = "fr" }: { lang?: Lang }) {
               {t.practicesSentence.a} <a href={c.routes.ixelles} className="text-ivory underline decoration-ivory/30 underline-offset-4 hover:decoration-steel">Ixelles</a> {t.practicesSentence.ixDays}{" "}
               {t.practicesSentence.and} <a href={c.routes["woluwe-saint-pierre"]} className="text-ivory underline decoration-ivory/30 underline-offset-4 hover:decoration-steel">Woluwe-Saint-Pierre</a> {t.practicesSentence.wsDays}{t.practicesSentence.end}
             </p>
-            <p className="mt-5 max-w-xl text-sm text-ivory/60">
+            <p className="mt-5 max-w-xl text-sm text-ivory/75">
               {c.languages} <a href={site.upob.url} target="_blank" rel="noopener noreferrer" className="text-ivory/80 underline decoration-ivory/30 underline-offset-4 hover:decoration-steel">{c.upobShort}</a>.
             </p>
             <div className="mt-10 flex flex-wrap gap-x-10 gap-y-4">

@@ -26,14 +26,14 @@ export default function BookingPage({ kind, lang = "fr" }: { kind: "osteo" | "ki
         <p className="rise d1 mt-8 max-w-xl text-lg leading-relaxed text-ivory/75">{d.intro}</p>
 
         <div className="rise d2 mt-10 flex w-full flex-col gap-4 sm:w-auto sm:flex-row">
-          <a href={d.url} className="inline-flex min-h-[56px] w-full items-center justify-center border border-ivory/40 px-10 text-xs uppercase tracking-[0.25em] transition-colors duration-500 hover:border-ivory hover:bg-ivory hover:text-night sm:w-auto">
+          <a href={d.url} className="inline-flex min-h-[56px] w-full items-center justify-center rounded-full border border-ivory/40 px-10 text-xs uppercase tracking-[0.25em] transition-colors duration-500 hover:border-ivory hover:bg-ivory hover:text-night sm:w-auto">
             {C.ui.book}
           </a>
-          <a href={site.phoneHref} className="inline-flex min-h-[56px] w-full items-center justify-center border border-ivory/20 px-8 text-xs uppercase tracking-[0.25em] text-ivory/80 transition-colors hover:border-steel hover:text-steel sm:w-auto">
+          <a href={site.phoneHref} className="inline-flex min-h-[56px] w-full items-center justify-center rounded-full border border-ivory/20 px-8 text-xs uppercase tracking-[0.25em] text-ivory/80 transition-colors hover:border-steel hover:text-steel sm:w-auto">
             {site.phone}
           </a>
         </div>
-        <p className="rise d2 mt-6 text-sm text-ivory/55">
+        <p className="rise d2 mt-6 text-sm text-ivory/70">
           {C.reviewsLabel.split(" · ")[0]} · {t.sessionOf(osteo ? C.duration.osteo : C.duration.kine)}
         </p>
       </section>
@@ -49,7 +49,7 @@ export default function BookingPage({ kind, lang = "fr" }: { kind: "osteo" | "ki
                 {C.upobShort}
               </a>
             )}
-            <p className="mt-6 text-sm text-night/60">{C.languages}</p>
+            <p className="mt-6 text-sm text-night/70">{C.languages}</p>
           </div>
           <div>
             <h2 className="font-serif text-3xl">{t.motifs}</h2>
@@ -68,9 +68,9 @@ export default function BookingPage({ kind, lang = "fr" }: { kind: "osteo" | "ki
 
         {/* Déroulé + remboursement + cabinets */}
         <div className="mx-auto max-w-6xl px-6 pb-20 md:px-10 md:pb-28">
-          <div className="grid gap-px border border-night/15 bg-night/15 md:grid-cols-3">
+          <div className="grid gap-px overflow-hidden rounded-2xl border border-night/15 bg-night/15 md:grid-cols-3">
             <div className="bg-white p-7">
-              <h3 className="font-serif text-2xl">{t.deroulement} <span className="font-sans text-sm text-night/55">{osteo ? C.duration.osteo : C.duration.kine}</span></h3>
+              <h3 className="font-serif text-2xl">{t.deroulement} <span className="font-sans text-sm text-night/70">{osteo ? C.duration.osteo : C.duration.kine}</span></h3>
               <ol className="mt-4 space-y-3 text-sm leading-relaxed text-night/80">
                 {c.deroule.map((s, i) => <li key={i}><span className="mr-2 font-serif text-lg text-night">{i + 1}.</span>{s}</li>)}
               </ol>

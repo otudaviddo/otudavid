@@ -29,7 +29,7 @@ export default function SoinSections({ items, lang = "fr" }: { items: Soin[]; la
               <summary className="flex cursor-pointer list-none items-center justify-between gap-6 py-7 [&::-webkit-details-marker]:hidden">
                 <span>
                   <span className="block font-serif text-2xl leading-snug sm:text-3xl">{s.card}</span>
-                  <span className="mt-1.5 block text-sm text-night/60">{s.cardText}</span>
+                  <span className="mt-1.5 block text-sm text-night/70">{s.cardText}</span>
                 </span>
                 <span aria-hidden className="relative block h-4 w-4 shrink-0">
                   <span className="absolute left-0 top-1/2 h-px w-4 bg-night/70" />
@@ -57,7 +57,7 @@ export default function SoinSections({ items, lang = "fr" }: { items: Soin[]; la
                       </li>
                     ))}
                   </ol>
-                  <div className="mt-8 border border-night/15 bg-ivory/60 p-5">
+                  <div className="mt-8 rounded-2xl border border-night/15 bg-ivory/60 p-5">
                     <p className="text-sm font-semibold text-night">{t.alert}</p>
                     <ul className="mt-3 list-disc space-y-1.5 pl-5 text-sm leading-relaxed text-night/80">
                       {s.alerte.map((a) => <li key={a}>{a}</li>)}
