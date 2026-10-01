@@ -140,7 +140,7 @@ export default function Choice({ d, image, position = "center", kind, alt = "", 
     <a
       ref={ref}
       href={d.url}
-      className={`panel group relative flex min-h-[46svh] flex-1 overflow-hidden md:min-h-0 md:transition-[flex-grow] md:duration-700 md:ease-out md:hover:flex-[1.3] ${visible ? "is-visible" : ""}`}
+      className={`panel group relative flex min-h-[50svh] flex-1 overflow-hidden md:min-h-0 md:transition-[flex-grow] md:duration-700 md:ease-out md:hover:flex-[1.3] ${visible ? "is-visible" : ""}`}
     >
       {/* Photo */}
       {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -151,7 +151,7 @@ export default function Choice({ d, image, position = "center", kind, alt = "", 
         style={{ objectPosition: position }}
       />
       <span aria-hidden className="absolute inset-0 bg-night/10 transition-colors duration-700 group-hover:bg-transparent" />
-      <span aria-hidden className="absolute inset-x-0 top-0 h-[22%] bg-gradient-to-b from-night/45 to-transparent" />
+      <span aria-hidden className="absolute inset-x-0 top-0 h-[26%] bg-gradient-to-b from-night/60 to-transparent" />
       {/* voile bas pour la lisibilité du texte */}
       <span aria-hidden className="absolute inset-x-0 bottom-0 h-[50%] bg-gradient-to-t from-night/80 via-night/30 to-transparent" />
 

@@ -34,8 +34,9 @@ export default function Header({ lang = "fr" }: { lang?: Lang }) {
   }, [open]);
 
   return (
-    <header className="sticky top-0 z-40 w-full border-b border-ivory/10 bg-night">
-      <div className="mx-auto flex h-[72px] max-w-7xl items-center justify-between px-6 md:px-10">
+    // Barre flottante arrondie, en verre : le contenu de la page défile dessous.
+    <header className="pointer-events-none sticky top-0 z-40 h-[72px] w-full px-3 pt-3 md:px-6">
+      <div className="glass glass-strong pointer-events-auto relative z-10 mx-auto flex h-[60px] max-w-6xl items-center justify-between rounded-full pl-6 pr-5 md:pl-8 md:pr-8">
         <Link href={r.home} aria-label={lang === "fr" ? "otucare · David Otu, retour à l'accueil" : "otucare · David Otu, back to home"} className="text-ivory transition-opacity duration-300 hover:opacity-80" onClick={() => setOpen(false)}>
           <Logo className="h-7 w-auto md:h-8" />
         </Link>
@@ -70,7 +71,7 @@ export default function Header({ lang = "fr" }: { lang?: Lang }) {
       <nav
         id="menu-mobile"
         aria-label={lang === "fr" ? "Menu mobile" : "Mobile menu"}
-        className={`fixed inset-x-0 bottom-0 top-[72px] z-40 flex flex-col justify-center gap-2 bg-night px-8 transition-opacity duration-500 lg:hidden ${open ? "opacity-100" : "pointer-events-none opacity-0"}`}
+        className={`fixed inset-0 -z-10 flex flex-col justify-center gap-2 bg-night px-8 pt-[72px] transition-opacity duration-500 lg:hidden ${open ? "pointer-events-auto opacity-100" : "pointer-events-none opacity-0"}`}
       >
         {links.map((l, i) => (
           <Link

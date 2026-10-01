@@ -18,11 +18,11 @@ export default function HomePage({ lang = "fr" }: { lang?: Lang }) {
   return (
     <>
       {/* Accueil : deux grands choix */}
-      <section aria-labelledby="accueil-title" data-tone="dark" className="relative">
+      <section aria-labelledby="accueil-title" data-tone="dark" className="relative -mt-[72px]">
         <h1 id="accueil-title" className="sr-only">
           {site.name} — {t.heroH1}
         </h1>
-        <div className="flex flex-col md:h-[calc(100svh-72px)] md:min-h-[600px] md:flex-row">
+        <div className="flex flex-col md:h-[100svh] md:min-h-[640px] md:flex-row">
           <Choice d={c.disciplines.osteo} kind="osteo" image="/images/osteopathie-mains.webp" position="50% 55%" alt={t.altOsteo} pro={t.osteoPro} cta={t.book} />
           <span aria-hidden className="h-px w-full bg-ivory/15 md:h-auto md:w-px" />
           <Choice d={c.disciplines.kine} kind="kine" image="/images/kinesitherapie-genou.webp" position="50% 50%" alt={t.altKine} pro={t.kinePro} cta={t.book} />
