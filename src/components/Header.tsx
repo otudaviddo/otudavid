@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { site } from "@/config/site";
 import { ui, routes, alternate, type Lang } from "@/i18n";
 import { PhoneIcon, MailIcon, InstagramIcon } from "@/components/Icons";
+import Logo from "@/components/Logo";
 
 export default function Header({ lang = "fr" }: { lang?: Lang }) {
   const [open, setOpen] = useState(false);
@@ -35,8 +36,8 @@ export default function Header({ lang = "fr" }: { lang?: Lang }) {
   return (
     <header className="sticky top-0 z-40 w-full border-b border-ivory/10 bg-night">
       <div className="mx-auto flex h-[72px] max-w-7xl items-center justify-between px-6 md:px-10">
-        <Link href={r.home} className="font-serif text-xl tracking-[0.3em]" onClick={() => setOpen(false)}>
-          {site.name}
+        <Link href={r.home} aria-label={lang === "fr" ? "otucare · David Otu, retour à l'accueil" : "otucare · David Otu, back to home"} className="text-ivory transition-opacity duration-300 hover:opacity-80" onClick={() => setOpen(false)}>
+          <Logo className="h-7 w-auto md:h-8" />
         </Link>
 
         <nav aria-label={lang === "fr" ? "Navigation principale" : "Main navigation"} className="hidden items-center gap-8 lg:flex">

@@ -1,6 +1,7 @@
 import { site } from "@/config/site";
 import { content, type Lang } from "@/i18n";
 import { PhoneIcon, MailIcon, InstagramIcon } from "@/components/Icons";
+import Logo from "@/components/Logo";
 
 const label = "text-[11px] uppercase tracking-[0.28em] text-steelDeep";
 
@@ -108,7 +109,10 @@ export default function Contact({ lang = "fr" }: { lang?: Lang }) {
           </div>
         </nav>
 
-        <p className="mt-12 border-t border-night/10 pt-8 text-center text-[11px] uppercase tracking-[0.22em] text-night/45">
+        <div className="mt-12 flex justify-center border-t border-night/10 pt-10 text-night">
+          <Logo className="h-9 w-auto" accent="fill-steelDeep" />
+        </div>
+        <p className="mt-6 text-center text-[11px] uppercase tracking-[0.22em] text-night/45">
           © {new Date().getFullYear()} {site.name} · {c.title}
         </p>
       </div>

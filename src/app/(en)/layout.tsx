@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   title: { default: siteEn.seo.title, template: "%s" },
   description: siteEn.seo.description,
   alternates: { canonical: "/en", languages: { "fr-BE": "/", en: "/en" } },
-  icons: { icon: "/icon.svg" },
+  icons: { icon: "/icon.svg", apple: "/apple-icon.png" },
   openGraph: {
     title: siteEn.seo.title,
     description: siteEn.seo.description,
