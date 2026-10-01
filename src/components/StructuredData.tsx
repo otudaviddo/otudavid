@@ -54,11 +54,38 @@ export default function StructuredData() {
     ],
   };
 
+  // Identité du site : aide Google à reconnaître « David Otu » / « OTU DAVID »
+  // et à proposer les pages principales sous le résultat (liens de site).
+  const website = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: "David Otu",
+    alternateName: ["OTU DAVID", "David Otu ostéopathe kinésithérapeute", "otudavid.be"],
+    url: SITE_URL,
+    inLanguage: "fr-BE",
+  };
+  const person = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: "David Otu",
+    url: SITE_URL,
+    image: `${SITE_URL}/images/portrait-david-otu.webp`,
+    jobTitle: ["Ostéopathe D.O.", "Kinésithérapeute"],
+    sameAs: [site.instagram, disciplines.osteo.url, disciplines.kine.url],
+    memberOf: { "@type": "Organization", name: "UPOB — Union professionnelle des ostéopathes de Belgique", url: site.upob.url },
+    alumniOf: { "@type": "CollegeOrUniversity", name: "Université libre de Bruxelles (ULB)" },
+    workLocation: site.addresses.map((a) => ({ "@type": "Place", name: `Cabinet ${a.city}`, url: `${SITE_URL}/${a.slug}`, address: { "@type": "PostalAddress", streetAddress: a.street, addressLocality: a.city, postalCode: a.postalCode, addressCountry: "BE" } })),
+  };
+
   return (
+    <>
+    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(website) }} />
+    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(person) }} />
     <script
       type="application/ld+json"
       // eslint-disable-next-line react/no-danger
       dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
     />
+    </>
   );
 }

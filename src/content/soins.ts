@@ -15,7 +15,8 @@ export type Soin = {
   intro: string[];
   motifsTitle: string;
   motifs: string[];
-  approche: string[];
+  approcheIntro: string;
+  phases: { title: string; text: string }[];
   alerte: string[];
   faq: QA[];
 };
@@ -43,10 +44,13 @@ export const soins: Soin[] = [
       "Douleur au bassin, au coccyx ou à la région sacro-iliaque",
       "Douleurs de posture et de bureau, scoliose (accompagnement en kiné)",
     ],
-    approche: [
-      "La séance commence par un bilan : circonstances d'apparition, gestes qui soulagent ou aggravent, mobilité, et recherche des zones en lien avec la douleur (bassin, hanches, thorax).",
-      "En ostéopathie, des techniques manuelles douces et ciblées visent à relâcher les tensions et à redonner de la mobilité. En kinésithérapie, la prise en charge associe thérapie manuelle et exercices progressifs pour renforcer et stabiliser le dos sur la durée.",
-      "Vous repartez avec des conseils concrets : positions, mouvements à reprendre, exercices simples à faire chez vous.",
+    approcheIntro:
+      `Une douleur de dos n'est presque jamais « juste » un problème de vertèbre : la façon de bouger, la charge du quotidien, le sommeil ou le stress l'entretiennent souvent. La prise en charge vise donc à soulager, puis à rendre le dos à nouveau capable d'encaisser les contraintes de votre vie.`,
+    phases: [
+      { title: `Comprendre`, text: `Bilan complet : circonstances d'apparition, gestes qui soulagent ou aggravent, mobilité du dos, du bassin et des hanches, et recherche des signes qui nécessitent un avis médical.` },
+      { title: `Soulager`, text: `En phase aiguë (lumbago, dos bloqué), thérapie manuelle douce et conseils pour rester en mouvement sans aggraver : le repos complet ralentit souvent la récupération.` },
+      { title: `Renforcer`, text: `Reprise progressive du mouvement puis exercices de renforcement du tronc et des hanches, dosés selon la tolérance du jour, pour que le dos retrouve de la capacité.` },
+      { title: `Prévenir`, text: `Un programme simple à poursuivre chez vous, des repères pour le travail de bureau, le sport et le port de charges, afin de limiter les récidives.` },
     ],
     alerte: [
       "Douleur après une chute ou un choc important",
@@ -81,10 +85,13 @@ export const soins: Soin[] = [
       "Tensions de la mâchoire (articulation temporo-mandibulaire, ATM)",
       "Douleurs liées au travail de bureau et à l'écran",
     ],
-    approche: [
-      "Le bilan recherche ce qui entretient la douleur : position de travail, sommeil, stress, mobilité du dos et des épaules, mâchoire.",
-      "Le traitement ostéopathique repose sur des techniques manuelles douces adaptées à la zone cervicale, sensible par nature. Il est complété, si besoin, par des exercices de mobilité et de posture issus de la kinésithérapie.",
-      "Des conseils d'ergonomie (écran, oreiller, pauses) aident à limiter les récidives.",
+    approcheIntro:
+      `La nuque est rarement seule en cause : la posture devant l'écran, la mobilité du haut du dos et des épaules, la mâchoire ou les tensions liées au stress jouent souvent un rôle. L'objectif est de soulager rapidement, puis d'agir sur ce qui entretient la douleur.`,
+    phases: [
+      { title: `Comprendre`, text: `Bilan de la mobilité cervicale, du haut du dos, des épaules et de la mâchoire, et de vos habitudes (écran, sommeil, sport).` },
+      { title: `Soulager`, text: `Techniques manuelles douces adaptées à une zone sensible, sans manipulation forcée, toujours expliquées et ajustées à votre confort.` },
+      { title: `Remobiliser`, text: `Exercices de mobilité et de contrôle de la nuque et des épaules, pour retrouver un mouvement libre et sans appréhension.` },
+      { title: `Prévenir`, text: `Conseils d'ergonomie concrets (écran, oreiller, pauses) et quelques exercices courts à intégrer dans la journée.` },
     ],
     alerte: [
       "Douleur après un accident ou un choc à la tête",
@@ -118,9 +125,13 @@ export const soins: Soin[] = [
       "Douleur du piriforme ou de la fesse",
       "Récidives de sciatique, douleur chronique",
     ],
-    approche: [
-      "Le bilan évalue l'origine probable de la douleur, la mobilité du dos et du bassin, et les signes qui nécessitent un avis médical.",
-      "L'ostéopathie vise à diminuer les tensions autour de la zone irritée ; la kinésithérapie propose des exercices progressifs (mobilité nerveuse, renforcement, posture) pour soulager et éviter les récidives.",
+    approcheIntro:
+      `Une sciatique traduit une irritation du nerf, le plus souvent au niveau du bas du dos. La prise en charge cherche à calmer cette irritation sans immobiliser, puis à redonner progressivement de la tolérance au dos et à la jambe — en lien avec votre médecin quand c'est nécessaire.`,
+    phases: [
+      { title: `Comprendre`, text: `Bilan pour situer l'origine probable de la douleur, évaluer la force et la sensibilité de la jambe, et repérer les signes d'alerte.` },
+      { title: `Calmer`, text: `Positions et mouvements qui soulagent, thérapie manuelle et gestion de l'activité pour faire diminuer l'irritation du nerf.` },
+      { title: `Rééduquer`, text: `Exercices progressifs de mobilité, de mobilisation du nerf et de renforcement du tronc et des hanches.` },
+      { title: `Prévenir`, text: `Reprise encadrée des activités et programme d'entretien pour limiter les récidives.` },
     ],
     alerte: [
       "Perte de force dans la jambe ou le pied",
@@ -135,14 +146,14 @@ export const soins: Soin[] = [
   {
     slug: "douleur-genou",
     card: "Douleur au genou",
-    cardText: "Ménisque, ligaments croisés, tendinite, entorse",
+    cardText: "Ménisque, ligaments croisés, tendinopathie, entorse",
     discipline: "kine",
     metaTitle: "Douleur au genou, ménisque, croisés | Kiné Ixelles & Woluwe",
     metaDescription:
-      "Douleur au genou, entorse, ménisque, ligaments croisés, tendinite rotulienne, prothèse : kinésithérapeute et ostéopathe à Ixelles et Woluwe-Saint-Pierre.",
+      "Douleur au genou, entorse, ménisque, ligaments croisés, tendinopathie rotulienne, prothèse : kinésithérapeute et ostéopathe à Ixelles et Woluwe-Saint-Pierre.",
     h1: "Douleur au genou : kinésithérapie et ostéopathie à Ixelles et Woluwe-Saint-Pierre",
     intro: [
-      "Le genou est très sollicité au quotidien comme au sport. Une entorse, une lésion du ménisque ou des ligaments croisés, une tendinite ou de l'arthrose peuvent rendre la marche, les escaliers ou la course douloureux.",
+      "Le genou est très sollicité au quotidien comme au sport. Une entorse, une lésion du ménisque ou des ligaments croisés, une tendinopathie ou de l'arthrose peuvent rendre la marche, les escaliers ou la course douloureux.",
       "Kinésithérapeute et ostéopathe D.O., David Otu prend en charge les douleurs de genou et leur rééducation à Ixelles et à Woluwe-Saint-Pierre, avec ou sans opération.",
     ],
     motifsTitle: "Douleurs et situations prises en charge",
@@ -150,13 +161,17 @@ export const soins: Soin[] = [
       "Entorse du genou",
       "Lésion du ménisque (opérée ou non)",
       "Ligaments croisés : rééducation avant et après opération",
-      "Tendinite rotulienne, syndrome rotulien, douleur à l'avant du genou",
+      "Tendinopathie rotulienne (souvent appelée tendinite), syndrome fémoro-patellaire, douleur à l'avant du genou",
       "Syndrome de la bandelette ilio-tibiale (genou du coureur)",
       "Arthrose du genou, rééducation après prothèse de genou",
     ],
-    approche: [
-      "Le bilan évalue la mobilité, la stabilité et la force du genou, mais aussi la hanche, la cheville et la façon de marcher ou de courir.",
-      "La rééducation associe thérapie manuelle, renforcement progressif, travail d'équilibre et exercices adaptés à vos objectifs — retrouver une marche confortable ou reprendre le sport. Le suivi est ajusté séance après séance.",
+    approcheIntro:
+      `Un genou douloureux se rééduque rarement en ne regardant que le genou : la hanche, la cheville, la façon de marcher, de courir ou de sauter, et surtout la charge imposée au tissu comptent autant. La rééducation progresse par étapes, avec des critères objectifs pour passer de l'une à l'autre.`,
+    phases: [
+      { title: `Évaluer`, text: `Bilan de la mobilité, de la stabilité et de la force du genou, de la hanche et de la cheville, et analyse des gestes qui déclenchent la douleur.` },
+      { title: `Calmer & protéger`, text: `Gestion de la douleur et du gonflement, adaptation temporaire de la charge (sans arrêt complet quand ce n'est pas nécessaire).` },
+      { title: `Renforcer`, text: `Renforcement progressif des quadriceps, des ischio-jambiers et des hanches, travail d'équilibre et de contrôle du genou.` },
+      { title: `Reprendre`, text: `Retour à la course, aux sauts et aux changements de direction lorsque des tests simples de force et de contrôle le permettent — pas seulement quand la douleur a disparu.` },
     ],
     alerte: [
       "Genou qui gonfle fortement après un traumatisme",
@@ -171,11 +186,11 @@ export const soins: Soin[] = [
   {
     slug: "entorse-cheville",
     card: "Entorse de la cheville",
-    cardText: "Entorse, instabilité, tendinite d'Achille, fasciite plantaire",
+    cardText: "Entorse, instabilité, tendinopathie d'Achille, fasciopathie plantaire",
     discipline: "kine",
-    metaTitle: "Entorse de la cheville | Kiné Ixelles & Woluwe-Saint-Pierre",
+    metaTitle: "Entorse de la cheville, tendinopathie d'Achille | Kiné Ixelles",
     metaDescription:
-      "Entorse de la cheville, instabilité, tendinite d'Achille, fasciite plantaire : rééducation en kinésithérapie à Ixelles et Woluwe-Saint-Pierre.",
+      "Entorse de la cheville, instabilité, tendinopathie d'Achille, fasciopathie plantaire : rééducation en kinésithérapie à Ixelles et Woluwe-Saint-Pierre.",
     h1: "Entorse de la cheville et douleurs du pied à Ixelles et Woluwe-Saint-Pierre",
     intro: [
       "L'entorse de la cheville est l'une des blessures les plus fréquentes, au sport comme dans la vie de tous les jours. Mal rééduquée, elle peut laisser une cheville instable et favoriser les récidives.",
@@ -185,13 +200,17 @@ export const soins: Soin[] = [
     motifs: [
       "Entorse de la cheville, récente ou à répétition",
       "Instabilité de la cheville",
-      "Tendinite d'Achille",
-      "Fasciite plantaire, douleur sous le talon",
+      "Tendinopathie d'Achille (souvent appelée tendinite)",
+      "Fasciopathie plantaire (fasciite), douleur sous le talon",
       "Rééducation après fracture ou opération de la cheville",
     ],
-    approche: [
-      "Le bilan évalue la stabilité, la mobilité et la force de la cheville, ainsi que l'appui et la marche.",
-      "La rééducation progresse étape par étape : gestion de la douleur et du gonflement, récupération de la mobilité, renforcement, travail d'équilibre (proprioception) puis gestes spécifiques à votre sport.",
+    approcheIntro:
+      `Une entorse « banale » mal rééduquée est la première cause de récidive. La rééducation ne s'arrête donc pas quand la douleur disparaît : elle vise à rendre à la cheville sa stabilité, sa force et ses réflexes avant le retour à vos activités.`,
+    phases: [
+      { title: `Évaluer`, text: `Bilan de la stabilité, de la mobilité et de la force, et vérification des signes qui doivent faire écarter une fracture.` },
+      { title: `Protéger & mobiliser`, text: `Gestion du gonflement, reprise précoce et dosée de la marche et de la mobilité.` },
+      { title: `Renforcer`, text: `Renforcement de la cheville et du mollet, travail d'équilibre et de proprioception de plus en plus exigeant.` },
+      { title: `Reprendre`, text: `Sauts, appuis et changements de direction progressifs, puis retour au sport lorsque les tests de stabilité et de force sont satisfaisants.` },
     ],
     alerte: [
       "Impossibilité de faire quelques pas après l'entorse",
@@ -224,9 +243,13 @@ export const soins: Soin[] = [
       "Fracture (poignet, cheville, épaule…) après immobilisation",
       "Chirurgie du rachis, sur avis du chirurgien",
     ],
-    approche: [
-      "Le bilan initial tient compte du compte rendu opératoire et du protocole du chirurgien.",
-      "La rééducation associe gestion de la douleur, récupération de l'amplitude, renforcement progressif et travail fonctionnel (marche, escaliers, gestes du quotidien, retour au travail ou au sport). Les objectifs sont réévalués régulièrement.",
+    approcheIntro:
+      `Après une opération, la rééducation suit le protocole du chirurgien et le rythme de la cicatrisation. Chaque étape a un objectif clair et mesurable, pour avancer ni trop vite ni trop lentement, jusqu'au retour à l'autonomie, au travail ou au sport.`,
+    phases: [
+      { title: `Bilan initial`, text: `Prise en compte du compte rendu opératoire et du protocole du chirurgien, évaluation de la douleur, de l'amplitude et de la force.` },
+      { title: `Récupérer`, text: `Gestion de la douleur et du gonflement, récupération progressive de l'amplitude articulaire et de la marche.` },
+      { title: `Renforcer`, text: `Renforcement progressif et travail fonctionnel : escaliers, gestes du quotidien, appuis, équilibre.` },
+      { title: `Retourner à l'activité`, text: `Reprise du travail ou du sport selon des critères définis avec vous et en accord avec le chirurgien.` },
     ],
     alerte: [
       "Fièvre, cicatrice rouge, chaude ou qui coule",
@@ -241,11 +264,11 @@ export const soins: Soin[] = [
   {
     slug: "kine-du-sport",
     card: "Kiné du sport",
-    cardText: "Blessure, claquage, pubalgie, tendinite, reprise du sport",
+    cardText: "Blessure, claquage, pubalgie, tendinopathie, reprise du sport",
     discipline: "both",
     metaTitle: "Kiné du sport, blessure, reprise | Ixelles & Woluwe",
     metaDescription:
-      "Kinésithérapeute du sport et ostéopathe à Ixelles et Woluwe-Saint-Pierre : claquage, pubalgie, adducteurs, tendinite, entorse, reprise du sport après blessure.",
+      "Kinésithérapeute du sport et ostéopathe à Ixelles et Woluwe-Saint-Pierre : claquage, pubalgie, adducteurs, tendinopathies, entorse, reprise du sport après blessure.",
     h1: "Kiné du sport à Ixelles et Woluwe-Saint-Pierre",
     intro: [
       "Une blessure sportive demande une prise en charge précise : soulager, rééduquer, puis préparer un retour au sport sans récidive. Football, course à pied, sports de raquette, salle de sport — chaque discipline a ses contraintes.",
@@ -255,14 +278,18 @@ export const soins: Soin[] = [
     motifs: [
       "Claquage, élongation, déchirure musculaire",
       "Pubalgie, douleur des adducteurs",
-      "Tendinites : épaule, genou, tendon d'Achille, épicondylite (tennis elbow)",
+      "Tendinopathies (souvent appelées tendinites) : épaule, genou, tendon d'Achille, coude (tennis elbow)",
       "Entorse de la cheville ou du genou",
       "Épaule douloureuse du sportif",
       "Reprise du sport après blessure ou opération, prévention des blessures",
     ],
-    approche: [
-      "Le bilan analyse la blessure, mais aussi les gestes de votre sport, la charge d'entraînement et les facteurs de risque.",
-      "La rééducation progresse vers des exercices de plus en plus spécifiques : renforcement, course, changements de direction, sauts, gestes techniques. L'objectif est un retour au sport progressif, en limitant le risque de rechute.",
+    approcheIntro:
+      `En rééducation sportive, disparition de la douleur ne veut pas dire guérison. L'approche s'inspire des méthodes de la rééducation du sport : comprendre la blessure et ses causes, gérer la charge, renforcer de façon progressive et valider le retour au terrain par des tests, pas au calendrier.`,
+    phases: [
+      { title: `Tester`, text: `Bilan de la blessure, de la mobilité, de la force et des gestes de votre sport, et des facteurs qui ont pu favoriser la blessure (charge d'entraînement, récupération).` },
+      { title: `Traiter`, text: `Thérapie manuelle et gestion de la charge pour calmer la zone sans perdre la condition physique.` },
+      { title: `Entraîner`, text: `Renforcement progressif puis exercices de plus en plus spécifiques : course, accélérations, changements de direction, sauts, gestes techniques.` },
+      { title: `Reprendre & prévenir`, text: `Retour au sport par étapes, validé par des tests de force et de contrôle, et programme de prévention pour limiter le risque de rechute.` },
     ],
     alerte: [
       "Douleur vive avec craquement ou impossibilité de continuer l'effort",

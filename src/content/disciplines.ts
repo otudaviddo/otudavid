@@ -29,7 +29,7 @@ export const kineContent = {
   ],
   groups: [
     { title: "Rééducation post-opératoire", items: ["Prothèse de genou ou de hanche", "Ligaments croisés, ménisque", "Chirurgie de l'épaule", "Fracture après immobilisation"] },
-    { title: "Traumatologie", items: ["Entorse de la cheville ou du genou", "Tendinites : épaule, genou, tendon d'Achille", "Épicondylite (tennis elbow)", "Fasciite plantaire"] },
+    { title: "Traumatologie", items: ["Entorse de la cheville ou du genou", "Tendinopathies : épaule, genou, tendon d'Achille", "Tendinopathie du coude (tennis elbow)", "Fasciopathie plantaire"] },
     { title: "Kiné du sport", items: ["Claquage, élongation", "Pubalgie, adducteurs", "Reprise du sport après blessure", "Prévention des blessures"] },
     { title: "Dos et nuque", items: ["Lombalgie, hernie discale", "Cervicalgie", "Scoliose, posture"] },
     { title: "Rééducation fonctionnelle", items: ["Marche, équilibre, escaliers", "Retour aux gestes du quotidien et au travail"] },

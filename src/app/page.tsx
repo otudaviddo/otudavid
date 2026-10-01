@@ -9,6 +9,8 @@ import SoinsGrid from "@/components/SoinsGrid";
 import FaqCarousel from "@/components/FaqCarousel";
 import FaqSchema from "@/components/FaqSchema";
 import { faqHome } from "@/content/faq";
+import TrustBand from "@/components/TrustBand";
+import Approach from "@/components/Approach";
 
 export default function Home() {
   return (
@@ -24,6 +26,8 @@ export default function Home() {
           <Choice d={disciplines.kine} kind="kine" image="/images/kinesitherapie-genou.webp" position="50% 50%" alt="Séance de kinésithérapie : travail manuel sur le genou d'un sportif" />
         </div>
       </section>
+
+      <TrustBand />
 
       {/* Présentation */}
       <section aria-labelledby="apropos-title" data-tone="dark" className="w-full bg-night">
@@ -60,6 +64,7 @@ export default function Home() {
         </div>
       </section>
 
+      <Approach />
       <SoinsGrid
         tone="light"
         intro="Douleurs aiguës, rééducation, sport : les situations les plus fréquentes, avec une page détaillée pour chacune."

@@ -47,8 +47,8 @@ export default function SoinPage({ s }: { s: Soin }) {
         </div>
       </section>
 
-      {/* Contenu */}
-      <section data-tone="light" className="w-full bg-ivory text-night">
+      {/* Contenu (fond blanc, rendu médical) */}
+      <section data-tone="light" className="w-full bg-white text-night">
         <div className="mx-auto grid max-w-6xl gap-16 px-6 py-20 md:grid-cols-2 md:px-10 md:py-28">
           <div data-reveal>
             <h2 className="font-serif text-3xl">{s.motifsTitle}</h2>
@@ -60,10 +60,18 @@ export default function SoinPage({ s }: { s: Soin }) {
           </div>
           <div data-reveal>
             <h2 className="font-serif text-3xl">La prise en charge</h2>
-            {s.approche.map((p, i) => (
-              <p key={i} className="mt-5 text-base leading-relaxed text-night/80">{p}</p>
-            ))}
-            <div className="mt-10 border border-night/15 bg-white/40 p-6">
+            <p className="mt-5 text-base leading-relaxed text-night/80">{s.approcheIntro}</p>
+            <ol className="mt-8 border-l border-night/15">
+              {s.phases.map((ph, i) => (
+                <li key={ph.title} className="relative pb-6 pl-7 last:pb-0">
+                  <span aria-hidden className="absolute -left-[4px] top-[9px] h-[7px] w-[7px] rounded-full bg-steelDeep" />
+                  <p className="text-[11px] uppercase tracking-[0.25em] text-steelDeep">Étape {i + 1}</p>
+                  <h3 className="mt-1 font-serif text-xl">{ph.title}</h3>
+                  <p className="mt-1 text-[15px] leading-relaxed text-night/75">{ph.text}</p>
+                </li>
+              ))}
+            </ol>
+            <div className="mt-10 border border-night/15 bg-ivory/60 p-6">
               <p className="text-[11px] uppercase tracking-[0.25em] text-steelDeep">Consultez d&apos;abord un médecin en cas de</p>
               <ul className="mt-4 list-disc space-y-2 pl-5 text-sm leading-relaxed text-night/80">
                 {s.alerte.map((a) => <li key={a}>{a}</li>)}
@@ -76,14 +84,14 @@ export default function SoinPage({ s }: { s: Soin }) {
         <div className="mx-auto max-w-6xl px-6 pb-20 md:px-10 md:pb-28">
           <div data-reveal className="grid gap-px border border-night/15 bg-night/15 md:grid-cols-3">
             {site.addresses.slice().reverse().map((a) => (
-              <a key={a.slug} href={`/${a.slug}`} className="block bg-ivory p-7 transition-colors hover:bg-white/50">
+              <a key={a.slug} href={`/${a.slug}`} className="block bg-white p-7 transition-colors hover:bg-ivory/40">
                 <p className="text-[11px] uppercase tracking-[0.25em] text-steelDeep">Cabinet</p>
                 <p className="mt-3 font-serif text-2xl">{a.city}</p>
                 <p className="mt-2 text-sm text-night/70">{a.street}, {a.postalCode}</p>
                 <p className="mt-1 text-sm italic text-night/70">{a.days}</p>
               </a>
             ))}
-            <div className="bg-ivory p-7">
+            <div className="bg-white p-7">
               <p className="text-[11px] uppercase tracking-[0.25em] text-steelDeep">Remboursement</p>
               <p className="mt-3 text-sm leading-relaxed text-night/80"><strong className="font-medium">Ostéopathie :</strong> {site.reimbursement.osteo}</p>
               <p className="mt-2 text-sm leading-relaxed text-night/80"><strong className="font-medium">Kinésithérapie :</strong> {site.reimbursement.kine}</p>

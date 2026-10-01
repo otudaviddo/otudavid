@@ -5,6 +5,7 @@ import SoinsGrid from "@/components/SoinsGrid";
 import FaqCarousel from "@/components/FaqCarousel";
 import FaqSchema from "@/components/FaqSchema";
 import Reveal from "@/components/Reveal";
+import Approach from "@/components/Approach";
 
 type D = (typeof disciplines)[keyof typeof disciplines];
 
@@ -37,8 +38,8 @@ export default function BookingPage({ d }: { d: D }) {
         </p>
       </section>
 
-      {/* Présentation + motifs */}
-      <section data-tone="light" className="w-full bg-ivory text-night">
+      {/* Présentation + motifs (fond blanc) */}
+      <section data-tone="light" className="w-full bg-white text-night">
         <div className="mx-auto grid max-w-6xl gap-14 px-6 py-20 md:grid-cols-[5fr_7fr] md:px-10 md:py-28">
           <div data-reveal>
             <h2 className="font-serif text-3xl">{osteo ? "L'ostéopathie" : "La kinésithérapie"}</h2>
@@ -68,19 +69,19 @@ export default function BookingPage({ d }: { d: D }) {
         {/* Déroulé + remboursement + cabinets */}
         <div className="mx-auto max-w-6xl px-6 pb-20 md:px-10 md:pb-28">
           <div data-reveal className="grid gap-px border border-night/15 bg-night/15 md:grid-cols-3">
-            <div className="bg-ivory p-7">
+            <div className="bg-white p-7">
               <p className="text-[11px] uppercase tracking-[0.25em] text-steelDeep">Déroulement · {osteo ? site.duration.osteo : site.duration.kine}</p>
               <ol className="mt-4 space-y-3 text-sm leading-relaxed text-night/80">
                 {c.deroule.map((s, i) => <li key={i}><span className="mr-2 font-serif text-lg text-night">{i + 1}.</span>{s}</li>)}
               </ol>
             </div>
-            <div className="bg-ivory p-7">
+            <div className="bg-white p-7">
               <p className="text-[11px] uppercase tracking-[0.25em] text-steelDeep">Remboursement</p>
               <p className="mt-4 text-sm leading-relaxed text-night/80">{osteo ? site.reimbursement.osteo : site.reimbursement.kine}</p>
               {!osteo && <p className="mt-3 text-sm leading-relaxed text-night/70">Pensez à apporter la prescription de votre médecin et votre carte d&apos;identité.</p>}
               {osteo && <p className="mt-3 text-sm leading-relaxed text-night/70">Aucune prescription n&apos;est nécessaire pour consulter en ostéopathie.</p>}
             </div>
-            <div className="bg-ivory p-7">
+            <div className="bg-white p-7">
               <p className="text-[11px] uppercase tracking-[0.25em] text-steelDeep">Cabinets</p>
               {site.addresses.slice().reverse().map((a) => (
                 <a key={a.slug} href={`/${a.slug}`} className="mt-4 block hover:text-steelDeep">
@@ -93,6 +94,7 @@ export default function BookingPage({ d }: { d: D }) {
         </div>
       </section>
 
+      <Approach />
       <SoinsGrid tone="dark" only={osteo ? "osteo" : "kine"} title="Pages détaillées" />
       <FaqCarousel items={faq} tone="light" id="faq" />
       <Reveal />
