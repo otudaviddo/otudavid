@@ -1,7 +1,8 @@
 import { site, disciplines } from "@/config/site";
 import { osteoContent, kineContent } from "@/content/disciplines";
 import { faqOsteo, faqKine } from "@/content/faq";
-import SoinsGrid from "@/components/SoinsGrid";
+import SoinSections from "@/components/SoinSections";
+import { soins, OSTEO_SOINS, KINE_SOINS } from "@/content/soins";
 import FaqCarousel from "@/components/FaqCarousel";
 import FaqSchema from "@/components/FaqSchema";
 import Reveal from "@/components/Reveal";
@@ -13,10 +14,12 @@ export default function BookingPage({ d }: { d: D }) {
   const osteo = d.slug === "osteo";
   const c = osteo ? osteoContent : kineContent;
   const faq = osteo ? faqOsteo : faqKine;
+  const mine = soins.filter((s) => (osteo ? OSTEO_SOINS : KINE_SOINS).includes(s.slug));
+  const allFaq = [...faq, ...mine.flatMap((s) => s.faq)];
 
   return (
     <>
-      <FaqSchema items={faq} />
+      <FaqSchema items={allFaq} />
 
       {/* En-tête */}
       <section data-tone="dark" className="mx-auto flex max-w-3xl flex-col items-center px-6 pb-20 pt-20 text-center md:pt-28">
@@ -94,8 +97,8 @@ export default function BookingPage({ d }: { d: D }) {
         </div>
       </section>
 
+      <SoinSections items={mine} />
       <Approach />
-      <SoinsGrid tone="dark" only={osteo ? "osteo" : "kine"} title="Pages détaillées" />
       <FaqCarousel items={faq} tone="light" id="faq" />
       <Reveal />
     </>

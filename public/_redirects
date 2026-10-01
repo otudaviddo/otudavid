@@ -1,0 +1,9 @@
+# Anciennes pages de motifs, regroupées dans /osteo et /kine (redirection permanente)
+/soins/mal-de-dos-lumbago /osteo#mal-de-dos-lumbago 301
+/soins/torticolis-cervicalgie /osteo#torticolis-cervicalgie 301
+/soins/sciatique /osteo#sciatique 301
+/soins/douleur-genou /kine#douleur-genou 301
+/soins/entorse-cheville /kine#entorse-cheville 301
+/soins/reeducation-post-operatoire /kine#reeducation-post-operatoire 301
+/soins/kine-du-sport /kine#kine-du-sport 301
+/soins /osteo#motifs 301

@@ -5,7 +5,6 @@ import Testimonials from "@/components/Testimonials";
 import Contact from "@/components/Contact";
 import Reveal from "@/components/Reveal";
 import MobileBooking from "@/components/MobileBooking";
-import SoinsGrid from "@/components/SoinsGrid";
 import FaqCarousel from "@/components/FaqCarousel";
 import FaqSchema from "@/components/FaqSchema";
 import { faqHome } from "@/content/faq";
@@ -65,10 +64,6 @@ export default function Home() {
       </section>
 
       <Approach />
-      <SoinsGrid
-        tone="light"
-        intro="Douleurs aiguës, rééducation, sport : les situations les plus fréquentes, avec une page détaillée pour chacune."
-      />
       <Parcours />
       <Testimonials />
       <FaqSchema items={faqHome} />

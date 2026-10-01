@@ -3,8 +3,8 @@
 const pillars = [
   { n: "01", t: "Comprendre", d: "Un bilan complet pour identifier la cause de la douleur, pas seulement l'endroit où elle se manifeste : mobilité, force, gestes du quotidien et du sport." },
   { n: "02", t: "Soulager", d: "Thérapie manuelle et techniques ostéopathiques pour diminuer la douleur et retrouver de la mobilité, dès les premières séances." },
-  { n: "03", t: "Renforcer", d: "Une rééducation active : exercices ciblés et progressifs, dosés selon votre tolérance, pour que le corps retrouve sa capacité." },
-  { n: "04", t: "Prévenir", d: "Reprise de vos activités sur des critères objectifs, et un programme à poursuivre chez vous pour limiter les récidives." },
+  { n: "03", t: "Renforcer", d: "Une rééducation active, fonctionnelle et adaptée à votre sport : exercices ciblés et progressifs, dosés selon votre tolérance, avec des progrès mesurés." },
+  { n: "04", t: "Prévenir", d: "Un retour à vos activités guidé étape par étape, validé par des tests simples, et un programme à poursuivre chez vous pour limiter les récidives." },
 ];
 
 export default function Approach({ title = "Mon approche" }: { title?: string }) {

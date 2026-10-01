@@ -304,3 +304,8 @@ export const soins: Soin[] = [
 ];
 
 export const soinBySlug = (slug: string) => soins.find((s) => s.slug === slug);
+
+/** Page d'accueil de chaque motif (une seule, pour éviter le contenu en double). */
+export const OSTEO_SOINS = ["mal-de-dos-lumbago", "torticolis-cervicalgie", "sciatique"];
+export const KINE_SOINS = ["douleur-genou", "entorse-cheville", "reeducation-post-operatoire", "kine-du-sport"];
+export const soinHref = (slug: string) => `${OSTEO_SOINS.includes(slug) ? "/osteo" : "/kine"}#${slug}`;

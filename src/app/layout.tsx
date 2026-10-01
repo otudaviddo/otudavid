@@ -1,12 +1,12 @@
 import type { Metadata, Viewport } from "next";
-import { Cormorant_Garamond, Inter } from "next/font/google";
+import { Cormorant_Garamond, Manrope } from "next/font/google";
 import { site, SITE_URL } from "@/config/site";
 import Header from "@/components/Header";
 import StructuredData from "@/components/StructuredData";
 import "./globals.css";
 
 const serif = Cormorant_Garamond({ subsets: ["latin"], weight: ["400", "500", "600"], variable: "--font-serif" });
-const sans = Inter({ subsets: ["latin"], variable: "--font-sans" });
+const sans = Manrope({ subsets: ["latin"], weight: ["400", "500", "600"], variable: "--font-sans" });
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),

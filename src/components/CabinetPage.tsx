@@ -1,5 +1,5 @@
 import { site, disciplines, SITE_URL } from "@/config/site";
-import { soins } from "@/content/soins";
+import { soins, soinHref } from "@/content/soins";
 
 type A = (typeof site.addresses)[number];
 
@@ -105,7 +105,7 @@ export default function CabinetPage({ a }: { a: A }) {
             <ul className="mt-8 flex flex-wrap gap-3">
               {soins.map((s) => (
                 <li key={s.slug}>
-                  <a href={`/soins/${s.slug}`} className="inline-block border border-ivory/20 px-4 py-2 text-sm text-ivory/85 transition-colors hover:border-ivory hover:bg-ivory hover:text-night">{s.card}</a>
+                  <a href={soinHref(s.slug)} className="inline-block border border-ivory/20 px-4 py-2 text-sm text-ivory/85 transition-colors hover:border-ivory hover:bg-ivory hover:text-night">{s.card}</a>
                 </li>
               ))}
             </ul>
