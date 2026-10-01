@@ -10,6 +10,7 @@ import FaqCarousel from "@/components/FaqCarousel";
 import FaqSchema from "@/components/FaqSchema";
 import TrustBand from "@/components/TrustBand";
 import Approach from "@/components/Approach";
+import Tilt from "@/components/Tilt";
 
 export default function HomePage({ lang = "fr" }: { lang?: Lang }) {
   const c = content(lang);
@@ -33,14 +34,19 @@ export default function HomePage({ lang = "fr" }: { lang?: Lang }) {
       {/* Présentation */}
       <section aria-labelledby="apropos-title" data-tone="dark" className="w-full bg-night">
         <div className="mx-auto grid max-w-6xl items-center gap-12 px-6 py-24 md:grid-cols-[5fr_7fr] md:gap-20 md:px-10 md:py-32">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src="/images/portrait-david-otu.webp"
-            alt={t.altPortrait}
-            width={1025} height={1281} loading="lazy"
-            className="mx-auto aspect-[4/5] w-full max-w-sm object-cover md:max-w-none"
-            data-reveal
-          />
+          {/* Portrait en relief : un cadre fin en retrait, la photo devant */}
+          <div data-reveal className="mx-auto w-full max-w-sm pb-4 pr-4 md:max-w-none">
+            <Tilt max={4} className="relative">
+              <span aria-hidden className="tilt-back absolute inset-0 border border-steel/45" />
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/images/portrait-david-otu.webp"
+                alt={t.altPortrait}
+                width={1025} height={1281} loading="lazy"
+                className="tilt-front relative aspect-[4/5] w-full object-cover"
+              />
+            </Tilt>
+          </div>
           <div data-reveal>
             <p className="text-[11px] uppercase tracking-[0.3em] text-steel">{t.about}</p>
             <h2 id="apropos-title" className="mt-5 font-serif text-4xl tracking-[0.12em] sm:text-5xl">David Otu</h2>

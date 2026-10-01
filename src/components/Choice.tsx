@@ -114,6 +114,28 @@ export default function Choice({ d, image, position = "center", kind, alt = "", 
     return () => io.disconnect();
   }, []);
 
+  // Profondeur 3D : à la souris, la photo, le dessin et le texte bougent
+  // à des vitesses différentes, comme trois plans l'un derrière l'autre.
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    if (!window.matchMedia("(hover: hover) and (pointer: fine)").matches) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    let raf = 0;
+    const move = (e: PointerEvent) => {
+      cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(() => {
+        const b = el.getBoundingClientRect();
+        el.style.setProperty("--px", (((e.clientX - b.left) / b.width - 0.5) * 2).toFixed(3));
+        el.style.setProperty("--py", (((e.clientY - b.top) / b.height - 0.5) * 2).toFixed(3));
+      });
+    };
+    const leave = () => { cancelAnimationFrame(raf); el.style.setProperty("--px", "0"); el.style.setProperty("--py", "0"); };
+    el.addEventListener("pointermove", move);
+    el.addEventListener("pointerleave", leave);
+    return () => { cancelAnimationFrame(raf); el.removeEventListener("pointermove", move); el.removeEventListener("pointerleave", leave); };
+  }, []);
+
   return (
     <a
       ref={ref}
@@ -138,11 +160,13 @@ export default function Choice({ d, image, position = "center", kind, alt = "", 
 
       {/* Dessin technique */}
       <span aria-hidden className="pointer-events-none absolute right-[6%] top-[22%] h-[38%] text-ivory/90 md:top-1/2 md:h-[50%] md:-translate-y-1/2">
-        {kind === "osteo" ? <PostureDrawing /> : <PerformanceDrawing />}
+        <span className="panel-float block h-full">
+          {kind === "osteo" ? <PostureDrawing /> : <PerformanceDrawing />}
+        </span>
       </span>
 
       {/* Texte */}
-      <span className="relative z-10 mt-auto flex flex-col gap-4 p-7 md:p-12">
+      <span className="panel-text relative z-10 mt-auto flex flex-col gap-4 p-7 md:p-12">
         <span className="text-[11px] uppercase tracking-[0.3em] text-ivory/75">
           {pro}
         </span>

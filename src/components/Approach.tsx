@@ -9,6 +9,7 @@ const pillars = [
 
 import { approachEn } from "@/content/en";
 import type { Lang } from "@/i18n";
+import Tilt from "@/components/Tilt";
 
 export default function Approach({ lang = "fr" }: { lang?: Lang }) {
   const en = lang === "en";
@@ -25,11 +26,11 @@ export default function Approach({ lang = "fr" }: { lang?: Lang }) {
         </div>
         <ol data-reveal className="mt-14 grid gap-px border border-night/10 bg-night/10 sm:grid-cols-2 lg:grid-cols-4">
           {list.map((p) => (
-            <li key={p.n} className="bg-white p-7">
-              <p className="text-[11px] uppercase tracking-[0.25em] text-steelDeep">{p.n}</p>
-              <h3 className="mt-4 font-serif text-2xl">{p.t}</h3>
+            <Tilt as="li" key={p.n} className="tilt-card bg-white p-7">
+              <p className="tilt-pop text-[11px] uppercase tracking-[0.25em] text-steelDeep">{p.n}</p>
+              <h3 className="tilt-pop mt-4 font-serif text-2xl">{p.t}</h3>
               <p className="mt-3 text-[15px] leading-relaxed text-night/70">{p.d}</p>
-            </li>
+            </Tilt>
           ))}
         </ol>
       </div>
