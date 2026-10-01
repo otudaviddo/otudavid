@@ -1,8 +1,6 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
-import { disciplines } from "@/config/site";
-
-type D = (typeof disciplines)[keyof typeof disciplines];
+type D = { url: string; upper: string };
 
 /* ---------- Dessins techniques (tracés au trait fin) ---------- */
 
@@ -102,8 +100,8 @@ function PerformanceDrawing() {
 
 /* ---------- Panneau cliquable ---------- */
 
-export default function Choice({ d, image, position = "center", kind, alt = "" }: {
-  d: D; image: string; position?: string; kind: "osteo" | "kine"; alt?: string;
+export default function Choice({ d, image, position = "center", kind, alt = "", pro, cta }: {
+  d: D; image: string; position?: string; kind: "osteo" | "kine"; alt?: string; pro: string; cta: string;
 }) {
   const ref = useRef<HTMLAnchorElement>(null);
   const [visible, setVisible] = useState(false);
@@ -146,12 +144,12 @@ export default function Choice({ d, image, position = "center", kind, alt = "" }
       {/* Texte */}
       <span className="relative z-10 mt-auto flex flex-col gap-4 p-7 md:p-12">
         <span className="text-[11px] uppercase tracking-[0.3em] text-ivory/75">
-          {kind === "osteo" ? "Ostéopathe D.O." : "Kinésithérapeute"}
+          {pro}
         </span>
         <span className="font-serif text-[clamp(1.9rem,8.2vw,2.6rem)] leading-none tracking-[0.12em] text-ivory md:text-[clamp(2rem,3.3vw,3.6rem)]">{d.upper}</span>
         <span className="h-px w-12 bg-ivory/40 transition-all duration-700 group-hover:w-24 group-hover:bg-steel" />
         <span className="text-xs uppercase tracking-[0.25em] text-ivory/90 transition-transform duration-500 group-hover:translate-x-1">
-          Prendre rendez-vous →
+          {cta} →
         </span>
       </span>
     </a>

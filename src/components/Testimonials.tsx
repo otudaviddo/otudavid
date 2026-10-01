@@ -2,8 +2,9 @@
 import { useEffect, useRef, useState } from "react";
 import { site, OSTEO_DOCTORANYTIME_URL } from "@/config/site";
 import { testimonials } from "@/config/testimonials";
+import { content, reviewDate, type Lang } from "@/i18n";
 
-function Card({ t }: { t: (typeof testimonials)[number] }) {
+function Card({ t, lang }: { t: (typeof testimonials)[number]; lang: Lang }) {
   return (
     <figure className="flex w-[280px] shrink-0 flex-col justify-between border border-night/15 bg-ivory px-6 py-7 sm:w-[360px] sm:px-7 sm:py-8">
       <blockquote className="font-serif text-base italic leading-relaxed text-night/85 sm:text-lg">
@@ -11,13 +12,18 @@ function Card({ t }: { t: (typeof testimonials)[number] }) {
       </blockquote>
       <figcaption className="mt-6 flex items-center justify-between text-[11px] uppercase tracking-[0.22em] text-night/50">
         <span>{t.author}</span>
-        <span>{t.date}</span>
+        <span>{reviewDate(lang, t.date)}</span>
       </figcaption>
     </figure>
   );
 }
 
-export default function Testimonials() {
+export default function Testimonials({ lang = "fr" }: { lang?: Lang }) {
+  const c = content(lang);
+  const t = c.ui.avis;
+  // En anglais, les avis rédigés en anglais passent en premier.
+  const isEn = (q: string) => /\b(the|and|very|recommend|helpful|guy)\b/i.test(q);
+  const list = lang === "en" ? [...testimonials].sort((a, b) => Number(isEn(b.quote)) - Number(isEn(a.quote))) : testimonials;
   const box = useRef<HTMLDivElement>(null);
   const paused = useRef(false);
   const [loop, setLoop] = useState(false);
@@ -67,12 +73,12 @@ export default function Testimonials() {
     <section id="avis" data-tone="light" aria-labelledby="avis-title" className="relative w-full bg-ivory text-night">
       <div data-reveal className="mx-auto flex max-w-6xl flex-col items-center gap-8 px-6 pb-12 pt-24 text-center md:flex-row md:items-end md:justify-between md:px-10 md:pt-32 md:text-left">
         <div>
-          <h2 id="avis-title" className="font-serif text-3xl tracking-[0.25em] sm:text-4xl">AVIS</h2>
-          <p className="mt-4 text-xs uppercase tracking-[0.25em] text-steelDeep">{site.reviews.label}</p>
+          <h2 id="avis-title" className="font-serif text-3xl tracking-[0.25em] sm:text-4xl">{t.title}</h2>
+          <p className="mt-4 text-xs uppercase tracking-[0.25em] text-steelDeep">{c.reviewsLabel}</p>
         </div>
         <div className="flex gap-3">
-          <button type="button" aria-label="Avis précédents" onClick={() => step(-1)} className={arrow}>←</button>
-          <button type="button" aria-label="Avis suivants" onClick={() => step(1)} className={arrow}>→</button>
+          <button type="button" aria-label={t.prev} onClick={() => step(-1)} className={arrow}>←</button>
+          <button type="button" aria-label={t.next} onClick={() => step(1)} className={arrow}>→</button>
         </div>
       </div>
 
@@ -81,14 +87,14 @@ export default function Testimonials() {
         ref={box}
         className="no-scrollbar flex overflow-x-auto overscroll-x-contain pb-6"
         tabIndex={0}
-        aria-label="Avis de patients, faites défiler horizontalement"
+        aria-label={t.aria}
       >
         <div className="flex shrink-0 items-start gap-6 pl-6 md:pl-10">
-          {testimonials.map((t, i) => <Card key={`a${i}`} t={t} />)}
+          {list.map((r, i) => <Card key={`a${i}`} t={r} lang={lang} />)}
         </div>
         {/* copie identique pour une boucle continue (ajoutée côté navigateur) */}
         {loop && (<div aria-hidden className="flex shrink-0 items-start gap-6 pl-6 md:pl-10">
-          {testimonials.map((t, i) => <Card key={`b${i}`} t={t} />)}
+          {list.map((r, i) => <Card key={`b${i}`} t={r} lang={lang} />)}
         </div>)}
       </div>
 
@@ -97,7 +103,7 @@ export default function Testimonials() {
           href={OSTEO_DOCTORANYTIME_URL}
           className="inline-block border-b border-night/30 pb-1 text-[11px] uppercase tracking-[0.18em] text-night/80 transition-colors duration-300 hover:border-steelDeep hover:text-steelDeep sm:text-xs sm:tracking-[0.25em]"
         >
-          Voir tous les avis sur Doctoranytime →
+          {t.all}
         </a>
       </div>
     </section>

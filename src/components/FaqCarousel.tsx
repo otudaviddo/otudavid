@@ -1,12 +1,15 @@
 "use client";
 import { useRef, useState } from "react";
 import type { QA } from "@/content/faq";
+import { ui, type Lang } from "@/i18n";
 
 /** FAQ en carrousel : cartes qui défilent au doigt, au trackpad ou avec les flèches.
  *  Tout le texte reste dans la page (lisible par Google). */
-export default function FaqCarousel({ items, tone = "dark", title = "Questions fréquentes", id }: {
-  items: QA[]; tone?: "dark" | "light"; title?: string; id?: string;
+export default function FaqCarousel({ items, tone = "dark", title, id, lang = "fr" }: {
+  items: QA[]; tone?: "dark" | "light"; title?: string; id?: string; lang?: Lang;
 }) {
+  const t = ui[lang].faq;
+  title = title ?? t.title;
   const box = useRef<HTMLDivElement>(null);
   const [index, setIndex] = useState(0);
   const dark = tone === "dark";
@@ -38,8 +41,8 @@ export default function FaqCarousel({ items, tone = "dark", title = "Questions f
           </p>
         </div>
         <div className="flex gap-3">
-          <button type="button" aria-label="Question précédente" onClick={() => go(-1)} className={`flex h-12 w-12 items-center justify-center border transition-colors duration-300 ${arrow}`}>←</button>
-          <button type="button" aria-label="Question suivante" onClick={() => go(1)} className={`flex h-12 w-12 items-center justify-center border transition-colors duration-300 ${arrow}`}>→</button>
+          <button type="button" aria-label={t.prev} onClick={() => go(-1)} className={`flex h-12 w-12 items-center justify-center border transition-colors duration-300 ${arrow}`}>←</button>
+          <button type="button" aria-label={t.next} onClick={() => go(1)} className={`flex h-12 w-12 items-center justify-center border transition-colors duration-300 ${arrow}`}>→</button>
         </div>
       </div>
 

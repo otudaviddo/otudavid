@@ -7,19 +7,24 @@ const pillars = [
   { n: "04", t: "Prévenir", d: "Un retour à vos activités guidé étape par étape, validé par des tests simples, et un programme à poursuivre chez vous pour limiter les récidives." },
 ];
 
-export default function Approach({ title = "Mon approche" }: { title?: string }) {
+import { approachEn } from "@/content/en";
+import type { Lang } from "@/i18n";
+
+export default function Approach({ lang = "fr" }: { lang?: Lang }) {
+  const en = lang === "en";
+  const title = en ? approachEn.title : "Mon approche";
+  const list = en ? approachEn.pillars : pillars;
   return (
     <section id="approche" data-tone="light" aria-labelledby="approche-title" className="w-full bg-white text-night">
       <div className="mx-auto max-w-6xl px-6 py-24 md:px-10 md:py-28">
         <div data-reveal className="grid gap-6 md:grid-cols-[5fr_7fr] md:items-end">
           <h2 id="approche-title" className="font-serif text-3xl tracking-[0.2em] sm:text-4xl">{title.toUpperCase()}</h2>
           <p className="text-base leading-relaxed text-night/70">
-            Ostéopathie et kinésithérapie réunies dans une même logique : comprendre, soulager, puis rendre le corps plus résistant,
-            fondée sur les données scientifiques les plus récentes.
+            {en ? approachEn.intro : "Ostéopathie et kinésithérapie réunies dans une même logique : comprendre, soulager, puis rendre le corps plus résistant, fondée sur les données scientifiques les plus récentes."}
           </p>
         </div>
         <ol data-reveal className="mt-14 grid gap-px border border-night/10 bg-night/10 sm:grid-cols-2 lg:grid-cols-4">
-          {pillars.map((p) => (
+          {list.map((p) => (
             <li key={p.n} className="bg-white p-7">
               <p className="text-[11px] uppercase tracking-[0.25em] text-steelDeep">{p.n}</p>
               <h3 className="mt-4 font-serif text-2xl">{p.t}</h3>

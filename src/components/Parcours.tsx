@@ -1,8 +1,9 @@
 "use client";
 import { useState } from "react";
 import { site } from "@/config/site";
+import { content, type Lang } from "@/i18n";
 
-type Group = (typeof site.parcours.formation)[number] | (typeof site.parcours.experience)[number];
+type Group = { group: string; summary: string; items: readonly { years: string; title: string; detail: string }[] };
 
 /* Une rubrique dépliable : titre + résumé visibles, détails au clic. */
 function Row({ g, id }: { g: Group; id: string }) {
@@ -63,8 +64,10 @@ function Column({ heading, groups, prefix }: { heading: string; groups: readonly
   );
 }
 
-export default function Parcours() {
-  const p = site.parcours;
+export default function Parcours({ lang = "fr" }: { lang?: Lang }) {
+  const c = content(lang);
+  const p = c.parcours;
+  const t = c.ui.parcours;
   return (
     <section id="parcours" data-tone="dark" aria-labelledby="parcours-title" className="relative w-full overflow-hidden bg-nightSoft">
       {/* Gravure anatomique en filigrane (clin d'œil à la carte de visite) */}
@@ -75,7 +78,7 @@ export default function Parcours() {
       />
       <div className="relative mx-auto max-w-6xl px-6 py-24 md:px-10 md:py-32">
         <div className="text-center" data-reveal>
-          <h2 id="parcours-title" className="font-serif text-3xl tracking-[0.25em] sm:text-4xl">PARCOURS</h2>
+          <h2 id="parcours-title" className="font-serif text-3xl tracking-[0.25em] sm:text-4xl">{t.title}</h2>
           <p className="mt-5 font-serif text-lg italic text-ivory/70 sm:text-xl">{p.intro}</p>
         </div>
 
@@ -95,12 +98,12 @@ export default function Parcours() {
 
         {/* Formation et expérience : rubriques dépliables */}
         <div data-reveal className="mx-auto mt-20 grid max-w-5xl gap-14 md:grid-cols-2 md:gap-16">
-          <Column heading="Formation" groups={p.formation} prefix="formation" />
-          <Column heading="Expérience" groups={p.experience} prefix="experience" />
+          <Column heading={t.formation} groups={p.formation} prefix="formation" />
+          <Column heading={t.experience} groups={p.experience} prefix="experience" />
         </div>
 
         <p className="mt-16 text-center text-[11px] uppercase tracking-[0.25em] text-ivory/50">
-          Langues <span className="mx-3 text-ivory/25">—</span>
+          {t.languages} <span className="mx-3 text-ivory/25">—</span>
           <span className="text-ivory/80">{p.languages.join(" · ")}</span>
         </p>
       </div>

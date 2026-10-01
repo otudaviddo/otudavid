@@ -1,13 +1,16 @@
 "use client";
 import { useEffect, useState } from "react";
-import { site, disciplines } from "@/config/site";
+import { site } from "@/config/site";
+import { content, type Lang } from "@/i18n";
 import { PhoneIcon } from "@/components/Icons";
 
 /**
  * Bouton « Prendre rendez-vous » fixé en bas de l'écran, sur mobile uniquement.
  * Il apparaît une fois l'accueil dépassé, et ouvre le choix Ostéo / Kiné.
  */
-export default function MobileBooking() {
+export default function MobileBooking({ lang = "fr" }: { lang?: Lang }) {
+  const c = content(lang);
+  const t = c.ui;
   const [show, setShow] = useState(false);
   const [open, setOpen] = useState(false);
   const [onLight, setOnLight] = useState(false); // fond clair sous le bouton ?
@@ -49,18 +52,18 @@ export default function MobileBooking() {
       <div
         role="dialog"
         aria-modal="true"
-        aria-label="Choisir le type de rendez-vous"
+        aria-label={t.mobile.dialog}
         className={`glass glass-strong fixed inset-x-3 bottom-[max(0.75rem,env(safe-area-inset-bottom))] z-40 rounded-[28px] px-5 pb-5 pt-3 transition-all duration-500 ease-out ${open ? "translate-y-0 opacity-100" : "pointer-events-none translate-y-[110%] opacity-0"}`}
       >
         <span aria-hidden className="mx-auto block h-1 w-10 rounded-full bg-ivory/30" />
         <div className="mt-3 flex items-center justify-between">
-          <p className="text-[11px] uppercase tracking-[0.28em] text-ivory/70">Prendre rendez-vous</p>
+          <p className="text-[11px] uppercase tracking-[0.28em] text-ivory/70">{t.book}</p>
           <button type="button" onClick={() => setOpen(false)} className="-mr-2 p-2 text-xs uppercase tracking-[0.2em] text-ivory/70" tabIndex={open ? 0 : -1}>
-            Fermer
+            {t.close}
           </button>
         </div>
         <div className="mt-4 flex flex-col gap-3">
-          {[disciplines.osteo, disciplines.kine].map((d) => (
+          {[c.disciplines.osteo, c.disciplines.kine].map((d) => (
             <a
               key={d.slug}
               href={d.url}
@@ -72,7 +75,7 @@ export default function MobileBooking() {
             </a>
           ))}
         </div>
-        <p className="mt-4 text-center text-[11px] uppercase tracking-[0.2em] text-ivory/50">Réservation en ligne via Doctoranytime</p>
+        <p className="mt-4 text-center text-[11px] uppercase tracking-[0.2em] text-ivory/50">{t.mobile.via}</p>
       </div>
 
       {/* Bouton flottant, effet verre, à hauteur du pouce */}
@@ -81,7 +84,7 @@ export default function MobileBooking() {
       >
         <a
           href={site.phoneHref}
-          aria-label={`Appeler le ${site.phone}`}
+          aria-label={t.callAria(site.phone)}
           tabIndex={show ? 0 : -1}
           className={`glass ${onLight ? "glass-on-light" : "glass-on-dark"} flex h-14 w-14 shrink-0 items-center justify-center rounded-full text-ivory transition-[transform,background-color,border-color] duration-300 active:scale-[0.94] ${show && !open ? "pointer-events-auto" : "pointer-events-none"}`}
         >
@@ -94,7 +97,7 @@ export default function MobileBooking() {
           tabIndex={show ? 0 : -1}
           className={`glass ${onLight ? "glass-on-light" : "glass-on-dark"} flex h-14 min-w-0 flex-1 max-w-[17rem] items-center justify-center gap-2 rounded-full text-[11px] uppercase tracking-[0.22em] text-ivory transition-[transform,background-color,border-color] duration-300 active:scale-[0.97] ${show && !open ? "pointer-events-auto" : "pointer-events-none"}`}
         >
-          Prendre rendez-vous <span aria-hidden className="text-steel">→</span>
+          {t.book} <span aria-hidden className="text-steel">→</span>
         </button>
       </div>
     </div>

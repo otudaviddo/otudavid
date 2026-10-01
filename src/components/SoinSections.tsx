@@ -1,11 +1,13 @@
 "use client";
 import { useEffect } from "react";
 import type { Soin } from "@/content/soins";
+import { ui, type Lang } from "@/i18n";
 
 /** Motifs de consultation en sections dépliables, dans la page Ostéo ou Kiné.
  *  Tout le texte est présent dans la page (lisible par Google) ; on l'ouvre au clic.
  *  Un lien du type /osteo#mal-de-dos-lumbago ouvre directement la bonne section. */
-export default function SoinSections({ items }: { items: Soin[] }) {
+export default function SoinSections({ items, lang = "fr" }: { items: Soin[]; lang?: Lang }) {
+  const t = ui[lang].sections;
   useEffect(() => {
     const open = () => {
       const id = decodeURIComponent(window.location.hash.slice(1));
@@ -20,7 +22,7 @@ export default function SoinSections({ items }: { items: Soin[] }) {
   return (
     <section id="motifs" data-tone="light" aria-labelledby="motifs-title" className="w-full bg-white text-night">
       <div className="mx-auto max-w-5xl px-6 py-24 md:px-10 md:py-28">
-        <h2 id="motifs-title" data-reveal className="text-center font-serif text-3xl tracking-[0.2em] sm:text-4xl">MOTIFS EN DÉTAIL</h2>
+        <h2 id="motifs-title" data-reveal className="text-center font-serif text-3xl tracking-[0.2em] sm:text-4xl">{t.title}</h2>
         <div className="mt-14 border-t border-night/15">
           {items.map((s) => (
             <details key={s.slug} id={s.slug} className="group scroll-mt-24 border-b border-night/15">
@@ -44,7 +46,7 @@ export default function SoinSections({ items }: { items: Soin[] }) {
                   </ul>
                 </div>
                 <div>
-                  <h3 className="text-[11px] uppercase tracking-[0.25em] text-steelDeep">La prise en charge</h3>
+                  <h3 className="text-[11px] uppercase tracking-[0.25em] text-steelDeep">{t.care}</h3>
                   <p className="mt-3 text-[15px] leading-relaxed text-night/80">{s.approcheIntro}</p>
                   <ol className="mt-6 border-l border-night/15">
                     {s.phases.map((ph, i) => (
@@ -56,7 +58,7 @@ export default function SoinSections({ items }: { items: Soin[] }) {
                     ))}
                   </ol>
                   <div className="mt-8 border border-night/15 bg-ivory/60 p-5">
-                    <p className="text-[11px] uppercase tracking-[0.22em] text-steelDeep">Consultez d&apos;abord un médecin en cas de</p>
+                    <p className="text-[11px] uppercase tracking-[0.22em] text-steelDeep">{t.alert}</p>
                     <ul className="mt-3 list-disc space-y-1.5 pl-5 text-sm leading-relaxed text-night/80">
                       {s.alerte.map((a) => <li key={a}>{a}</li>)}
                     </ul>

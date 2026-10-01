@@ -1,20 +1,19 @@
-import { site, disciplines } from "@/config/site";
-import { osteoContent, kineContent } from "@/content/disciplines";
-import { faqOsteo, faqKine } from "@/content/faq";
+import { site } from "@/config/site";
 import SoinSections from "@/components/SoinSections";
-import { soins, OSTEO_SOINS, KINE_SOINS } from "@/content/soins";
+import { content, type Lang } from "@/i18n";
 import FaqCarousel from "@/components/FaqCarousel";
 import FaqSchema from "@/components/FaqSchema";
 import Reveal from "@/components/Reveal";
 import Approach from "@/components/Approach";
 
-type D = (typeof disciplines)[keyof typeof disciplines];
-
-export default function BookingPage({ d }: { d: D }) {
-  const osteo = d.slug === "osteo";
-  const c = osteo ? osteoContent : kineContent;
-  const faq = osteo ? faqOsteo : faqKine;
-  const mine = soins.filter((s) => (osteo ? OSTEO_SOINS : KINE_SOINS).includes(s.slug));
+export default function BookingPage({ kind, lang = "fr" }: { kind: "osteo" | "kine"; lang?: Lang }) {
+  const C = content(lang);
+  const t = C.ui.booking;
+  const d = C.disciplines[kind];
+  const osteo = kind === "osteo";
+  const c = osteo ? C.osteoContent : C.kineContent;
+  const faq = osteo ? C.faqOsteo : C.faqKine;
+  const mine = osteo ? C.soinsOsteo : C.soinsKine;
   const allFaq = [...faq, ...mine.flatMap((s) => s.faq)];
 
   return (
@@ -30,14 +29,14 @@ export default function BookingPage({ d }: { d: D }) {
 
         <div className="rise d2 mt-10 flex w-full flex-col items-center gap-4 sm:w-auto sm:flex-row">
           <a href={d.url} className="inline-flex min-h-[56px] w-full items-center justify-center border border-ivory/40 px-10 text-xs uppercase tracking-[0.25em] transition-colors duration-500 hover:border-ivory hover:bg-ivory hover:text-night sm:w-auto">
-            Prendre rendez-vous →
+            {C.ui.book} →
           </a>
           <a href={site.phoneHref} className="inline-flex min-h-[56px] w-full items-center justify-center border border-ivory/20 px-8 text-xs uppercase tracking-[0.25em] text-ivory/80 transition-colors hover:border-steel hover:text-steel sm:w-auto">
             {site.phone}
           </a>
         </div>
         <p className="rise d2 mt-6 text-xs uppercase tracking-[0.2em] text-ivory/50">
-          {site.reviews.label} · {osteo ? `Séance de ${site.duration.osteo}` : `Séance de ${site.duration.kine}`}
+          {C.reviewsLabel.split(" · ")[0]} · {t.sessionOf(osteo ? C.duration.osteo : C.duration.kine)}
         </p>
       </section>
 
@@ -45,17 +44,17 @@ export default function BookingPage({ d }: { d: D }) {
       <section data-tone="light" className="w-full bg-white text-night">
         <div className="mx-auto grid max-w-6xl gap-14 px-6 py-20 md:grid-cols-[5fr_7fr] md:px-10 md:py-28">
           <div data-reveal>
-            <h2 className="font-serif text-3xl">{osteo ? "L'ostéopathie" : "La kinésithérapie"}</h2>
+            <h2 className="font-serif text-3xl">{osteo ? t.about.osteo : t.about.kine}</h2>
             {c.lead.map((p, i) => <p key={i} className="mt-5 text-base leading-relaxed text-night/80">{p}</p>)}
             {osteo && (
               <a href={site.upob.url} target="_blank" rel="noopener noreferrer" className="mt-6 inline-block border-b border-night/30 pb-0.5 text-[11px] uppercase tracking-[0.22em] text-steelDeep hover:border-steelDeep">
-                {site.upob.short} →
+                {C.upobShort} →
               </a>
             )}
-            <p className="mt-6 text-sm text-night/60">{site.languages}</p>
+            <p className="mt-6 text-sm text-night/60">{C.languages}</p>
           </div>
           <div data-reveal>
-            <h2 className="font-serif text-3xl">Motifs de consultation</h2>
+            <h2 className="font-serif text-3xl">{t.motifs}</h2>
             <div className="mt-6 grid gap-x-10 gap-y-8 sm:grid-cols-2">
               {c.groups.map((g) => (
                 <div key={g.title}>
@@ -73,21 +72,21 @@ export default function BookingPage({ d }: { d: D }) {
         <div className="mx-auto max-w-6xl px-6 pb-20 md:px-10 md:pb-28">
           <div data-reveal className="grid gap-px border border-night/15 bg-night/15 md:grid-cols-3">
             <div className="bg-white p-7">
-              <p className="text-[11px] uppercase tracking-[0.25em] text-steelDeep">Déroulement · {osteo ? site.duration.osteo : site.duration.kine}</p>
+              <p className="text-[11px] uppercase tracking-[0.25em] text-steelDeep">{t.deroulement} · {osteo ? C.duration.osteo : C.duration.kine}</p>
               <ol className="mt-4 space-y-3 text-sm leading-relaxed text-night/80">
                 {c.deroule.map((s, i) => <li key={i}><span className="mr-2 font-serif text-lg text-night">{i + 1}.</span>{s}</li>)}
               </ol>
             </div>
             <div className="bg-white p-7">
-              <p className="text-[11px] uppercase tracking-[0.25em] text-steelDeep">Remboursement</p>
-              <p className="mt-4 text-sm leading-relaxed text-night/80">{osteo ? site.reimbursement.osteo : site.reimbursement.kine}</p>
-              {!osteo && <p className="mt-3 text-sm leading-relaxed text-night/70">Pensez à apporter la prescription de votre médecin et votre carte d&apos;identité.</p>}
-              {osteo && <p className="mt-3 text-sm leading-relaxed text-night/70">Aucune prescription n&apos;est nécessaire pour consulter en ostéopathie.</p>}
+              <p className="text-[11px] uppercase tracking-[0.25em] text-steelDeep">{t.remboursement}</p>
+              <p className="mt-4 text-sm leading-relaxed text-night/80">{osteo ? C.reimbursement.osteo : C.reimbursement.kine}</p>
+              {!osteo && <p className="mt-3 text-sm leading-relaxed text-night/70">{t.bringPrescription}</p>}
+              {osteo && <p className="mt-3 text-sm leading-relaxed text-night/70">{t.noPrescription}</p>}
             </div>
             <div className="bg-white p-7">
-              <p className="text-[11px] uppercase tracking-[0.25em] text-steelDeep">Cabinets</p>
-              {site.addresses.slice().reverse().map((a) => (
-                <a key={a.slug} href={`/${a.slug}`} className="mt-4 block hover:text-steelDeep">
+              <p className="text-[11px] uppercase tracking-[0.25em] text-steelDeep">{t.cabinets}</p>
+              {C.addresses.slice().reverse().map((a) => (
+                <a key={a.slug} href={a.path} className="mt-4 block hover:text-steelDeep">
                   <span className="block font-serif text-xl">{a.city}</span>
                   <span className="block text-sm text-night/70">{a.street} · <em>{a.days}</em></span>
                 </a>
@@ -97,9 +96,9 @@ export default function BookingPage({ d }: { d: D }) {
         </div>
       </section>
 
-      <SoinSections items={mine} />
-      <Approach />
-      <FaqCarousel items={faq} tone="light" id="faq" />
+      <SoinSections items={mine} lang={lang} />
+      <Approach lang={lang} />
+      <FaqCarousel items={faq} tone="light" id="faq" lang={lang} />
       <Reveal />
     </>
   );

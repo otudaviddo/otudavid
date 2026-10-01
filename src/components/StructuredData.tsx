@@ -21,7 +21,7 @@ export default function StructuredData() {
       jobTitle: ["Kinésithérapeute", "Ostéopathe D.O."],
       alumniOf: { "@type": "CollegeOrUniversity", name: "Université libre de Bruxelles (ULB)" },
       knowsLanguage: ["fr", "en"],
-      memberOf: { "@type": "Organization", name: "UPOB — Union professionnelle des ostéopathes de Belgique", url: site.upob.url },
+      memberOf: { "@type": "Organization", name: "Union professionnelle des ostéopathes de Belgique (osteopathie.be)", url: site.upob.url },
     },
     medicalSpecialty: ["Physiotherapy", "Osteopathic"],
     areaServed: [
@@ -72,7 +72,7 @@ export default function StructuredData() {
     image: `${SITE_URL}/images/portrait-david-otu.webp`,
     jobTitle: ["Ostéopathe D.O.", "Kinésithérapeute"],
     sameAs: [site.instagram, disciplines.osteo.url, disciplines.kine.url],
-    memberOf: { "@type": "Organization", name: "UPOB — Union professionnelle des ostéopathes de Belgique", url: site.upob.url },
+    memberOf: { "@type": "Organization", name: "Union professionnelle des ostéopathes de Belgique (osteopathie.be)", url: site.upob.url },
     alumniOf: { "@type": "CollegeOrUniversity", name: "Université libre de Bruxelles (ULB)" },
     workLocation: site.addresses.map((a) => ({ "@type": "Place", name: `Cabinet ${a.city}`, url: `${SITE_URL}/${a.slug}`, address: { "@type": "PostalAddress", streetAddress: a.street, addressLocality: a.city, postalCode: a.postalCode, addressCountry: "BE" } })),
   };

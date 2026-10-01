@@ -1,15 +1,14 @@
 import { site } from "@/config/site";
+import { content, type Lang } from "@/i18n";
 
 /* Bandeau blanc de réassurance, sous l'accueil. */
-export default function TrustBand() {
-  const items = [
-    { t: "Ostéopathe D.O.", d: "Diplômé de l'ULB" },
-    { t: "Kinésithérapeute", d: "Conventionné INAMI" },
-    { t: site.upob.short, d: "Union professionnelle", href: site.upob.url },
-    { t: "2 cabinets", d: "Ixelles · Woluwe-Saint-Pierre" },
-  ];
+export default function TrustBand({ lang = "fr" }: { lang?: Lang }) {
+  const c = content(lang);
+  const items: { t: string; d: string; href?: string }[] = c.ui.trust.map((it, i) =>
+    i === 2 ? { t: c.upobShort, d: it.d, href: site.upob.url } : it,
+  );
   return (
-    <section data-tone="light" aria-label="En bref" className="w-full border-b border-night/10 bg-white text-night">
+    <section data-tone="light" aria-label={c.ui.trustAria} className="w-full border-b border-night/10 bg-white text-night">
       <ul className="mx-auto grid max-w-6xl grid-cols-2 md:grid-cols-4">
         {items.map((it, i) => {
           const inner = (

@@ -128,8 +128,8 @@ export const site = {
   },
   // Union professionnelle et remboursements (textes validés par David Otu).
   upob: {
-    label: "Membre de l'UPOB — Union professionnelle des ostéopathes de Belgique",
-    short: "Membre de l'UPOB",
+    label: "Membre d'osteopathie.be — Union professionnelle des ostéopathes de Belgique",
+    short: "Membre d'osteopathie.be",
     url: "https://www.osteopathie.be",
   },
   reimbursement: {

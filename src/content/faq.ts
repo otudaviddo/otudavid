@@ -7,7 +7,7 @@ export type QA = { q: string; a: string };
 
 const remboursementOsteo: QA = {
   q: "L'ostéopathie est-elle remboursée par la mutuelle ?",
-  a: `Oui, partiellement. ${site.reimbursement.osteo} Le montant et le nombre de séances remboursées dépendent de votre mutuelle. David Otu est membre de l'UPOB, l'Union professionnelle des ostéopathes de Belgique.`,
+  a: `Oui, partiellement. ${site.reimbursement.osteo} Le montant et le nombre de séances remboursées dépendent de votre mutuelle. David Otu est membre d'osteopathie.be, l'Union professionnelle des ostéopathes de Belgique.`,
 };
 const remboursementKine: QA = {
   q: "La kinésithérapie est-elle remboursée ?",

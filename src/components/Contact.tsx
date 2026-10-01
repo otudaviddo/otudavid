@@ -1,9 +1,12 @@
-import { site, disciplines } from "@/config/site";
+import { site } from "@/config/site";
+import { content, type Lang } from "@/i18n";
 import { PhoneIcon, MailIcon, InstagramIcon } from "@/components/Icons";
 
 const label = "text-[11px] uppercase tracking-[0.28em] text-steelDeep";
 
-export default function Contact() {
+export default function Contact({ lang = "fr" }: { lang?: Lang }) {
+  const c = content(lang);
+  const t = c.ui.contact;
   return (
     <section id="contact" data-tone="light" aria-labelledby="contact-title" className="relative w-full overflow-hidden border-t border-night/10 bg-ivoryDeep text-night">
       {/* Gravure au bâton en filigrane (clin d'œil au verso de la carte de visite) */}
@@ -14,13 +17,13 @@ export default function Contact() {
       />
       <div className="relative mx-auto max-w-6xl px-6 pb-36 pt-24 md:px-10 md:py-32">
         <div className="text-center" data-reveal>
-          <h2 id="contact-title" className="font-serif text-3xl tracking-[0.25em] sm:text-4xl">CONTACT</h2>
-          <p className="mt-4 text-xs uppercase tracking-[0.25em] text-night/60">{site.title}</p>
+          <h2 id="contact-title" className="font-serif text-3xl tracking-[0.25em] sm:text-4xl">{t.title}</h2>
+          <p className="mt-4 text-xs uppercase tracking-[0.25em] text-night/60">{c.title}</p>
         </div>
 
         <div data-reveal className="mt-16 grid gap-14 text-center md:grid-cols-3 md:gap-10">
           <div>
-            <p className={label}>Téléphone &amp; e-mail</p>
+            <p className={label}>{t.phoneMail}</p>
             <a href={site.phoneHref} className="mt-4 block font-serif text-3xl tracking-[0.08em] transition-colors duration-300 hover:text-steelDeep">
               {site.phone}
             </a>
@@ -29,8 +32,8 @@ export default function Contact() {
             </a>
             <div className="mt-6 flex justify-center gap-4">
               {[
-                { href: site.phoneHref, label: `Appeler le ${site.phone}`, Icon: PhoneIcon },
-                { href: `mailto:${site.email}`, label: `Écrire à ${site.email}`, Icon: MailIcon },
+                { href: site.phoneHref, label: c.ui.callAria(site.phone), Icon: PhoneIcon },
+                { href: `mailto:${site.email}`, label: c.ui.mailAria(site.email), Icon: MailIcon },
                 { href: site.instagram, label: `Instagram ${site.instagramHandle}`, Icon: InstagramIcon },
               ].map(({ href, label, Icon }) => (
                 <a
@@ -46,25 +49,25 @@ export default function Contact() {
             </div>
           </div>
 
-          {site.addresses.map((a) => (
+          {c.addresses.map((a) => (
             <address key={a.label} className="not-italic md:border-l md:border-night/10">
-              <p className={label}>Cabinet</p>
+              <p className={label}>{t.cabinet}</p>
               <p className="mt-4 font-serif text-3xl tracking-[0.08em]">{a.label}</p>
               <p className="mt-3 text-[12px] uppercase tracking-[0.2em] text-night/70">{a.street}</p>
               <p className="mt-1 text-[12px] uppercase tracking-[0.2em] text-night/70">{a.postalCode} {a.city}</p>
               <p className="mt-3 font-serif text-lg italic text-night/80">{a.days}</p>
               <div className="mt-5 flex justify-center gap-6">
                 <a
-                  href={`/${a.slug}`}
+                  href={a.path}
                   className="inline-block border-b border-night/25 pb-0.5 text-[11px] uppercase tracking-[0.25em] text-night/80 transition-colors duration-300 hover:border-steelDeep hover:text-steelDeep"
                 >
-                  Le cabinet →
+                  {t.cabinetLink}
                 </a>
                 <a
                   href={a.mapsUrl}
                   className="inline-block border-b border-night/25 pb-0.5 text-[11px] uppercase tracking-[0.25em] text-night/80 transition-colors duration-300 hover:border-steelDeep hover:text-steelDeep"
                 >
-                  Itinéraire →
+                  {t.route}
                 </a>
               </div>
             </address>
@@ -72,41 +75,41 @@ export default function Contact() {
         </div>
 
         <div data-reveal className="mx-auto mt-20 flex max-w-2xl flex-col gap-4 sm:flex-row">
-          {[disciplines.osteo, disciplines.kine].map((d) => (
+          {[c.disciplines.osteo, c.disciplines.kine].map((d) => (
             <a
               key={d.slug}
               href={d.url}
               className="flex min-h-[56px] flex-1 items-center justify-center border border-night/35 px-6 text-xs uppercase tracking-[0.25em] transition-colors duration-500 hover:border-night hover:bg-night hover:text-ivory"
             >
-              Rendez-vous · {d.slug === "osteo" ? "Ostéo" : "Kiné"}
+              {c.ui.bookShort} · {d.label}
             </a>
           ))}
         </div>
 
         {/* Pied de page : liens utiles (aussi pour le référencement) */}
-        <nav aria-label="Pages du site" className="mt-20 grid gap-10 border-t border-night/10 pt-10 text-sm sm:grid-cols-2">
+        <nav aria-label={t.navAria} className="mt-20 grid gap-10 border-t border-night/10 pt-10 text-sm sm:grid-cols-2">
           <div>
-            <p className={label}>Soins</p>
+            <p className={label}>{t.footSoins}</p>
             <ul className="mt-3 space-y-1.5 text-night/70">
-              <li><a href="/osteo" className="hover:text-steelDeep">Ostéopathie</a></li>
-              <li><a href="/kine" className="hover:text-steelDeep">Kinésithérapie</a></li>
+              <li><a href={c.routes.osteo} className="hover:text-steelDeep">{c.disciplines.osteo.label}</a></li>
+              <li><a href={c.routes.kine} className="hover:text-steelDeep">{c.disciplines.kine.label}</a></li>
             </ul>
           </div>
           <div>
-            <p className={label}>Cabinets</p>
+            <p className={label}>{t.footCabinets}</p>
             <ul className="mt-3 space-y-1.5 text-night/70">
-              <li><a href="/ixelles" className="hover:text-steelDeep">Ostéopathe &amp; kiné à Ixelles</a></li>
-              <li><a href="/woluwe-saint-pierre" className="hover:text-steelDeep">Ostéopathe &amp; kiné à Woluwe-Saint-Pierre</a></li>
+              <li><a href={c.routes.ixelles} className="hover:text-steelDeep">{t.cabIx}</a></li>
+              <li><a href={c.routes["woluwe-saint-pierre"]} className="hover:text-steelDeep">{t.cabWs}</a></li>
             </ul>
             <p className="mt-6 text-night/70">
-              <a href={site.upob.url} target="_blank" rel="noopener noreferrer" className="hover:text-steelDeep">{site.upob.short}</a>
-              <br />Kinésithérapeute conventionné INAMI
+              <a href={site.upob.url} target="_blank" rel="noopener noreferrer" className="hover:text-steelDeep">{c.upobShort}</a>
+              <br />{t.conventionne}
             </p>
           </div>
         </nav>
 
         <p className="mt-12 border-t border-night/10 pt-8 text-center text-[11px] uppercase tracking-[0.22em] text-night/45">
-          © {new Date().getFullYear()} {site.name} · {site.title}
+          © {new Date().getFullYear()} {site.name} · {c.title}
         </p>
       </div>
     </section>

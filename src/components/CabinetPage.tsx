@@ -1,17 +1,19 @@
-import { site, disciplines, SITE_URL } from "@/config/site";
-import { soins, soinHref } from "@/content/soins";
+import { site, SITE_URL } from "@/config/site";
+import { content, type Lang } from "@/i18n";
 
-type A = (typeof site.addresses)[number];
 
 /* Page dédiée à un cabinet : pensée pour les recherches « ostéopathe + commune »
    et pour être le lien « site web » de la fiche Google du cabinet. */
-export default function CabinetPage({ a }: { a: A }) {
-  const other = site.addresses.find((x) => x.slug !== a.slug)!;
+export default function CabinetPage({ slug, lang = "fr" }: { slug: string; lang?: Lang }) {
+  const C = content(lang);
+  const t = C.ui.cabinet;
+  const a = C.addresses.find((x) => x.slug === slug)!;
+  const other = C.addresses.find((x) => x.slug !== slug)!;
   const ld = {
     "@context": "https://schema.org",
     "@type": ["MedicalClinic", "Physiotherapy"],
-    name: `David Otu — Ostéopathe D.O. & kinésithérapeute à ${a.city}`,
-    url: `${SITE_URL}/${a.slug}`,
+    name: `David Otu — ${t.h1(a.city)}`,
+    url: `${SITE_URL}${a.path}`,
     telephone: site.phoneHref.replace("tel:", ""),
     email: site.email,
     image: `${SITE_URL}/images/portrait-david-otu.webp`,
@@ -28,22 +30,22 @@ export default function CabinetPage({ a }: { a: A }) {
 
       <section className="w-full bg-night">
         <div className="mx-auto max-w-6xl px-6 pb-20 pt-20 md:px-10 md:pt-28">
-          <p className="rise text-[11px] uppercase tracking-[0.3em] text-steel">Cabinet de {a.city}</p>
+          <p className="rise text-[11px] uppercase tracking-[0.3em] text-steel">{t.kicker(a.city)}</p>
           <h1 className="rise d1 mt-5 max-w-3xl font-serif text-4xl leading-tight tracking-[0.04em] sm:text-5xl">
-            Ostéopathe &amp; kinésithérapeute à {a.city}
+            {t.h1(a.city)}
           </h1>
           <p className="rise d2 mt-6 max-w-2xl text-base leading-relaxed text-ivory/75">
-            David Otu, ostéopathe D.O. et kinésithérapeute diplômé de l&apos;ULB, consulte à {a.city}, {a.street}, {a.daysSentence}. Séances d&apos;ostéopathie et de kinésithérapie, sur rendez-vous.
+            {t.lead(a.city, a.street, a.daysSentence)}
           </p>
 
           <div className="rise d3 mt-10 flex flex-col gap-4 sm:flex-row">
-            {[disciplines.osteo, disciplines.kine].map((d) => (
+            {[C.disciplines.osteo, C.disciplines.kine].map((d) => (
               <a
                 key={d.slug}
                 href={d.url}
                 className="flex min-h-[56px] items-center justify-center border border-ivory/40 px-8 text-xs uppercase tracking-[0.25em] transition-colors duration-500 hover:border-ivory hover:bg-ivory hover:text-night"
               >
-                Rendez-vous · {d.label}
+                {C.ui.bookShort} · {d.label}
               </a>
             ))}
           </div>
@@ -54,28 +56,28 @@ export default function CabinetPage({ a }: { a: A }) {
         <div className="mx-auto grid max-w-6xl gap-12 px-6 py-20 md:grid-cols-[5fr_7fr] md:px-10 md:py-28">
           <div className="space-y-10">
             <div>
-              <p className="text-[11px] uppercase tracking-[0.28em] text-steelDeep">Adresse</p>
+              <p className="text-[11px] uppercase tracking-[0.28em] text-steelDeep">{t.address}</p>
               <address className="mt-3 not-italic">
                 <p className="font-serif text-2xl">{a.street}</p>
                 <p className="mt-1 text-sm uppercase tracking-[0.2em] text-night/70">{a.postalCode} {a.city}</p>
               </address>
               <a href={a.mapsUrl} className="mt-4 inline-block border-b border-night/30 pb-0.5 text-[11px] uppercase tracking-[0.25em] hover:border-steelDeep hover:text-steelDeep">
-                Itinéraire →
+                {C.ui.contact.route}
               </a>
             </div>
             <div>
-              <p className="text-[11px] uppercase tracking-[0.28em] text-steelDeep">Jours de consultation</p>
+              <p className="text-[11px] uppercase tracking-[0.28em] text-steelDeep">{t.days}</p>
               <p className="mt-3 font-serif text-2xl">{a.days}</p>
             </div>
             <div>
-              <p className="text-[11px] uppercase tracking-[0.28em] text-steelDeep">Soins proposés</p>
+              <p className="text-[11px] uppercase tracking-[0.28em] text-steelDeep">{t.care}</p>
               <ul className="mt-3 space-y-1 font-serif text-2xl">
-                <li><a href="/osteo" className="hover:text-steelDeep">Ostéopathie</a></li>
-                <li><a href="/kine" className="hover:text-steelDeep">Kinésithérapie</a></li>
+                <li><a href={C.routes.osteo} className="hover:text-steelDeep">{C.disciplines.osteo.label}</a></li>
+                <li><a href={C.routes.kine} className="hover:text-steelDeep">{C.disciplines.kine.label}</a></li>
               </ul>
             </div>
             <div>
-              <p className="text-[11px] uppercase tracking-[0.28em] text-steelDeep">Contact</p>
+              <p className="text-[11px] uppercase tracking-[0.28em] text-steelDeep">{t.contact}</p>
               <p className="mt-3 space-x-6 text-sm">
                 <a href={site.phoneHref} className="border-b border-night/30 pb-0.5">{site.phone}</a>
                 <a href={`mailto:${site.email}`} className="border-b border-night/30 pb-0.5">{site.email}</a>
@@ -84,7 +86,7 @@ export default function CabinetPage({ a }: { a: A }) {
           </div>
 
           <iframe
-            title={`Plan d'accès au cabinet de ${a.city}`}
+            title={t.mapTitle(a.city)}
             src={a.mapsEmbed}
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
@@ -96,27 +98,25 @@ export default function CabinetPage({ a }: { a: A }) {
       <section data-tone="dark" className="w-full bg-nightSoft">
         <div className="mx-auto grid max-w-6xl gap-14 px-6 py-20 md:grid-cols-2 md:px-10 md:py-24">
           <div>
-            <h2 className="font-serif text-3xl">Motifs de consultation à {a.city}</h2>
+            <h2 className="font-serif text-3xl">{t.motifsTitle(a.city)}</h2>
             <p className="mt-5 text-base leading-relaxed text-ivory/75">
-              Au cabinet de {a.city}, David Otu prend en charge les douleurs aiguës (lumbago, dos bloqué, torticolis, sciatique),
-              les douleurs chroniques du dos et de la nuque, les blessures sportives et la rééducation après une entorse,
-              une fracture ou une opération (prothèse de genou ou de hanche, ligaments croisés).
+              {t.motifsText(a.city)}
             </p>
             <ul className="mt-8 flex flex-wrap gap-3">
-              {soins.map((s) => (
+              {C.allSoins.map((s) => (
                 <li key={s.slug}>
-                  <a href={soinHref(s.slug)} className="inline-block border border-ivory/20 px-4 py-2 text-sm text-ivory/85 transition-colors hover:border-ivory hover:bg-ivory hover:text-night">{s.card}</a>
+                  <a href={`${C.soinsOsteo.some((x) => x.slug === s.slug) ? C.routes.osteo : C.routes.kine}#${s.slug}`} className="inline-block border border-ivory/20 px-4 py-2 text-sm text-ivory/85 transition-colors hover:border-ivory hover:bg-ivory hover:text-night">{s.card}</a>
                 </li>
               ))}
             </ul>
           </div>
           <div>
-            <h2 className="font-serif text-3xl">Remboursement</h2>
-            <p className="mt-5 text-base leading-relaxed text-ivory/75"><strong className="font-normal text-ivory">Ostéopathie</strong> ({site.duration.osteo}) : {site.reimbursement.osteo}</p>
-            <p className="mt-4 text-base leading-relaxed text-ivory/75"><strong className="font-normal text-ivory">Kinésithérapie</strong> ({site.duration.kine}) : {site.reimbursement.kine}</p>
+            <h2 className="font-serif text-3xl">{t.reimb}</h2>
+            <p className="mt-5 text-base leading-relaxed text-ivory/75"><strong className="font-normal text-ivory">{C.disciplines.osteo.label}</strong> ({C.duration.osteo}) : {C.reimbursement.osteo}</p>
+            <p className="mt-4 text-base leading-relaxed text-ivory/75"><strong className="font-normal text-ivory">{C.disciplines.kine.label}</strong> ({C.duration.kine}) : {C.reimbursement.kine}</p>
             <p className="mt-6 text-sm text-ivory/60">
-              {site.languages}{" "}
-              <a href={site.upob.url} target="_blank" rel="noopener noreferrer" className="text-ivory/85 underline decoration-ivory/30 underline-offset-4 hover:decoration-steel">{site.upob.short}</a>.
+              {C.languages}{" "}
+              <a href={site.upob.url} target="_blank" rel="noopener noreferrer" className="text-ivory/85 underline decoration-ivory/30 underline-offset-4 hover:decoration-steel">{C.upobShort}</a>.
             </p>
           </div>
         </div>
@@ -125,9 +125,9 @@ export default function CabinetPage({ a }: { a: A }) {
       <section className="w-full bg-ivoryDeep text-night">
         <div className="mx-auto max-w-6xl px-6 py-16 text-center md:px-10">
           <p className="text-sm text-night/70">
-            David Otu consulte aussi à <a href={`/${other.slug}`} className="border-b border-night/30 pb-0.5 text-night hover:text-steelDeep">{other.city}</a> ({other.days.toLowerCase()}).
+            {t.also} <a href={other.path} className="border-b border-night/30 pb-0.5 text-night hover:text-steelDeep">{other.city}</a> ({other.days.toLowerCase()}).
           </p>
-          <a href="/" className="mt-6 inline-block text-[11px] uppercase tracking-[0.25em] text-night/70 hover:text-steelDeep">← Retour à l&apos;accueil</a>
+          <a href={C.routes.home} className="mt-6 inline-block text-[11px] uppercase tracking-[0.25em] text-night/70 hover:text-steelDeep">{t.back}</a>
         </div>
       </section>
     </>
