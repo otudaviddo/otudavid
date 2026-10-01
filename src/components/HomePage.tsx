@@ -4,13 +4,11 @@ import Choice from "@/components/Choice";
 import Parcours from "@/components/Parcours";
 import Testimonials from "@/components/Testimonials";
 import Contact from "@/components/Contact";
-import Reveal from "@/components/Reveal";
 import MobileBooking from "@/components/MobileBooking";
 import FaqCarousel from "@/components/FaqCarousel";
 import FaqSchema from "@/components/FaqSchema";
 import TrustBand from "@/components/TrustBand";
 import Approach from "@/components/Approach";
-import Tilt from "@/components/Tilt";
 
 export default function HomePage({ lang = "fr" }: { lang?: Lang }) {
   const c = content(lang);
@@ -35,26 +33,21 @@ export default function HomePage({ lang = "fr" }: { lang?: Lang }) {
       <section aria-labelledby="apropos-title" data-tone="dark" className="w-full bg-night">
         <div className="mx-auto grid max-w-6xl items-center gap-12 px-6 py-24 md:grid-cols-[5fr_7fr] md:gap-20 md:px-10 md:py-32">
           {/* Portrait en relief : un cadre fin en retrait, la photo devant */}
-          <div data-reveal className="mx-auto w-full max-w-sm pb-4 pr-4 md:max-w-none">
-            <Tilt max={4} className="relative">
-              <span aria-hidden className="tilt-back absolute inset-0 border border-steel/45" />
+          <div className="mx-auto w-full max-w-sm pb-4 pr-4 md:max-w-none">
+            <div className="relative">
+              <span aria-hidden className="absolute inset-0 translate-x-4 translate-y-4 border border-steel/45" />
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src="/images/portrait-david-otu.webp"
                 alt={t.altPortrait}
                 width={1025} height={1281} loading="lazy"
-                className="tilt-front relative aspect-[4/5] w-full object-cover"
+                className="relative aspect-[4/5] w-full object-cover shadow-[0_30px_60px_-28px_rgba(0,0,0,.65)]"
               />
-            </Tilt>
+            </div>
           </div>
-          <div data-reveal>
-            <p className="text-[11px] uppercase tracking-[0.3em] text-steel">{t.about}</p>
-            <h2 id="apropos-title" className="mt-5 font-serif text-4xl tracking-[0.12em] sm:text-5xl">David Otu</h2>
-            <p className="mt-3 text-xs uppercase tracking-[0.25em] text-ivory/70">{c.title}</p>
-            <p className="mt-6 inline-flex gap-6 border border-steel/40 px-5 py-2 text-[11px] uppercase tracking-[0.25em] text-steel">
-              <span>{t.tags[0]}</span><span>{t.tags[1]}</span>
-            </p>
-            <span className="mt-8 block h-px w-12 bg-steel/60" />
+          <div>
+            <h2 id="apropos-title" className="font-serif text-5xl leading-none sm:text-6xl">David Otu</h2>
+            <p className="mt-4 text-base text-steel">{c.title}</p>
             <p className="mt-8 max-w-xl text-base leading-relaxed text-ivory/80">{c.about}</p>
             <p className="mt-5 max-w-xl text-base leading-relaxed text-ivory/65">
               {t.practicesSentence.a} <a href={c.routes.ixelles} className="text-ivory underline decoration-ivory/30 underline-offset-4 hover:decoration-steel">Ixelles</a> {t.practicesSentence.ixDays}{" "}
@@ -64,8 +57,8 @@ export default function HomePage({ lang = "fr" }: { lang?: Lang }) {
               {c.languages} <a href={site.upob.url} target="_blank" rel="noopener noreferrer" className="text-ivory/80 underline decoration-ivory/30 underline-offset-4 hover:decoration-steel">{c.upobShort}</a>.
             </p>
             <div className="mt-10 flex flex-wrap gap-x-10 gap-y-4">
-              <a href={c.routes.osteo} className="border-b border-ivory/30 pb-1 text-xs uppercase tracking-[0.25em] transition-colors hover:border-steel hover:text-steel">{c.disciplines.osteo.label} →</a>
-              <a href={c.routes.kine} className="border-b border-ivory/30 pb-1 text-xs uppercase tracking-[0.25em] transition-colors hover:border-steel hover:text-steel">{c.disciplines.kine.label} →</a>
+              <a href={c.routes.osteo} className="text-base text-ivory underline decoration-1 underline-offset-4 decoration-ivory/40 transition-colors hover:text-steel hover:decoration-steel">{c.disciplines.osteo.label}</a>
+              <a href={c.routes.kine} className="text-base text-ivory underline decoration-1 underline-offset-4 decoration-ivory/40 transition-colors hover:text-steel hover:decoration-steel">{c.disciplines.kine.label}</a>
             </div>
           </div>
         </div>
@@ -77,7 +70,6 @@ export default function HomePage({ lang = "fr" }: { lang?: Lang }) {
       <FaqSchema items={c.faqHome} />
       <FaqCarousel items={c.faqHome} tone="dark" id="faq" lang={lang} />
       <Contact lang={lang} />
-      <Reveal />
       <MobileBooking lang={lang} />
     </>
   );

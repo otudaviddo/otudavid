@@ -22,7 +22,7 @@ export default function SoinSections({ items, lang = "fr" }: { items: Soin[]; la
   return (
     <section id="motifs" data-tone="light" aria-labelledby="motifs-title" className="w-full bg-white text-night">
       <div className="mx-auto max-w-5xl px-6 py-24 md:px-10 md:py-28">
-        <h2 id="motifs-title" data-reveal className="text-center font-serif text-3xl tracking-[0.2em] sm:text-4xl">{t.title}</h2>
+        <h2 id="motifs-title" className="font-serif text-4xl leading-[1.1] sm:text-5xl">{t.title}</h2>
         <div className="mt-14 border-t border-night/15">
           {items.map((s) => (
             <details key={s.slug} id={s.slug} className="group scroll-mt-24 border-b border-night/15">
@@ -40,13 +40,13 @@ export default function SoinSections({ items, lang = "fr" }: { items: Soin[]; la
               <div className="grid gap-12 pb-12 md:grid-cols-2">
                 <div>
                   {s.intro.map((p, i) => <p key={i} className="mb-4 text-[15px] leading-relaxed text-night/80">{p}</p>)}
-                  <h3 className="mt-8 text-[11px] uppercase tracking-[0.25em] text-steelDeep">{s.motifsTitle}</h3>
+                  <h3 className="mt-8 text-sm font-semibold text-night">{s.motifsTitle}</h3>
                   <ul className="mt-3 border-t border-night/10">
                     {s.motifs.map((m) => <li key={m} className="border-b border-night/10 py-2.5 text-[15px] text-night/85">{m}</li>)}
                   </ul>
                 </div>
                 <div>
-                  <h3 className="text-[11px] uppercase tracking-[0.25em] text-steelDeep">{t.care}</h3>
+                  <h3 className="text-sm font-semibold text-night">{t.care}</h3>
                   <p className="mt-3 text-[15px] leading-relaxed text-night/80">{s.approcheIntro}</p>
                   <ol className="mt-6 border-l border-night/15">
                     {s.phases.map((ph, i) => (
@@ -58,7 +58,7 @@ export default function SoinSections({ items, lang = "fr" }: { items: Soin[]; la
                     ))}
                   </ol>
                   <div className="mt-8 border border-night/15 bg-ivory/60 p-5">
-                    <p className="text-[11px] uppercase tracking-[0.22em] text-steelDeep">{t.alert}</p>
+                    <p className="text-sm font-semibold text-night">{t.alert}</p>
                     <ul className="mt-3 list-disc space-y-1.5 pl-5 text-sm leading-relaxed text-night/80">
                       {s.alerte.map((a) => <li key={a}>{a}</li>)}
                     </ul>

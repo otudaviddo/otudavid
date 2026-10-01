@@ -73,15 +73,14 @@ export default function Header({ lang = "fr" }: { lang?: Lang }) {
         aria-label={lang === "fr" ? "Menu mobile" : "Mobile menu"}
         className={`fixed inset-0 -z-10 flex flex-col justify-center gap-2 bg-night px-8 pt-[72px] transition-opacity duration-500 lg:hidden ${open ? "pointer-events-auto opacity-100" : "pointer-events-none opacity-0"}`}
       >
-        {links.map((l, i) => (
+        {links.map((l) => (
           <Link
             key={l.href}
             href={l.href}
             tabIndex={open ? 0 : -1}
             onClick={() => setOpen(false)}
-            className="flex items-baseline gap-5 border-b border-ivory/10 py-5 font-serif text-3xl tracking-[0.12em] text-ivory transition-colors duration-300 hover:text-steel"
+            className="border-b border-ivory/10 py-5 font-serif text-4xl text-ivory transition-colors duration-300 hover:text-steel"
           >
-            <span className="font-sans text-[11px] tracking-[0.2em] text-steel">0{i + 1}</span>
             {l.label}
           </Link>
         ))}

@@ -9,7 +9,6 @@ const pillars = [
 
 import { approachEn } from "@/content/en";
 import type { Lang } from "@/i18n";
-import Tilt from "@/components/Tilt";
 
 export default function Approach({ lang = "fr" }: { lang?: Lang }) {
   const en = lang === "en";
@@ -17,20 +16,19 @@ export default function Approach({ lang = "fr" }: { lang?: Lang }) {
   const list = en ? approachEn.pillars : pillars;
   return (
     <section id="approche" data-tone="light" aria-labelledby="approche-title" className="w-full bg-white text-night">
-      <div className="mx-auto max-w-6xl px-6 py-24 md:px-10 md:py-28">
-        <div data-reveal className="grid gap-6 md:grid-cols-[5fr_7fr] md:items-end">
-          <h2 id="approche-title" className="font-serif text-3xl tracking-[0.2em] sm:text-4xl">{title.toUpperCase()}</h2>
-          <p className="text-base leading-relaxed text-night/70">
+      <div className="mx-auto grid max-w-6xl gap-12 px-6 py-24 md:grid-cols-[4fr_8fr] md:gap-20 md:px-10 md:py-32">
+        <div className="md:sticky md:top-28 md:self-start">
+          <h2 id="approche-title" className="font-serif text-4xl leading-[1.1] sm:text-5xl">{title}</h2>
+          <p className="mt-6 text-base leading-relaxed text-night/70">
             {en ? approachEn.intro : "Ostéopathie et kinésithérapie réunies dans une même logique : comprendre, soulager, puis rendre le corps plus résistant, fondée sur les données scientifiques les plus récentes."}
           </p>
         </div>
-        <ol data-reveal className="mt-14 grid gap-px border border-night/10 bg-night/10 sm:grid-cols-2 lg:grid-cols-4">
+        <ol className="border-t border-night/15">
           {list.map((p) => (
-            <Tilt as="li" key={p.n} className="tilt-card bg-white p-7">
-              <p className="tilt-pop text-[11px] uppercase tracking-[0.25em] text-steelDeep">{p.n}</p>
-              <h3 className="tilt-pop mt-4 font-serif text-2xl">{p.t}</h3>
-              <p className="mt-3 text-[15px] leading-relaxed text-night/70">{p.d}</p>
-            </Tilt>
+            <li key={p.n} className="grid gap-3 border-b border-night/15 py-8 sm:grid-cols-[12rem_1fr] sm:gap-8 md:py-10">
+              <h3 className="font-serif text-3xl leading-none">{p.t}</h3>
+              <p className="text-base leading-relaxed text-night/75">{p.d}</p>
+            </li>
           ))}
         </ol>
       </div>

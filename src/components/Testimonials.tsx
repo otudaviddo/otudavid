@@ -10,7 +10,7 @@ function Card({ t, lang }: { t: (typeof testimonials)[number]; lang: Lang }) {
       <blockquote className="font-serif text-base italic leading-relaxed text-night/85 sm:text-lg">
         &laquo;&nbsp;{t.quote}&nbsp;&raquo;
       </blockquote>
-      <figcaption className="mt-6 flex items-center justify-between text-[11px] uppercase tracking-[0.22em] text-night/50">
+      <figcaption className="mt-6 flex items-center justify-between text-xs text-night/55">
         <span>{t.author}</span>
         <span>{reviewDate(lang, t.date)}</span>
       </figcaption>
@@ -71,10 +71,10 @@ export default function Testimonials({ lang = "fr" }: { lang?: Lang }) {
 
   return (
     <section id="avis" data-tone="light" aria-labelledby="avis-title" className="relative w-full bg-ivory text-night">
-      <div data-reveal className="mx-auto flex max-w-6xl flex-col items-center gap-8 px-6 pb-12 pt-24 text-center md:flex-row md:items-end md:justify-between md:px-10 md:pt-32 md:text-left">
+      <div className="mx-auto flex max-w-6xl flex-col gap-8 px-6 pb-12 pt-24 md:flex-row md:items-end md:justify-between md:px-10 md:pt-32">
         <div>
-          <h2 id="avis-title" className="font-serif text-3xl tracking-[0.25em] sm:text-4xl">{t.title}</h2>
-          <p className="mt-4 text-xs uppercase tracking-[0.25em] text-steelDeep">{c.reviewsLabel}</p>
+          <h2 id="avis-title" className="font-serif text-4xl leading-[1.1] sm:text-5xl">{t.title}</h2>
+          <p className="mt-4 text-sm text-night/60">{c.reviewsLabel}</p>
         </div>
         <div className="flex gap-3">
           <button type="button" aria-label={t.prev} onClick={() => step(-1)} className={arrow}>←</button>
@@ -98,10 +98,10 @@ export default function Testimonials({ lang = "fr" }: { lang?: Lang }) {
         </div>)}
       </div>
 
-      <div className="px-6 pb-20 pt-6 text-center md:pb-28">
+      <div className="mx-auto max-w-6xl px-6 pb-20 pt-6 md:px-10 md:pb-28">
         <a
           href={OSTEO_DOCTORANYTIME_URL}
-          className="inline-block border-b border-night/30 pb-1 text-[11px] uppercase tracking-[0.18em] text-night/80 transition-colors duration-300 hover:border-steelDeep hover:text-steelDeep sm:text-xs sm:tracking-[0.25em]"
+          className="text-base text-night underline decoration-1 underline-offset-4 decoration-night/40 transition-colors duration-300 hover:text-steelDeep hover:decoration-steelDeep"
         >
           {t.all}
         </a>

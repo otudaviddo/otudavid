@@ -3,7 +3,8 @@ import { content, type Lang } from "@/i18n";
 import { PhoneIcon, MailIcon, InstagramIcon } from "@/components/Icons";
 import Logo from "@/components/Logo";
 
-const label = "text-[11px] uppercase tracking-[0.28em] text-steelDeep";
+const label = "text-sm font-semibold text-night";
+const link = "text-sm text-night underline decoration-1 underline-offset-4 decoration-night/35 transition-colors duration-300 hover:text-steelDeep hover:decoration-steelDeep";
 
 export default function Contact({ lang = "fr" }: { lang?: Lang }) {
   const c = content(lang);
@@ -17,21 +18,20 @@ export default function Contact({ lang = "fr" }: { lang?: Lang }) {
         className="pointer-events-none absolute -right-20 bottom-0 h-[92%] w-auto select-none opacity-[0.16] mix-blend-multiply md:-right-6"
       />
       <div className="relative mx-auto max-w-6xl px-6 pb-36 pt-24 md:px-10 md:py-32">
-        <div className="text-center" data-reveal>
-          <h2 id="contact-title" className="font-serif text-3xl tracking-[0.25em] sm:text-4xl">{t.title}</h2>
-          <p className="mt-4 text-xs uppercase tracking-[0.25em] text-night/60">{c.title}</p>
+        <div>
+          <h2 id="contact-title" className="font-serif text-4xl leading-[1.1] sm:text-5xl">{t.title}</h2>
+          <p className="mt-4 text-base text-night/65">David Otu, {c.title}</p>
         </div>
 
-        <div data-reveal className="mt-16 grid gap-14 text-center md:grid-cols-3 md:gap-10">
+        <div className="mt-14 grid gap-12 md:grid-cols-3 md:gap-10">
           <div>
-            <p className={label}>{t.phoneMail}</p>
-            <a href={site.phoneHref} className="mt-4 block font-serif text-3xl tracking-[0.08em] transition-colors duration-300 hover:text-steelDeep">
+            <a href={site.phoneHref} className="block font-serif text-4xl transition-colors duration-300 hover:text-steelDeep">
               {site.phone}
             </a>
-            <a href={`mailto:${site.email}`} className="mt-4 inline-block break-all border-b border-night/30 pb-0.5 text-[13px] tracking-[0.08em] text-night/80 transition-colors duration-300 hover:border-steelDeep hover:text-steelDeep">
+            <a href={`mailto:${site.email}`} className={`mt-3 inline-block break-all ${link}`}>
               {site.email}
             </a>
-            <div className="mt-6 flex justify-center gap-4">
+            <div className="mt-6 flex gap-4">
               {[
                 { href: site.phoneHref, label: c.ui.callAria(site.phone), Icon: PhoneIcon },
                 { href: `mailto:${site.email}`, label: c.ui.mailAria(site.email), Icon: MailIcon },
@@ -51,22 +51,21 @@ export default function Contact({ lang = "fr" }: { lang?: Lang }) {
           </div>
 
           {c.addresses.map((a) => (
-            <address key={a.label} className="not-italic md:border-l md:border-night/10">
-              <p className={label}>{t.cabinet}</p>
-              <p className="mt-4 font-serif text-3xl tracking-[0.08em]">{a.label}</p>
-              <p className="mt-3 text-[12px] uppercase tracking-[0.2em] text-night/70">{a.street}</p>
-              <p className="mt-1 text-[12px] uppercase tracking-[0.2em] text-night/70">{a.postalCode} {a.city}</p>
+            <address key={a.label} className="not-italic md:border-l md:border-night/15 md:pl-10">
+              <p className="font-serif text-3xl leading-tight">{a.label}</p>
+              <p className="mt-3 text-base text-night/75">{a.street}</p>
+              <p className="text-base text-night/75">{a.postalCode} {a.city}</p>
               <p className="mt-3 font-serif text-lg italic text-night/80">{a.days}</p>
-              <div className="mt-5 flex justify-center gap-6">
+              <div className="mt-4 flex gap-6">
                 <a
                   href={a.path}
-                  className="inline-block border-b border-night/25 pb-0.5 text-[11px] uppercase tracking-[0.25em] text-night/80 transition-colors duration-300 hover:border-steelDeep hover:text-steelDeep"
+                  className={link}
                 >
                   {t.cabinetLink}
                 </a>
                 <a
                   href={a.mapsUrl}
-                  className="inline-block border-b border-night/25 pb-0.5 text-[11px] uppercase tracking-[0.25em] text-night/80 transition-colors duration-300 hover:border-steelDeep hover:text-steelDeep"
+                  className={link}
                 >
                   {t.route}
                 </a>
@@ -75,7 +74,7 @@ export default function Contact({ lang = "fr" }: { lang?: Lang }) {
           ))}
         </div>
 
-        <div data-reveal className="mx-auto mt-20 flex max-w-2xl flex-col gap-4 sm:flex-row">
+        <div className="mt-16 flex max-w-2xl flex-col gap-4 sm:flex-row">
           {[c.disciplines.osteo, c.disciplines.kine].map((d) => (
             <a
               key={d.slug}
@@ -109,12 +108,10 @@ export default function Contact({ lang = "fr" }: { lang?: Lang }) {
           </div>
         </nav>
 
-        <div className="mt-12 flex justify-center border-t border-night/10 pt-10 text-night">
+        <div className="mt-12 flex flex-wrap items-center justify-between gap-x-8 gap-y-4 border-t border-night/10 pt-10 text-night">
           <Logo className="h-9 w-auto" accent="fill-steelDeep" />
+          <p className="text-xs text-night/55">© {new Date().getFullYear()} David Otu, {c.title}</p>
         </div>
-        <p className="mt-6 text-center text-[11px] uppercase tracking-[0.22em] text-night/45">
-          © {new Date().getFullYear()} {site.name} · {c.title}
-        </p>
       </div>
     </section>
   );

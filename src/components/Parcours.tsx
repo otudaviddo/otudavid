@@ -40,7 +40,7 @@ function Row({ g, id }: { g: Group; id: string }) {
               <li key={i} className="relative pb-6 pl-6 last:pb-0">
                 <span aria-hidden className="absolute -left-[3px] top-[7px] h-[5px] w-[5px] rounded-full bg-steel/70" />
                 {it.years && (
-                  <p className="mb-1 text-[11px] uppercase tracking-[0.2em] text-ivory/45 tabular-nums">{it.years}</p>
+                  <p className="mb-1 text-xs text-ivory/50 tabular-nums">{it.years}</p>
                 )}
                 <p className="font-serif text-lg leading-snug text-ivory/90">{it.title}</p>
                 <p className="mt-0.5 text-sm text-ivory/55">{it.detail}</p>
@@ -56,7 +56,7 @@ function Row({ g, id }: { g: Group; id: string }) {
 function Column({ heading, groups, prefix }: { heading: string; groups: readonly Group[]; prefix: string }) {
   return (
     <div>
-      <h3 className="text-[11px] uppercase tracking-[0.3em] text-steel">{heading}</h3>
+      <h3 className="text-sm font-semibold text-steel">{heading}</h3>
       <div className="mt-4 border-t border-ivory/15">
         {groups.map((g, i) => <Row key={g.group} g={g} id={`${prefix}-${i}`} />)}
       </div>
@@ -77,34 +77,33 @@ export default function Parcours({ lang = "fr" }: { lang?: Lang }) {
         className="pointer-events-none absolute -left-24 top-10 h-[70%] w-auto select-none opacity-[0.07] md:-left-10 md:h-[85%] md:opacity-[0.09]"
       />
       <div className="relative mx-auto max-w-6xl px-6 py-24 md:px-10 md:py-32">
-        <div className="text-center" data-reveal>
-          <h2 id="parcours-title" className="font-serif text-3xl tracking-[0.25em] sm:text-4xl">{t.title}</h2>
-          <p className="mt-5 font-serif text-lg italic text-ivory/70 sm:text-xl">{p.intro}</p>
+        <div className="max-w-2xl">
+          <h2 id="parcours-title" className="font-serif text-4xl leading-[1.1] sm:text-5xl">{t.title}</h2>
+          <p className="mt-5 font-serif text-xl italic text-ivory/70 sm:text-2xl">{p.intro}</p>
         </div>
 
         {/* Trois repères clés */}
-        <dl data-reveal className="mx-auto mt-16 grid max-w-5xl border-y border-ivory/15 sm:grid-cols-3">
+        <dl className="mt-16 grid border-y border-ivory/15 sm:grid-cols-3">
           {p.highlights.map((h, i) => (
             <div
               key={h.label}
-              className={`px-4 py-10 text-center ${i > 0 ? "border-t border-ivory/15 sm:border-l sm:border-t-0" : ""}`}
+              className={`py-9 ${i > 0 ? "border-t border-ivory/15 sm:border-l sm:border-t-0 sm:pl-8" : ""} sm:pr-8`}
             >
               <dt className="font-serif text-3xl tracking-[0.04em] text-ivory md:text-[2.1rem]">{h.value}</dt>
-              <dd className="mt-3 text-[11px] uppercase tracking-[0.25em] text-steel">{h.label}</dd>
-              <dd className="mx-auto mt-2 max-w-[16rem] text-sm leading-relaxed text-ivory/55">{h.detail}</dd>
+              <dd className="mt-3 text-sm text-steel">{h.label}</dd>
+              <dd className="mt-1 max-w-[18rem] text-sm leading-relaxed text-ivory/55">{h.detail}</dd>
             </div>
           ))}
         </dl>
 
         {/* Formation et expérience : rubriques dépliables */}
-        <div data-reveal className="mx-auto mt-20 grid max-w-5xl gap-14 md:grid-cols-2 md:gap-16">
+        <div className="mt-20 grid gap-14 md:grid-cols-2 md:gap-16">
           <Column heading={t.formation} groups={p.formation} prefix="formation" />
           <Column heading={t.experience} groups={p.experience} prefix="experience" />
         </div>
 
-        <p className="mt-16 text-center text-[11px] uppercase tracking-[0.25em] text-ivory/50">
-          {t.languages} <span className="mx-3 text-ivory/25">—</span>
-          <span className="text-ivory/80">{p.languages.join(" · ")}</span>
+        <p className="mt-14 text-sm text-ivory/55">
+          {t.languages}{lang === "fr" ? " : " : ": "}<span className="text-ivory/85">{p.languages.join(", ").toLowerCase()}</span>
         </p>
       </div>
     </section>

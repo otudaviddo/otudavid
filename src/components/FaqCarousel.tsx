@@ -33,10 +33,10 @@ export default function FaqCarousel({ items, tone = "dark", title, id, lang = "f
 
   return (
     <section id={id} data-tone={tone} aria-labelledby={`${id ?? "faq"}-title`} className={`w-full ${dark ? "bg-night text-ivory" : "bg-ivory text-night"}`}>
-      <div data-reveal className="mx-auto flex max-w-6xl flex-col items-center gap-8 px-6 pb-10 pt-24 text-center md:flex-row md:items-end md:justify-between md:px-10 md:pt-28 md:text-left">
+      <div className="mx-auto flex max-w-6xl flex-col gap-8 px-6 pb-10 pt-24 md:flex-row md:items-end md:justify-between md:px-10 md:pt-28">
         <div>
-          <h2 id={`${id ?? "faq"}-title`} className="font-serif text-3xl tracking-[0.2em] sm:text-4xl">{title.toUpperCase()}</h2>
-          <p className={`mt-4 text-xs uppercase tracking-[0.25em] ${dark ? "text-steel" : "text-steelDeep"}`}>
+          <h2 id={`${id ?? "faq"}-title`} className="font-serif text-4xl leading-[1.1] sm:text-5xl">{title}</h2>
+          <p className={`mt-4 text-sm tabular-nums ${dark ? "text-ivory/55" : "text-night/60"}`}>
             {index + 1} / {items.length}
           </p>
         </div>
@@ -56,8 +56,7 @@ export default function FaqCarousel({ items, tone = "dark", title, id, lang = "f
             key={i}
             className={`flex w-[85%] shrink-0 snap-start flex-col border p-7 sm:w-[420px] sm:p-9 ${dark ? "border-ivory/15 bg-ivory/[0.03]" : "border-night/15 bg-white/40"}`}
           >
-            <p className={`text-[11px] uppercase tracking-[0.25em] ${dark ? "text-steel" : "text-steelDeep"}`}>{String(i + 1).padStart(2, "0")}</p>
-            <h3 className="mt-4 font-serif text-2xl leading-snug">{it.q}</h3>
+            <h3 className="font-serif text-2xl leading-snug">{it.q}</h3>
             <p className={`mt-4 text-[15px] leading-relaxed ${dark ? "text-ivory/75" : "text-night/75"}`}>{it.a}</p>
           </article>
         ))}

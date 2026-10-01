@@ -4,7 +4,7 @@
 
 html { scroll-behavior: smooth; background: #0A1428; }
 body { @apply bg-night text-ivory font-sans antialiased; }
-/* Les blocs qui arrivent en perspective ne doivent jamais créer de défilement horizontal */
+/* Jamais de défilement horizontal parasite */
 main { overflow-x: clip; }
 :focus-visible { outline: 1px solid #8FA3C7; outline-offset: 6px; }
 /* Les sections ne passent pas sous le menu fixe quand on clique sur un lien */
@@ -55,33 +55,6 @@ section[id] { scroll-margin-top: 80px; }
   .glass-on-light { background: rgba(10, 20, 40, 0.78); }
   .glass-strong { background: rgba(10, 20, 40, 0.8); }
 }
-
-/* ---------- Relief 3D (cartes et portrait) ---------- */
-/* Le bloc s'incline vers la souris ; --tilt-x et --tilt-y sont réglés par le composant Tilt. */
-.tilt {
-  --tilt-x: 0deg; --tilt-y: 0deg;
-  transform: perspective(900px) rotateX(var(--tilt-x)) rotateY(var(--tilt-y));
-  transform-style: preserve-3d;
-  transition: transform .45s cubic-bezier(.2,.7,.2,1), box-shadow .45s ease;
-}
-.tilt-pop { transform: translateZ(0); transition: transform .45s cubic-bezier(.2,.7,.2,1); }
-.tilt-front { transform: translateZ(0); box-shadow: 0 30px 60px -28px rgba(0, 0, 0, .65); transition: transform .45s cubic-bezier(.2,.7,.2,1); }
-/* Cadre fin décalé derrière le portrait : visible partout, y compris sur mobile */
-.tilt-back { transform: translate3d(16px, 16px, 0); }
-.tilt-card { position: relative; }
-@media (hover: hover) and (pointer: fine) {
-  .tilt-card:hover { z-index: 2; box-shadow: 0 34px 60px -30px rgba(10, 20, 40, .38); transform: perspective(900px) rotateX(var(--tilt-x)) rotateY(var(--tilt-y)) translateZ(18px); }
-  .tilt:hover .tilt-pop { transform: translateZ(34px); }
-  .tilt:hover .tilt-front { transform: translateZ(40px); }
-}
-
-/* ---------- Apparition au défilement, avec un léger effet de profondeur ---------- */
-/* Chaque bloc arrive légèrement couché vers l'arrière puis se redresse. */
-.reveal {
-  opacity: 0; transform: perspective(1100px) rotateX(9deg) translateY(28px); transform-origin: 50% 100%;
-  transition: opacity .9s ease-out, transform 1s cubic-bezier(.2,.7,.2,1);
-}
-.reveal.is-in { opacity: 1; transform: none; }
 
 /* ---------- Bandeau d'avis ---------- */
 .no-scrollbar { scrollbar-width: none; }

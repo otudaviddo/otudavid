@@ -30,11 +30,11 @@ export default function CabinetPage({ slug, lang = "fr" }: { slug: string; lang?
 
       <section className="w-full bg-night">
         <div className="mx-auto max-w-6xl px-6 pb-20 pt-20 md:px-10 md:pt-28">
-          <p className="rise text-[11px] uppercase tracking-[0.3em] text-steel">{t.kicker(a.city)}</p>
-          <h1 className="rise d1 mt-5 max-w-3xl font-serif text-4xl leading-tight tracking-[0.04em] sm:text-5xl">
+          <p className="rise text-base text-steel">{t.kicker(a.city)}</p>
+          <h1 className="rise d1 mt-4 max-w-4xl font-serif text-[2.6rem] leading-[1.08] sm:text-6xl md:text-7xl">
             {t.h1(a.city)}
           </h1>
-          <p className="rise d2 mt-6 max-w-2xl text-base leading-relaxed text-ivory/75">
+          <p className="rise d2 mt-8 max-w-2xl text-lg leading-relaxed text-ivory/75">
             {t.lead(a.city, a.street, a.daysSentence)}
           </p>
 
@@ -56,28 +56,28 @@ export default function CabinetPage({ slug, lang = "fr" }: { slug: string; lang?
         <div className="mx-auto grid max-w-6xl gap-12 px-6 py-20 md:grid-cols-[5fr_7fr] md:px-10 md:py-28">
           <div className="space-y-10">
             <div>
-              <p className="text-[11px] uppercase tracking-[0.28em] text-steelDeep">{t.address}</p>
+              <p className="text-sm font-semibold text-steelDeep">{t.address}</p>
               <address className="mt-3 not-italic">
                 <p className="font-serif text-2xl">{a.street}</p>
-                <p className="mt-1 text-sm uppercase tracking-[0.2em] text-night/70">{a.postalCode} {a.city}</p>
+                <p className="mt-1 text-base text-night/70">{a.postalCode} {a.city}</p>
               </address>
-              <a href={a.mapsUrl} className="mt-4 inline-block border-b border-night/30 pb-0.5 text-[11px] uppercase tracking-[0.25em] hover:border-steelDeep hover:text-steelDeep">
+              <a href={a.mapsUrl} className="mt-3 inline-block text-sm underline decoration-1 underline-offset-4 decoration-night/35 hover:text-steelDeep hover:decoration-steelDeep">
                 {C.ui.contact.route}
               </a>
             </div>
             <div>
-              <p className="text-[11px] uppercase tracking-[0.28em] text-steelDeep">{t.days}</p>
+              <p className="text-sm font-semibold text-steelDeep">{t.days}</p>
               <p className="mt-3 font-serif text-2xl">{a.days}</p>
             </div>
             <div>
-              <p className="text-[11px] uppercase tracking-[0.28em] text-steelDeep">{t.care}</p>
+              <p className="text-sm font-semibold text-steelDeep">{t.care}</p>
               <ul className="mt-3 space-y-1 font-serif text-2xl">
                 <li><a href={C.routes.osteo} className="hover:text-steelDeep">{C.disciplines.osteo.label}</a></li>
                 <li><a href={C.routes.kine} className="hover:text-steelDeep">{C.disciplines.kine.label}</a></li>
               </ul>
             </div>
             <div>
-              <p className="text-[11px] uppercase tracking-[0.28em] text-steelDeep">{t.contact}</p>
+              <p className="text-sm font-semibold text-steelDeep">{t.contact}</p>
               <p className="mt-3 space-x-6 text-sm">
                 <a href={site.phoneHref} className="border-b border-night/30 pb-0.5">{site.phone}</a>
                 <a href={`mailto:${site.email}`} className="border-b border-night/30 pb-0.5">{site.email}</a>
@@ -123,11 +123,11 @@ export default function CabinetPage({ slug, lang = "fr" }: { slug: string; lang?
       </section>
 
       <section className="w-full bg-ivoryDeep text-night">
-        <div className="mx-auto max-w-6xl px-6 py-16 text-center md:px-10">
-          <p className="text-sm text-night/70">
+        <div className="mx-auto max-w-6xl px-6 py-16 md:px-10">
+          <p className="text-base text-night/75">
             {t.also} <a href={other.path} className="border-b border-night/30 pb-0.5 text-night hover:text-steelDeep">{other.city}</a> ({other.days.toLowerCase()}).
           </p>
-          <a href={C.routes.home} className="mt-6 inline-block text-[11px] uppercase tracking-[0.25em] text-night/70 hover:text-steelDeep">{t.back}</a>
+          <a href={C.routes.home} className="mt-5 inline-block text-sm text-night/75 underline decoration-1 underline-offset-4 decoration-night/35 hover:text-steelDeep">{t.back}</a>
         </div>
       </section>
     </>
