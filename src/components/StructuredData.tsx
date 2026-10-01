@@ -21,6 +21,7 @@ export default function StructuredData() {
       jobTitle: ["Kinésithérapeute", "Ostéopathe D.O."],
       alumniOf: { "@type": "CollegeOrUniversity", name: "Université libre de Bruxelles (ULB)" },
       knowsLanguage: ["fr", "en"],
+      memberOf: { "@type": "Organization", name: "UPOB — Union professionnelle des ostéopathes de Belgique", url: site.upob.url },
     },
     medicalSpecialty: ["Physiotherapy", "Osteopathic"],
     areaServed: [

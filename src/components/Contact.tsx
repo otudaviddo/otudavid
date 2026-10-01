@@ -1,5 +1,6 @@
 import { site, disciplines } from "@/config/site";
 import { PhoneIcon, MailIcon, InstagramIcon } from "@/components/Icons";
+import { soins } from "@/content/soins";
 
 const label = "text-[11px] uppercase tracking-[0.28em] text-steelDeep";
 
@@ -83,7 +84,35 @@ export default function Contact() {
           ))}
         </div>
 
-        <p className="mt-20 border-t border-night/10 pt-8 text-center text-[11px] uppercase tracking-[0.22em] text-night/45">
+        {/* Pied de page : liens utiles (aussi pour le référencement) */}
+        <nav aria-label="Pages du site" className="mt-20 grid gap-10 border-t border-night/10 pt-10 text-sm sm:grid-cols-3">
+          <div>
+            <p className={label}>Soins</p>
+            <ul className="mt-3 space-y-1.5 text-night/70">
+              <li><a href="/osteo" className="hover:text-steelDeep">Ostéopathie</a></li>
+              <li><a href="/kine" className="hover:text-steelDeep">Kinésithérapie</a></li>
+            </ul>
+          </div>
+          <div>
+            <p className={label}>Motifs de consultation</p>
+            <ul className="mt-3 space-y-1.5 text-night/70">
+              {soins.map((s) => <li key={s.slug}><a href={`/soins/${s.slug}`} className="hover:text-steelDeep">{s.card}</a></li>)}
+            </ul>
+          </div>
+          <div>
+            <p className={label}>Cabinets</p>
+            <ul className="mt-3 space-y-1.5 text-night/70">
+              <li><a href="/ixelles" className="hover:text-steelDeep">Ostéopathe &amp; kiné à Ixelles</a></li>
+              <li><a href="/woluwe-saint-pierre" className="hover:text-steelDeep">Ostéopathe &amp; kiné à Woluwe-Saint-Pierre</a></li>
+            </ul>
+            <p className="mt-6 text-night/70">
+              <a href={site.upob.url} target="_blank" rel="noopener noreferrer" className="hover:text-steelDeep">{site.upob.short}</a>
+              <br />Kinésithérapeute conventionné INAMI
+            </p>
+          </div>
+        </nav>
+
+        <p className="mt-12 border-t border-night/10 pt-8 text-center text-[11px] uppercase tracking-[0.22em] text-night/45">
           © {new Date().getFullYear()} {site.name} · {site.title}
         </p>
       </div>

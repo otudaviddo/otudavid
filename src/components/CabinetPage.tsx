@@ -1,4 +1,5 @@
 import { site, disciplines, SITE_URL } from "@/config/site";
+import { soins } from "@/content/soins";
 
 type A = (typeof site.addresses)[number];
 
@@ -89,6 +90,35 @@ export default function CabinetPage({ a }: { a: A }) {
             referrerPolicy="no-referrer-when-downgrade"
             className="h-[360px] w-full border border-night/15 md:h-full md:min-h-[460px]"
           />
+        </div>
+      </section>
+
+      <section data-tone="dark" className="w-full bg-nightSoft">
+        <div className="mx-auto grid max-w-6xl gap-14 px-6 py-20 md:grid-cols-2 md:px-10 md:py-24">
+          <div>
+            <h2 className="font-serif text-3xl">Motifs de consultation à {a.city}</h2>
+            <p className="mt-5 text-base leading-relaxed text-ivory/75">
+              Au cabinet de {a.city}, David Otu prend en charge les douleurs aiguës (lumbago, dos bloqué, torticolis, sciatique),
+              les douleurs chroniques du dos et de la nuque, les blessures sportives et la rééducation après une entorse,
+              une fracture ou une opération (prothèse de genou ou de hanche, ligaments croisés).
+            </p>
+            <ul className="mt-8 flex flex-wrap gap-3">
+              {soins.map((s) => (
+                <li key={s.slug}>
+                  <a href={`/soins/${s.slug}`} className="inline-block border border-ivory/20 px-4 py-2 text-sm text-ivory/85 transition-colors hover:border-ivory hover:bg-ivory hover:text-night">{s.card}</a>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div>
+            <h2 className="font-serif text-3xl">Remboursement</h2>
+            <p className="mt-5 text-base leading-relaxed text-ivory/75"><strong className="font-normal text-ivory">Ostéopathie</strong> ({site.duration.osteo}) : {site.reimbursement.osteo}</p>
+            <p className="mt-4 text-base leading-relaxed text-ivory/75"><strong className="font-normal text-ivory">Kinésithérapie</strong> ({site.duration.kine}) : {site.reimbursement.kine}</p>
+            <p className="mt-6 text-sm text-ivory/60">
+              {site.languages}{" "}
+              <a href={site.upob.url} target="_blank" rel="noopener noreferrer" className="text-ivory/85 underline decoration-ivory/30 underline-offset-4 hover:decoration-steel">{site.upob.short}</a>.
+            </p>
+          </div>
         </div>
       </section>
 

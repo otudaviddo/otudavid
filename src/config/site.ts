@@ -32,7 +32,7 @@ export const site = {
       days: "Mardi · Jeudi",
       daysSentence: "le mardi et le jeudi",
       dayCodes: ["Tuesday", "Thursday"],
-      metaTitle: "Ostéopathe & kinésithérapeute à Woluwe-Saint-Pierre — David Otu",
+      metaTitle: "Ostéopathe & kiné à Woluwe-Saint-Pierre | David Otu",
       metaDescription:
         "David Otu, ostéopathe D.O. et kinésithérapeute à Woluwe-Saint-Pierre, rue de la Station 113. Consultations le mardi et le jeudi. Rendez-vous en ligne.",
     },
@@ -48,7 +48,7 @@ export const site = {
       days: "Lundi · Mercredi · Vendredi",
       daysSentence: "le lundi, le mercredi et le vendredi",
       dayCodes: ["Monday", "Wednesday", "Friday"],
-      metaTitle: "Ostéopathe & kinésithérapeute à Ixelles — David Otu",
+      metaTitle: "Ostéopathe & kinésithérapeute à Ixelles | David Otu",
       metaDescription:
         "David Otu, ostéopathe D.O. et kinésithérapeute à Ixelles, rue de Hennin 99. Consultations le lundi, le mercredi et le vendredi. Rendez-vous en ligne.",
     },
@@ -126,10 +126,22 @@ export const site = {
     ],
     languages: ["Français", "Anglais"],
   },
+  // Union professionnelle et remboursements (textes validés par David Otu).
+  upob: {
+    label: "Membre de l'UPOB — Union professionnelle des ostéopathes de Belgique",
+    short: "Membre de l'UPOB",
+    url: "https://www.osteopathie.be",
+  },
+  reimbursement: {
+    osteo: "Attestation de soins remise après chaque séance, pour un remboursement partiel selon votre mutuelle.",
+    kine: "Kinésithérapeute conventionné : séances remboursées par l'INAMI sur prescription médicale.",
+  },
+  duration: { osteo: "45 minutes", kine: "30 minutes" },
+  languages: "Consultations en français et en anglais.",
   seo: {
-    title: "OTU DAVID — Kinésithérapeute & Ostéopathe D.O. à Ixelles et Woluwe-Saint-Pierre",
+    title: "Ostéopathe & kiné à Ixelles et Woluwe-Saint-Pierre | David Otu",
     description:
-      "David Otu, kinésithérapeute et ostéopathe D.O. à Ixelles et Woluwe-Saint-Pierre. Cabinet de kinésithérapie et d'ostéopathie à Bruxelles. Prenez rendez-vous en ligne.",
+      "Ostéopathe D.O. et kinésithérapeute conventionné à Ixelles et Woluwe-Saint-Pierre (Bruxelles) : mal de dos, lumbago, cervicalgie, genou, entorse, rééducation et sport. Rendez-vous en ligne.",
   },
 } as const;
 
@@ -139,9 +151,10 @@ export const disciplines = {
     label: "Ostéopathie",
     upper: "OSTÉOPATHIE",
     url: OSTEO_DOCTORANYTIME_URL,
-    metaTitle: "Ostéopathe D.O. à Ixelles et Woluwe-Saint-Pierre — OTU DAVID",
+    metaTitle: "Ostéopathe D.O. à Ixelles et Woluwe-Saint-Pierre | David Otu",
     metaDescription:
-      "Séance d'ostéopathie à Ixelles ou Woluwe-Saint-Pierre avec David Otu, ostéopathe D.O. Douleurs cervicales, dorsales, lombaires, troubles digestifs. Rendez-vous en ligne.",
+      "Ostéopathe D.O. à Ixelles et Woluwe-Saint-Pierre : lumbago, mal de dos, torticolis, sciatique, cervicalgie, tensions. Séance de 45 min, attestation pour la mutuelle. Rendez-vous en ligne.",
+    h1: "Ostéopathe D.O. à Ixelles & Woluwe-Saint-Pierre",
     intro:
       "Ostéopathe D.O. diplômé, à Ixelles et à Woluwe-Saint-Pierre. Écoute attentive, évaluation précise de votre posture, techniques manuelles douces et ciblées — pour adultes, enfants, sportifs et seniors.",
     specialties: [
@@ -157,9 +170,10 @@ export const disciplines = {
     label: "Kinésithérapie",
     upper: "KINÉSITHÉRAPIE",
     url: KINE_DOCTORANYTIME_URL,
-    metaTitle: "Kinésithérapeute à Ixelles et Woluwe-Saint-Pierre — OTU DAVID",
+    metaTitle: "Kinésithérapeute à Ixelles et Woluwe-Saint-Pierre | David Otu",
     metaDescription:
-      "Séance de kinésithérapie à Ixelles ou Woluwe-Saint-Pierre avec David Otu, kinésithérapeute. Rééducation fonctionnelle, sport, post-opératoire. Rendez-vous en ligne.",
+      "Kinésithérapeute conventionné à Ixelles et Woluwe-Saint-Pierre : rééducation post-opératoire, genou, entorse, kiné du sport, mal de dos. Remboursé INAMI sur prescription. Rendez-vous en ligne.",
+    h1: "Kinésithérapeute à Ixelles & Woluwe-Saint-Pierre",
     intro:
       "Kinésithérapeute, à Ixelles et à Woluwe-Saint-Pierre. Bilan complet, thérapie manuelle et exercices ciblés — pour retrouver vos activités, reprendre le sport ou accompagner un suivi post-opératoire.",
     specialties: [

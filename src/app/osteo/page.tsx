@@ -1,13 +1,10 @@
-import type { Metadata } from "next";
 import { disciplines } from "@/config/site";
+import { pageMeta } from "@/config/meta";
 import BookingPage from "@/components/BookingPage";
 
-export const metadata: Metadata = {
-  title: disciplines.osteo.metaTitle,
-  description: disciplines.osteo.metaDescription,
-  alternates: { canonical: "/osteo" },
-};
+const d = disciplines.osteo;
+export const metadata = pageMeta({ title: d.metaTitle, description: d.metaDescription, path: "/osteo" });
 
 export default function Page() {
-  return <BookingPage d={disciplines.osteo} />;
+  return <BookingPage d={d} />;
 }

@@ -10,17 +10,8 @@ const sans = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  title: { default: site.seo.title, template: `%s — ${site.name}` },
+  title: { default: site.seo.title, template: "%s" },
   description: site.seo.description,
-  keywords: [
-    "kinésithérapeute Ixelles",
-    "ostéopathe Ixelles",
-    "kinésithérapeute Woluwe-Saint-Pierre",
-    "ostéopathe Woluwe-Saint-Pierre",
-    "kinésithérapie Bruxelles",
-    "ostéopathie Bruxelles",
-    "David Otu",
-  ],
   authors: [{ name: site.name }],
   alternates: { canonical: "/" },
   openGraph: {
@@ -28,9 +19,11 @@ export const metadata: Metadata = {
     description: site.seo.description,
     type: "website",
     locale: "fr_BE",
-    siteName: site.name,
+    siteName: "David Otu — Ostéopathe & kinésithérapeute",
     url: SITE_URL,
+    images: [{ url: "/og.jpg", width: 1200, height: 630, alt: "David Otu, ostéopathe D.O. et kinésithérapeute à Ixelles et Woluwe-Saint-Pierre" }],
   },
+  twitter: { card: "summary_large_image", title: site.seo.title, description: site.seo.description, images: ["/og.jpg"] },
   robots: { index: true, follow: true },
 };
 

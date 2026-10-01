@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { site, OSTEO_DOCTORANYTIME_URL } from "@/config/site";
 import { testimonials } from "@/config/testimonials";
 
@@ -20,6 +20,8 @@ function Card({ t }: { t: (typeof testimonials)[number] }) {
 export default function Testimonials() {
   const box = useRef<HTMLDivElement>(null);
   const paused = useRef(false);
+  const [loop, setLoop] = useState(false);
+  useEffect(() => setLoop(true), []);
 
   // Défilement automatique lent, en boucle. Il s'arrête dès que le visiteur
   // survole, touche ou fait défiler lui-même, et reprend quelques secondes après.
@@ -84,10 +86,10 @@ export default function Testimonials() {
         <div className="flex shrink-0 items-start gap-6 pl-6 md:pl-10">
           {testimonials.map((t, i) => <Card key={`a${i}`} t={t} />)}
         </div>
-        {/* copie identique pour une boucle continue */}
-        <div aria-hidden className="flex shrink-0 items-start gap-6 pl-6 md:pl-10">
+        {/* copie identique pour une boucle continue (ajoutée côté navigateur) */}
+        {loop && (<div aria-hidden className="flex shrink-0 items-start gap-6 pl-6 md:pl-10">
           {testimonials.map((t, i) => <Card key={`b${i}`} t={t} />)}
-        </div>
+        </div>)}
       </div>
 
       <div className="px-6 pb-20 pt-6 text-center md:pb-28">

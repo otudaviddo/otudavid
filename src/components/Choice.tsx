@@ -102,8 +102,8 @@ function PerformanceDrawing() {
 
 /* ---------- Panneau cliquable ---------- */
 
-export default function Choice({ d, image, position = "center", kind }: {
-  d: D; image: string; position?: string; kind: "osteo" | "kine";
+export default function Choice({ d, image, position = "center", kind, alt = "" }: {
+  d: D; image: string; position?: string; kind: "osteo" | "kine"; alt?: string;
 }) {
   const ref = useRef<HTMLAnchorElement>(null);
   const [visible, setVisible] = useState(false);
@@ -126,7 +126,7 @@ export default function Choice({ d, image, position = "center", kind }: {
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         src={image}
-        alt=""
+        alt={alt}
         className="panel-img absolute inset-0 h-full w-full object-cover"
         style={{ objectPosition: position }}
       />
