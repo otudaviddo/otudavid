@@ -22,9 +22,9 @@ export default function HomePage({ lang = "fr" }: { lang?: Lang }) {
           {site.name} — {t.heroH1}
         </h1>
         <div className="flex flex-col md:h-[calc(100svh-76px)] md:min-h-[600px] md:flex-row">
-          <Choice d={c.disciplines.osteo} kind="osteo" image="/images/osteopathie-mains.webp" position="50% 55%" alt={t.altOsteo} pro={t.osteoPro} cta={t.book} more={t.more} moreHref={c.routes.osteo} label={c.disciplines.osteo.label} />
+          <Choice d={c.disciplines.osteo} kind="osteo" image="/images/osteopathie-mains.webp" srcSet="/images/osteopathie-mains.webp 1080w, /images/osteopathie-mains-1620.webp 1620w, /images/osteopathie-mains-2160.webp 2160w" sizes="(min-width: 768px) 60vw, 100vw" position="50% 55%" alt={t.altOsteo} pro={t.osteoPro} cta={t.book} more={t.more} moreHref={c.routes.osteo} label={c.disciplines.osteo.label} />
           <span aria-hidden className="h-px w-full bg-ivory/15 md:h-auto md:w-px" />
-          <Choice d={c.disciplines.kine} kind="kine" image="/images/kinesitherapie-genou.webp" position="50% 50%" alt={t.altKine} pro={t.kinePro} cta={t.book} more={t.more} moreHref={c.routes.kine} label={c.disciplines.kine.label} />
+          <Choice d={c.disciplines.kine} kind="kine" image="/images/kinesitherapie-genou.webp" srcSet="/images/kinesitherapie-genou.webp 1536w, /images/kinesitherapie-genou-2304.webp 2304w, /images/kinesitherapie-genou-3072.webp 3072w" sizes="(min-width: 768px) 95vw, 165vw" position="50% 50%" alt={t.altKine} pro={t.kinePro} cta={t.book} more={t.more} moreHref={c.routes.kine} label={c.disciplines.kine.label} />
         </div>
       </section>
 
@@ -41,6 +41,8 @@ export default function HomePage({ lang = "fr" }: { lang?: Lang }) {
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src="/images/portrait-david-otu.webp"
+                srcSet="/images/portrait-david-otu.webp 1025w, /images/portrait-david-otu-2050.webp 2050w"
+                sizes="(min-width: 768px) 40vw, 90vw"
                 alt={t.altPortrait}
                 width={1025} height={1281} loading="lazy"
                 className="relative aspect-[4/5] w-full rounded-2xl object-cover shadow-[0_30px_60px_-28px_rgba(0,0,0,.65)]"

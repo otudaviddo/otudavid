@@ -10,13 +10,13 @@ const phoneBtn = "inline-flex min-h-[52px] shrink-0 items-center gap-3 rounded-f
 export function UrgentBand({ lang = "fr" }: { lang?: Lang }) {
   const t = content(lang).ui.urgent;
   return (
-    <aside aria-label={t.aria} className="w-full bg-steel text-night">
-      <div className="mx-auto flex max-w-6xl flex-col gap-3 px-6 py-4 sm:flex-row sm:items-center sm:justify-between md:min-h-[76px] md:px-10 md:py-0">
+    <aside aria-label={t.aria} className="urgent-band w-full bg-steel text-night">
+      <div className="relative z-[1] mx-auto flex max-w-6xl flex-col gap-3 px-6 py-4 sm:flex-row sm:items-center sm:justify-between md:min-h-[76px] md:px-10 md:py-0">
         <p className="text-base leading-snug">
           <strong className="font-semibold">{t.band}</strong>
           <span className="text-night/80"> · {t.bandText}</span>
         </p>
-        <a href={site.phoneHref} className={phoneBtn}>
+        <a href={site.phoneHref} className={`urgent-phone ${phoneBtn}`}>
           <PhoneIcon className="h-5 w-5" />{site.phone}
         </a>
       </div>

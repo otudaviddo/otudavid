@@ -100,8 +100,9 @@ function PerformanceDrawing() {
 
 /* ---------- Panneau cliquable ---------- */
 
-export default function Choice({ d, image, position = "center", kind, alt = "", pro, cta, more, moreHref, label }: {
+export default function Choice({ d, image, position = "center", kind, alt = "", pro, cta, more, moreHref, label, srcSet, sizes }: {
   d: D; image: string; position?: string; kind: "osteo" | "kine"; alt?: string; pro: string; cta: string;
+  /** Versions haute résolution de la photo */ srcSet?: string; sizes?: string;
   /** Lien secondaire vers la page du site */ more: string; moreHref: string; label: string;
 }) {
   const ref = useRef<HTMLDivElement>(null);
@@ -146,6 +147,8 @@ export default function Choice({ d, image, position = "center", kind, alt = "", 
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         src={image}
+        srcSet={srcSet}
+        sizes={sizes}
         alt={alt}
         className="panel-img absolute inset-0 h-full w-full object-cover"
         style={{ objectPosition: position }}
