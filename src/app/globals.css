@@ -59,7 +59,7 @@ section[id] { scroll-margin-top: 80px; }
 /* ---------- Bandeau « rendez-vous en urgence » ---------- */
 /* À l'ouverture : le bandeau monte avec un petit rebond. Ensuite, une vague de lumière
    le traverse de temps en temps et le téléphone « sonne », pour attirer l'œil sans gêner. */
-.urgent-band { position: relative; overflow: hidden; box-shadow: 0 24px 0 #8FA3C7; clip-path: inset(0 0 -24px 0); animation: urgent-in 1s cubic-bezier(.3,1.5,.5,1) .45s both; }
+.urgent-band { position: relative; overflow: hidden; animation: urgent-in 1s cubic-bezier(.3,1.5,.5,1) .45s both; }
 @keyframes urgent-in {
   0% { transform: translateY(100%); }
   100% { transform: translateY(0); }
