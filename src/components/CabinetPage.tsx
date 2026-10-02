@@ -1,6 +1,7 @@
 import { site, SITE_URL } from "@/config/site";
 import { content, type Lang } from "@/i18n";
 import { UrgentSection } from "@/components/Urgent";
+import Hours from "@/components/Hours";
 
 
 /* Page dédiée à un cabinet : pensée pour les recherches « ostéopathe + commune »
@@ -23,6 +24,7 @@ export default function CabinetPage({ slug, lang = "fr" }: { slug: string; lang?
     address: { "@type": "PostalAddress", streetAddress: a.street, addressLocality: a.city, postalCode: a.postalCode, addressCountry: "BE" },
     areaServed: [{ "@type": "City", name: a.city }, { "@type": "City", name: "Bruxelles" }],
     employee: { "@type": "Person", name: "David Otu", jobTitle: ["Ostéopathe D.O.", "Kinésithérapeute"] },
+    openingHoursSpecification: a.hours.map((s) => ({ "@type": "OpeningHoursSpecification", dayOfWeek: `https://schema.org/${s.day}`, opens: s.opens, closes: s.closes })),
   };
 
   return (
@@ -73,7 +75,8 @@ export default function CabinetPage({ slug, lang = "fr" }: { slug: string; lang?
             </div>
             <div>
               <p className="text-sm font-semibold text-steelDeep">{t.days}</p>
-              <p className="mt-3 font-serif text-2xl">{a.days}</p>
+              <Hours hours={a.hours} lang={lang} className="mt-3 max-w-xs space-y-1 font-serif text-2xl" />
+              <p className="mt-2 text-sm text-night/70">{t.byAppointment}</p>
             </div>
             <div>
               <p className="text-sm font-semibold text-steelDeep">{t.care}</p>

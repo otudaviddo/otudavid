@@ -65,7 +65,7 @@ const uiFr = {
   cabinet: {
     kicker: (c: string) => `Cabinet de ${c}`, h1: (c: string) => `Ostéopathe & kinésithérapeute à ${c}`,
     lead: (c: string, st: string, days: string) => `David Otu, kinésithérapeute conventionné et ostéopathe D.O., diplômé de l'ULB, consulte à ${c}, ${st}, ${days}. Séances d'ostéopathie et de kinésithérapie, sur rendez-vous.`,
-    address: "Adresse", days: "Jours de consultation", care: "Soins proposés", contact: "Contact",
+    address: "Adresse", days: "Horaires de consultation", byAppointment: "Sur rendez-vous", care: "Soins proposés", contact: "Contact",
     mapTitle: (c: string) => `Plan d'accès au cabinet de ${c}`,
     motifsTitle: (c: string) => `Motifs de consultation à ${c}`,
     motifsText: (c: string) => `Au cabinet de ${c}, David Otu prend en charge les douleurs aiguës (lumbago, dos bloqué, torticolis, sciatique), les douleurs chroniques du dos et de la nuque, les blessures sportives et la rééducation après une entorse, une fracture ou une opération (prothèse de genou ou de hanche, ligaments croisés).`,
@@ -141,7 +141,7 @@ const uiEn: typeof uiFr = {
   cabinet: {
     kicker: (c) => `${c} practice`, h1: (c) => `Osteopath & physiotherapist in ${c}`,
     lead: (c, st, days) => `David Otu, contracted physiotherapist and osteopath D.O., graduated from ULB, practises in ${c}, ${st}, ${days}. Osteopathy and physiotherapy sessions, by appointment, in English or French.`,
-    address: "Address", days: "Consultation days", care: "Services", contact: "Contact",
+    address: "Address", days: "Consultation hours", byAppointment: "By appointment", care: "Services", contact: "Contact",
     mapTitle: (c) => `Map of the ${c} practice`,
     motifsTitle: (c) => `What I treat in ${c}`,
     motifsText: (c) => `At the ${c} practice, David Otu treats acute pain (acute low back pain, locked back, stiff neck, sciatica), chronic back and neck pain, sports injuries, and rehabilitation after a sprain, a fracture or surgery (knee or hip replacement, cruciate ligaments).`,

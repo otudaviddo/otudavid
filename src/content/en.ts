@@ -23,14 +23,14 @@ export const siteEn = {
       daysSentence: "on Tuesdays and Thursdays",
       metaTitle: "Osteopath & physiotherapist in Woluwe-Saint-Pierre | David Otu",
       metaDescription:
-        "David Otu, English-speaking contracted physiotherapist and osteopath D.O. in Woluwe-Saint-Pierre (Brussels), Rue de la Station 113. Tuesdays and Thursdays. Book online, or call for an urgent appointment.",
+        "David Otu, English-speaking contracted physiotherapist and osteopath D.O. in Woluwe-Saint-Pierre (Brussels), Rue de la Station 113. Tuesdays and Thursdays, 8:00 to 20:00. Book online, or call for an urgent appointment.",
     },
     ixelles: {
       days: "Monday · Wednesday · Friday",
       daysSentence: "on Mondays, Wednesdays and Fridays",
       metaTitle: "Osteopath & physiotherapist in Ixelles, Brussels | David Otu",
       metaDescription:
-        "David Otu, English-speaking contracted physiotherapist and osteopath D.O. in Ixelles (Brussels), Rue de Hennin 99. Mondays, Wednesdays and Fridays. Book online, or call for an urgent appointment.",
+        "David Otu, English-speaking contracted physiotherapist and osteopath D.O. in Ixelles (Brussels), Rue de Hennin 99. Mon 7:45-13:00, Wed 8:00-19:00, Fri 13:00-19:00. Book online, or call for an urgent appointment.",
     },
   } as Record<string, { days: string; daysSentence: string; metaTitle: string; metaDescription: string }>,
   seo: {
@@ -120,7 +120,7 @@ const duree: QA = { q: "How long is a session?", a: `An osteopathy session lasts
 const premiere: QA = { q: "What happens during the first session?", a: "It starts with a thorough assessment: your history, your symptoms and an examination to identify the factors contributing to the pain, not only where it shows. Then comes treatment (manual therapy, targeted exercise) and practical advice for daily life." };
 const choisir: QA = { q: "Osteopath or physiotherapist: which one should I see?", a: "The two approaches are complementary. Osteopathy focuses more on assessment and manual treatment. Physiotherapy works in particular on strength, mobility, function and a gradual return to your activities; it is reimbursed by INAMI with a prescription. Trained in both, David Otu will guide you to the approach best suited to your situation." };
 const urgence: QA = { q: "How do I get an urgent appointment (acute back pain, stiff neck, locked back)?", a: `For an urgent appointment, call ${site.phone} directly: you will be offered the earliest possible slot, subject to availability, in Ixelles or Woluwe-Saint-Pierre. For a regular appointment, online booking remains available.` };
-const ouQuand: QA = { q: "Where and when?", a: `In Ixelles (${site.addresses[1].street}) on Mondays, Wednesdays and Fridays, and in Woluwe-Saint-Pierre (${site.addresses[0].street}) on Tuesdays and Thursdays. Osteopathy and physiotherapy are offered at both practices.` };
+const ouQuand: QA = { q: "Where and when?", a: `In Ixelles (${site.addresses[1].street}) on Mondays from 7:45 to 13:00, Wednesdays from 8:00 to 19:00 and Fridays from 13:00 to 19:00. In Woluwe-Saint-Pierre (${site.addresses[0].street}) on Tuesdays and Thursdays from 8:00 to 20:00. Osteopathy and physiotherapy are offered at both practices, by appointment.` };
 const apporter: QA = { q: "What should I bring?", a: "Your ID card, the medical prescription for physiotherapy, and any scans or reports you have (X-ray, MRI, surgical report). Wear comfortable clothing." };
 const langue: QA = { q: "Are consultations in English?", a: "Yes. David Otu consults in English and in French, at both practices in Brussels." };
 

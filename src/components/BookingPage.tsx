@@ -5,6 +5,7 @@ import FaqCarousel from "@/components/FaqCarousel";
 import FaqSchema from "@/components/FaqSchema";
 import Approach from "@/components/Approach";
 import { UrgentSection } from "@/components/Urgent";
+import Hours from "@/components/Hours";
 
 export default function BookingPage({ kind, lang = "fr" }: { kind: "osteo" | "kine"; lang?: Lang }) {
   const C = content(lang);
@@ -89,7 +90,8 @@ export default function BookingPage({ kind, lang = "fr" }: { kind: "osteo" | "ki
               {C.addresses.slice().reverse().map((a) => (
                 <a key={a.slug} href={a.path} className="mt-4 block hover:text-steelDeep">
                   <span className="block font-serif text-xl">{a.city}</span>
-                  <span className="block text-sm text-night/70">{a.street} · <em>{a.days}</em></span>
+                  <span className="block text-sm text-night/70">{a.street}</span>
+                  <Hours hours={a.hours} lang={lang} className="mt-1 max-w-[14rem] text-sm text-night/70" />
                 </a>
               ))}
             </div>

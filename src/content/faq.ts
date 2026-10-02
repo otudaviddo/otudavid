@@ -35,7 +35,7 @@ const urgence: QA = {
 };
 const ouQuand: QA = {
   q: "Où et quand consulter ?",
-  a: `À Ixelles (${site.addresses[1].street}) le lundi, le mercredi et le vendredi, et à Woluwe-Saint-Pierre (${site.addresses[0].street}) le mardi et le jeudi. L'ostéopathie et la kinésithérapie sont proposées dans les deux cabinets.`,
+  a: `À Ixelles (${site.addresses[1].street}) le lundi de 7h45 à 13h, le mercredi de 8h à 19h et le vendredi de 13h à 19h. À Woluwe-Saint-Pierre (${site.addresses[0].street}) le mardi et le jeudi de 8h à 20h. L'ostéopathie et la kinésithérapie sont proposées dans les deux cabinets, sur rendez-vous.`,
 };
 const apporter: QA = {
   q: "Que faut-il apporter ?",

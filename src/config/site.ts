@@ -32,9 +32,14 @@ export const site = {
       days: "Mardi · Jeudi",
       daysSentence: "le mardi et le jeudi",
       dayCodes: ["Tuesday", "Thursday"],
+      // Horaires communiqués par David Otu (consultations sur rendez-vous).
+      hours: [
+        { day: "Tuesday", opens: "08:00", closes: "20:00" },
+        { day: "Thursday", opens: "08:00", closes: "20:00" },
+      ],
       metaTitle: "Ostéopathe & kiné à Woluwe-Saint-Pierre | David Otu",
       metaDescription:
-        "David Otu, kinésithérapeute conventionné et ostéopathe D.O. à Woluwe-Saint-Pierre, rue de la Station 113. Consultations le mardi et le jeudi. Rendez-vous en ligne, urgences par téléphone.",
+        "David Otu, kinésithérapeute conventionné et ostéopathe D.O. à Woluwe-Saint-Pierre, rue de la Station 113. Consultations le mardi et le jeudi, de 8h à 20h. Rendez-vous en ligne, urgences par téléphone.",
     },
     {
       label: "Ixelles",
@@ -48,9 +53,14 @@ export const site = {
       days: "Lundi · Mercredi · Vendredi",
       daysSentence: "le lundi, le mercredi et le vendredi",
       dayCodes: ["Monday", "Wednesday", "Friday"],
+      hours: [
+        { day: "Monday", opens: "07:45", closes: "13:00" },
+        { day: "Wednesday", opens: "08:00", closes: "19:00" },
+        { day: "Friday", opens: "13:00", closes: "19:00" },
+      ],
       metaTitle: "Ostéopathe & kinésithérapeute à Ixelles | David Otu",
       metaDescription:
-        "David Otu, kinésithérapeute conventionné et ostéopathe D.O. à Ixelles, rue de Hennin 99. Consultations le lundi, le mercredi et le vendredi. Rendez-vous en ligne, urgences par téléphone.",
+        "David Otu, kinésithérapeute conventionné et ostéopathe D.O. à Ixelles, rue de Hennin 99. Lundi 7h45-13h, mercredi 8h-19h, vendredi 13h-19h. Rendez-vous en ligne, urgences par téléphone.",
     },
   ],
   // Bio courte, affichée sur la page d'accueil.

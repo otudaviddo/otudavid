@@ -48,6 +48,7 @@ export default function StructuredData() {
         postalCode: a.postalCode,
         addressCountry: "BE",
       },
+      openingHoursSpecification: a.hours.map((s) => ({ "@type": "OpeningHoursSpecification", dayOfWeek: `https://schema.org/${s.day}`, opens: s.opens, closes: s.closes })),
     })),
     makesOffer: [
       {

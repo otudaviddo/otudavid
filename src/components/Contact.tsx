@@ -2,6 +2,7 @@ import { site } from "@/config/site";
 import { content, type Lang } from "@/i18n";
 import { PhoneIcon, MailIcon, InstagramIcon } from "@/components/Icons";
 import Logo from "@/components/Logo";
+import Hours from "@/components/Hours";
 
 const label = "text-sm font-semibold text-night";
 const link = "text-sm text-night underline decoration-1 underline-offset-4 decoration-night/35 transition-colors duration-300 hover:text-steelDeep hover:decoration-steelDeep";
@@ -56,7 +57,7 @@ export default function Contact({ lang = "fr" }: { lang?: Lang }) {
               <p className="font-serif text-3xl leading-tight">{a.label}</p>
               <p className="mt-3 text-base text-night/75">{a.street}</p>
               <p className="text-base text-night/75">{a.postalCode} {a.city}</p>
-              <p className="mt-3 font-serif text-lg italic text-night/80">{a.days}</p>
+              <Hours hours={a.hours} lang={lang} className="mt-4 max-w-[15rem] space-y-0.5 font-serif text-lg text-night/85" dayClass="italic" />
               <div className="mt-4 flex gap-6">
                 <a
                   href={a.path}
