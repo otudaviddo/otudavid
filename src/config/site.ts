@@ -34,7 +34,7 @@ export const site = {
       dayCodes: ["Tuesday", "Thursday"],
       metaTitle: "Ostéopathe & kiné à Woluwe-Saint-Pierre | David Otu",
       metaDescription:
-        "David Otu, ostéopathe D.O. et kinésithérapeute à Woluwe-Saint-Pierre, rue de la Station 113. Consultations le mardi et le jeudi. Rendez-vous en ligne, urgences par téléphone.",
+        "David Otu, kinésithérapeute conventionné et ostéopathe D.O. à Woluwe-Saint-Pierre, rue de la Station 113. Consultations le mardi et le jeudi. Rendez-vous en ligne, urgences par téléphone.",
     },
     {
       label: "Ixelles",
@@ -50,12 +50,12 @@ export const site = {
       dayCodes: ["Monday", "Wednesday", "Friday"],
       metaTitle: "Ostéopathe & kinésithérapeute à Ixelles | David Otu",
       metaDescription:
-        "David Otu, ostéopathe D.O. et kinésithérapeute à Ixelles, rue de Hennin 99. Consultations le lundi, le mercredi et le vendredi. Rendez-vous en ligne, urgences par téléphone.",
+        "David Otu, kinésithérapeute conventionné et ostéopathe D.O. à Ixelles, rue de Hennin 99. Consultations le lundi, le mercredi et le vendredi. Rendez-vous en ligne, urgences par téléphone.",
     },
   ],
   // Bio courte, affichée sur la page d'accueil.
   about:
-    "Chaque prise en charge débute par un bilan complet, pour identifier la cause de vos symptômes plutôt que le seul symptôme. Thérapie manuelle, exercices ciblés et conseils, fondés sur les données scientifiques les plus récentes.",
+    "Chaque prise en charge débute par un bilan complet, pour identifier les facteurs qui contribuent à vos symptômes, et pas seulement l'endroit où ils se manifestent. Thérapie manuelle, exercices ciblés et conseils, fondés sur les données scientifiques les plus récentes.",
   reviews: {
     label: "Avis vérifiés sur Doctoranytime",
   },
@@ -143,7 +143,7 @@ export const site = {
   seo: {
     title: "Ostéopathe & kiné à Ixelles et Woluwe-Saint-Pierre | David Otu",
     description:
-      "Ostéopathe D.O. et kinésithérapeute conventionné à Ixelles et Woluwe-Saint-Pierre (Bruxelles) : mal de dos, lumbago, cervicalgie, genou, entorse, rééducation et sport. Rendez-vous en ligne, urgences par téléphone.",
+      "Kinésithérapeute conventionné et ostéopathe D.O. à Ixelles et Woluwe-Saint-Pierre (Bruxelles) : mal de dos, lumbago, cervicalgie, genou, entorse, rééducation et sport. Rendez-vous en ligne, urgences par téléphone.",
   },
 } as const;
 
@@ -172,10 +172,10 @@ export const disciplines = {
     label: "Kinésithérapie",
     upper: "KINÉSITHÉRAPIE",
     url: KINE_DOCTORANYTIME_URL,
-    metaTitle: "Kinésithérapeute à Ixelles et Woluwe-Saint-Pierre | David Otu",
+    metaTitle: "Kiné conventionné à Ixelles et Woluwe-Saint-Pierre | David Otu",
     metaDescription:
       "Kinésithérapeute conventionné à Ixelles et Woluwe-Saint-Pierre : rééducation post-opératoire, genou, entorse, kiné du sport, mal de dos. Remboursé INAMI sur prescription. Rendez-vous en ligne.",
-    h1: "Kinésithérapeute à Ixelles & Woluwe-Saint-Pierre",
+    h1: "Kinésithérapeute conventionné à Ixelles & Woluwe-Saint-Pierre",
     intro:
       "Kinésithérapeute, à Ixelles et à Woluwe-Saint-Pierre. Bilan complet, thérapie manuelle et exercices ciblés — pour retrouver vos activités, reprendre le sport ou accompagner un suivi post-opératoire.",
     specialties: [

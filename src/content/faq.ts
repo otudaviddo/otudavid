@@ -23,11 +23,11 @@ const duree: QA = {
 };
 const premiereSeance: QA = {
   q: "Comment se déroule la première séance ?",
-  a: "Elle commence par un bilan complet : vos antécédents, vos symptômes et un examen pour identifier la cause de la douleur, pas seulement l'endroit où elle se manifeste. Viennent ensuite le traitement (thérapie manuelle, exercices ciblés) et des conseils concrets pour le quotidien.",
+  a: "Elle commence par un bilan complet : vos antécédents, vos symptômes et un examen pour identifier les facteurs qui contribuent à la douleur, pas seulement l'endroit où elle se manifeste. Viennent ensuite le traitement (thérapie manuelle, exercices ciblés) et des conseils concrets pour le quotidien.",
 };
 const choisir: QA = {
   q: "Ostéopathe ou kiné : lequel choisir ?",
-  a: "L'ostéopathie convient bien aux douleurs et blocages récents ou récurrents : lumbago, dos bloqué, torticolis, tensions. La kinésithérapie est indiquée pour la rééducation après une blessure ou une opération et pour la reprise du sport, généralement sur prescription. Formé dans les deux disciplines, David Otu vous oriente vers la prise en charge la plus adaptée.",
+  a: "Les deux approches sont complémentaires. L'ostéopathie met davantage l'accent sur l'évaluation et le traitement manuel. La kinésithérapie permet notamment de travailler la force, la mobilité, la fonction et la reprise progressive des activités ; elle est remboursée par l'INAMI sur prescription. Formé dans les deux disciplines, David Otu vous oriente vers l'approche la plus adaptée à votre situation.",
 };
 const urgence: QA = {
   q: "Comment obtenir un rendez-vous en urgence (lumbago, torticolis, dos bloqué) ?",
@@ -46,6 +46,6 @@ const anglais: QA = {
   a: "Yes. David Otu is an English-speaking osteopath and physiotherapist, with practices in Ixelles and Woluwe-Saint-Pierre (Brussels). You can book online or call directly.",
 };
 
-export const faqHome: QA[] = [urgence, choisir, remboursementOsteo, remboursementKine, prescription, duree, premiereSeance, ouQuand, apporter, anglais];
+export const faqHome: QA[] = [urgence, choisir, remboursementKine, remboursementOsteo, prescription, duree, premiereSeance, ouQuand, apporter, anglais];
 export const faqOsteo: QA[] = [urgence, remboursementOsteo, duree, premiereSeance, prescription, choisir, ouQuand, anglais];
 export const faqKine: QA[] = [remboursementKine, prescription, duree, premiereSeance, urgence, apporter, choisir, ouQuand, anglais];

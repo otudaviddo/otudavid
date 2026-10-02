@@ -4,7 +4,7 @@ export type Group = { title: string; items: string[] };
 
 export const osteoContent = {
   lead: [
-    "L'ostéopathie s'intéresse à la mobilité du corps dans son ensemble : une douleur au dos, à la nuque ou à l'épaule peut être entretenue par une tension située ailleurs. La séance vise à soulager la douleur, à redonner de la mobilité et à comprendre ce qui l'a provoquée.",
+    "L'ostéopathie s'intéresse à la mobilité du corps dans son ensemble : une douleur au dos, à la nuque ou à l'épaule peut être entretenue par une tension située ailleurs. La séance vise à soulager la douleur, à redonner de la mobilité et à comprendre ce qui l'entretient.",
     "David Otu est ostéopathe D.O., diplômé de l'ULB (master de spécialisation en ostéopathie) et membre d'osteopathie.be, l'Union professionnelle des ostéopathes de Belgique. Il consulte à Ixelles et à Woluwe-Saint-Pierre, pour les adultes, les sportifs, les seniors et les enfants.",
   ],
   groups: [

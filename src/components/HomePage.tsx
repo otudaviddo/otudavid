@@ -10,6 +10,7 @@ import FaqSchema from "@/components/FaqSchema";
 import TrustBand from "@/components/TrustBand";
 import Approach from "@/components/Approach";
 import { UrgentBand } from "@/components/Urgent";
+import Reasons from "@/components/Reasons";
 
 export default function HomePage({ lang = "fr" }: { lang?: Lang }) {
   const c = content(lang);
@@ -68,6 +69,7 @@ export default function HomePage({ lang = "fr" }: { lang?: Lang }) {
         </div>
       </section>
 
+      <Reasons lang={lang} />
       <Approach lang={lang} />
       <Parcours lang={lang} />
       <Testimonials lang={lang} />

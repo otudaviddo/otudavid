@@ -7,7 +7,7 @@ import { site } from "@/config/site";
 export const siteEn = {
   title: "Physiotherapist · Osteopath D.O.",
   about:
-    "Every treatment starts with a thorough assessment, to find the cause of your symptoms rather than only the symptom itself. Manual therapy, targeted exercise and practical advice, grounded in the latest scientific evidence.",
+    "Every treatment starts with a thorough assessment, to identify the factors contributing to your symptoms, not only where they show. Manual therapy, targeted exercise and practical advice, grounded in the latest scientific evidence.",
   reviewsLabel: "Verified reviews on Doctoranytime · original language",
   languages: "Consultations in French and English.",
   upobShort: "Member of osteopathie.be",
@@ -23,20 +23,20 @@ export const siteEn = {
       daysSentence: "on Tuesdays and Thursdays",
       metaTitle: "Osteopath & physiotherapist in Woluwe-Saint-Pierre | David Otu",
       metaDescription:
-        "David Otu, English-speaking osteopath D.O. and physiotherapist in Woluwe-Saint-Pierre (Brussels), Rue de la Station 113. Tuesdays and Thursdays. Book online, or call for an urgent appointment.",
+        "David Otu, English-speaking contracted physiotherapist and osteopath D.O. in Woluwe-Saint-Pierre (Brussels), Rue de la Station 113. Tuesdays and Thursdays. Book online, or call for an urgent appointment.",
     },
     ixelles: {
       days: "Monday · Wednesday · Friday",
       daysSentence: "on Mondays, Wednesdays and Fridays",
       metaTitle: "Osteopath & physiotherapist in Ixelles, Brussels | David Otu",
       metaDescription:
-        "David Otu, English-speaking osteopath D.O. and physiotherapist in Ixelles (Brussels), Rue de Hennin 99. Mondays, Wednesdays and Fridays. Book online, or call for an urgent appointment.",
+        "David Otu, English-speaking contracted physiotherapist and osteopath D.O. in Ixelles (Brussels), Rue de Hennin 99. Mondays, Wednesdays and Fridays. Book online, or call for an urgent appointment.",
     },
   } as Record<string, { days: string; daysSentence: string; metaTitle: string; metaDescription: string }>,
   seo: {
     title: "English-speaking osteopath & physio in Brussels | David Otu",
     description:
-      "Osteopath D.O. and contracted physiotherapist in Ixelles and Woluwe-Saint-Pierre (Brussels): back pain, neck pain, knee, sprains, rehabilitation and sports injuries. Book online, or call for an urgent appointment.",
+      "Contracted physiotherapist and osteopath D.O. in Ixelles and Woluwe-Saint-Pierre (Brussels): back pain, neck pain, knee, sprains, rehabilitation and sports injuries. Book online, or call for an urgent appointment.",
   },
 };
 
@@ -65,7 +65,7 @@ export const disciplinesEn = {
 
 export const osteoContentEn = {
   lead: [
-    "Osteopathy looks at how the whole body moves: pain in the back, neck or shoulder can be maintained by tension elsewhere. Each session aims to relieve pain, restore mobility and understand what caused the problem.",
+    "Osteopathy looks at how the whole body moves: pain in the back, neck or shoulder can be maintained by tension elsewhere. Each session aims to relieve pain, restore mobility and understand what keeps the problem going.",
     "David Otu is an osteopath D.O., graduated from ULB (Université libre de Bruxelles, specialised master's in osteopathy) and a member of osteopathie.be, the Professional Union of Osteopaths of Belgium. He practises in Ixelles and Woluwe-Saint-Pierre, for adults, athletes, seniors and children.",
   ],
   groups: [
@@ -106,9 +106,9 @@ export const approachEn = {
   title: "My approach",
   intro: "Osteopathy and physiotherapy combined in one logic: understand, relieve, then make the body more resilient — grounded in the latest scientific evidence.",
   pillars: [
-    { n: "01", t: "Understand", d: "A thorough assessment to find the cause of the pain, not only where it hurts: mobility, strength, daily movements and sport." },
-    { n: "02", t: "Relieve", d: "Manual therapy and osteopathic techniques to reduce pain and restore mobility from the first sessions." },
-    { n: "03", t: "Strengthen", d: "Active, functional rehabilitation adapted to your sport: targeted, progressive exercise dosed to your tolerance, with measured progress." },
+    { n: "01", t: "Understand", d: "A thorough assessment to identify the factors contributing to your pain, not only where it hurts: mobility, strength, daily movements and sport." },
+    { n: "02", t: "Relieve", d: "Manual therapy and osteopathic techniques to help reduce pain and restore mobility." },
+    { n: "03", t: "Strengthen", d: "Active, functional rehabilitation adapted to your daily life, your physical activity and your goals: targeted, progressive exercise dosed to your tolerance, with measured progress." },
     { n: "04", t: "Prevent", d: "A step-by-step return to your activities, validated by simple tests, and a home programme to limit recurrences." },
   ],
 };
@@ -117,14 +117,14 @@ const remboursementOsteo: QA = { q: "Is osteopathy reimbursed by health insuranc
 const remboursementKine: QA = { q: "Is physiotherapy reimbursed?", a: "Yes. David Otu is a contracted (conventionné) physiotherapist: sessions are reimbursed by INAMI/RIZIV with a medical prescription, according to the official fee schedule and your insurance fund." };
 const prescription: QA = { q: "Do I need a medical prescription?", a: "Not for osteopathy: you can book directly. For physiotherapy, a prescription from your doctor is required to be reimbursed by INAMI/RIZIV." };
 const duree: QA = { q: "How long is a session?", a: `An osteopathy session lasts ${siteEn.duration.osteo}, a physiotherapy session ${siteEn.duration.kine}.` };
-const premiere: QA = { q: "What happens during the first session?", a: "It starts with a thorough assessment: your history, your symptoms and an examination to find the cause of the pain, not only where it shows. Then comes treatment (manual therapy, targeted exercise) and practical advice for daily life." };
-const choisir: QA = { q: "Osteopath or physiotherapist: which one should I see?", a: "Osteopathy is well suited to recent or recurring pain and stiffness: acute low back pain, locked back, stiff neck, tension. Physiotherapy is indicated for rehabilitation after an injury or surgery and for returning to sport, usually with a prescription. Trained in both, David Otu will guide you to the most appropriate care." };
+const premiere: QA = { q: "What happens during the first session?", a: "It starts with a thorough assessment: your history, your symptoms and an examination to identify the factors contributing to the pain, not only where it shows. Then comes treatment (manual therapy, targeted exercise) and practical advice for daily life." };
+const choisir: QA = { q: "Osteopath or physiotherapist: which one should I see?", a: "The two approaches are complementary. Osteopathy focuses more on assessment and manual treatment. Physiotherapy works in particular on strength, mobility, function and a gradual return to your activities; it is reimbursed by INAMI with a prescription. Trained in both, David Otu will guide you to the approach best suited to your situation." };
 const urgence: QA = { q: "How do I get an urgent appointment (acute back pain, stiff neck, locked back)?", a: `For an urgent appointment, call ${site.phone} directly: you will be offered the earliest possible slot, subject to availability, in Ixelles or Woluwe-Saint-Pierre. For a regular appointment, online booking remains available.` };
 const ouQuand: QA = { q: "Where and when?", a: `In Ixelles (${site.addresses[1].street}) on Mondays, Wednesdays and Fridays, and in Woluwe-Saint-Pierre (${site.addresses[0].street}) on Tuesdays and Thursdays. Osteopathy and physiotherapy are offered at both practices.` };
 const apporter: QA = { q: "What should I bring?", a: "Your ID card, the medical prescription for physiotherapy, and any scans or reports you have (X-ray, MRI, surgical report). Wear comfortable clothing." };
 const langue: QA = { q: "Are consultations in English?", a: "Yes. David Otu consults in English and in French, at both practices in Brussels." };
 
-export const faqHomeEn: QA[] = [urgence, choisir, langue, remboursementOsteo, remboursementKine, prescription, duree, premiere, ouQuand, apporter];
+export const faqHomeEn: QA[] = [urgence, choisir, langue, remboursementKine, remboursementOsteo, prescription, duree, premiere, ouQuand, apporter];
 export const faqOsteoEn: QA[] = [urgence, langue, remboursementOsteo, duree, premiere, prescription, choisir, ouQuand];
 export const faqKineEn: QA[] = [langue, remboursementKine, prescription, duree, premiere, apporter, choisir, ouQuand];
 
