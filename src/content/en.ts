@@ -21,7 +21,7 @@ export const siteEn = {
     "woluwe-saint-pierre": {
       days: "Tuesday · Thursday",
       daysSentence: "on Tuesdays and Thursdays",
-      metaTitle: "Osteopath & physiotherapist in Woluwe-Saint-Pierre | David Otu",
+      metaTitle: "Osteopath & physio in Woluwe-Saint-Pierre, Brussels | David Otu",
       metaDescription:
         "David Otu, English-speaking contracted physiotherapist and osteopath D.O. in Woluwe-Saint-Pierre (Brussels), Rue de la Station 113. Tuesdays and Thursdays, 8:00 to 20:00. Book online, or call for an urgent appointment.",
     },

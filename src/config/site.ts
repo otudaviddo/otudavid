@@ -33,13 +33,14 @@ export const site = {
       daysSentence: "le mardi et le jeudi",
       dayCodes: ["Tuesday", "Thursday"],
       // Horaires communiqués par David Otu (consultations sur rendez-vous).
+      nearby: ["Woluwe-Saint-Lambert", "Kraainem", "Auderghem", "Etterbeek"],
       hours: [
         { day: "Tuesday", opens: "08:00", closes: "20:00" },
         { day: "Thursday", opens: "08:00", closes: "20:00" },
       ],
-      metaTitle: "Ostéopathe & kiné à Woluwe-Saint-Pierre | David Otu",
+      metaTitle: "Ostéopathe & kiné à Woluwe-Saint-Pierre (Bruxelles) | David Otu",
       metaDescription:
-        "David Otu, kinésithérapeute conventionné et ostéopathe D.O. à Woluwe-Saint-Pierre, rue de la Station 113. Consultations le mardi et le jeudi, de 8h à 20h. Rendez-vous en ligne, urgences par téléphone.",
+        "David Otu, kinésithérapeute conventionné et ostéopathe D.O. à Woluwe-Saint-Pierre (Bruxelles), rue de la Station 113, près de Woluwe-Saint-Lambert et Kraainem. Mardi et jeudi, 8h-20h. Rendez-vous en ligne, urgences par téléphone.",
     },
     {
       label: "Ixelles",
@@ -53,14 +54,15 @@ export const site = {
       days: "Lundi · Mercredi · Vendredi",
       daysSentence: "le lundi, le mercredi et le vendredi",
       dayCodes: ["Monday", "Wednesday", "Friday"],
+      nearby: ["Etterbeek", "Saint-Gilles", "Auderghem"],
       hours: [
         { day: "Monday", opens: "07:45", closes: "13:00" },
         { day: "Wednesday", opens: "08:00", closes: "19:00" },
         { day: "Friday", opens: "13:00", closes: "19:00" },
       ],
-      metaTitle: "Ostéopathe & kinésithérapeute à Ixelles | David Otu",
+      metaTitle: "Ostéopathe & kiné à Ixelles (Bruxelles) | David Otu",
       metaDescription:
-        "David Otu, kinésithérapeute conventionné et ostéopathe D.O. à Ixelles, rue de Hennin 99. Lundi 7h45-13h, mercredi 8h-19h, vendredi 13h-19h. Rendez-vous en ligne, urgences par téléphone.",
+        "David Otu, kinésithérapeute conventionné et ostéopathe D.O. à Ixelles (Bruxelles), rue de Hennin 99, près d'Etterbeek et Saint-Gilles. Lundi 7h45-13h, mercredi 8h-19h, vendredi 13h-19h. Rendez-vous en ligne, urgences par téléphone.",
     },
   ],
   // Bio courte, affichée sur la page d'accueil.
@@ -151,7 +153,7 @@ export const site = {
   legal: { inami: "5-01942-18-527", bce: "1002.011.285" },
   languages: "Consultations en français et en anglais.",
   seo: {
-    title: "Ostéopathe & kiné à Ixelles et Woluwe-Saint-Pierre | David Otu",
+    title: "Ostéopathe & kiné à Bruxelles : Ixelles, Woluwe-Saint-Pierre | David Otu",
     description:
       "Kinésithérapeute conventionné et ostéopathe D.O. à Ixelles et Woluwe-Saint-Pierre (Bruxelles) : mal de dos, lumbago, cervicalgie, genou, entorse, rééducation et sport. Rendez-vous en ligne, urgences par téléphone.",
   },
@@ -163,12 +165,12 @@ export const disciplines = {
     label: "Ostéopathie",
     upper: "OSTÉOPATHIE",
     url: OSTEO_DOCTORANYTIME_URL,
-    metaTitle: "Ostéopathe D.O. à Ixelles et Woluwe-Saint-Pierre | David Otu",
+    metaTitle: "Ostéopathe D.O. à Bruxelles (Ixelles, Woluwe-Saint-Pierre) | David Otu",
     metaDescription:
-      "Ostéopathe D.O. à Ixelles et Woluwe-Saint-Pierre : lumbago, dos bloqué, torticolis, sciatique, cervicalgie. Rendez-vous en urgence par téléphone au 0492.95.30.43. Séance de 45 min, attestation pour la mutuelle.",
+      "Ostéopathe D.O. à Bruxelles (Ixelles, Woluwe-Saint-Pierre) : lumbago, dos bloqué, torticolis, sciatique, cervicalgie. Rendez-vous en urgence par téléphone au 0492.95.30.43. Séance de 45 min, attestation pour la mutuelle.",
     h1: "Ostéopathe D.O. à Ixelles & Woluwe-Saint-Pierre",
     intro:
-      "Ostéopathe D.O. diplômé, à Ixelles et à Woluwe-Saint-Pierre. Écoute attentive, évaluation précise de votre posture, techniques manuelles douces et ciblées — pour adultes, enfants, sportifs et seniors.",
+      "Ostéopathe D.O. diplômé, à Bruxelles : Ixelles et Woluwe-Saint-Pierre. Écoute attentive, évaluation précise de votre posture, techniques manuelles douces et ciblées — pour adultes, enfants, sportifs et seniors.",
     specialties: [
       "Douleurs cervicales, dorsales, lombaires",
       "Tensions liées au stress ou à la posture",
@@ -182,12 +184,12 @@ export const disciplines = {
     label: "Kinésithérapie",
     upper: "KINÉSITHÉRAPIE",
     url: KINE_DOCTORANYTIME_URL,
-    metaTitle: "Kiné conventionné à Ixelles et Woluwe-Saint-Pierre | David Otu",
+    metaTitle: "Kiné conventionné à Bruxelles (Ixelles, Woluwe-Saint-Pierre) | David Otu",
     metaDescription:
-      "Kinésithérapeute conventionné à Ixelles et Woluwe-Saint-Pierre : rééducation post-opératoire, genou, entorse, kiné du sport, mal de dos. Remboursé INAMI sur prescription. Rendez-vous en ligne.",
+      "Kinésithérapeute conventionné à Bruxelles (Ixelles, Woluwe-Saint-Pierre) : rééducation post-opératoire, genou, entorse, kiné du sport, mal de dos. Remboursé INAMI sur prescription. Rendez-vous en ligne.",
     h1: "Kinésithérapeute conventionné à Ixelles & Woluwe-Saint-Pierre",
     intro:
-      "Kinésithérapeute, à Ixelles et à Woluwe-Saint-Pierre. Bilan complet, thérapie manuelle et exercices ciblés — pour retrouver vos activités, reprendre le sport ou accompagner un suivi post-opératoire.",
+      "Kinésithérapeute conventionné, à Bruxelles : Ixelles et Woluwe-Saint-Pierre. Bilan complet, thérapie manuelle et exercices ciblés — pour retrouver vos activités, reprendre le sport ou accompagner un suivi post-opératoire.",
     specialties: [
       "Rééducation post-traumatique et post-opératoire",
       "Douleurs cervicales, dorsales, lombaires",

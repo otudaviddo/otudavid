@@ -6,6 +6,9 @@ import Hours from "@/components/Hours";
 
 /* Page dédiée à un cabinet : pensée pour les recherches « ostéopathe + commune »
    et pour être le lien « site web » de la fiche Google du cabinet. */
+/** « A, B et C » en français, « A, B and C » en anglais. */
+const joinList = (l: readonly string[], lang: Lang) => l.length < 2 ? l.join("") : `${l.slice(0, -1).join(", ")} ${lang === "fr" ? "et" : "and"} ${l[l.length - 1]}`;
+
 export default function CabinetPage({ slug, lang = "fr" }: { slug: string; lang?: Lang }) {
   const C = content(lang);
   const t = C.ui.cabinet;
@@ -22,7 +25,7 @@ export default function CabinetPage({ slug, lang = "fr" }: { slug: string; lang?
     sameAs: [site.instagram],
     medicalSpecialty: ["Physiotherapy", "Osteopathic"],
     address: { "@type": "PostalAddress", streetAddress: a.street, addressLocality: a.city, postalCode: a.postalCode, addressCountry: "BE" },
-    areaServed: [{ "@type": "City", name: a.city }, { "@type": "City", name: "Bruxelles" }],
+    areaServed: [{ "@type": "City", name: a.city }, { "@type": "City", name: "Bruxelles" }, ...a.nearby.map((n) => ({ "@type": "City", name: n }))],
     employee: { "@type": "Person", name: "David Otu", jobTitle: ["Ostéopathe D.O.", "Kinésithérapeute"] },
     openingHoursSpecification: a.hours.map((s) => ({ "@type": "OpeningHoursSpecification", dayOfWeek: `https://schema.org/${s.day}`, opens: s.opens, closes: s.closes })),
   };
@@ -84,6 +87,10 @@ export default function CabinetPage({ slug, lang = "fr" }: { slug: string; lang?
                 <li><a href={C.routes.osteo} className="hover:text-steelDeep">{C.disciplines.osteo.label}</a></li>
                 <li><a href={C.routes.kine} className="hover:text-steelDeep">{C.disciplines.kine.label}</a></li>
               </ul>
+            </div>
+            <div>
+              <p className="text-sm font-semibold text-steelDeep">{t.nearbyLabel}</p>
+              <p className="mt-3 max-w-sm text-base leading-relaxed text-night/80">{t.nearby(joinList(a.nearby, lang))}</p>
             </div>
             <div>
               <p className="text-sm font-semibold text-steelDeep">{t.contact}</p>

@@ -37,6 +37,7 @@ export default function StructuredData() {
       { "@type": "City", name: "Ixelles" },
       { "@type": "City", name: "Woluwe-Saint-Pierre" },
       { "@type": "City", name: "Bruxelles" },
+      ...Array.from(new Set(site.addresses.flatMap((a) => a.nearby))).map((n) => ({ "@type": "City", name: n })),
     ],
     location: site.addresses.map((a) => ({
       "@type": "Place",
