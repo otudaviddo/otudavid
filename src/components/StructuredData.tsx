@@ -14,6 +14,13 @@ export default function StructuredData() {
     url: SITE_URL,
     telephone: site.phoneHref.replace("tel:", ""),
     email: site.email,
+    contactPoint: {
+      "@type": "ContactPoint",
+      contactType: "Rendez-vous en urgence",
+      telephone: site.phoneHref.replace("tel:", ""),
+      availableLanguage: ["French", "English"],
+      areaServed: "BE",
+    },
     sameAs: [site.instagram],
     priceRange: "€€",
     knowsLanguage: ["fr", "en"],

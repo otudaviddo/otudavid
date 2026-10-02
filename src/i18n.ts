@@ -71,6 +71,17 @@ const uiFr = {
     motifsText: (c: string) => `Au cabinet de ${c}, David Otu prend en charge les douleurs aiguës (lumbago, dos bloqué, torticolis, sciatique), les douleurs chroniques du dos et de la nuque, les blessures sportives et la rééducation après une entorse, une fracture ou une opération (prothèse de genou ou de hanche, ligaments croisés).`,
     reimb: "Remboursement", also: "David Otu consulte aussi à", back: "Retour à l'accueil",
   },
+  urgent: {
+    band: "Rendez-vous en urgence", bandText: "Lumbago, torticolis, dos bloqué : appelez directement.", short: "Urgence", aria: "Rendez-vous en urgence",
+    h2Osteo: "Ostéopathe en urgence à Ixelles et Woluwe-Saint-Pierre",
+    h2Kine: "Kinésithérapie : rendez-vous en urgence",
+    h2City: (c: string) => `Rendez-vous en urgence à ${c}`,
+    textOsteo: "Lumbago, dos bloqué, torticolis, sciatique : pour une douleur aiguë, n'attendez pas un créneau en ligne. Appelez directement, un rendez-vous rapproché vous est proposé selon les disponibilités, à Ixelles (lundi, mercredi, vendredi) ou à Woluwe-Saint-Pierre (mardi, jeudi).",
+    textKine: "Entorse, blessure sportive récente, rééducation à démarrer rapidement après une opération : appelez directement, un rendez-vous rapproché vous est proposé selon les disponibilités, à Ixelles ou à Woluwe-Saint-Pierre.",
+    textCity: (c: string, days: string) => `Lumbago, dos bloqué, torticolis, entorse : pour un rendez-vous en urgence au cabinet de ${c}, ${days}, appelez directement. Un créneau rapproché vous est proposé selon les disponibilités.`,
+    safety: "En cas de traumatisme important, de fièvre ou de perte de force, consultez d'abord un médecin ou appelez le 112.",
+    sheet: "Urgence ? Appelez directement", contact: "Rendez-vous en urgence : appelez directement ce numéro.",
+  },
   lang: { switch: "EN", aria: "English version" },
 };
 
@@ -118,6 +129,17 @@ const uiEn: typeof uiFr = {
     motifsTitle: (c) => `What I treat in ${c}`,
     motifsText: (c) => `At the ${c} practice, David Otu treats acute pain (acute low back pain, locked back, stiff neck, sciatica), chronic back and neck pain, sports injuries, and rehabilitation after a sprain, a fracture or surgery (knee or hip replacement, cruciate ligaments).`,
     reimb: "Reimbursement", also: "David Otu also practises in", back: "Back to home",
+  },
+  urgent: {
+    band: "Urgent appointment", bandText: "Acute low back pain, stiff neck, locked back: call directly.", short: "Urgent", aria: "Urgent appointment",
+    h2Osteo: "Urgent osteopath appointment in Ixelles and Woluwe-Saint-Pierre",
+    h2Kine: "Physiotherapy: urgent appointments",
+    h2City: (c) => `Urgent appointment in ${c}`,
+    textOsteo: "Acute low back pain, locked back, stiff neck, sciatica: for acute pain, don't wait for an online slot. Call directly and you will be offered the earliest possible appointment, subject to availability, in Ixelles (Monday, Wednesday, Friday) or Woluwe-Saint-Pierre (Tuesday, Thursday).",
+    textKine: "Sprain, recent sports injury, rehabilitation to start quickly after surgery: call directly and you will be offered the earliest possible appointment, subject to availability, in Ixelles or Woluwe-Saint-Pierre.",
+    textCity: (c, days) => `Acute low back pain, locked back, stiff neck, sprain: for an urgent appointment at the ${c} practice, ${days}, call directly. You will be offered the earliest possible slot, subject to availability.`,
+    safety: "After a major injury, or with fever or loss of strength, see a doctor first or call 112.",
+    sheet: "Urgent? Call directly", contact: "Urgent appointment: call this number directly.",
   },
   lang: { switch: "FR", aria: "Version française" },
 };

@@ -34,7 +34,7 @@ export const site = {
       dayCodes: ["Tuesday", "Thursday"],
       metaTitle: "Ostéopathe & kiné à Woluwe-Saint-Pierre | David Otu",
       metaDescription:
-        "David Otu, ostéopathe D.O. et kinésithérapeute à Woluwe-Saint-Pierre, rue de la Station 113. Consultations le mardi et le jeudi. Rendez-vous en ligne.",
+        "David Otu, ostéopathe D.O. et kinésithérapeute à Woluwe-Saint-Pierre, rue de la Station 113. Consultations le mardi et le jeudi. Rendez-vous en ligne, urgences par téléphone.",
     },
     {
       label: "Ixelles",
@@ -50,7 +50,7 @@ export const site = {
       dayCodes: ["Monday", "Wednesday", "Friday"],
       metaTitle: "Ostéopathe & kinésithérapeute à Ixelles | David Otu",
       metaDescription:
-        "David Otu, ostéopathe D.O. et kinésithérapeute à Ixelles, rue de Hennin 99. Consultations le lundi, le mercredi et le vendredi. Rendez-vous en ligne.",
+        "David Otu, ostéopathe D.O. et kinésithérapeute à Ixelles, rue de Hennin 99. Consultations le lundi, le mercredi et le vendredi. Rendez-vous en ligne, urgences par téléphone.",
     },
   ],
   // Bio courte, affichée sur la page d'accueil.
@@ -143,7 +143,7 @@ export const site = {
   seo: {
     title: "Ostéopathe & kiné à Ixelles et Woluwe-Saint-Pierre | David Otu",
     description:
-      "Ostéopathe D.O. et kinésithérapeute conventionné à Ixelles et Woluwe-Saint-Pierre (Bruxelles) : mal de dos, lumbago, cervicalgie, genou, entorse, rééducation et sport. Rendez-vous en ligne.",
+      "Ostéopathe D.O. et kinésithérapeute conventionné à Ixelles et Woluwe-Saint-Pierre (Bruxelles) : mal de dos, lumbago, cervicalgie, genou, entorse, rééducation et sport. Rendez-vous en ligne, urgences par téléphone.",
   },
 } as const;
 
@@ -155,7 +155,7 @@ export const disciplines = {
     url: OSTEO_DOCTORANYTIME_URL,
     metaTitle: "Ostéopathe D.O. à Ixelles et Woluwe-Saint-Pierre | David Otu",
     metaDescription:
-      "Ostéopathe D.O. à Ixelles et Woluwe-Saint-Pierre : lumbago, mal de dos, torticolis, sciatique, cervicalgie, tensions. Séance de 45 min, attestation pour la mutuelle. Rendez-vous en ligne.",
+      "Ostéopathe D.O. à Ixelles et Woluwe-Saint-Pierre : lumbago, dos bloqué, torticolis, sciatique, cervicalgie. Rendez-vous en urgence par téléphone au 0492.95.30.43. Séance de 45 min, attestation pour la mutuelle.",
     h1: "Ostéopathe D.O. à Ixelles & Woluwe-Saint-Pierre",
     intro:
       "Ostéopathe D.O. diplômé, à Ixelles et à Woluwe-Saint-Pierre. Écoute attentive, évaluation précise de votre posture, techniques manuelles douces et ciblées — pour adultes, enfants, sportifs et seniors.",

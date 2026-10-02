@@ -28,6 +28,7 @@ export default function Contact({ lang = "fr" }: { lang?: Lang }) {
             <a href={site.phoneHref} className="block font-serif text-4xl transition-colors duration-300 hover:text-steelDeep">
               {site.phone}
             </a>
+            <p className="mt-2 text-sm font-semibold text-night">{c.ui.urgent.contact}</p>
             <a href={`mailto:${site.email}`} className={`mt-3 inline-block break-all ${link}`}>
               {site.email}
             </a>

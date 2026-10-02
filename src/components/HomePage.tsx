@@ -9,6 +9,7 @@ import FaqCarousel from "@/components/FaqCarousel";
 import FaqSchema from "@/components/FaqSchema";
 import TrustBand from "@/components/TrustBand";
 import Approach from "@/components/Approach";
+import { UrgentBand } from "@/components/Urgent";
 
 export default function HomePage({ lang = "fr" }: { lang?: Lang }) {
   const c = content(lang);
@@ -20,13 +21,14 @@ export default function HomePage({ lang = "fr" }: { lang?: Lang }) {
         <h1 id="accueil-title" className="sr-only">
           {site.name} — {t.heroH1}
         </h1>
-        <div className="flex flex-col md:h-[100svh] md:min-h-[640px] md:flex-row">
+        <div className="flex flex-col md:h-[calc(100svh-76px)] md:min-h-[600px] md:flex-row">
           <Choice d={c.disciplines.osteo} kind="osteo" image="/images/osteopathie-mains.webp" position="50% 55%" alt={t.altOsteo} pro={t.osteoPro} cta={t.book} more={t.more} moreHref={c.routes.osteo} label={c.disciplines.osteo.label} />
           <span aria-hidden className="h-px w-full bg-ivory/15 md:h-auto md:w-px" />
           <Choice d={c.disciplines.kine} kind="kine" image="/images/kinesitherapie-genou.webp" position="50% 50%" alt={t.altKine} pro={t.kinePro} cta={t.book} more={t.more} moreHref={c.routes.kine} label={c.disciplines.kine.label} />
         </div>
       </section>
 
+      <UrgentBand lang={lang} />
       <TrustBand lang={lang} />
 
       {/* Présentation */}

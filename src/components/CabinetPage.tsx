@@ -1,5 +1,6 @@
 import { site, SITE_URL } from "@/config/site";
 import { content, type Lang } from "@/i18n";
+import { UrgentSection } from "@/components/Urgent";
 
 
 /* Page dédiée à un cabinet : pensée pour les recherches « ostéopathe + commune »
@@ -48,9 +49,14 @@ export default function CabinetPage({ slug, lang = "fr" }: { slug: string; lang?
                 {C.ui.bookShort} · {d.label}
               </a>
             ))}
+            <a href={site.phoneHref} className="flex min-h-[56px] items-center justify-center rounded-full border border-ivory/20 px-8 text-xs uppercase tracking-[0.25em] text-ivory/80 transition-colors hover:border-steel hover:text-steel">
+              {C.ui.urgent.short} : {site.phone}
+            </a>
           </div>
         </div>
       </section>
+
+      <UrgentSection lang={lang} title={C.ui.urgent.h2City(a.city)} text={C.ui.urgent.textCity(a.city, a.daysSentence)} />
 
       <section className="w-full bg-ivory text-night">
         <div className="mx-auto grid max-w-6xl gap-12 px-6 py-20 md:grid-cols-[5fr_7fr] md:px-10 md:py-28">

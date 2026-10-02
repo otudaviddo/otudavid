@@ -74,6 +74,14 @@ export default function MobileBooking({ lang = "fr" }: { lang?: Lang }) {
               <span className="font-sans text-sm text-steel">→</span>
             </a>
           ))}
+          <a
+            href={site.phoneHref}
+            tabIndex={open ? 0 : -1}
+            className="flex min-h-[64px] items-center justify-between gap-3 rounded-2xl bg-steel px-5 text-night transition-colors active:bg-ivory"
+          >
+            <span className="text-sm font-semibold leading-tight">{t.urgent.sheet}</span>
+            <span className="flex items-center gap-2 font-serif text-2xl"><PhoneIcon className="h-5 w-5" />{site.phone}</span>
+          </a>
         </div>
         <p className="mt-4 text-center text-[11px] uppercase tracking-[0.2em] text-ivory/65">{t.mobile.via}</p>
       </div>

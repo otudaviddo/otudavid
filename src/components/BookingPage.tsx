@@ -4,6 +4,7 @@ import { content, type Lang } from "@/i18n";
 import FaqCarousel from "@/components/FaqCarousel";
 import FaqSchema from "@/components/FaqSchema";
 import Approach from "@/components/Approach";
+import { UrgentSection } from "@/components/Urgent";
 
 export default function BookingPage({ kind, lang = "fr" }: { kind: "osteo" | "kine"; lang?: Lang }) {
   const C = content(lang);
@@ -30,13 +31,15 @@ export default function BookingPage({ kind, lang = "fr" }: { kind: "osteo" | "ki
             {C.ui.book}
           </a>
           <a href={site.phoneHref} className="inline-flex min-h-[56px] w-full items-center justify-center rounded-full border border-ivory/20 px-8 text-xs uppercase tracking-[0.25em] text-ivory/80 transition-colors hover:border-steel hover:text-steel sm:w-auto">
-            {site.phone}
+            {C.ui.urgent.short} : {site.phone}
           </a>
         </div>
         <p className="rise d2 mt-6 text-sm text-ivory/70">
           {C.reviewsLabel.split(" · ")[0]} · {t.sessionOf(osteo ? C.duration.osteo : C.duration.kine)}
         </p>
       </section>
+
+      <UrgentSection lang={lang} title={osteo ? C.ui.urgent.h2Osteo : C.ui.urgent.h2Kine} text={osteo ? C.ui.urgent.textOsteo : C.ui.urgent.textKine} />
 
       {/* Présentation + motifs (fond blanc) */}
       <section data-tone="light" className="w-full bg-white text-night">

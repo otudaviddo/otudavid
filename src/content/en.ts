@@ -23,20 +23,20 @@ export const siteEn = {
       daysSentence: "on Tuesdays and Thursdays",
       metaTitle: "Osteopath & physiotherapist in Woluwe-Saint-Pierre | David Otu",
       metaDescription:
-        "David Otu, English-speaking osteopath D.O. and physiotherapist in Woluwe-Saint-Pierre (Brussels), Rue de la Station 113. Tuesdays and Thursdays. Book online.",
+        "David Otu, English-speaking osteopath D.O. and physiotherapist in Woluwe-Saint-Pierre (Brussels), Rue de la Station 113. Tuesdays and Thursdays. Book online, or call for an urgent appointment.",
     },
     ixelles: {
       days: "Monday · Wednesday · Friday",
       daysSentence: "on Mondays, Wednesdays and Fridays",
       metaTitle: "Osteopath & physiotherapist in Ixelles, Brussels | David Otu",
       metaDescription:
-        "David Otu, English-speaking osteopath D.O. and physiotherapist in Ixelles (Brussels), Rue de Hennin 99. Mondays, Wednesdays and Fridays. Book online.",
+        "David Otu, English-speaking osteopath D.O. and physiotherapist in Ixelles (Brussels), Rue de Hennin 99. Mondays, Wednesdays and Fridays. Book online, or call for an urgent appointment.",
     },
   } as Record<string, { days: string; daysSentence: string; metaTitle: string; metaDescription: string }>,
   seo: {
     title: "English-speaking osteopath & physio in Brussels | David Otu",
     description:
-      "Osteopath D.O. and contracted physiotherapist in Ixelles and Woluwe-Saint-Pierre (Brussels): back pain, neck pain, knee, sprains, rehabilitation and sports injuries. Book online.",
+      "Osteopath D.O. and contracted physiotherapist in Ixelles and Woluwe-Saint-Pierre (Brussels): back pain, neck pain, knee, sprains, rehabilitation and sports injuries. Book online, or call for an urgent appointment.",
   },
 };
 
@@ -47,7 +47,7 @@ export const disciplinesEn = {
     h1: "Osteopath D.O. in Ixelles & Woluwe-Saint-Pierre",
     metaTitle: "English-speaking osteopath in Brussels (Ixelles, Woluwe) | David Otu",
     metaDescription:
-      "Osteopath D.O. in Ixelles and Woluwe-Saint-Pierre, Brussels: acute low back pain, stiff neck, sciatica, neck pain, tension. 45-minute sessions, certificate for your health insurance. Book online.",
+      "Osteopath D.O. in Ixelles and Woluwe-Saint-Pierre, Brussels: acute low back pain, stiff neck, sciatica, neck pain, tension. 45-minute sessions, certificate for your health insurance. Urgent appointments by phone.",
     intro:
       "Qualified osteopath D.O., in Ixelles and Woluwe-Saint-Pierre. Careful listening, precise assessment of your posture and movement, gentle and targeted manual techniques — for adults, children, athletes and seniors.",
   },
@@ -119,13 +119,13 @@ const prescription: QA = { q: "Do I need a medical prescription?", a: "Not for o
 const duree: QA = { q: "How long is a session?", a: `An osteopathy session lasts ${siteEn.duration.osteo}, a physiotherapy session ${siteEn.duration.kine}.` };
 const premiere: QA = { q: "What happens during the first session?", a: "It starts with a thorough assessment: your history, your symptoms and an examination to find the cause of the pain, not only where it shows. Then comes treatment (manual therapy, targeted exercise) and practical advice for daily life." };
 const choisir: QA = { q: "Osteopath or physiotherapist: which one should I see?", a: "Osteopathy is well suited to recent or recurring pain and stiffness: acute low back pain, locked back, stiff neck, tension. Physiotherapy is indicated for rehabilitation after an injury or surgery and for returning to sport, usually with a prescription. Trained in both, David Otu will guide you to the most appropriate care." };
-const urgence: QA = { q: "Can I be seen quickly for acute back pain or a stiff neck?", a: `Call ${site.phone}: a short-notice appointment will be offered depending on availability, in Ixelles or Woluwe-Saint-Pierre. You can also book online via Doctoranytime.` };
+const urgence: QA = { q: "How do I get an urgent appointment (acute back pain, stiff neck, locked back)?", a: `For an urgent appointment, call ${site.phone} directly: you will be offered the earliest possible slot, subject to availability, in Ixelles or Woluwe-Saint-Pierre. For a regular appointment, online booking remains available.` };
 const ouQuand: QA = { q: "Where and when?", a: `In Ixelles (${site.addresses[1].street}) on Mondays, Wednesdays and Fridays, and in Woluwe-Saint-Pierre (${site.addresses[0].street}) on Tuesdays and Thursdays. Osteopathy and physiotherapy are offered at both practices.` };
 const apporter: QA = { q: "What should I bring?", a: "Your ID card, the medical prescription for physiotherapy, and any scans or reports you have (X-ray, MRI, surgical report). Wear comfortable clothing." };
 const langue: QA = { q: "Are consultations in English?", a: "Yes. David Otu consults in English and in French, at both practices in Brussels." };
 
-export const faqHomeEn: QA[] = [choisir, langue, remboursementOsteo, remboursementKine, prescription, duree, premiere, urgence, ouQuand, apporter];
-export const faqOsteoEn: QA[] = [langue, remboursementOsteo, duree, premiere, urgence, prescription, choisir, ouQuand];
+export const faqHomeEn: QA[] = [urgence, choisir, langue, remboursementOsteo, remboursementKine, prescription, duree, premiere, ouQuand, apporter];
+export const faqOsteoEn: QA[] = [urgence, langue, remboursementOsteo, duree, premiere, prescription, choisir, ouQuand];
 export const faqKineEn: QA[] = [langue, remboursementKine, prescription, duree, premiere, apporter, choisir, ouQuand];
 
 type SoinEn = Pick<Soin, "card" | "cardText" | "intro" | "motifsTitle" | "motifs" | "approcheIntro" | "phases" | "alerte" | "faq">;

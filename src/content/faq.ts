@@ -30,8 +30,8 @@ const choisir: QA = {
   a: "L'ostéopathie convient bien aux douleurs et blocages récents ou récurrents : lumbago, dos bloqué, torticolis, tensions. La kinésithérapie est indiquée pour la rééducation après une blessure ou une opération et pour la reprise du sport, généralement sur prescription. Formé dans les deux disciplines, David Otu vous oriente vers la prise en charge la plus adaptée.",
 };
 const urgence: QA = {
-  q: "Puis-je être reçu rapidement en cas de lumbago ou de torticolis ?",
-  a: `Appelez le ${site.phone} : un créneau rapproché vous sera proposé selon les disponibilités, à Ixelles ou à Woluwe-Saint-Pierre. Vous pouvez aussi réserver en ligne via Doctoranytime.`,
+  q: "Comment obtenir un rendez-vous en urgence (lumbago, torticolis, dos bloqué) ?",
+  a: `Pour un rendez-vous en urgence, appelez directement le ${site.phone} : un créneau rapproché vous est proposé selon les disponibilités, à Ixelles ou à Woluwe-Saint-Pierre. Pour un rendez-vous classique, la réservation en ligne reste possible.`,
 };
 const ouQuand: QA = {
   q: "Où et quand consulter ?",
@@ -46,6 +46,6 @@ const anglais: QA = {
   a: "Yes. David Otu is an English-speaking osteopath and physiotherapist, with practices in Ixelles and Woluwe-Saint-Pierre (Brussels). You can book online or call directly.",
 };
 
-export const faqHome: QA[] = [choisir, remboursementOsteo, remboursementKine, prescription, duree, premiereSeance, urgence, ouQuand, apporter, anglais];
-export const faqOsteo: QA[] = [remboursementOsteo, duree, premiereSeance, urgence, prescription, choisir, ouQuand, anglais];
-export const faqKine: QA[] = [remboursementKine, prescription, duree, premiereSeance, apporter, choisir, ouQuand, anglais];
+export const faqHome: QA[] = [urgence, choisir, remboursementOsteo, remboursementKine, prescription, duree, premiereSeance, ouQuand, apporter, anglais];
+export const faqOsteo: QA[] = [urgence, remboursementOsteo, duree, premiereSeance, prescription, choisir, ouQuand, anglais];
+export const faqKine: QA[] = [remboursementKine, prescription, duree, premiereSeance, urgence, apporter, choisir, ouQuand, anglais];
