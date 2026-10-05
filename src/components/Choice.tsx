@@ -101,20 +101,22 @@ function PerformanceDrawing() {
 /* ---------- Panneau cliquable ---------- */
 
 export default function Choice({ d, image, position = "center", kind, alt = "", pro, cta, more, moreHref, label, srcSet, sizes }: {
-  d: D; image: string; position?: string; kind: "osteo" | "kine"; alt?: string; pro: string; cta: string;
+  /** Sans photo, le panneau s'affiche sur un fond uni et le dessin au trait devient le visuel. */
+  d: D; image?: string; position?: string; kind: "osteo" | "kine"; alt?: string; pro: string; cta: string;
   /** Versions haute résolution de la photo */ srcSet?: string; sizes?: string;
   /** Lien secondaire vers la page du site */ more: string; moreHref: string; label: string;
 }) {
   const ref = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
 
-  // Sur écran tactile (pas de survol), l'animation se joue quand le panneau apparaît.
+  // Sur écran tactile (pas de survol) ou sans photo, le dessin se trace quand le panneau apparaît.
   useEffect(() => {
-    if (!window.matchMedia("(hover: none)").matches || !ref.current) return;
+    if (!ref.current) return;
+    if (image && !window.matchMedia("(hover: none)").matches) return;
     const io = new IntersectionObserver(([e]) => { if (e.isIntersecting) { setVisible(true); io.disconnect(); } }, { threshold: 0.5 });
     io.observe(ref.current);
     return () => io.disconnect();
-  }, []);
+  }, [image]);
 
   // Profondeur 3D : à la souris, la photo, le dessin et le texte bougent
   // à des vitesses différentes, comme trois plans l'un derrière l'autre.
@@ -143,26 +145,38 @@ export default function Choice({ d, image, position = "center", kind, alt = "", 
       ref={ref}
       className={`panel group relative flex min-h-[50svh] flex-1 overflow-hidden md:min-h-0 md:transition-[flex-grow] md:duration-700 md:ease-out md:hover:flex-[1.3] ${visible ? "is-visible" : ""}`}
     >
-      {/* Photo */}
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
-        src={image}
-        srcSet={srcSet}
-        sizes={sizes}
-        alt={alt}
-        className="panel-img absolute inset-0 h-full w-full object-cover"
-        style={{ objectPosition: position }}
-      />
-      <span aria-hidden className="absolute inset-0 bg-night/10 transition-colors duration-700 group-hover:bg-transparent" />
-      <span aria-hidden className="absolute inset-x-0 top-0 h-[26%] bg-gradient-to-b from-night/60 to-transparent" />
-      {/* voile bas pour la lisibilité du texte */}
-      <span aria-hidden className="absolute inset-x-0 bottom-0 h-[50%] bg-gradient-to-t from-night/80 via-night/30 to-transparent" />
+      {image ? (
+        <>
+          {/* Photo */}
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={image}
+            srcSet={srcSet}
+            sizes={sizes}
+            alt={alt}
+            className="panel-img absolute inset-0 h-full w-full object-cover"
+            style={{ objectPosition: position }}
+          />
+          <span aria-hidden className="absolute inset-0 bg-night/10 transition-colors duration-700 group-hover:bg-transparent" />
+          <span aria-hidden className="absolute inset-x-0 top-0 h-[26%] bg-gradient-to-b from-night/60 to-transparent" />
+          {/* voile bas pour la lisibilité du texte */}
+          <span aria-hidden className="absolute inset-x-0 bottom-0 h-[50%] bg-gradient-to-t from-night/80 via-night/30 to-transparent" />
+        </>
+      ) : (
+        <>
+          {/* Fond uni : une teinte par discipline, avec un halo discret derrière le dessin */}
+          <span aria-hidden className={`absolute inset-0 ${kind === "osteo" ? "bg-night" : "bg-nightSoft"}`} />
+          <span aria-hidden className="panel-halo absolute inset-0 transition-opacity duration-700 group-hover:opacity-100" />
+        </>
+      )}
 
       {/* Lueur au survol */}
       <span aria-hidden className="panel-glow pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-700 group-hover:opacity-100 group-focus-within:opacity-100" />
 
       {/* Dessin technique */}
-      <span aria-hidden className="pointer-events-none absolute right-[6%] top-[22%] h-[38%] text-ivory/90 md:top-1/2 md:h-[50%] md:-translate-y-1/2">
+      <span aria-hidden className={image
+        ? "pointer-events-none absolute right-[6%] top-[22%] h-[38%] text-ivory/90 md:top-1/2 md:h-[50%] md:-translate-y-1/2"
+        : "pointer-events-none absolute right-[9%] top-[19%] h-[44%] text-steel md:right-[11%] md:top-[46%] md:h-[58%] md:-translate-y-1/2"}>
         <span className="panel-float block h-full">
           {kind === "osteo" ? <PostureDrawing /> : <PerformanceDrawing />}
         </span>
