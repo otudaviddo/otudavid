@@ -5,13 +5,15 @@ const config: Config = {
   content: ["./src/**/*.{ts,tsx}"],
   theme: {
     extend: {
+      // Les couleurs passent par des variables (voir globals.css) : un même nom
+      // change de valeur selon que la section est blanche, bleu très pâle ou bleue.
       colors: {
-        night: "#0A1428",       // bleu nuit profond (fond principal)
-        nightSoft: "#0E1B33",   // bleu nuit légèrement plus clair (sections alternées)
-        ivory: "#F2EDE2",       // ivoire (texte)
-        steel: "#8FA3C7",       // bleu plus clair (interactions, textes secondaires)
-        steelDeep: "#45587C",   // bleu acier foncé (accents lisibles sur fond ivoire)
-        ivoryDeep: "#E9E2D4",   // ivoire légèrement plus soutenu (sections claires alternées)
+        night: "rgb(var(--c-night) / <alpha-value>)",
+        nightSoft: "rgb(var(--c-nightSoft) / <alpha-value>)",
+        ivory: "rgb(var(--c-ivory) / <alpha-value>)",
+        steel: "rgb(var(--c-steel) / <alpha-value>)",
+        steelDeep: "rgb(var(--c-steelDeep) / <alpha-value>)",
+        ivoryDeep: "rgb(var(--c-ivoryDeep) / <alpha-value>)",
       },
       fontFamily: {
         serif: ["var(--font-serif)", "Georgia", "serif"],

@@ -28,7 +28,7 @@ export default function BookingPage({ kind, lang = "fr" }: { kind: "osteo" | "ki
         <p className="rise d1 mt-8 max-w-xl text-lg leading-relaxed text-ivory/75">{d.intro}</p>
 
         <div className="rise d2 mt-10 flex w-full flex-col gap-4 sm:w-auto sm:flex-row">
-          <a href={d.url} className="inline-flex min-h-[56px] w-full items-center justify-center rounded-full border border-ivory/40 px-10 text-xs uppercase tracking-[0.25em] transition-colors duration-500 hover:border-ivory hover:bg-ivory hover:text-night sm:w-auto">
+          <a href={d.url} className="inline-flex min-h-[56px] w-full items-center justify-center rounded-full bg-steel px-10 text-xs font-medium uppercase tracking-[0.25em] text-night transition-colors duration-300 hover:bg-steelDeep sm:w-auto">
             {C.ui.book}
           </a>
           <a href={site.phoneHref} className="inline-flex min-h-[56px] w-full items-center justify-center rounded-full border border-ivory/20 px-8 text-xs uppercase tracking-[0.25em] text-ivory/80 transition-colors hover:border-steel hover:text-steel sm:w-auto">

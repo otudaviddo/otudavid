@@ -74,7 +74,7 @@ export default function Parcours({ lang = "fr" }: { lang?: Lang }) {
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         src="/images/ecorche-marche.webp" alt="" aria-hidden width={524} height={950} loading="lazy"
-        className="pointer-events-none absolute -left-24 top-10 h-[70%] w-auto select-none opacity-[0.07] md:-left-10 md:h-[85%] md:opacity-[0.09]"
+        className="pointer-events-none absolute -left-24 top-10 h-[70%] w-auto select-none opacity-[0.14] md:-left-10 md:h-[85%] md:opacity-[0.18]"
       />
       <div className="relative mx-auto max-w-6xl px-6 py-24 md:px-10 md:py-32">
         <div className="max-w-2xl">

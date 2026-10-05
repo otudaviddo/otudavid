@@ -6,7 +6,7 @@ import { content, reviewDate, type Lang } from "@/i18n";
 
 function Card({ t, lang }: { t: (typeof testimonials)[number]; lang: Lang }) {
   return (
-    <figure className="flex w-[300px] shrink-0 flex-col justify-between rounded-2xl border border-night/15 bg-white/50 px-6 py-7 sm:w-[400px] sm:px-8 sm:py-8">
+    <figure className="flex w-[300px] shrink-0 flex-col justify-between rounded-2xl border border-night/15 bg-ivory/60 px-6 py-7 sm:w-[400px] sm:px-8 sm:py-8">
       <blockquote className="font-serif text-lg leading-relaxed text-night/90 sm:text-xl">
         &laquo;&nbsp;{t.quote}&nbsp;&raquo;
       </blockquote>
@@ -70,7 +70,7 @@ export default function Testimonials({ lang = "fr" }: { lang?: Lang }) {
   const arrow = "flex h-12 w-12 items-center justify-center rounded-full border border-night/20 text-night/70 transition-colors duration-300 hover:border-night hover:bg-night hover:text-ivory";
 
   return (
-    <section id="avis" data-tone="light" aria-labelledby="avis-title" className="relative w-full bg-ivory text-night">
+    <section id="avis" data-tone="light" aria-labelledby="avis-title" className="relative w-full bg-white text-night">
       <div className="mx-auto flex max-w-6xl flex-col gap-8 px-6 pb-12 pt-24 md:flex-row md:items-end md:justify-between md:px-10 md:pt-32">
         <div>
           <h2 id="avis-title" className="font-serif text-4xl leading-[1.1] sm:text-5xl">{t.title}</h2>

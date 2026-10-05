@@ -16,7 +16,7 @@ export default function LegalPage({ lang = "fr" }: { lang?: Lang }) {
         </h1>
       </section>
 
-      <section className="w-full bg-white text-night">
+      <section data-tone="light" className="w-full bg-white text-night">
         <div className="mx-auto max-w-6xl px-6 pb-24 pt-4 md:px-10 md:pb-28">
           <div className="max-w-2xl">
             <h2 className={h2}>{fr ? "Qui édite ce site" : "Who publishes this site"}</h2>

@@ -32,7 +32,7 @@ export default function FaqCarousel({ items, tone = "dark", title, id, lang = "f
     : "border-night/20 text-night/70 hover:border-night hover:bg-night hover:text-ivory";
 
   return (
-    <section id={id} data-tone={tone} aria-labelledby={`${id ?? "faq"}-title`} className={`w-full ${dark ? "bg-night text-ivory" : "bg-ivory text-night"}`}>
+    <section id={id} data-tone={tone} aria-labelledby={`${id ?? "faq"}-title`} className={`w-full ${dark ? "bg-nightSoft text-ivory" : "bg-ivory text-night"}`}>
       <div className="mx-auto flex max-w-6xl flex-col gap-8 px-6 pb-10 pt-24 md:flex-row md:items-end md:justify-between md:px-10 md:pt-28">
         <div>
           <h2 id={`${id ?? "faq"}-title`} className="font-serif text-4xl leading-[1.1] sm:text-5xl">{title}</h2>
@@ -54,7 +54,7 @@ export default function FaqCarousel({ items, tone = "dark", title, id, lang = "f
         {items.map((it, i) => (
           <article
             key={i}
-            className={`flex w-[85%] shrink-0 snap-start flex-col rounded-2xl border p-7 sm:w-[420px] sm:p-9 ${dark ? "border-ivory/15 bg-ivory/[0.03]" : "border-night/15 bg-white/40"}`}
+            className={`flex w-[85%] shrink-0 snap-start flex-col rounded-2xl border p-7 sm:w-[420px] sm:p-9 ${dark ? "border-ivory/15 bg-night" : "border-night/15 bg-white/40"}`}
           >
             <h3 className="font-serif text-2xl leading-snug">{it.q}</h3>
             <p className={`mt-4 text-[15px] leading-relaxed ${dark ? "text-ivory/75" : "text-night/75"}`}>{it.a}</p>

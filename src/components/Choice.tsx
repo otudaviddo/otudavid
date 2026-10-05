@@ -192,8 +192,10 @@ export default function Choice({ d, image, position = "center", kind, alt = "", 
         </span>
         <span className="font-serif text-[clamp(1.9rem,8.2vw,2.6rem)] leading-none tracking-[0.12em] text-ivory md:text-[clamp(2rem,3.3vw,3.6rem)]">{d.upper}</span>
         <span className="h-px w-12 bg-ivory/40 transition-all duration-700 group-hover:w-24 group-hover:bg-steel" />
-        <span className="flex flex-wrap items-baseline gap-x-8 gap-y-3">
-          <span className="text-xs uppercase tracking-[0.25em] text-ivory/90 transition-transform duration-500 group-hover:translate-x-1">
+        <span className="flex flex-wrap items-center gap-x-8 gap-y-3">
+          <span className={image
+            ? "text-xs uppercase tracking-[0.25em] text-ivory/90 transition-transform duration-500 group-hover:translate-x-1"
+            : "inline-flex min-h-[48px] items-center rounded-full bg-steel px-6 text-xs font-medium uppercase tracking-[0.22em] text-night transition-colors duration-300 group-hover:bg-steelDeep"}>
             {cta}
           </span>
           {/* Lien secondaire : la page du site, pour ceux qui veulent d'abord se renseigner */}

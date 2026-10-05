@@ -16,7 +16,7 @@ export default function Contact({ lang = "fr" }: { lang?: Lang }) {
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         src="/images/ecorche-baton.webp" alt="" aria-hidden width={546} height={950} loading="lazy"
-        className="pointer-events-none absolute -right-20 bottom-0 h-[92%] w-auto select-none opacity-[0.16] mix-blend-multiply md:-right-6"
+        className="pointer-events-none absolute -right-20 bottom-0 h-[92%] w-auto select-none opacity-[0.10] mix-blend-multiply md:-right-6"
       />
       <div className="relative mx-auto max-w-6xl px-6 pb-36 pt-24 md:px-10 md:py-32">
         <div>
@@ -81,7 +81,7 @@ export default function Contact({ lang = "fr" }: { lang?: Lang }) {
             <a
               key={d.slug}
               href={d.url}
-              className="flex min-h-[56px] flex-1 items-center justify-center rounded-full border border-night/35 px-6 text-xs uppercase tracking-[0.25em] transition-colors duration-500 hover:border-night hover:bg-night hover:text-ivory"
+              className="flex min-h-[56px] flex-1 items-center justify-center rounded-full bg-steel px-6 text-xs font-medium uppercase tracking-[0.25em] text-night transition-colors duration-300 hover:bg-steelDeep"
             >
               {c.ui.bookShort} · {d.label}
             </a>

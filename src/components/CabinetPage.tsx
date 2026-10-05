@@ -49,7 +49,7 @@ export default function CabinetPage({ slug, lang = "fr" }: { slug: string; lang?
               <a
                 key={d.slug}
                 href={d.url}
-                className="flex min-h-[56px] items-center justify-center rounded-full border border-ivory/40 px-8 text-xs uppercase tracking-[0.25em] transition-colors duration-500 hover:border-ivory hover:bg-ivory hover:text-night"
+                className="flex min-h-[56px] items-center justify-center rounded-full bg-steel px-8 text-xs font-medium uppercase tracking-[0.25em] text-night transition-colors duration-300 hover:bg-steelDeep"
               >
                 {C.ui.bookShort} · {d.label}
               </a>
@@ -63,7 +63,7 @@ export default function CabinetPage({ slug, lang = "fr" }: { slug: string; lang?
 
       <UrgentSection lang={lang} title={C.ui.urgent.h2City(a.city)} text={C.ui.urgent.textCity(a.city, a.daysSentence)} />
 
-      <section className="w-full bg-ivory text-night">
+      <section data-tone="light" className="w-full bg-ivory text-night">
         <div className="mx-auto grid max-w-6xl gap-12 px-6 py-20 md:grid-cols-[5fr_7fr] md:px-10 md:py-28">
           <div className="space-y-10">
             <div>
@@ -138,7 +138,7 @@ export default function CabinetPage({ slug, lang = "fr" }: { slug: string; lang?
         </div>
       </section>
 
-      <section className="w-full bg-ivoryDeep text-night">
+      <section data-tone="light" className="w-full bg-ivoryDeep text-night">
         <div className="mx-auto max-w-6xl px-6 py-16 md:px-10">
           <p className="text-base text-night/75">
             {t.also} <a href={other.path} className="border-b border-night/30 pb-0.5 text-night hover:text-steelDeep">{other.city}</a> ({other.days.toLowerCase()}).
