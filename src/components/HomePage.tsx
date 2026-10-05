@@ -40,12 +40,18 @@ export default function HomePage({ lang = "fr" }: { lang?: Lang }) {
 
       {/* Présentation */}
       <section aria-labelledby="apropos-title" data-tone="dark" className="w-full bg-night">
-        <div className="mx-auto grid max-w-6xl gap-10 px-6 py-24 md:grid-cols-[5fr_7fr] md:gap-20 md:px-10 md:py-32">
+        <div className="mx-auto grid max-w-6xl gap-10 px-6 py-24 md:grid-cols-[5fr_7fr] md:gap-20 md:px-10 md:py-28">
           {/* Sans portrait : le nom et le symbole à gauche, le texte à droite */}
           <div className="md:sticky md:top-32 md:self-start">
             <Logo symbolOnly className="h-14 w-auto text-ivory md:h-16" />
             <h2 id="apropos-title" className="mt-8 font-serif text-5xl leading-none sm:text-6xl">David Otu</h2>
             <p className="mt-4 text-base text-steel">{c.title}</p>
+            <p className="mt-10 text-sm font-medium text-steel">{t.principles.title}</p>
+            <ul className="mt-3 max-w-xs border-t border-ivory/15">
+              {t.principles.items.map((it) => (
+                <li key={it} className="border-b border-ivory/15 py-3 font-serif text-xl leading-tight">{it}</li>
+              ))}
+            </ul>
           </div>
           <div>
             <p className="max-w-xl text-base leading-relaxed text-ivory/80">{c.about}</p>

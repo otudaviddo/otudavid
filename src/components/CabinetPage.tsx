@@ -34,8 +34,14 @@ export default function CabinetPage({ slug, lang = "fr" }: { slug: string; lang?
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(ld) }} />
 
-      <section className="w-full bg-night">
-        <div className="mx-auto max-w-6xl px-6 pb-20 pt-20 md:px-10 md:pt-28">
+      <section className="relative w-full overflow-hidden bg-night">
+        <span aria-hidden className="hero-wash absolute inset-0" />
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src={a.slug === "ixelles" ? "/images/ecorche-baton.webp" : "/images/ecorche-marche.webp"} alt="" aria-hidden width={a.slug === "ixelles" ? 546 : 524} height={950}
+          className="pointer-events-none absolute bottom-0 -right-[20%] h-[62%] w-auto max-w-none select-none opacity-20 mix-blend-multiply sm:-right-[8%] lg:-right-[4%] lg:h-[104%] lg:opacity-30 xl:right-[1%] xl:opacity-45"
+        />
+        <div className="relative mx-auto max-w-6xl px-6 pb-20 pt-20 md:px-10 md:pt-28">
           <p className="rise text-base text-steel">{t.kicker(a.city)}</p>
           <h1 className="rise d1 mt-4 max-w-4xl font-serif text-[2.6rem] leading-[1.08] sm:text-6xl md:text-7xl">
             {t.h1(a.city)}

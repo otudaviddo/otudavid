@@ -16,7 +16,7 @@ export default function Contact({ lang = "fr" }: { lang?: Lang }) {
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         src="/images/ecorche-baton.webp" alt="" aria-hidden width={546} height={950} loading="lazy"
-        className="pointer-events-none absolute -right-20 bottom-0 h-[92%] w-auto select-none opacity-[0.10] mix-blend-multiply md:-right-6"
+        className="pointer-events-none absolute -right-40 -top-[14%] h-[150%] w-auto max-w-none select-none opacity-[0.09] mix-blend-multiply md:-right-24"
       />
       <div className="relative mx-auto max-w-6xl px-6 pb-36 pt-24 md:px-10 md:py-32">
         <div>

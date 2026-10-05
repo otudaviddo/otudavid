@@ -22,22 +22,31 @@ export default function BookingPage({ kind, lang = "fr" }: { kind: "osteo" | "ki
       <FaqSchema items={allFaq} />
 
       {/* En-tête */}
-      <section data-tone="dark" className="mx-auto max-w-6xl px-6 pb-20 pt-16 md:px-10 md:pb-24 md:pt-24">
-        <p className="rise text-base text-steel">David Otu</p>
-        <h1 className="rise d1 mt-4 max-w-4xl font-serif text-[2.6rem] leading-[1.08] sm:text-6xl md:text-7xl">{d.h1}</h1>
-        <p className="rise d1 mt-8 max-w-xl text-lg leading-relaxed text-ivory/75">{d.intro}</p>
+      <section data-tone="dark" className="relative w-full overflow-hidden">
+        {/* Gravure anatomique en fond, à droite du titre */}
+        <span aria-hidden className="hero-wash absolute inset-0" />
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src={osteo ? "/images/ecorche-baton.webp" : "/images/ecorche-marche.webp"} alt="" aria-hidden width={osteo ? 546 : 524} height={950}
+          className={`pointer-events-none absolute bottom-0 -right-[20%] h-[62%] w-auto max-w-none select-none mix-blend-multiply opacity-20 sm:-right-[8%] lg:-right-[4%] lg:h-[104%] lg:opacity-40 xl:right-[4%] ${osteo ? "xl:opacity-75" : "xl:opacity-50"}`}
+        />
+        <div className="relative mx-auto max-w-6xl px-6 pb-20 pt-16 md:px-10 md:pb-24 md:pt-24">
+          <p className="rise text-base text-steel">David Otu</p>
+          <h1 className="rise d1 mt-4 max-w-4xl font-serif text-[2.6rem] leading-[1.08] sm:text-6xl md:text-7xl">{d.h1}</h1>
+          <p className="rise d1 mt-8 max-w-xl text-lg leading-relaxed text-ivory/75">{d.intro}</p>
 
-        <div className="rise d2 mt-10 flex w-full flex-col gap-4 sm:w-auto sm:flex-row">
-          <a href={d.url} className="inline-flex min-h-[56px] w-full items-center justify-center rounded-full bg-steel px-10 text-xs font-medium uppercase tracking-[0.25em] text-night transition-colors duration-300 hover:bg-steelDeep sm:w-auto">
-            {C.ui.book}
-          </a>
-          <a href={site.phoneHref} className="inline-flex min-h-[56px] w-full items-center justify-center rounded-full border border-ivory/20 px-8 text-xs uppercase tracking-[0.25em] text-ivory/80 transition-colors hover:border-steel hover:text-steel sm:w-auto">
-            {C.ui.urgent.short} : {site.phone}
-          </a>
+          <div className="rise d2 mt-10 flex w-full flex-col gap-4 sm:w-auto sm:flex-row">
+            <a href={d.url} className="inline-flex min-h-[56px] w-full items-center justify-center rounded-full bg-steel px-10 text-xs font-medium uppercase tracking-[0.25em] text-night transition-colors duration-300 hover:bg-steelDeep sm:w-auto">
+              {C.ui.book}
+            </a>
+            <a href={site.phoneHref} className="inline-flex min-h-[56px] w-full items-center justify-center rounded-full border border-ivory/20 px-8 text-xs uppercase tracking-[0.25em] text-ivory/80 transition-colors hover:border-steel hover:text-steel sm:w-auto">
+              {C.ui.urgent.short} : {site.phone}
+            </a>
+          </div>
+          <p className="rise d2 mt-6 text-sm text-ivory/70">
+            {C.reviewsLabel.split(" · ")[0]} · {t.sessionOf(osteo ? C.duration.osteo : C.duration.kine)}
+          </p>
         </div>
-        <p className="rise d2 mt-6 text-sm text-ivory/70">
-          {C.reviewsLabel.split(" · ")[0]} · {t.sessionOf(osteo ? C.duration.osteo : C.duration.kine)}
-        </p>
       </section>
 
       <UrgentSection lang={lang} title={osteo ? C.ui.urgent.h2Osteo : C.ui.urgent.h2Kine} text={osteo ? C.ui.urgent.textOsteo : C.ui.urgent.textKine} />
