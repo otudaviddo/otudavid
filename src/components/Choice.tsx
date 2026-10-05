@@ -100,9 +100,11 @@ function PerformanceDrawing() {
 
 /* ---------- Panneau cliquable ---------- */
 
-export default function Choice({ d, image, position = "center", kind, alt = "", pro, cta, more, moreHref, label, srcSet, sizes }: {
+export default function Choice({ d, image, engraving, position = "center", kind, alt = "", pro, cta, more, moreHref, label, srcSet, sizes }: {
   /** Sans photo, le panneau s'affiche sur un fond uni et le dessin au trait devient le visuel. */
-  d: D; image?: string; position?: string; kind: "osteo" | "kine"; alt?: string; pro: string; cta: string;
+  d: D; image?: string; position?: string;
+  /** Gravure anatomique affichée en grand derrière le dessin au trait (version sans photo). */
+  engraving?: { src: string; width: number; height: number; className: string }; kind: "osteo" | "kine"; alt?: string; pro: string; cta: string;
   /** Versions haute résolution de la photo */ srcSet?: string; sizes?: string;
   /** Lien secondaire vers la page du site */ more: string; moreHref: string; label: string;
 }) {
@@ -167,6 +169,11 @@ export default function Choice({ d, image, position = "center", kind, alt = "", 
           {/* Fond uni : une teinte par discipline, avec un halo discret derrière le dessin */}
           <span aria-hidden className={`absolute inset-0 ${kind === "osteo" ? "bg-night" : "bg-nightSoft"}`} />
           <span aria-hidden className="panel-halo absolute inset-0 transition-opacity duration-700 group-hover:opacity-100" />
+          {engraving && (
+            // eslint-disable-next-line @next/next/no-img-element
+            <img src={engraving.src} alt="" aria-hidden width={engraving.width} height={engraving.height}
+              className={`panel-img pointer-events-none absolute w-auto max-w-none select-none mix-blend-multiply ${engraving.className}`} />
+          )}
         </>
       )}
 

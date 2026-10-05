@@ -33,6 +33,11 @@ const uiFr = {
   callAria: (p: string) => `Appeler le ${p}`, mailAria: (m: string) => `Écrire à ${m}`,
   osteoPro: "Ostéopathe D.O.", kinePro: "Kinésithérapeute",
   heroH1: "Kinésithérapeute et ostéopathe D.O. à Ixelles et Woluwe-Saint-Pierre",
+  hero: {
+    title: "Ostéopathe & kinésithérapeute à Bruxelles",
+    text: "Kinésithérapeute conventionné et ostéopathe D.O., à Ixelles et Woluwe-Saint-Pierre. Séances sur rendez-vous, en français et en anglais.",
+    aboutOsteo: "Découvrir l'ostéopathie", aboutKine: "Découvrir la kinésithérapie",
+  },
   altOsteo: "Séance d'ostéopathie : les mains de l'ostéopathe sur le thorax d'un patient",
   altKine: "Séance de kinésithérapie : travail manuel sur le genou d'un sportif",
   altPortrait: "David Otu, kinésithérapeute et ostéopathe D.O.",
@@ -109,6 +114,11 @@ const uiEn: typeof uiFr = {
   callAria: (p) => `Call ${p}`, mailAria: (m) => `Email ${m}`,
   osteoPro: "Osteopath D.O.", kinePro: "Physiotherapist",
   heroH1: "English-speaking physiotherapist and osteopath D.O. in Ixelles and Woluwe-Saint-Pierre, Brussels",
+  hero: {
+    title: "Osteopath & physiotherapist in Brussels",
+    text: "Contracted physiotherapist and osteopath D.O. in Ixelles and Woluwe-Saint-Pierre. By appointment, in English and French.",
+    aboutOsteo: "About osteopathy", aboutKine: "About physiotherapy",
+  },
   altOsteo: "Osteopathy session: the osteopath's hands on a patient's chest",
   altKine: "Physiotherapy session: manual work on an athlete's knee",
   altPortrait: "David Otu, physiotherapist and osteopath D.O.",

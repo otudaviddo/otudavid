@@ -2,6 +2,8 @@ import { site } from "@/config/site";
 import { content, type Lang } from "@/i18n";
 import Choice from "@/components/Choice";
 import Logo from "@/components/Logo";
+import HeroBlock from "@/components/HeroBlock";
+import { HERO_VARIANT } from "@/config/variant";
 import Parcours from "@/components/Parcours";
 import Testimonials from "@/components/Testimonials";
 import Contact from "@/components/Contact";
@@ -18,17 +20,20 @@ export default function HomePage({ lang = "fr" }: { lang?: Lang }) {
   const t = c.ui;
   return (
     <>
-      {/* Accueil : deux grands choix */}
+      {HERO_VARIANT === "bloc" ? <HeroBlock lang={lang} /> : (
       <section aria-labelledby="accueil-title" data-tone="dark" className="relative -mt-[72px]">
         <h1 id="accueil-title" className="sr-only">
           {site.name} — {t.heroH1}
         </h1>
         <div className="flex flex-col md:h-[calc(100svh-76px)] md:min-h-[600px] md:flex-row">
-          <Choice d={c.disciplines.osteo} kind="osteo" pro={t.osteoPro} cta={t.book} more={t.more} moreHref={c.routes.osteo} label={c.disciplines.osteo.label} />
+          <Choice d={c.disciplines.osteo} kind="osteo" pro={t.osteoPro} cta={t.book} more={t.more} moreHref={c.routes.osteo} label={c.disciplines.osteo.label}
+            engraving={{ src: "/images/ecorche-baton.webp", width: 546, height: 950, className: "-right-[14%] bottom-0 h-[104%] opacity-35 md:-right-[5%] md:h-[112%] md:opacity-60" }} />
           <span aria-hidden className="h-px w-full bg-ivory/15 md:h-auto md:w-px" />
-          <Choice d={c.disciplines.kine} kind="kine" pro={t.kinePro} cta={t.book} more={t.more} moreHref={c.routes.kine} label={c.disciplines.kine.label} />
+          <Choice d={c.disciplines.kine} kind="kine" pro={t.kinePro} cta={t.book} more={t.more} moreHref={c.routes.kine} label={c.disciplines.kine.label}
+            engraving={{ src: "/images/ecorche-marche.webp", width: 524, height: 950, className: "-right-[10%] -bottom-[3%] h-[104%] opacity-30 md:-right-[2%] md:h-[110%] md:opacity-45" }} />
         </div>
       </section>
+      )}
 
       <UrgentBand lang={lang} />
       <TrustBand lang={lang} />
