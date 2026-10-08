@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
-type D = { url: string; upper: string };
+type D = { url: string; upper: string; label: string };
 
 /* ---------- Dessins techniques (tracés au trait fin) ---------- */
 
@@ -197,10 +197,10 @@ export default function Choice({ d, image, engraving, dark = false, facts, posit
 
       {/* Texte */}
       <span className="panel-text pointer-events-none relative z-10 mt-auto flex flex-col gap-4 p-7 md:p-12">
-        <span className="text-[12px] uppercase tracking-[0.3em] text-ivory/75">
+        <span className="text-sm text-steel">
           {pro}
         </span>
-        <span className="font-serif text-[clamp(1.9rem,8.2vw,2.6rem)] leading-none tracking-[0.12em] text-ivory md:text-[clamp(2rem,3.3vw,3.6rem)]">{d.upper}</span>
+        <span className="font-serif text-[clamp(2.6rem,11vw,3.4rem)] leading-none text-ivory md:text-[clamp(2.8rem,4.4vw,4.6rem)]">{d.label}</span>
         <span className="h-px w-12 bg-ivory/40 transition-all duration-700 group-hover:w-24 group-hover:bg-steel" />
         {facts && (
           <span className="flex flex-col gap-1.5 text-sm leading-snug text-ivory/85 md:text-[15px]">
@@ -213,14 +213,14 @@ export default function Choice({ d, image, engraving, dark = false, facts, posit
         )}
         <span className="flex flex-wrap items-center gap-x-8 gap-y-3">
           <span className={image
-            ? "text-xs uppercase tracking-[0.25em] text-ivory/90 transition-transform duration-500 group-hover:translate-x-1"
+            ? "text-[15px] font-medium text-ivory/90 transition-transform duration-500 group-hover:translate-x-1"
             : dark
-              ? "inline-flex min-h-[48px] items-center rounded-full bg-ivory px-6 text-xs font-medium uppercase tracking-[0.22em] text-night transition-colors duration-300 group-hover:bg-white"
-              : "inline-flex min-h-[48px] items-center rounded-full bg-steel px-6 text-xs font-medium uppercase tracking-[0.22em] text-night transition-colors duration-300 group-hover:bg-steelDeep"}>
+              ? "inline-flex min-h-[48px] items-center rounded-full bg-ivory px-6 text-[15px] font-medium text-night transition-colors duration-300 group-hover:bg-white"
+              : "inline-flex min-h-[48px] items-center rounded-full bg-steel px-6 text-[15px] font-medium text-night transition-colors duration-300 group-hover:bg-steelDeep"}>
             {cta}
           </span>
           {/* Lien secondaire : la page du site, pour ceux qui veulent d'abord se renseigner */}
-          <a href={moreHref} aria-label={`${more} : ${label}`} className="pointer-events-auto -my-3 inline-block py-3 text-xs uppercase tracking-[0.25em] text-ivory/80 underline decoration-ivory/40 decoration-1 underline-offset-[6px] transition-colors hover:text-steel hover:decoration-steel">
+          <a href={moreHref} aria-label={`${more} : ${label}`} className="pointer-events-auto -my-3 inline-block py-3 text-[15px] font-medium text-ivory/80 underline decoration-ivory/40 decoration-1 underline-offset-[6px] transition-colors hover:text-steel hover:decoration-steel">
             {more}
           </a>
         </span>

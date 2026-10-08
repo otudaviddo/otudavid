@@ -32,7 +32,7 @@ export default function FaqCarousel({ items, tone = "dark", title, id, lang = "f
     : "border-night/20 text-night/70 hover:border-night hover:bg-night hover:text-ivory";
 
   return (
-    <section id={id} data-tone={tone} aria-labelledby={`${id ?? "faq"}-title`} className={`w-full ${dark ? "bg-nightSoft text-ivory" : "bg-ivory text-night"}`}>
+    <section id={id} data-tone={tone} aria-labelledby={`${id ?? "faq"}-title`} className={`w-full ${dark ? "bg-night text-ivory" : "bg-ivory text-night"}`}>
       <div className="mx-auto flex max-w-6xl flex-col gap-8 px-6 pb-10 pt-24 md:flex-row md:items-end md:justify-between md:px-10 md:pt-28">
         <div>
           <h2 id={`${id ?? "faq"}-title`} className="font-serif text-4xl leading-[1.1] sm:text-5xl">{title}</h2>

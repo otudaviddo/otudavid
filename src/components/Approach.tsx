@@ -24,6 +24,15 @@ export default function Approach({ lang = "fr" }: { lang?: Lang }) {
           <p className="mt-6 text-base leading-relaxed text-night/80">
             {en ? approachEn.intro : "Ostéopathie et kinésithérapie réunies dans une même logique : comprendre, soulager, puis rendre le corps plus résistant, fondée sur les données scientifiques les plus récentes."}
           </p>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/images/osteopathie-mains.webp"
+            srcSet="/images/osteopathie-mains.webp 1080w, /images/osteopathie-mains-1620.webp 1620w"
+            sizes="(min-width: 768px) 30vw, 90vw"
+            alt={en ? "Osteopathy session: hands-on treatment" : "Séance d'ostéopathie : traitement manuel"}
+            width={1080} height={1616} loading="lazy"
+            className="mt-10 hidden aspect-[4/5] w-full rounded-2xl object-cover md:block"
+          />
         </div>
         <ol className="border-t border-night/15">
           {list.map((p, i) => {

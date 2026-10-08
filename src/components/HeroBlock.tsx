@@ -5,7 +5,7 @@ import { content, type Lang } from "@/i18n";
 export default function HeroBlock({ lang = "fr" }: { lang?: Lang }) {
   const c = content(lang);
   const t = c.ui;
-  const btn = "inline-flex min-h-[56px] items-center justify-center rounded-full bg-steel px-8 text-xs font-medium uppercase tracking-[0.22em] text-night transition-colors duration-300 hover:bg-steelDeep";
+  const btn = "inline-flex min-h-[56px] items-center justify-center rounded-full bg-steel px-8 text-[15px] font-medium text-night transition-colors duration-300 hover:bg-steelDeep";
   const link = "text-sm text-ivory underline decoration-ivory/30 decoration-1 underline-offset-[6px] transition-colors hover:text-steel hover:decoration-steel";
   return (
     <section aria-labelledby="accueil-title" data-tone="dark" className="relative -mt-[72px] overflow-hidden bg-night">

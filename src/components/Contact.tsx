@@ -81,7 +81,7 @@ export default function Contact({ lang = "fr" }: { lang?: Lang }) {
             <a
               key={d.slug}
               href={d.url}
-              className="flex min-h-[56px] flex-1 items-center justify-center rounded-full bg-steel px-6 text-xs font-medium uppercase tracking-[0.25em] text-night transition-colors duration-300 hover:bg-steelDeep"
+              className="flex min-h-[56px] flex-1 items-center justify-center rounded-full bg-steel px-6 text-[15px] font-medium text-night transition-colors duration-300 hover:bg-steelDeep"
             >
               {c.ui.bookShort} · {d.label}
             </a>

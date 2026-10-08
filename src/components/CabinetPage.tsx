@@ -55,12 +55,12 @@ export default function CabinetPage({ slug, lang = "fr" }: { slug: string; lang?
               <a
                 key={d.slug}
                 href={d.url}
-                className="flex min-h-[56px] items-center justify-center rounded-full bg-steel px-8 text-xs font-medium uppercase tracking-[0.25em] text-night transition-colors duration-300 hover:bg-steelDeep"
+                className="flex min-h-[56px] items-center justify-center rounded-full bg-steel px-8 text-[15px] font-medium text-night transition-colors duration-300 hover:bg-steelDeep"
               >
                 {C.ui.bookShort} · {d.label}
               </a>
             ))}
-            <a href={site.phoneHref} className="flex min-h-[56px] items-center justify-center rounded-full border border-ivory/20 px-8 text-xs uppercase tracking-[0.25em] text-ivory/80 transition-colors hover:border-steel hover:text-steel">
+            <a href={site.phoneHref} className="flex min-h-[56px] items-center justify-center rounded-full border border-ivory/20 px-8 text-[15px] font-medium text-ivory/80 transition-colors hover:border-steel hover:text-steel">
               {C.ui.urgent.short} : {site.phone}
             </a>
           </div>

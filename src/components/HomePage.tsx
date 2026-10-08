@@ -1,7 +1,6 @@
 import { site } from "@/config/site";
 import { content, type Lang } from "@/i18n";
 import Choice from "@/components/Choice";
-import Logo from "@/components/Logo";
 import HeroBlock from "@/components/HeroBlock";
 import { HERO_VARIANT } from "@/config/variant";
 import Parcours from "@/components/Parcours";
@@ -37,33 +36,38 @@ export default function HomePage({ lang = "fr" }: { lang?: Lang }) {
 
       <UrgentBand lang={lang} />
       <TrustBand lang={lang} />
+      <Testimonials lang={lang} />
 
-      {/* Présentation */}
-      <section aria-labelledby="apropos-title" data-tone="dark" className="relative w-full overflow-hidden bg-night">
-        <Logo symbolOnly accent="fill-steel" className="pointer-events-none absolute -right-24 top-1/2 h-[120%] w-auto -translate-y-1/2 text-ivory opacity-[0.04] md:-right-10" />
-        <div className="relative mx-auto grid max-w-6xl gap-10 px-6 py-24 md:grid-cols-[5fr_7fr] md:gap-20 md:px-10 md:py-28">
-          {/* Sans portrait : le nom et le symbole à gauche, le texte à droite */}
-          <div className="md:sticky md:top-32 md:self-start">
-            <Logo symbolOnly className="h-14 w-auto text-ivory md:h-16" />
-            <h2 id="apropos-title" className="mt-8 font-serif text-5xl leading-none sm:text-6xl">David Otu</h2>
-            <p className="mt-4 text-base text-steel">{c.title}</p>
-            <p className="mt-10 text-sm font-medium text-steel">{t.principles.title}</p>
-            <ul className="mt-3 max-w-xs border-t border-ivory/15">
-              {t.principles.items.map((it) => (
-                <li key={it} className="border-b border-ivory/15 py-3 font-serif text-xl leading-tight">{it}</li>
-              ))}
-            </ul>
+      {/* Présentation : portrait et texte */}
+      <section aria-labelledby="apropos-title" data-tone="dark" className="w-full bg-night">
+        <div className="mx-auto grid max-w-6xl items-center gap-12 px-6 py-24 md:grid-cols-[5fr_7fr] md:gap-20 md:px-10 md:py-28">
+          <div className="mx-auto w-full max-w-sm md:max-w-none">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/images/portrait-david-otu.webp"
+              srcSet="/images/portrait-david-otu.webp 1025w, /images/portrait-david-otu-2050.webp 2050w"
+              sizes="(min-width: 768px) 40vw, 90vw"
+              alt={t.altPortrait}
+              width={1025} height={1281} loading="lazy"
+              className="aspect-[4/5] w-full rounded-2xl object-cover shadow-[0_30px_60px_-32px_rgba(11,31,58,.5)]"
+            />
           </div>
           <div>
-            <p className="max-w-xl text-base leading-relaxed text-ivory/80">{c.about}</p>
-            <p className="mt-5 max-w-xl text-base leading-relaxed text-ivory/65">
+            <h2 id="apropos-title" className="font-serif text-5xl leading-none sm:text-6xl">David Otu</h2>
+            <p className="mt-4 text-base text-steel">{c.title}</p>
+            <p className="mt-8 max-w-xl text-base leading-relaxed text-ivory/80">{c.about}</p>
+            <p className="mt-5 max-w-xl text-base leading-relaxed text-ivory/70">
               {t.practicesSentence.a} <a href={c.routes.ixelles} className="text-ivory underline decoration-ivory/30 underline-offset-4 hover:decoration-steel">Ixelles</a> {t.practicesSentence.ixDays}{" "}
               {t.practicesSentence.and} <a href={c.routes["woluwe-saint-pierre"]} className="text-ivory underline decoration-ivory/30 underline-offset-4 hover:decoration-steel">Woluwe-Saint-Pierre</a> {t.practicesSentence.wsDays}{t.practicesSentence.end}
             </p>
             <p className="mt-5 max-w-xl text-sm text-ivory/75">
               {c.languages} <a href={site.upob.url} target="_blank" rel="noopener noreferrer" className="text-ivory/80 underline decoration-ivory/30 underline-offset-4 hover:decoration-steel">{c.upobShort}</a>.
             </p>
-            <div className="mt-10 flex flex-wrap gap-x-10 gap-y-4">
+            <div className="mt-8 border-t border-ivory/15 pt-6">
+              <p className="text-sm font-medium text-steel">{t.principles.title}</p>
+              <p className="mt-2 font-serif text-2xl leading-snug">{t.principles.items.join(" · ")}</p>
+            </div>
+            <div className="mt-8 flex flex-wrap gap-x-10 gap-y-4">
               <a href={c.routes.osteo} className="text-base text-ivory underline decoration-1 underline-offset-4 decoration-ivory/40 transition-colors hover:text-steel hover:decoration-steel">{c.disciplines.osteo.label}</a>
               <a href={c.routes.kine} className="text-base text-ivory underline decoration-1 underline-offset-4 decoration-ivory/40 transition-colors hover:text-steel hover:decoration-steel">{c.disciplines.kine.label}</a>
             </div>
@@ -74,7 +78,6 @@ export default function HomePage({ lang = "fr" }: { lang?: Lang }) {
       <Reasons lang={lang} />
       <Approach lang={lang} />
       <Parcours lang={lang} />
-      <Testimonials lang={lang} />
       <FaqSchema items={c.faqHome} />
       <FaqCarousel items={c.faqHome} tone="dark" id="faq" lang={lang} />
       <Contact lang={lang} />

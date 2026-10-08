@@ -43,7 +43,7 @@ export default function Header({ lang = "fr" }: { lang?: Lang }) {
 
         <nav aria-label={lang === "fr" ? "Navigation principale" : "Main navigation"} className="hidden items-center gap-8 lg:flex">
           {links.map((l) => (
-            <Link key={l.href} href={l.href} className="text-[12px] uppercase tracking-[0.2em] text-ivory/80 transition-colors duration-300 hover:text-steel">
+            <Link key={l.href} href={l.href} className="text-sm text-ivory/80 transition-colors duration-300 hover:text-steel">
               {l.label}
             </Link>
           ))}
@@ -53,7 +53,7 @@ export default function Header({ lang = "fr" }: { lang?: Lang }) {
         <div className="flex items-center gap-2 lg:hidden">
         {langLink("p-2 text-[12px] tracking-[0.2em] text-ivory/65")}
         <button
-          className="-mr-3 flex items-center gap-3 p-3 text-xs uppercase tracking-[0.25em]"
+          className="-mr-3 flex items-center gap-3 p-3 text-[15px] font-medium"
           aria-expanded={open}
           aria-controls="menu-mobile"
           onClick={() => setOpen(!open)}

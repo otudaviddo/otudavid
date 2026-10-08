@@ -39,7 +39,7 @@ export default function Reasons({ lang = "fr" }: { lang?: Lang }) {
   const c = content(lang);
   const t = c.ui.reasons;
   const [active, setActive] = useState<number | null>(null);
-  const pill = "inline-flex min-h-[52px] items-center rounded-full border border-night/35 px-7 text-xs uppercase tracking-[0.22em] transition-colors duration-300 hover:border-night hover:bg-night hover:text-ivory";
+  const pill = "inline-flex min-h-[52px] items-center rounded-full border border-night/35 px-7 text-[15px] font-medium transition-colors duration-300 hover:border-night hover:bg-night hover:text-ivory";
   return (
     <section id="motifs" data-tone="navy" aria-labelledby="motifs-accueil-title" className="relative w-full overflow-hidden bg-ivory text-night">
       <div className="relative mx-auto grid max-w-6xl gap-10 px-6 py-24 md:px-10 md:py-28 lg:grid-cols-[minmax(0,3.6fr)_minmax(0,4fr)_minmax(0,5fr)] lg:gap-8">

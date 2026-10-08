@@ -217,18 +217,18 @@ export default function Body3D({ hotspots, labels, active, onActive, fallback }:
       // 2. Enveloppe lumineuse, plus claire sur les contours (effet « hologramme »).
       const shell = new THREE.Mesh(surface, new THREE.ShaderMaterial({
         transparent: true, depthWrite: false, blending: THREE.AdditiveBlending,
-        uniforms: { uColor: { value: new THREE.Color(0x5fa8ff) } },
+        uniforms: { uColor: { value: new THREE.Color(0x7fb2ee) } },
         vertexShader: `varying vec3 vN; varying vec3 vV;
           void main(){ vec4 mv = modelViewMatrix * vec4(position,1.0); vN = normalize(normalMatrix*normal); vV = normalize(-mv.xyz); gl_Position = projectionMatrix*mv; }`,
         fragmentShader: `uniform vec3 uColor; varying vec3 vN; varying vec3 vV;
-          void main(){ float f = pow(1.0 - abs(dot(vN, vV)), 2.2); gl_FragColor = vec4(uColor, 0.05 + f*0.55); }`,
+          void main(){ float f = pow(1.0 - abs(dot(vN, vV)), 2.2); gl_FragColor = vec4(uColor, 0.03 + f*0.32); }`,
       }));
       shell.renderOrder = 2;
       // 3. Maillage en fils.
-      const lines = new THREE.LineSegments(wire, new THREE.LineBasicMaterial({ color: 0x8cc4ff, transparent: true, opacity: 0.38, blending: THREE.AdditiveBlending, depthWrite: false }));
+      const lines = new THREE.LineSegments(wire, new THREE.LineBasicMaterial({ color: 0xb9d5f5, transparent: true, opacity: 0.3, blending: THREE.AdditiveBlending, depthWrite: false }));
       lines.renderOrder = 1;
       // 4. Petits points lumineux.
-      const sparkle = new THREE.Points(points, new THREE.PointsMaterial({ color: 0xdff0ff, size: 2.2, sizeAttenuation: false, transparent: true, opacity: 0.8, blending: THREE.AdditiveBlending, depthWrite: false }));
+      const sparkle = new THREE.Points(points, new THREE.PointsMaterial({ color: 0xdff0ff, size: 1.6, sizeAttenuation: false, transparent: true, opacity: 0.45, blending: THREE.AdditiveBlending, depthWrite: false }));
       sparkle.renderOrder = 3;
       group.add(depth, lines, shell, sparkle);
 
@@ -343,7 +343,7 @@ export default function Body3D({ hotspots, labels, active, onActive, fallback }:
     <div ref={wrap} className="relative h-full w-full select-none">
       {/* halo au sol et lueur derrière le corps */}
       <span aria-hidden className="pointer-events-none absolute inset-x-[22%] bottom-[9%] h-[5%] rounded-[50%] bg-steel/25 blur-xl" />
-      <span aria-hidden className="pointer-events-none absolute inset-[12%] rounded-full bg-steel/10 blur-3xl" />
+      <span aria-hidden className="pointer-events-none absolute inset-[12%] rounded-full bg-steel/[0.06] blur-3xl" />
       <div ref={canvasHost} className={`absolute inset-0 cursor-grab transition-opacity duration-700 active:cursor-grabbing ${ready ? "opacity-100" : "opacity-0"}`} />
       {/* points des motifs : calques HTML, décoratifs (la liste reste l'information principale) */}
       <div aria-hidden className="pointer-events-none absolute inset-0">
