@@ -26,10 +26,10 @@ export default function HomePage({ lang = "fr" }: { lang?: Lang }) {
           {site.name} — {t.heroH1}
         </h1>
         <div className="flex flex-col md:h-[calc(100svh-76px)] md:min-h-[600px] md:flex-row">
-          <Choice d={c.disciplines.osteo} kind="osteo" pro={t.osteoPro} cta={t.book} more={t.more} moreHref={c.routes.osteo} label={c.disciplines.osteo.label} facts={t.heroFacts.osteo}
-            engraving={{ src: "/images/ecorche-baton.webp", width: 546, height: 950, className: "-right-[14%] bottom-0 h-[104%] opacity-35 md:-right-[5%] md:h-[112%] md:opacity-60" }} />
-          <span aria-hidden className="h-px w-full bg-ivory/15 md:h-auto md:w-px" />
-          <Choice d={c.disciplines.kine} kind="kine" pro={t.kinePro} cta={t.book} more={t.more} moreHref={c.routes.kine} label={c.disciplines.kine.label} facts={t.heroFacts.kine} dark
+          <Choice d={c.disciplines.osteo} kind="osteo" pro={t.osteoPro} cta={t.book} more={t.more} moreHref={c.routes.osteo} label={c.disciplines.osteo.label} dark
+            engraving={{ src: "/images/ecorche-baton.webp", width: 546, height: 950, className: "-right-[14%] bottom-0 h-[104%] opacity-45 md:-right-[5%] md:h-[112%] md:opacity-70" }} />
+          <span aria-hidden className="h-px w-full bg-[#0B1F3A] md:h-auto md:w-px"><span className="block h-full w-full bg-white/15" /></span>
+          <Choice d={c.disciplines.kine} kind="kine" pro={t.kinePro} cta={t.book} more={t.more} moreHref={c.routes.kine} label={c.disciplines.kine.label} dark
             engraving={{ src: "/images/ecorche-marche.webp", width: 524, height: 950, className: "-right-[10%] -bottom-[3%] h-[104%] opacity-40 md:-right-[2%] md:h-[110%] md:opacity-55" }} />
         </div>
       </section>

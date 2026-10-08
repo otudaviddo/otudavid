@@ -38,10 +38,6 @@ const uiFr = {
     text: "Kinésithérapeute conventionné et ostéopathe D.O., à Ixelles et Woluwe-Saint-Pierre. Séances sur rendez-vous, en français et en anglais.",
     aboutOsteo: "Découvrir l'ostéopathie", aboutKine: "Découvrir la kinésithérapie",
   },
-  heroFacts: {
-    osteo: ["Lumbago · Torticolis · Sciatique", "Séance de 45 minutes", "Ixelles · Woluwe-Saint-Pierre"],
-    kine: ["Entorse · Genou · Après opération", "Conventionné INAMI, sur prescription", "Séance de 30 minutes"],
-  },
   principles: { title: "Mes principes", items: ["Le toucher", "L'équilibre", "Le mouvement", "Ne jamais rien lâcher"] },
   altOsteo: "Séance d'ostéopathie : les mains de l'ostéopathe sur le thorax d'un patient",
   altKine: "Séance de kinésithérapie : travail manuel sur le genou d'un sportif",
@@ -123,10 +119,6 @@ const uiEn: typeof uiFr = {
     title: "Osteopath & physiotherapist in Brussels",
     text: "Contracted physiotherapist and osteopath D.O. in Ixelles and Woluwe-Saint-Pierre. By appointment, in English and French.",
     aboutOsteo: "About osteopathy", aboutKine: "About physiotherapy",
-  },
-  heroFacts: {
-    osteo: ["Low back pain · Stiff neck · Sciatica", "45-minute session", "Ixelles · Woluwe-Saint-Pierre"],
-    kine: ["Sprains · Knee · After surgery", "Contracted (INAMI), with a prescription", "30-minute session"],
   },
   principles: { title: "My principles", items: ["Touch", "Balance", "Movement", "Never giving up"] },
   altOsteo: "Osteopathy session: the osteopath's hands on a patient's chest",
