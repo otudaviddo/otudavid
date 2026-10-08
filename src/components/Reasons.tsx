@@ -7,7 +7,7 @@ export default function Reasons({ lang = "fr" }: { lang?: Lang }) {
   const t = c.ui.reasons;
   const pill = "inline-flex min-h-[52px] items-center rounded-full border border-night/35 px-7 text-xs uppercase tracking-[0.22em] transition-colors duration-300 hover:border-night hover:bg-night hover:text-ivory";
   return (
-    <section id="motifs" data-tone="light" aria-labelledby="motifs-accueil-title" className="w-full bg-ivory text-night">
+    <section id="motifs" data-tone="light" aria-labelledby="motifs-accueil-title" className="bg-grid w-full bg-ivory text-night">
       <div className="mx-auto grid max-w-6xl gap-12 px-6 py-24 md:grid-cols-[4fr_8fr] md:gap-20 md:px-10 md:py-32">
         <div>
           <h2 id="motifs-accueil-title" className="font-serif text-4xl leading-[1.1] sm:text-5xl">{t.title}</h2>

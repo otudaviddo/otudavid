@@ -8,6 +8,8 @@ const pillars = [
 ];
 
 import { approachEn } from "@/content/en";
+import DrawOnView from "@/components/DrawOnView";
+import { approachDrawings } from "@/components/ApproachDrawings";
 import type { Lang } from "@/i18n";
 
 export default function Approach({ lang = "fr" }: { lang?: Lang }) {
@@ -15,21 +17,27 @@ export default function Approach({ lang = "fr" }: { lang?: Lang }) {
   const title = en ? approachEn.title : "Mon approche";
   const list = en ? approachEn.pillars : pillars;
   return (
-    <section id="approche" data-tone="light" aria-labelledby="approche-title" className="w-full bg-white text-night">
+    <section id="approche" data-tone="navy" aria-labelledby="approche-title" className="bg-grid w-full bg-ivory text-night">
       <div className="mx-auto grid max-w-6xl gap-12 px-6 py-24 md:grid-cols-[4fr_8fr] md:gap-20 md:px-10 md:py-32">
         <div className="md:sticky md:top-28 md:self-start">
           <h2 id="approche-title" className="font-serif text-4xl leading-[1.1] sm:text-5xl">{title}</h2>
-          <p className="mt-6 text-base leading-relaxed text-night/70">
+          <p className="mt-6 text-base leading-relaxed text-night/80">
             {en ? approachEn.intro : "Ostéopathie et kinésithérapie réunies dans une même logique : comprendre, soulager, puis rendre le corps plus résistant, fondée sur les données scientifiques les plus récentes."}
           </p>
         </div>
         <ol className="border-t border-night/15">
-          {list.map((p) => (
-            <li key={p.n} className="grid gap-3 border-b border-night/15 py-8 sm:grid-cols-[12rem_1fr] sm:gap-8 md:py-10">
-              <h3 className="font-serif text-3xl leading-none">{p.t}</h3>
-              <p className="text-base leading-relaxed text-night/75">{p.d}</p>
-            </li>
-          ))}
+          {list.map((p, i) => {
+            const Drawing = approachDrawings[i];
+            return (
+              <li key={p.n} className="grid grid-cols-[4.5rem_1fr] gap-x-5 gap-y-3 border-b border-night/15 py-8 sm:grid-cols-[5.5rem_10rem_1fr] sm:gap-x-8 md:py-10">
+                <DrawOnView className="row-span-2 h-[4.5rem] w-[4.5rem] text-steel sm:row-span-1 sm:h-[5.5rem] sm:w-[5.5rem]">
+                  <Drawing />
+                </DrawOnView>
+                <h3 className="self-center font-serif text-3xl leading-none">{p.t}</h3>
+                <p className="col-start-2 text-base leading-relaxed text-night/80 sm:col-start-3">{p.d}</p>
+              </li>
+            );
+          })}
         </ol>
       </div>
     </section>

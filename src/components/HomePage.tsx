@@ -39,8 +39,9 @@ export default function HomePage({ lang = "fr" }: { lang?: Lang }) {
       <TrustBand lang={lang} />
 
       {/* Présentation */}
-      <section aria-labelledby="apropos-title" data-tone="dark" className="w-full bg-night">
-        <div className="mx-auto grid max-w-6xl gap-10 px-6 py-24 md:grid-cols-[5fr_7fr] md:gap-20 md:px-10 md:py-28">
+      <section aria-labelledby="apropos-title" data-tone="dark" className="relative w-full overflow-hidden bg-night">
+        <Logo symbolOnly accent="fill-steel" className="pointer-events-none absolute -right-24 top-1/2 h-[120%] w-auto -translate-y-1/2 text-ivory opacity-[0.04] md:-right-10" />
+        <div className="relative mx-auto grid max-w-6xl gap-10 px-6 py-24 md:grid-cols-[5fr_7fr] md:gap-20 md:px-10 md:py-28">
           {/* Sans portrait : le nom et le symbole à gauche, le texte à droite */}
           <div className="md:sticky md:top-32 md:self-start">
             <Logo symbolOnly className="h-14 w-auto text-ivory md:h-16" />

@@ -14,6 +14,8 @@
 }
 /* Sections « claires » : texte marine sur fond blanc ou bleu très pâle, boutons marine. */
 [data-tone="light"] { --c-night: 11 31 58; --c-ivory: 244 247 251; }
+/* Section bleu nuit, pour rythmer la page : mêmes classes que les sections claires, valeurs inversées. */
+[data-tone="navy"] { --c-night: 242 246 251; --c-ivory: 11 31 58; --c-ivoryDeep: 17 42 76; --c-steel: 150 186 232; --c-steelDeep: 196 216 242; }
 /* Blocs sur fond bleu (urgences) : texte blanc, bouton blanc. */
 .bg-steel { --c-night: 255 255 255; --c-nightSoft: 232 239 247; --c-ivory: 11 31 58; }
 
@@ -49,11 +51,21 @@ section[id] { scroll-margin-top: 80px; }
 .panel-glow {
   box-shadow: inset 0 0 0 1px rgba(22,96,164,.45), inset 0 0 90px rgba(22,96,164,.08);
 }
+/* Fond « planche technique » : quadrillage très léger, qui s'estompe vers les bords. */
+.bg-grid { position: relative; isolation: isolate; }
+.bg-grid::before {
+  content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+  background-image: linear-gradient(rgba(22,96,164,.07) 1px, transparent 1px), linear-gradient(90deg, rgba(22,96,164,.07) 1px, transparent 1px);
+  background-size: 32px 32px;
+  -webkit-mask-image: radial-gradient(ellipse 75% 70% at 70% 45%, #000 20%, transparent 78%);
+  mask-image: radial-gradient(ellipse 75% 70% at 70% 45%, #000 20%, transparent 78%);
+}
+[data-tone="navy"].bg-grid::before { background-image: linear-gradient(rgba(150,186,232,.09) 1px, transparent 1px), linear-gradient(90deg, rgba(150,186,232,.09) 1px, transparent 1px); }
 /* Dessin technique : chaque trait se trace au survol */
 .draw * { stroke-dasharray: 1; stroke-dashoffset: 1; transition: stroke-dashoffset 1.3s cubic-bezier(.65,0,.35,1); }
 .draw .draw-label { opacity: 0; transition: opacity .8s ease 1.3s; }
-.panel:hover .draw *, .panel:focus-within .draw *, .panel.is-visible .draw * { stroke-dashoffset: 0; }
-.panel:hover .draw .draw-label, .panel:focus-within .draw .draw-label, .panel.is-visible .draw .draw-label { opacity: 1; }
+.panel:hover .draw *, .panel:focus-within .draw *, .panel.is-visible .draw *, .draw-on.is-visible .draw * { stroke-dashoffset: 0; }
+.panel:hover .draw .draw-label, .panel:focus-within .draw .draw-label, .panel.is-visible .draw .draw-label, .draw-on.is-visible .draw .draw-label { opacity: 1; }
 /* Au retrait de la souris, le dessin s'efface sans délai */
 .panel:not(:hover):not(:focus-within):not(.is-visible) .draw * { transition-delay: 0ms !important; transition-duration: .6s; }
 
@@ -111,6 +123,6 @@ section[id] { scroll-margin-top: 80px; }
   .urgent-band, .urgent-band::after, .urgent-phone svg { animation: none; }
   .urgent-band::after { display: none; }
   * { transition: none !important; }
-  .panel .draw * { stroke-dashoffset: 0; }
-  .panel .draw .draw-label { opacity: 1; }
+  .panel .draw *, .draw-on .draw * { stroke-dashoffset: 0; }
+  .panel .draw .draw-label, .draw-on .draw .draw-label { opacity: 1; }
 }
