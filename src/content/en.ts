@@ -78,7 +78,7 @@ export const osteoContentEn = {
   ] as Group[],
   deroule: [
     "Assessment: history, symptoms, examination of mobility and of the areas linked to your pain.",
-    "Manual treatment: gentle, targeted techniques, always explained and adapted to your comfort.",
+    "Manual treatment: gentle, targeted techniques, always explained and adapted to your comfort. Cupping or dry needling when useful for you.",
     "Advice: postures, movements and simple exercises to make the benefits last.",
   ],
 };
@@ -97,7 +97,7 @@ export const kineContentEn = {
   ] as Group[],
   deroule: [
     "Assessment: pain, mobility, strength, and your goals (daily life, work, sport).",
-    "Rehabilitation: manual therapy and targeted exercise, with measured progression.",
+    "Rehabilitation: manual therapy and targeted exercise, with measured progression. Cupping or dry needling when useful for you.",
     "Autonomy: an exercise programme to continue at home between sessions.",
   ],
 };
@@ -107,7 +107,7 @@ export const approachEn = {
   intro: "Osteopathy and physiotherapy combined in one logic: understand, relieve, then make the body more resilient — grounded in the latest scientific evidence.",
   pillars: [
     { n: "01", t: "Understand", d: "A thorough assessment to identify the factors contributing to your pain, not only where it hurts: mobility, strength, daily movements and sport." },
-    { n: "02", t: "Relieve", d: "Manual therapy and osteopathic techniques to help reduce pain and restore mobility." },
+    { n: "02", t: "Relieve", d: "Manual therapy and osteopathic techniques, with cupping or dry needling when useful, to help reduce pain and restore mobility." },
     { n: "03", t: "Strengthen", d: "Active, functional rehabilitation adapted to your daily life, your physical activity and your goals: targeted, progressive exercise dosed to your tolerance, with measured progress." },
     { n: "04", t: "Prevent", d: "A step-by-step return to your activities, validated by simple tests, and a home programme to limit recurrences." },
   ],
@@ -122,11 +122,12 @@ const choisir: QA = { q: "Osteopath or physiotherapist: which one should I see?"
 const urgence: QA = { q: "How do I get an urgent appointment (acute back pain, stiff neck, locked back)?", a: `For an urgent appointment, call ${site.phone} directly: you will be offered the earliest possible slot, subject to availability, in Ixelles or Woluwe-Saint-Pierre. For a regular appointment, online booking remains available.` };
 const ouQuand: QA = { q: "Where and when?", a: `In Ixelles (${site.addresses[1].street}) on Mondays from 7:45 to 13:00, Wednesdays from 8:00 to 19:00 and Fridays from 13:00 to 19:00. In Woluwe-Saint-Pierre (${site.addresses[0].street}) on Tuesdays and Thursdays from 8:00 to 20:00. Osteopathy and physiotherapy are offered at both practices, by appointment.` };
 const apporter: QA = { q: "What should I bring?", a: "Your ID card, the medical prescription for physiotherapy, and any scans or reports you have (X-ray, MRI, surgical report). Wear comfortable clothing." };
+const techniques: QA = { q: "Do you offer cupping and dry needling?", a: "Yes. Cupping and dry needling can be included in both osteopathy and physiotherapy sessions, depending on your needs and after the assessment. They complement manual therapy and exercise, and are never imposed." };
 const langue: QA = { q: "Are consultations in English?", a: "Yes. David Otu consults in English and in French, at both practices in Brussels." };
 
-export const faqHomeEn: QA[] = [urgence, choisir, langue, remboursementKine, remboursementOsteo, prescription, duree, premiere, ouQuand, apporter];
-export const faqOsteoEn: QA[] = [urgence, langue, remboursementOsteo, duree, premiere, prescription, choisir, ouQuand];
-export const faqKineEn: QA[] = [langue, remboursementKine, prescription, duree, premiere, apporter, choisir, ouQuand];
+export const faqHomeEn: QA[] = [urgence, choisir, techniques, langue, remboursementKine, remboursementOsteo, prescription, duree, premiere, ouQuand, apporter];
+export const faqOsteoEn: QA[] = [urgence, langue, remboursementOsteo, duree, techniques, premiere, prescription, choisir, ouQuand];
+export const faqKineEn: QA[] = [langue, remboursementKine, prescription, duree, techniques, premiere, apporter, choisir, ouQuand];
 
 type SoinEn = Pick<Soin, "card" | "cardText" | "intro" | "motifsTitle" | "motifs" | "approcheIntro" | "phases" | "alerte" | "faq">;
 

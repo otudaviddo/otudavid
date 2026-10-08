@@ -29,6 +29,10 @@ const choisir: QA = {
   q: "Ostéopathe ou kiné : lequel choisir ?",
   a: "Les deux approches sont complémentaires. L'ostéopathie met davantage l'accent sur l'évaluation et le traitement manuel. La kinésithérapie permet notamment de travailler la force, la mobilité, la fonction et la reprise progressive des activités ; elle est remboursée par l'INAMI sur prescription. Formé dans les deux disciplines, David Otu vous oriente vers l'approche la plus adaptée à votre situation.",
 };
+const techniques: QA = {
+  q: "Pratiquez-vous le cupping et le dry needling ?",
+  a: "Oui. Le cupping (ventouses) et le dry needling peuvent être intégrés aux séances d'ostéopathie comme de kinésithérapie, selon vos besoins et après le bilan. Ils complètent la thérapie manuelle et les exercices, et ne sont jamais imposés.",
+};
 const urgence: QA = {
   q: "Comment obtenir un rendez-vous en urgence (lumbago, torticolis, dos bloqué) ?",
   a: `Pour un rendez-vous en urgence, appelez directement le ${site.phone} : un créneau rapproché vous est proposé selon les disponibilités, à Ixelles ou à Woluwe-Saint-Pierre. Pour un rendez-vous classique, la réservation en ligne reste possible.`,
@@ -46,6 +50,6 @@ const anglais: QA = {
   a: "Yes. David Otu is an English-speaking osteopath and physiotherapist, with practices in Ixelles and Woluwe-Saint-Pierre (Brussels). You can book online or call directly.",
 };
 
-export const faqHome: QA[] = [urgence, choisir, remboursementKine, remboursementOsteo, prescription, duree, premiereSeance, ouQuand, apporter, anglais];
-export const faqOsteo: QA[] = [urgence, remboursementOsteo, duree, premiereSeance, prescription, choisir, ouQuand, anglais];
-export const faqKine: QA[] = [remboursementKine, prescription, duree, premiereSeance, urgence, apporter, choisir, ouQuand, anglais];
+export const faqHome: QA[] = [urgence, choisir, techniques, remboursementKine, remboursementOsteo, prescription, duree, premiereSeance, ouQuand, apporter, anglais];
+export const faqOsteo: QA[] = [urgence, remboursementOsteo, duree, techniques, premiereSeance, prescription, choisir, ouQuand, anglais];
+export const faqKine: QA[] = [remboursementKine, prescription, duree, techniques, premiereSeance, urgence, apporter, choisir, ouQuand, anglais];

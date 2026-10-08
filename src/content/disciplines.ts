@@ -17,7 +17,7 @@ export const osteoContent = {
   ] as Group[],
   deroule: [
     "Bilan complet : antécédents, symptômes, examen de la mobilité et des zones en lien avec la douleur.",
-    "Traitement manuel : techniques douces et ciblées, toujours expliquées et adaptées à votre confort.",
+    "Traitement manuel : techniques douces et ciblées, toujours expliquées et adaptées à votre confort. Selon vos besoins, cupping (ventouses) ou dry needling.",
     "Conseils : postures, mouvements et exercices simples pour prolonger les effets de la séance.",
   ],
 };
@@ -36,7 +36,7 @@ export const kineContent = {
   ] as Group[],
   deroule: [
     "Bilan : douleur, mobilité, force, et vos objectifs (quotidien, travail, sport).",
-    "Rééducation : thérapie manuelle et exercices ciblés, avec une progression mesurée.",
+    "Rééducation : thérapie manuelle et exercices ciblés, avec une progression mesurée. Selon vos besoins, cupping (ventouses) ou dry needling.",
     "Autonomie : un programme d'exercices à poursuivre chez vous entre les séances.",
   ],
 };
