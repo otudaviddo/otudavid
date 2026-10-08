@@ -100,11 +100,13 @@ function PerformanceDrawing() {
 
 /* ---------- Panneau cliquable ---------- */
 
-export default function Choice({ d, image, engraving, position = "center", kind, alt = "", pro, cta, more, moreHref, label, srcSet, sizes }: {
+export default function Choice({ d, image, engraving, dark = false, facts, position = "center", kind, alt = "", pro, cta, more, moreHref, label, srcSet, sizes }: {
   /** Sans photo, le panneau s'affiche sur un fond uni et le dessin au trait devient le visuel. */
   d: D; image?: string; position?: string;
   /** Gravure anatomique affichée en grand derrière le dessin au trait (version sans photo). */
-  engraving?: { src: string; width: number; height: number; className: string }; kind: "osteo" | "kine"; alt?: string; pro: string; cta: string;
+  engraving?: { src: string; width: number; height: number; className: string };
+  /** Panneau bleu nuit (texte clair) et trois repères courts sous le titre. */
+  dark?: boolean; facts?: string[]; kind: "osteo" | "kine"; alt?: string; pro: string; cta: string;
   /** Versions haute résolution de la photo */ srcSet?: string; sizes?: string;
   /** Lien secondaire vers la page du site */ more: string; moreHref: string; label: string;
 }) {
@@ -145,6 +147,7 @@ export default function Choice({ d, image, engraving, position = "center", kind,
   return (
     <div
       ref={ref}
+      data-tone={dark ? "dark-panel" : undefined}
       className={`panel group relative flex min-h-[50svh] flex-1 overflow-hidden md:min-h-0 md:transition-[flex-grow] md:duration-700 md:ease-out md:hover:flex-[1.3] ${visible ? "is-visible" : ""}`}
     >
       {image ? (
@@ -167,12 +170,12 @@ export default function Choice({ d, image, engraving, position = "center", kind,
       ) : (
         <>
           {/* Fond uni : une teinte par discipline, avec un halo discret derrière le dessin */}
-          <span aria-hidden className={`absolute inset-0 ${kind === "osteo" ? "bg-night" : "bg-nightSoft"}`} />
+          <span aria-hidden className={`absolute inset-0 ${kind === "osteo" || dark ? "bg-night" : "bg-nightSoft"}`} />
           <span aria-hidden className="panel-halo absolute inset-0 transition-opacity duration-700 group-hover:opacity-100" />
           {engraving && (
             // eslint-disable-next-line @next/next/no-img-element
             <img src={engraving.src} alt="" aria-hidden width={engraving.width} height={engraving.height}
-              className={`panel-img pointer-events-none absolute w-auto max-w-none select-none mix-blend-multiply ${engraving.className}`} />
+              className={`panel-img pointer-events-none absolute w-auto max-w-none select-none ${dark ? "mix-blend-screen" : "mix-blend-multiply"} ${engraving.className}`} />
           )}
         </>
       )}
@@ -199,10 +202,21 @@ export default function Choice({ d, image, engraving, position = "center", kind,
         </span>
         <span className="font-serif text-[clamp(1.9rem,8.2vw,2.6rem)] leading-none tracking-[0.12em] text-ivory md:text-[clamp(2rem,3.3vw,3.6rem)]">{d.upper}</span>
         <span className="h-px w-12 bg-ivory/40 transition-all duration-700 group-hover:w-24 group-hover:bg-steel" />
+        {facts && (
+          <span className="flex flex-col gap-1.5 text-sm leading-snug text-ivory/85 md:text-[15px]">
+            {facts.map((f) => (
+              <span key={f} className="flex items-center gap-2.5">
+                <span aria-hidden className="h-1.5 w-1.5 shrink-0 rounded-full bg-steel" />{f}
+              </span>
+            ))}
+          </span>
+        )}
         <span className="flex flex-wrap items-center gap-x-8 gap-y-3">
           <span className={image
             ? "text-xs uppercase tracking-[0.25em] text-ivory/90 transition-transform duration-500 group-hover:translate-x-1"
-            : "inline-flex min-h-[48px] items-center rounded-full bg-steel px-6 text-xs font-medium uppercase tracking-[0.22em] text-night transition-colors duration-300 group-hover:bg-steelDeep"}>
+            : dark
+              ? "inline-flex min-h-[48px] items-center rounded-full bg-ivory px-6 text-xs font-medium uppercase tracking-[0.22em] text-night transition-colors duration-300 group-hover:bg-white"
+              : "inline-flex min-h-[48px] items-center rounded-full bg-steel px-6 text-xs font-medium uppercase tracking-[0.22em] text-night transition-colors duration-300 group-hover:bg-steelDeep"}>
             {cta}
           </span>
           {/* Lien secondaire : la page du site, pour ceux qui veulent d'abord se renseigner */}

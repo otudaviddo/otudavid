@@ -16,6 +16,9 @@
 [data-tone="light"] { --c-night: 11 31 58; --c-ivory: 244 247 251; }
 /* Section bleu nuit, pour rythmer la page : mêmes classes que les sections claires, valeurs inversées. */
 [data-tone="navy"] { --c-night: 242 246 251; --c-ivory: 11 31 58; --c-ivoryDeep: 17 42 76; --c-steel: 150 186 232; --c-steelDeep: 196 216 242; }
+/* Panneau bleu nuit de l'accueil (kinésithérapie) : texte clair, accent bleu clair. */
+[data-tone="dark-panel"] { --c-night: 11 31 58; --c-nightSoft: 13 36 66; --c-ivory: 242 246 251; --c-steel: 130 175 228; --c-steelDeep: 175 205 240; }
+[data-tone="dark-panel"] .panel-halo { background: radial-gradient(70% 60% at 76% 44%, rgba(130,175,228,.16), rgba(130,175,228,0) 70%); }
 /* Blocs sur fond bleu (urgences) : texte blanc, bouton blanc. */
 .bg-steel { --c-night: 255 255 255; --c-nightSoft: 232 239 247; --c-ivory: 11 31 58; }
 
@@ -51,16 +54,12 @@ section[id] { scroll-margin-top: 80px; }
 .panel-glow {
   box-shadow: inset 0 0 0 1px rgba(22,96,164,.45), inset 0 0 90px rgba(22,96,164,.08);
 }
-/* Fond « planche technique » : quadrillage très léger, qui s'estompe vers les bords. */
-.bg-grid { position: relative; isolation: isolate; }
-.bg-grid::before {
-  content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
-  background-image: linear-gradient(rgba(22,96,164,.07) 1px, transparent 1px), linear-gradient(90deg, rgba(22,96,164,.07) 1px, transparent 1px);
-  background-size: 32px 32px;
-  -webkit-mask-image: radial-gradient(ellipse 75% 70% at 70% 45%, #000 20%, transparent 78%);
-  mask-image: radial-gradient(ellipse 75% 70% at 70% 45%, #000 20%, transparent 78%);
-}
-[data-tone="navy"].bg-grid::before { background-image: linear-gradient(rgba(150,186,232,.09) 1px, transparent 1px), linear-gradient(90deg, rgba(150,186,232,.09) 1px, transparent 1px); }
+/* Carte du corps (« Pourquoi me consulter ? ») : points qui respirent doucement,
+   le point du motif survolé ou sélectionné au clavier ressort. */
+.bodymap-ring { transform-box: fill-box; transform-origin: center; animation: bodymap-pulse 3.2s ease-out infinite; }
+@keyframes bodymap-pulse { 0% { transform: scale(.6); opacity: .55; } 70%, 100% { transform: scale(1.9); opacity: 0; } }
+.bodymap-dot { transform-box: fill-box; transform-origin: center; transition: transform .35s cubic-bezier(.2,.7,.2,1), fill .35s; }
+.bodymap-dot.is-active { transform: scale(1.7); }
 /* Dessin technique : chaque trait se trace au survol */
 .draw * { stroke-dasharray: 1; stroke-dashoffset: 1; transition: stroke-dashoffset 1.3s cubic-bezier(.65,0,.35,1); }
 .draw .draw-label { opacity: 0; transition: opacity .8s ease 1.3s; }
@@ -120,7 +119,7 @@ section[id] { scroll-margin-top: 80px; }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .rise { animation: none; opacity: 1; }
-  .urgent-band, .urgent-band::after, .urgent-phone svg { animation: none; }
+  .urgent-band, .urgent-band::after, .urgent-phone svg, .bodymap-ring { animation: none; }
   .urgent-band::after { display: none; }
   * { transition: none !important; }
   .panel .draw *, .draw-on .draw * { stroke-dashoffset: 0; }
