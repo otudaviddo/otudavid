@@ -29,9 +29,9 @@ export default function LegalPage({ lang = "fr" }: { lang?: Lang }) {
               <dt className="text-night/65">{fr ? "Numéro INAMI" : "INAMI number"}</dt>
               <dd>{site.legal.inami}</dd>
               <dt className="text-night/65">{fr ? "Téléphone" : "Phone"}</dt>
-              <dd><a href={site.phoneHref} className={a}>{site.phone}</a></dd>
+              <dd><a href={site.phoneHref} className={`inline-block py-1 ${a}`}>{site.phone}</a></dd>
               <dt className="text-night/65">E-mail</dt>
-              <dd><a href={`mailto:${site.email}`} className={a}>{site.email}</a></dd>
+              <dd><a href={`mailto:${site.email}`} className={`inline-block py-1 ${a}`}>{site.email}</a></dd>
               <dt className="text-night/65">{fr ? "Lieux de consultation" : "Practices"}</dt>
               <dd>
                 {c.addresses.map((ad) => (
@@ -97,7 +97,7 @@ export default function LegalPage({ lang = "fr" }: { lang?: Lang }) {
             </p>
 
             <p className="mt-14">
-              <a href={c.routes.home} className={`text-sm ${a}`}>{c.ui.cabinet.back}</a>
+              <a href={c.routes.home} className={`inline-block py-1 text-sm ${a}`}>{c.ui.cabinet.back}</a>
             </p>
           </div>
         </div>

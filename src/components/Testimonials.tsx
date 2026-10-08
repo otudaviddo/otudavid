@@ -26,6 +26,10 @@ export default function Testimonials({ lang = "fr" }: { lang?: Lang }) {
   const list = lang === "en" ? [...testimonials].sort((a, b) => Number(isEn(b.quote)) - Number(isEn(a.quote))) : testimonials;
   const box = useRef<HTMLDivElement>(null);
   const paused = useRef(false);
+  // Arrêt demandé par le visiteur (bouton pause) : prioritaire sur la reprise automatique.
+  const [stopped, setStopped] = useState(false);
+  const stoppedRef = useRef(false);
+  useEffect(() => { stoppedRef.current = stopped; }, [stopped]);
   const [loop, setLoop] = useState(false);
   useEffect(() => setLoop(true), []);
 
@@ -37,7 +41,7 @@ export default function Testimonials({ lang = "fr" }: { lang?: Lang }) {
     let raf = 0, last = performance.now(), pos = el.scrollLeft, resume: ReturnType<typeof setTimeout> | undefined;
     const tick = (now: number) => {
       const dt = Math.min(now - last, 50); last = now;
-      if (paused.current) {
+      if (paused.current || stoppedRef.current) {
         pos = el.scrollLeft; // on repart de là où le visiteur s'est arrêté
       } else {
         pos += dt * 0.03; // ≈ 30 px par seconde
@@ -55,6 +59,9 @@ export default function Testimonials({ lang = "fr" }: { lang?: Lang }) {
     el.addEventListener("touchstart", pause, { passive: true });
     el.addEventListener("touchend", later);
     el.addEventListener("wheel", () => { pause(); later(); }, { passive: true });
+    // Au clavier : le défilement s'arrête tant que le bandeau a le focus.
+    el.addEventListener("focusin", pause);
+    el.addEventListener("focusout", later);
     return () => { cancelAnimationFrame(raf); clearTimeout(resume); };
   }, []);
 
@@ -77,6 +84,13 @@ export default function Testimonials({ lang = "fr" }: { lang?: Lang }) {
           <p className="mt-4 text-sm text-night/70">{c.reviewsLabel}</p>
         </div>
         <div className="flex gap-3">
+          <button type="button" aria-label={stopped ? t.play : t.pause} aria-pressed={stopped} onClick={() => setStopped(!stopped)} className={arrow}>
+            {stopped ? (
+              <svg aria-hidden viewBox="0 0 16 16" className="h-3.5 w-3.5" fill="currentColor"><path d="M4 2.5v11l9-5.5z" /></svg>
+            ) : (
+              <svg aria-hidden viewBox="0 0 16 16" className="h-3.5 w-3.5" fill="currentColor"><path d="M4 2.5h3v11H4zM9 2.5h3v11H9z" /></svg>
+            )}
+          </button>
           <button type="button" aria-label={t.prev} onClick={() => step(-1)} className={arrow}>←</button>
           <button type="button" aria-label={t.next} onClick={() => step(1)} className={arrow}>→</button>
         </div>
@@ -101,7 +115,7 @@ export default function Testimonials({ lang = "fr" }: { lang?: Lang }) {
       <div className="mx-auto max-w-6xl px-6 pb-20 pt-6 md:px-10 md:pb-28">
         <a
           href={OSTEO_DOCTORANYTIME_URL}
-          className="text-base text-night underline decoration-1 underline-offset-4 decoration-night/40 transition-colors duration-300 hover:text-steelDeep hover:decoration-steelDeep"
+          className="inline-block py-1 text-base text-night underline decoration-1 underline-offset-4 decoration-night/40 transition-colors duration-300 hover:text-steelDeep hover:decoration-steelDeep"
         >
           {t.all}
         </a>

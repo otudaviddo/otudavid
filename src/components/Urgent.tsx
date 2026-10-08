@@ -14,7 +14,7 @@ export function UrgentBand({ lang = "fr" }: { lang?: Lang }) {
       <div className="relative z-[1] mx-auto flex max-w-6xl flex-col gap-3 px-6 py-4 sm:flex-row sm:items-center sm:justify-between md:min-h-[76px] md:px-10 md:py-0">
         <p className="text-base leading-snug">
           <strong className="font-semibold">{t.band}</strong>
-          <span className="text-night/80"> · {t.bandText}</span>
+          <span className="text-night/90"> · {t.bandText}</span>
         </p>
         <a href={site.phoneHref} className={`urgent-phone ${phoneBtn}`}>
           <PhoneIcon className="h-5 w-5" />{site.phone}
@@ -31,8 +31,8 @@ export function UrgentSection({ lang = "fr", title, text }: { lang?: Lang; title
       <div className="mx-auto grid max-w-6xl gap-8 px-6 py-14 md:grid-cols-[7fr_5fr] md:items-center md:gap-16 md:px-10 md:py-16">
         <div>
           <h2 id="urgence-title" className="font-serif text-3xl leading-tight sm:text-4xl">{title}</h2>
-          <p className="mt-4 text-base leading-relaxed text-night/85">{text}</p>
-          <p className="mt-3 text-sm leading-relaxed text-night/70">{t.safety}</p>
+          <p className="mt-4 text-base leading-relaxed text-night/95">{text}</p>
+          <p className="mt-3 text-sm leading-relaxed text-night/90">{t.safety}</p>
         </div>
         <div className="md:justify-self-end">
           <a href={site.phoneHref} className={`${phoneBtn} min-h-[64px] px-9 text-3xl`}>

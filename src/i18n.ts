@@ -52,7 +52,7 @@ const uiFr = {
   ],
   trustAria: "En bref",
   parcours: { title: "Parcours", formation: "Formation", experience: "Expérience", languages: "Langues" },
-  avis: { title: "Ce que disent les patients", prev: "Avis précédents", next: "Avis suivants", all: "Voir tous les avis sur Doctoranytime", aria: "Avis de patients, faites défiler horizontalement" },
+  avis: { title: "Ce que disent les patients", prev: "Avis précédents", next: "Avis suivants", all: "Voir tous les avis sur Doctoranytime", aria: "Avis de patients, faites défiler horizontalement", pause: "Mettre en pause le défilement des avis", play: "Reprendre le défilement des avis" },
   faq: { title: "Questions fréquentes", prev: "Question précédente", next: "Question suivante" },
   contact: {
     title: "Contact", phoneMail: "Téléphone & e-mail", cabinet: "Cabinet", cabinetLink: "Le cabinet", route: "Itinéraire",
@@ -134,7 +134,7 @@ const uiEn: typeof uiFr = {
   ],
   trustAria: "At a glance",
   parcours: { title: "Background", formation: "Education", experience: "Experience", languages: "Languages" },
-  avis: { title: "What patients say", prev: "Previous reviews", next: "Next reviews", all: "See all reviews on Doctoranytime", aria: "Patient reviews, scroll horizontally" },
+  avis: { title: "What patients say", prev: "Previous reviews", next: "Next reviews", all: "See all reviews on Doctoranytime", aria: "Patient reviews, scroll horizontally", pause: "Pause the reviews", play: "Resume the reviews" },
   faq: { title: "Frequently asked questions", prev: "Previous question", next: "Next question" },
   contact: {
     title: "Contact", phoneMail: "Phone & email", cabinet: "Practice", cabinetLink: "The practice", route: "Directions",

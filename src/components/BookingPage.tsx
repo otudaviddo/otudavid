@@ -58,7 +58,7 @@ export default function BookingPage({ kind, lang = "fr" }: { kind: "osteo" | "ki
             <h2 className="font-serif text-3xl">{osteo ? t.about.osteo : t.about.kine}</h2>
             {c.lead.map((p, i) => <p key={i} className="mt-5 text-base leading-relaxed text-night/80">{p}</p>)}
             {osteo && (
-              <a href={site.upob.url} target="_blank" rel="noopener noreferrer" className="mt-6 inline-block text-sm text-night underline decoration-1 underline-offset-4 decoration-night/35 hover:text-steelDeep hover:decoration-steelDeep">
+              <a href={site.upob.url} target="_blank" rel="noopener noreferrer" className="mt-6 inline-block py-1.5 -my-1.5 text-sm text-night underline decoration-1 underline-offset-4 decoration-night/35 hover:text-steelDeep hover:decoration-steelDeep">
                 {C.upobShort}
               </a>
             )}

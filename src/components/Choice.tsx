@@ -194,7 +194,7 @@ export default function Choice({ d, image, engraving, position = "center", kind,
 
       {/* Texte */}
       <span className="panel-text pointer-events-none relative z-10 mt-auto flex flex-col gap-4 p-7 md:p-12">
-        <span className="text-[11px] uppercase tracking-[0.3em] text-ivory/75">
+        <span className="text-[12px] uppercase tracking-[0.3em] text-ivory/75">
           {pro}
         </span>
         <span className="font-serif text-[clamp(1.9rem,8.2vw,2.6rem)] leading-none tracking-[0.12em] text-ivory md:text-[clamp(2rem,3.3vw,3.6rem)]">{d.upper}</span>
@@ -206,7 +206,7 @@ export default function Choice({ d, image, engraving, position = "center", kind,
             {cta}
           </span>
           {/* Lien secondaire : la page du site, pour ceux qui veulent d'abord se renseigner */}
-          <a href={moreHref} aria-label={`${more} : ${label}`} className="pointer-events-auto text-xs uppercase tracking-[0.25em] text-ivory/80 underline decoration-ivory/40 decoration-1 underline-offset-[6px] transition-colors hover:text-steel hover:decoration-steel">
+          <a href={moreHref} aria-label={`${more} : ${label}`} className="pointer-events-auto -my-3 inline-block py-3 text-xs uppercase tracking-[0.25em] text-ivory/80 underline decoration-ivory/40 decoration-1 underline-offset-[6px] transition-colors hover:text-steel hover:decoration-steel">
             {more}
           </a>
         </span>

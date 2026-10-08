@@ -22,8 +22,8 @@ export default function Header({ lang = "fr" }: { lang?: Lang }) {
   const pathname = usePathname() || "/";
   const alt = alternate(pathname);
   const langLink = (cls: string) => (
-    <a href={alt.href} hrefLang={alt.lang} lang={alt.lang} aria-label={t.lang.aria} className={cls}>
-      <span className="text-ivory">{lang.toUpperCase()}</span><span className="mx-1.5 text-ivory/30">|</span><span>{t.lang.switch}</span>
+    <a href={alt.href} hrefLang={alt.lang} className={cls}>
+      <span className="text-ivory">{lang.toUpperCase()}</span><span className="mx-1.5 text-ivory/30">|</span><span lang={alt.lang}>{t.lang.switch}</span><span className="sr-only"> — {t.lang.aria}</span>
     </a>
   );
 
@@ -51,7 +51,7 @@ export default function Header({ lang = "fr" }: { lang?: Lang }) {
         </nav>
 
         <div className="flex items-center gap-2 lg:hidden">
-        {langLink("p-2 text-[11px] tracking-[0.2em] text-ivory/65")}
+        {langLink("p-2 text-[12px] tracking-[0.2em] text-ivory/65")}
         <button
           className="-mr-3 flex items-center gap-3 p-3 text-xs uppercase tracking-[0.25em]"
           aria-expanded={open}

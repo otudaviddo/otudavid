@@ -57,7 +57,7 @@ export default function MobileBooking({ lang = "fr" }: { lang?: Lang }) {
       >
         <span aria-hidden className="mx-auto block h-1 w-10 rounded-full bg-ivory/30" />
         <div className="mt-3 flex items-center justify-between">
-          <p className="text-[11px] uppercase tracking-[0.28em] text-ivory/70">{t.book}</p>
+          <p className="text-[12px] uppercase tracking-[0.28em] text-ivory/70">{t.book}</p>
           <button type="button" onClick={() => setOpen(false)} className="-mr-2 p-2 text-xs uppercase tracking-[0.2em] text-ivory/70" tabIndex={open ? 0 : -1}>
             {t.close}
           </button>
@@ -83,7 +83,7 @@ export default function MobileBooking({ lang = "fr" }: { lang?: Lang }) {
             <span className="flex items-center gap-2 font-serif text-2xl"><PhoneIcon className="h-5 w-5" />{site.phone}</span>
           </a>
         </div>
-        <p className="mt-4 text-center text-[11px] uppercase tracking-[0.2em] text-ivory/65">{t.mobile.via}</p>
+        <p className="mt-4 text-center text-[12px] uppercase tracking-[0.2em] text-ivory/65">{t.mobile.via}</p>
       </div>
 
       {/* Bouton flottant, effet verre, à hauteur du pouce */}
@@ -103,7 +103,7 @@ export default function MobileBooking({ lang = "fr" }: { lang?: Lang }) {
           onClick={() => setOpen(true)}
           aria-haspopup="dialog"
           tabIndex={show ? 0 : -1}
-          className={`glass ${onLight ? "glass-on-light" : "glass-on-dark"} flex h-14 min-w-0 flex-1 max-w-[17rem] items-center justify-center gap-2 rounded-full text-[11px] uppercase tracking-[0.22em] text-ivory transition-[transform,background-color,border-color] duration-300 active:scale-[0.97] ${show && !open ? "pointer-events-auto" : "pointer-events-none"}`}
+          className={`glass ${onLight ? "glass-on-light" : "glass-on-dark"} flex h-14 min-w-0 flex-1 max-w-[17rem] items-center justify-center gap-2 rounded-full text-[12px] uppercase tracking-[0.22em] text-ivory transition-[transform,background-color,border-color] duration-300 active:scale-[0.97] ${show && !open ? "pointer-events-auto" : "pointer-events-none"}`}
         >
           {t.book} <span aria-hidden className="text-steel">→</span>
         </button>

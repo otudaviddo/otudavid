@@ -78,7 +78,7 @@ export default function CabinetPage({ slug, lang = "fr" }: { slug: string; lang?
                 <p className="font-serif text-2xl">{a.street}</p>
                 <p className="mt-1 text-base text-night/70">{a.postalCode} {a.city}</p>
               </address>
-              <a href={a.mapsUrl} className="mt-3 inline-block text-sm underline decoration-1 underline-offset-4 decoration-night/35 hover:text-steelDeep hover:decoration-steelDeep">
+              <a href={a.mapsUrl} className="mt-3 inline-block py-1.5 -my-1.5 text-sm underline decoration-1 underline-offset-4 decoration-night/35 hover:text-steelDeep hover:decoration-steelDeep">
                 {C.ui.contact.route}
               </a>
             </div>
@@ -101,8 +101,8 @@ export default function CabinetPage({ slug, lang = "fr" }: { slug: string; lang?
             <div>
               <p className="text-sm font-semibold text-steelDeep">{t.contact}</p>
               <p className="mt-3 space-x-6 text-sm">
-                <a href={site.phoneHref} className="border-b border-night/30 pb-0.5">{site.phone}</a>
-                <a href={`mailto:${site.email}`} className="border-b border-night/30 pb-0.5">{site.email}</a>
+                <a href={site.phoneHref} className="inline-block border-b border-night/30 py-1.5">{site.phone}</a>
+                <a href={`mailto:${site.email}`} className="inline-block border-b border-night/30 py-1.5">{site.email}</a>
               </p>
             </div>
           </div>
@@ -149,7 +149,7 @@ export default function CabinetPage({ slug, lang = "fr" }: { slug: string; lang?
           <p className="text-base text-night/75">
             {t.also} <a href={other.path} className="border-b border-night/30 pb-0.5 text-night hover:text-steelDeep">{other.city}</a> ({other.days.toLowerCase()}).
           </p>
-          <a href={C.routes.home} className="mt-5 inline-block text-sm text-night/75 underline decoration-1 underline-offset-4 decoration-night/35 hover:text-steelDeep">{t.back}</a>
+          <a href={C.routes.home} className="mt-5 inline-block py-1.5 -my-1.5 text-sm text-night/75 underline decoration-1 underline-offset-4 decoration-night/35 hover:text-steelDeep">{t.back}</a>
         </div>
       </section>
     </>

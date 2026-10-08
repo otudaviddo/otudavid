@@ -5,7 +5,7 @@ import Logo from "@/components/Logo";
 import Hours from "@/components/Hours";
 
 const label = "text-sm font-semibold text-night";
-const link = "text-sm text-night underline decoration-1 underline-offset-4 decoration-night/35 transition-colors duration-300 hover:text-steelDeep hover:decoration-steelDeep";
+const link = "inline-block py-1 text-sm text-night underline decoration-1 underline-offset-4 decoration-night/35 transition-colors duration-300 hover:text-steelDeep hover:decoration-steelDeep";
 
 export default function Contact({ lang = "fr" }: { lang?: Lang }) {
   const c = content(lang);
@@ -93,18 +93,18 @@ export default function Contact({ lang = "fr" }: { lang?: Lang }) {
           <div>
             <p className={label}>{t.footSoins}</p>
             <ul className="mt-3 space-y-1.5 text-night/70">
-              <li><a href={c.routes.osteo} className="hover:text-steelDeep">{c.disciplines.osteo.label}</a></li>
-              <li><a href={c.routes.kine} className="hover:text-steelDeep">{c.disciplines.kine.label}</a></li>
+              <li><a href={c.routes.osteo} className="inline-block py-1 hover:text-steelDeep">{c.disciplines.osteo.label}</a></li>
+              <li><a href={c.routes.kine} className="inline-block py-1 hover:text-steelDeep">{c.disciplines.kine.label}</a></li>
             </ul>
           </div>
           <div>
             <p className={label}>{t.footCabinets}</p>
             <ul className="mt-3 space-y-1.5 text-night/70">
-              <li><a href={c.routes.ixelles} className="hover:text-steelDeep">{t.cabIx}</a></li>
-              <li><a href={c.routes["woluwe-saint-pierre"]} className="hover:text-steelDeep">{t.cabWs}</a></li>
+              <li><a href={c.routes.ixelles} className="inline-block py-1 hover:text-steelDeep">{t.cabIx}</a></li>
+              <li><a href={c.routes["woluwe-saint-pierre"]} className="inline-block py-1 hover:text-steelDeep">{t.cabWs}</a></li>
             </ul>
             <p className="mt-6 text-night/70">
-              <a href={site.upob.url} target="_blank" rel="noopener noreferrer" className="hover:text-steelDeep">{c.upobShort}</a>
+              <a href={site.upob.url} target="_blank" rel="noopener noreferrer" className="inline-block py-1 hover:text-steelDeep">{c.upobShort}</a>
               <br />{t.conventionne}
             </p>
           </div>

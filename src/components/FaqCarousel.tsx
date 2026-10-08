@@ -49,6 +49,9 @@ export default function FaqCarousel({ items, tone = "dark", title, id, lang = "f
       <div
         ref={box}
         onScroll={onScroll}
+        tabIndex={0}
+        role="region"
+        aria-label={title}
         className="no-scrollbar flex snap-x snap-mandatory gap-6 overflow-x-auto scroll-px-6 px-6 pb-24 md:scroll-px-10 md:px-10 md:pb-28"
       >
         {items.map((it, i) => (

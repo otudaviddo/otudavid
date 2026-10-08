@@ -8,8 +8,8 @@
   --c-night: 255 255 255;      /* fond */
   --c-nightSoft: 241 246 251;  /* fond alterné, bleu très pâle */
   --c-ivory: 11 31 58;         /* texte */
-  --c-steel: 24 104 176;       /* accent */
-  --c-steelDeep: 20 88 150;
+  --c-steel: 22 96 164;       /* accent */
+  --c-steelDeep: 16 76 132;
   --c-ivoryDeep: 232 239 247;
 }
 /* Sections « claires » : texte marine sur fond blanc ou bleu très pâle, boutons marine. */
@@ -21,7 +21,7 @@ html { scroll-behavior: smooth; background: #FFFFFF; }
 body { @apply bg-night text-ivory font-sans antialiased; }
 /* Jamais de défilement horizontal parasite */
 main { overflow-x: clip; }
-:focus-visible { outline: 2px solid #1868B0; outline-offset: 6px; }
+:focus-visible { outline: 2px solid #1660A4; outline-offset: 6px; }
 /* Les sections ne passent pas sous le menu fixe quand on clique sur un lien */
 section[id] { scroll-margin-top: 80px; }
 
@@ -43,11 +43,11 @@ section[id] { scroll-margin-top: 80px; }
 }
 .panel-text { transform: translate3d(calc(var(--px) * 7px), calc(var(--py) * 5px), 0); transition: transform .7s cubic-bezier(.2,.7,.2,1); }
 /* Version sans photo : halo doux derrière le dessin au trait */
-.panel-halo { opacity: .8; background: radial-gradient(70% 60% at 76% 44%, rgba(24,104,176,.10), rgba(24,104,176,0) 70%); }
+.panel-halo { opacity: .8; background: radial-gradient(70% 60% at 76% 44%, rgba(22,96,164,.10), rgba(22,96,164,0) 70%); }
 /* Accueil en un seul bloc : voile bleu très pâle du côté de la gravure */
-.hero-wash { background: radial-gradient(60% 90% at 82% 55%, rgba(24,104,176,.11), rgba(24,104,176,0) 72%); }
+.hero-wash { background: radial-gradient(60% 90% at 82% 55%, rgba(22,96,164,.11), rgba(22,96,164,0) 72%); }
 .panel-glow {
-  box-shadow: inset 0 0 0 1px rgba(24,104,176,.45), inset 0 0 90px rgba(24,104,176,.08);
+  box-shadow: inset 0 0 0 1px rgba(22,96,164,.45), inset 0 0 90px rgba(22,96,164,.08);
 }
 /* Dessin technique : chaque trait se trace au survol */
 .draw * { stroke-dasharray: 1; stroke-dashoffset: 1; transition: stroke-dashoffset 1.3s cubic-bezier(.65,0,.35,1); }
@@ -68,12 +68,12 @@ section[id] { scroll-margin-top: 80px; }
 /* Boutons flottants du téléphone : bleu plein, texte blanc, visibles sur toutes les sections. */
 .glass-on-dark, .glass-on-light {
   --c-ivory: 255 255 255; --c-steel: 255 255 255;
-  background: rgba(24, 104, 176, 0.96); border-color: rgba(255, 255, 255, 0.35);
+  background: rgba(22, 96, 164, 0.96); border-color: rgba(255, 255, 255, 0.35);
   box-shadow: 0 12px 28px rgba(11, 31, 58, 0.22);
 }
 @supports ((-webkit-backdrop-filter: blur(1px)) or (backdrop-filter: blur(1px))) {
   .glass { -webkit-backdrop-filter: blur(24px) saturate(180%); backdrop-filter: blur(24px) saturate(180%); background: rgba(255, 255, 255, 0.8); }
-  .glass-on-dark, .glass-on-light { background: rgba(24, 104, 176, 0.92); }
+  .glass-on-dark, .glass-on-light { background: rgba(22, 96, 164, 0.92); }
 }
 
 /* ---------- Bandeau « rendez-vous en urgence » ---------- */
