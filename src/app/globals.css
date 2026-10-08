@@ -60,6 +60,10 @@ section[id] { scroll-margin-top: 80px; }
 @keyframes bodymap-pulse { 0% { transform: scale(.6); opacity: .55; } 70%, 100% { transform: scale(1.9); opacity: 0; } }
 .bodymap-dot { transform-box: fill-box; transform-origin: center; transition: transform .35s cubic-bezier(.2,.7,.2,1), fill .35s; }
 .bodymap-dot.is-active { transform: scale(1.7); }
+/* Corps 3D : halo des points qui respire ; plus fort pour le motif survolé. */
+.body3d-ring { animation: body3d-pulse 2.8s ease-out infinite; }
+.body3d-ring.is-active { animation-duration: 1.2s; background-color: rgba(255,255,255,.55); }
+@keyframes body3d-pulse { 0% { transform: scale(.5); opacity: .8; } 80%, 100% { transform: scale(2); opacity: 0; } }
 /* Dessin technique : chaque trait se trace au survol */
 .draw * { stroke-dasharray: 1; stroke-dashoffset: 1; transition: stroke-dashoffset 1.3s cubic-bezier(.65,0,.35,1); }
 .draw .draw-label { opacity: 0; transition: opacity .8s ease 1.3s; }
@@ -119,7 +123,7 @@ section[id] { scroll-margin-top: 80px; }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .rise { animation: none; opacity: 1; }
-  .urgent-band, .urgent-band::after, .urgent-phone svg, .bodymap-ring { animation: none; }
+  .urgent-band, .urgent-band::after, .urgent-phone svg, .bodymap-ring, .body3d-ring { animation: none; }
   .urgent-band::after { display: none; }
   * { transition: none !important; }
   .panel .draw *, .draw-on .draw * { stroke-dashoffset: 0; }

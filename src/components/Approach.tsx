@@ -17,7 +17,7 @@ export default function Approach({ lang = "fr" }: { lang?: Lang }) {
   const title = en ? approachEn.title : "Mon approche";
   const list = en ? approachEn.pillars : pillars;
   return (
-    <section id="approche" data-tone="navy" aria-labelledby="approche-title" className="w-full bg-ivory text-night">
+    <section id="approche" data-tone="light" aria-labelledby="approche-title" className="w-full bg-white text-night">
       <div className="mx-auto grid max-w-6xl gap-12 px-6 py-24 md:grid-cols-[4fr_8fr] md:gap-20 md:px-10 md:py-32">
         <div className="md:sticky md:top-28 md:self-start">
           <h2 id="approche-title" className="font-serif text-4xl leading-[1.1] sm:text-5xl">{title}</h2>
