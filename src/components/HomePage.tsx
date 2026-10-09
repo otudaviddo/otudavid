@@ -44,7 +44,9 @@ export default function HomePage({ lang = "fr" }: { lang?: Lang }) {
           <div className="mx-auto w-full max-w-sm md:max-w-none">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src="/images/portrait-david-otu-cabinet.webp"
+              src="/images/portrait-david-otu.webp"
+              srcSet="/images/portrait-david-otu.webp 1025w, /images/portrait-david-otu-2050.webp 2050w"
+              sizes="(min-width: 768px) 420px, 90vw"
               alt={t.altPortrait}
               width={1025} height={1281} loading="lazy"
               className="aspect-[4/5] w-full rounded-2xl object-cover shadow-[0_30px_60px_-32px_rgba(11,31,58,.5)]"
