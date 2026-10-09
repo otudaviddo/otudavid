@@ -1,72 +1,86 @@
 "use client";
-import { useState } from "react";
+import { useMemo, useState } from "react";
+import { site } from "@/config/site";
 import { content, type Lang } from "@/i18n";
+import { zones } from "@/content/motifs";
+import Body3D, { type Hotspot } from "@/components/Body3D";
 
-/* « Pourquoi me consulter ? » : les motifs les plus fréquents, toutes disciplines confondues.
-   À côté, la gravure de l'homme au bâton sert de carte du corps : chaque motif a son point,
-   qui ressort quand on survole le motif (ou qu'on l'atteint au clavier).
-   La carte est décorative : la liste reste la seule information pour les lecteurs d'écran. */
+/* « Pourquoi me consulter ? » : un corps en 3D qui tourne, et tous les motifs rangés par zone.
+   On choisit une zone (sur le corps ou dans les boutons) : le corps pivote vers elle et la liste
+   de la zone s'affiche, avec pour chaque motif la discipline (kiné, ostéo ou les deux).
+   Trois situations ne se montrent pas sur un corps : tout le corps, sport, après une opération.
+   Le corps est décoratif : les boutons et la liste suffisent, au clavier comme au lecteur d'écran. */
 
-// Position des points sur la gravure (en pixels de l'image d'origine, 546 × 950), dans l'ordre des motifs.
-const POINTS: ([number, number] | null)[] = [
-  [312, 345], // douleurs lombaires
-  [318, 142], // cervicales, torticolis
-  [345, 458], // sciatique
-  [420, 215], // épaule
-  [336, 690], // genou
-  [342, 898], // cheville
-  [524, 352], // tendinopathies (coude)
-  [338, 585], // blessures musculaires (ischio-jambiers)
-  null, null, null, // douleurs persistantes, chirurgie, reprise : pas de point précis
-];
+const HOTSPOTS: Hotspot[] = zones.map((z) => (z.p && z.n ? { p: z.p, n: z.n } : null));
+
+// Si la 3D ne peut pas s'afficher : la gravure de l'homme au bâton.
+function Flat() {
+  return (
+    <div aria-hidden className="relative mx-auto aspect-[546/950] h-full">
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img src="/images/ecorche-baton.webp" alt="" width={546} height={950} loading="lazy" className="absolute inset-0 h-full w-full object-contain opacity-60 mix-blend-screen" />
+    </div>
+  );
+}
 
 export default function Reasons({ lang = "fr" }: { lang?: Lang }) {
   const c = content(lang);
   const t = c.ui.reasons;
-  const [active, setActive] = useState<number | null>(null);
-  const pill = "inline-flex min-h-[52px] items-center rounded-full border border-night/35 px-7 text-[15px] font-medium transition-colors duration-300 hover:border-night hover:bg-night hover:text-ivory";
+  const en = lang === "en";
+  const [zoneId, setZoneId] = useState("dos");
+  const index = zones.findIndex((z) => z.id === zoneId);
+  const zone = zones[index];
+  const labels = useMemo(() => zones.map((z) => (en ? z.en : z.fr)), [en]);
+  const pill = "inline-flex min-h-[48px] items-center rounded-full border border-night/35 px-6 text-[15px] font-medium transition-colors duration-300 hover:border-night hover:bg-night hover:text-ivory";
+  const zoneBtn = (on: boolean) => `min-h-[44px] shrink-0 whitespace-nowrap rounded-full border px-4 text-[15px] transition-colors duration-200 ${on ? "border-night bg-night text-ivory" : "border-night/30 hover:border-night"}`;
+
   return (
-    <section id="motifs" data-tone="light" aria-labelledby="motifs-accueil-title" className="w-full bg-ivory text-night">
-      <div className="mx-auto grid max-w-6xl gap-12 px-6 py-24 md:px-10 md:py-32 lg:grid-cols-[minmax(0,3.6fr)_minmax(0,4fr)_minmax(0,5fr)] lg:gap-10">
-        <div>
+    <section id="motifs" data-tone="navy" aria-labelledby="motifs-accueil-title" className="relative w-full overflow-hidden bg-ivory text-night">
+      <div className="relative mx-auto max-w-6xl px-6 py-24 md:px-10 md:py-28">
+        <div className="max-w-2xl">
           <h2 id="motifs-accueil-title" className="font-serif text-4xl leading-[1.1] sm:text-5xl">{t.title}</h2>
-          <p className="mt-6 text-base leading-relaxed text-night/75">{t.intro}</p>
-          <div className="mt-8 flex flex-wrap gap-3">
+          <p className="mt-5 text-base leading-relaxed text-night/80">{t.pick}</p>
+          <div className="mt-7 flex flex-wrap gap-3">
             <a href={c.routes.kine} className={pill}>{c.disciplines.kine.label}</a>
             <a href={c.routes.osteo} className={pill}>{c.disciplines.osteo.label}</a>
           </div>
         </div>
 
-        {/* Carte du corps */}
-        <div aria-hidden className="relative mx-auto aspect-[546/950] h-80 sm:h-96 lg:sticky lg:top-28 lg:h-[560px] lg:self-start">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/images/ecorche-baton.webp" alt="" width={546} height={950} loading="lazy"
-            className="absolute inset-0 h-full w-full select-none object-contain opacity-60 mix-blend-multiply" />
-          <svg viewBox="0 0 546 950" className="absolute inset-0 h-full w-full overflow-visible">
-            {POINTS.map((p, i) => p && (
-              <g key={i}>
-                <circle cx={p[0]} cy={p[1]} r="22" className="bodymap-ring fill-steel/25" style={{ animationDelay: `${(i % 4) * 0.8}s` }} />
-                <circle cx={p[0]} cy={p[1]} r="10" className={`bodymap-dot stroke-ivory ${active === i ? "is-active fill-night" : "fill-steel"}`} strokeWidth="3" />
-              </g>
-            ))}
-          </svg>
-        </div>
+        <div className="mt-12 grid gap-10 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-14">
+          <div className="h-[380px] sm:h-[520px] lg:sticky lg:top-24 lg:h-[600px] lg:self-start">
+            <Body3D hotspots={HOTSPOTS} labels={labels} active={zone.p ? index : null} onActive={(i) => i !== null && setZoneId(zones[i].id)} fallback={<Flat />} />
+          </div>
 
-        <ul className="grid content-start border-t border-night/15 sm:grid-cols-2 sm:gap-x-10 lg:grid-cols-1">
-          {t.items.map((it, i) => (
-            <li
-              key={it.label}
-              onMouseEnter={() => setActive(i)} onMouseLeave={() => setActive(null)}
-              onFocus={() => setActive(i)} onBlur={() => setActive(null)}
-              className={`flex items-center gap-3 border-b border-night/15 py-4 font-serif text-2xl leading-snug transition-colors ${i === t.items.length - 1 && t.items.length % 2 ? "sm:col-span-2 lg:col-span-1" : ""}`}
-            >
-              <span aria-hidden className={`h-2 w-2 shrink-0 rounded-full transition-colors ${POINTS[i] ? (active === i ? "bg-night" : "bg-steel") : "bg-night/20"}`} />
-              {it.soin ? (
-                <a href={c.soinHref(it.soin)} className="underline decoration-night/25 decoration-1 underline-offset-[6px] transition-colors hover:text-steelDeep hover:decoration-steelDeep">{it.label}</a>
-              ) : <span>{it.label}</span>}
-            </li>
-          ))}
-        </ul>
+          <div className="min-w-0">
+            <div role="group" aria-label={t.zonesAria} className="no-scrollbar -mx-6 flex gap-2 overflow-x-auto px-6 pb-1 sm:mx-0 sm:flex-wrap sm:overflow-visible sm:px-0">
+              {zones.map((z) => (
+                <button key={z.id} type="button" aria-pressed={z.id === zoneId} onClick={() => setZoneId(z.id)} className={zoneBtn(z.id === zoneId)}>
+                  {en ? z.en : z.fr}
+                </button>
+              ))}
+            </div>
+
+            <div aria-live="polite">
+              <h3 className="mt-9 font-serif text-3xl">{en ? zone.en : zone.fr}</h3>
+              <ul className="mt-4 border-t border-night/15">
+                {zone.items.map((m) => (
+                  <li key={m.fr} className="flex items-baseline justify-between gap-4 border-b border-night/15 py-3.5">
+                    <span className="min-w-0 font-serif text-xl leading-snug sm:text-2xl">
+                      {m.soin ? (
+                        <a href={c.soinHref(m.soin)} className="underline decoration-night/25 decoration-1 underline-offset-[6px] transition-colors hover:text-steelDeep hover:decoration-steelDeep">{en ? m.en : m.fr}</a>
+                      ) : (en ? m.en : m.fr)}
+                    </span>
+                    <span className="shrink-0 whitespace-nowrap rounded-full bg-night/10 px-2.5 py-0.5 text-xs font-semibold text-steelDeep">{t.tags[m.d]}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <p className="mt-8 border-t border-night/15 pt-5 text-[15px] text-night/80">
+              {t.notListed} <a href={site.phoneHref} className="whitespace-nowrap font-semibold text-night underline decoration-night/30 underline-offset-4">{site.phone}</a>
+            </p>
+          </div>
+        </div>
       </div>
     </section>
   );

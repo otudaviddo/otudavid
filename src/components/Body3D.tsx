@@ -352,9 +352,7 @@ export default function Body3D({ hotspots, labels, active, onActive, fallback }:
             key={i}
             ref={(d) => { dotRefs.current[i] = d; }}
             className="absolute left-0 top-0 opacity-0"
-            onPointerEnter={(e) => { if (e.pointerType === "mouse") onActive(i); }}
-            onPointerLeave={(e) => { if (e.pointerType === "mouse") onActive(null); }}
-            onPointerDown={(e) => { if (e.pointerType !== "mouse") onActive(active === i ? null : i); }}
+            onClick={() => onActive(i)}
           >
             <span className="absolute -left-4 -top-4 block h-8 w-8 cursor-pointer" />
             <span className={`body3d-ring pointer-events-none absolute -left-3 -top-3 block h-6 w-6 rounded-full bg-steel/40 ${active === i ? "is-active" : ""}`} style={{ animationDelay: `${(i % 4) * 0.7}s` }} />

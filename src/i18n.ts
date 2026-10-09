@@ -79,6 +79,10 @@ const uiFr = {
   },
   reasons: {
     title: "Pourquoi me consulter ?",
+    pick: "Touchez une zone du corps ou choisissez une situation : vous voyez ce que je prends en charge, en kinésithérapie conventionnée, en ostéopathie, ou les deux.",
+    zonesAria: "Zones du corps et situations",
+    notListed: "Votre problème n'est pas dans la liste ? Appelez-moi, on en parle :",
+    tags: { K: "Kiné", O: "Ostéo", B: "Kiné · Ostéo" },
     intro: "Un même thérapeute, deux compétences complémentaires : la kinésithérapie, conventionnée et remboursée sur prescription, et l'ostéopathie. Selon votre situation, je vous oriente vers l'approche la plus adaptée.",
     items: [
       { label: "Douleurs lombaires, lumbago", soin: "mal-de-dos-lumbago" },
@@ -161,6 +165,10 @@ const uiEn: typeof uiFr = {
   },
   reasons: {
     title: "What can I help you with?",
+    pick: "Tap an area of the body or choose a situation to see what I treat, in physiotherapy, osteopathy, or both.",
+    zonesAria: "Body areas and situations",
+    notListed: "Not on the list? Call me and we will talk it through:",
+    tags: { K: "Physio", O: "Osteo", B: "Physio · Osteo" },
     intro: "One therapist, two complementary skills: physiotherapy, contracted and reimbursed with a prescription, and osteopathy. Depending on your situation, I will guide you to the most suitable approach.",
     items: [
       { label: "Low back pain, acute lumbago", soin: "mal-de-dos-lumbago" },
