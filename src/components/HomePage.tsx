@@ -44,9 +44,7 @@ export default function HomePage({ lang = "fr" }: { lang?: Lang }) {
           <div className="mx-auto w-full max-w-sm md:max-w-none">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src="/images/portrait-david-otu.webp"
-              srcSet="/images/portrait-david-otu.webp 1025w, /images/portrait-david-otu-2050.webp 2050w"
-              sizes="(min-width: 768px) 40vw, 90vw"
+              src="/images/portrait-david-otu-cabinet.webp"
               alt={t.altPortrait}
               width={1025} height={1281} loading="lazy"
               className="aspect-[4/5] w-full rounded-2xl object-cover shadow-[0_30px_60px_-32px_rgba(11,31,58,.5)]"
@@ -63,10 +61,6 @@ export default function HomePage({ lang = "fr" }: { lang?: Lang }) {
             <p className="mt-5 max-w-xl text-sm text-ivory/75">
               {c.languages} <a href={site.upob.url} target="_blank" rel="noopener noreferrer" className="text-ivory/80 underline decoration-ivory/30 underline-offset-4 hover:decoration-steel">{c.upobShort}</a>.
             </p>
-            <div className="mt-8 border-t border-ivory/15 pt-6">
-              <p className="text-sm font-medium text-steel">{t.principles.title}</p>
-              <p className="mt-2 font-serif text-2xl leading-snug">{t.principles.items.join(" · ")}</p>
-            </div>
             <div className="mt-8 flex flex-wrap gap-x-10 gap-y-4">
               <a href={c.routes.osteo} className="text-base text-ivory underline decoration-1 underline-offset-4 decoration-ivory/40 transition-colors hover:text-steel hover:decoration-steel">{c.disciplines.osteo.label}</a>
               <a href={c.routes.kine} className="text-base text-ivory underline decoration-1 underline-offset-4 decoration-ivory/40 transition-colors hover:text-steel hover:decoration-steel">{c.disciplines.kine.label}</a>
