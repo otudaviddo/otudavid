@@ -16,14 +16,17 @@ export const zones: Zone[] = [
     { fr: "Torticolis, nuque bloquée", en: "Stiff neck (torticollis)", d: "B", soin: "torticolis-cervicalgie" },
     { fr: "Cervicalgie, douleur cervicale", en: "Neck pain", d: "B", soin: "torticolis-cervicalgie" },
   ] },
-  { id: "epaule", fr: "Épaule & bras", en: "Shoulder & arm", p: [0.262, 1.462, -0.005], n: [0.7, 0.7, 0], items: [
+  { id: "epaule", fr: "Épaule, bras & main", en: "Shoulder, arm & hand", p: [0.262, 1.462, -0.005], n: [0.7, 0.7, 0], items: [
     { fr: "Épaule douloureuse", en: "Shoulder pain", d: "B" },
     { fr: "Tendinopathie de l'épaule", en: "Shoulder tendinopathy", d: "K" },
     { fr: "Tendinopathie du coude (tennis elbow)", en: "Elbow tendinopathy (tennis elbow)", d: "K" },
+    { fr: "Canal carpien, douleur au poignet ou à la main", en: "Carpal tunnel, wrist or hand pain", d: "B" },
   ] },
   { id: "dos", fr: "Dos", en: "Back", p: [0, 1.06, -0.102], n: [0, 0, -1], items: [
     { fr: "Lumbago, dos bloqué", en: "Acute low back pain, locked back", d: "B", soin: "mal-de-dos-lumbago" },
     { fr: "Lombalgie, hernie discale", en: "Low back pain, disc herniation", d: "B", soin: "mal-de-dos-lumbago" },
+    { fr: "Lombalgie chronique", en: "Chronic low back pain", d: "B", soin: "mal-de-dos-lumbago" },
+    { fr: "Arthrose du dos", en: "Spinal osteoarthritis", d: "B" },
     { fr: "Douleur entre les omoplates, aux côtes", en: "Pain between the shoulder blades, rib pain", d: "O" },
     { fr: "Dorsalgie", en: "Mid-back pain", d: "O" },
     { fr: "Sciatique, cruralgie", en: "Sciatica, femoral nerve pain", d: "B", soin: "sciatique" },
@@ -34,6 +37,7 @@ export const zones: Zone[] = [
   ] },
   { id: "bassin", fr: "Hanche & bassin", en: "Hip & pelvis", p: [0.172, 0.95, 0], n: [1, 0, 0], items: [
     { fr: "Douleur à la hanche", en: "Hip pain", d: "B" },
+    { fr: "Arthrose de la hanche", en: "Hip osteoarthritis", d: "B" },
     { fr: "Douleur au bassin ou au coccyx", en: "Pelvic or tailbone pain", d: "O" },
     { fr: "Pubalgie, adducteurs", en: "Groin pain, adductors", d: "K", soin: "kine-du-sport" },
   ] },
@@ -42,6 +46,8 @@ export const zones: Zone[] = [
     { fr: "Entorse du genou", en: "Knee sprain", d: "K", soin: "douleur-genou" },
     { fr: "Ligaments croisés, ménisque", en: "ACL, meniscus", d: "K", soin: "douleur-genou" },
     { fr: "Tendinopathie du genou", en: "Knee tendinopathy", d: "K", soin: "douleur-genou" },
+    { fr: "Arthrose du genou", en: "Knee osteoarthritis", d: "B", soin: "douleur-genou" },
+    { fr: "Douleurs de croissance, Osgood-Schlatter (enfants, ados)", en: "Growing pains, Osgood-Schlatter (children, teens)", d: "K", soin: "douleur-genou" },
   ] },
   { id: "pied", fr: "Pied & cheville", en: "Foot & ankle", p: [0.149, 0.085, -0.014], n: [1, 0, 0], items: [
     { fr: "Entorse de la cheville", en: "Ankle sprain", d: "K", soin: "entorse-cheville" },
@@ -53,6 +59,9 @@ export const zones: Zone[] = [
     { fr: "Tensions liées au stress ou à la posture", en: "Stress- or posture-related tension", d: "O" },
     { fr: "Douleurs de bureau et d'écran", en: "Desk and screen-related pain", d: "O" },
     { fr: "Douleurs persistantes", en: "Persistent pain", d: "B" },
+    { fr: "Fibromyalgie", en: "Fibromyalgia", d: "B" },
+    { fr: "Ostéoporose, prévention des chutes (seniors)", en: "Osteoporosis, fall prevention (older adults)", d: "K" },
+    { fr: "Enfants et adolescents (croissance, posture)", en: "Children and teenagers (growth, posture)", d: "B" },
     { fr: "Marche, équilibre, escaliers", en: "Walking, balance, stairs", d: "K" },
     { fr: "Retour aux gestes du quotidien et au travail", en: "Back to daily tasks and work", d: "K" },
   ] },
