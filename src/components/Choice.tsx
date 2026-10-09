@@ -128,12 +128,16 @@ export default function Choice({ d, image, engraving, dark = false, facts, posit
     const el = ref.current;
     if (!el) return;
     if (!window.matchMedia("(hover: hover) and (pointer: fine)").matches) return;
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const still = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     let raf = 0;
     const move = (e: PointerEvent) => {
       cancelAnimationFrame(raf);
       raf = requestAnimationFrame(() => {
         const b = el.getBoundingClientRect();
+        // Position de la souris pour le quadrillage qui suit le curseur
+        el.style.setProperty("--mx", `${Math.round(e.clientX - b.left)}px`);
+        el.style.setProperty("--my", `${Math.round(e.clientY - b.top)}px`);
+        if (still) return;
         el.style.setProperty("--px", (((e.clientX - b.left) / b.width - 0.5) * 2).toFixed(3));
         el.style.setProperty("--py", (((e.clientY - b.top) / b.height - 0.5) * 2).toFixed(3));
       });
@@ -172,7 +176,7 @@ export default function Choice({ d, image, engraving, dark = false, facts, posit
           {/* Fond uni : une teinte par discipline, avec un halo discret derrière le dessin */}
           <span aria-hidden className={`absolute inset-0 ${kind === "osteo" || dark ? "bg-night" : "bg-nightSoft"}`} />
           <span aria-hidden className="panel-halo absolute inset-0 transition-opacity duration-700 group-hover:opacity-100" />
-          {dark && <span aria-hidden className="panel-grid absolute inset-0" />}
+          {dark && <><span aria-hidden className="panel-grid absolute inset-0" /><span aria-hidden className="panel-spot absolute inset-0" /><span aria-hidden className="panel-grid panel-grid-spot absolute inset-0" /></>}
           {engraving && (
             // eslint-disable-next-line @next/next/no-img-element
             <img src={engraving.src} alt="" aria-hidden width={engraving.width} height={engraving.height}

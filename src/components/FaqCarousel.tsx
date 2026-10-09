@@ -27,16 +27,14 @@ export default function FaqCarousel({ items, tone = "dark", title, id, lang = "f
     setIndex(Math.min(items.length - 1, Math.round(el.scrollLeft / w)));
   };
 
-  const arrow = dark
-    ? "border-ivory/25 text-ivory/80 hover:border-ivory hover:bg-ivory hover:text-night"
-    : "border-night/20 text-night/70 hover:border-night hover:bg-night hover:text-ivory";
+  const arrow = "border-night/20 text-night/70 hover:border-night hover:bg-night hover:text-ivory";
 
   return (
-    <section id={id} data-tone={dark ? "dark-panel" : tone} aria-labelledby={`${id ?? "faq"}-title`} className={`w-full ${dark ? "bg-shade bg-grid text-ivory" : "bg-ivory text-night"}`}>
+    <section id={id} data-tone={dark ? "light" : tone} aria-labelledby={`${id ?? "faq"}-title`} className={`w-full ${dark ? "bg-[#EEF3F9] text-night" : "bg-ivory text-night"}`}>
       <div className="mx-auto flex max-w-6xl flex-col gap-8 px-6 pb-10 pt-24 md:flex-row md:items-end md:justify-between md:px-10 md:pt-28">
         <div>
           <h2 id={`${id ?? "faq"}-title`} className="font-serif text-4xl leading-[1.1] sm:text-5xl">{title}</h2>
-          <p className={`mt-4 text-sm tabular-nums ${dark ? "text-ivory/70" : "text-night/70"}`}>
+          <p className={`mt-4 text-sm tabular-nums text-night/70`}>
             {index + 1} / {items.length}
           </p>
         </div>

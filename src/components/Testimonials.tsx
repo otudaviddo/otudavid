@@ -74,14 +74,14 @@ export default function Testimonials({ lang = "fr" }: { lang?: Lang }) {
     setTimeout(() => { paused.current = false; }, 4000);
   };
 
-  const arrow = "flex h-12 w-12 items-center justify-center rounded-full border border-ivory/25 text-ivory/85 transition-colors duration-300 hover:border-ivory hover:bg-ivory hover:text-night";
+  const arrow = "flex h-12 w-12 items-center justify-center rounded-full border border-night/20 text-night/70 transition-colors duration-300 hover:border-night hover:bg-night hover:text-ivory";
 
   return (
-    <section id="avis" data-tone="dark-panel" aria-labelledby="avis-title" className="bg-shade bg-grid relative w-full text-ivory">
+    <section id="avis" data-tone="light" aria-labelledby="avis-title" className="relative w-full bg-[#EEF3F9] text-night">
       <div className="mx-auto flex max-w-6xl flex-col gap-8 px-6 pb-12 pt-24 md:flex-row md:items-end md:justify-between md:px-10 md:pt-32">
         <div>
           <h2 id="avis-title" className="font-serif text-4xl leading-[1.1] sm:text-5xl">{t.title}</h2>
-          <p className="mt-4 text-sm text-ivory/75">{c.reviewsLabel}</p>
+          <p className="mt-4 text-sm text-night/70">{c.reviewsLabel}</p>
         </div>
         <div className="flex gap-3">
           <button type="button" aria-label={stopped ? t.play : t.pause} aria-pressed={stopped} onClick={() => setStopped(!stopped)} className={arrow}>
@@ -115,7 +115,7 @@ export default function Testimonials({ lang = "fr" }: { lang?: Lang }) {
       <div className="mx-auto max-w-6xl px-6 pb-20 pt-6 md:px-10 md:pb-28">
         <a
           href={OSTEO_DOCTORANYTIME_URL}
-          className="inline-block py-1 text-base text-ivory underline decoration-1 underline-offset-4 decoration-ivory/40 transition-colors duration-300 hover:text-steel hover:decoration-steel"
+          className="inline-block py-1 text-base text-night underline decoration-1 underline-offset-4 decoration-night/40 transition-colors duration-300 hover:text-steelDeep hover:decoration-steelDeep"
         >
           {t.all}
         </a>
