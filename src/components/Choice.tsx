@@ -172,6 +172,7 @@ export default function Choice({ d, image, engraving, dark = false, facts, posit
           {/* Fond uni : une teinte par discipline, avec un halo discret derrière le dessin */}
           <span aria-hidden className={`absolute inset-0 ${kind === "osteo" || dark ? "bg-night" : "bg-nightSoft"}`} />
           <span aria-hidden className="panel-halo absolute inset-0 transition-opacity duration-700 group-hover:opacity-100" />
+          {dark && <span aria-hidden className="panel-grid absolute inset-0" />}
           {engraving && (
             // eslint-disable-next-line @next/next/no-img-element
             <img src={engraving.src} alt="" aria-hidden width={engraving.width} height={engraving.height}

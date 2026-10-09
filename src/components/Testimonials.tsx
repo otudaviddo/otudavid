@@ -6,7 +6,7 @@ import { content, reviewDate, type Lang } from "@/i18n";
 
 function Card({ t, lang }: { t: (typeof testimonials)[number]; lang: Lang }) {
   return (
-    <figure className="flex w-[300px] shrink-0 flex-col justify-between rounded-2xl border border-night/10 bg-white shadow-[0_18px_40px_-28px_rgba(11,31,58,.45)] px-6 py-7 sm:w-[400px] sm:px-8 sm:py-8">
+    <figure data-tone="light" className="card-lift flex w-[300px] shrink-0 flex-col justify-between rounded-2xl px-6 py-7 sm:w-[400px] sm:px-8 sm:py-8">
       <blockquote className="font-serif text-lg leading-relaxed text-night/90 sm:text-xl">
         &laquo;&nbsp;{t.quote}&nbsp;&raquo;
       </blockquote>
@@ -74,14 +74,14 @@ export default function Testimonials({ lang = "fr" }: { lang?: Lang }) {
     setTimeout(() => { paused.current = false; }, 4000);
   };
 
-  const arrow = "flex h-12 w-12 items-center justify-center rounded-full border border-night/20 text-night/70 transition-colors duration-300 hover:border-night hover:bg-night hover:text-ivory";
+  const arrow = "flex h-12 w-12 items-center justify-center rounded-full border border-ivory/25 text-ivory/85 transition-colors duration-300 hover:border-ivory hover:bg-ivory hover:text-night";
 
   return (
-    <section id="avis" data-tone="light" aria-labelledby="avis-title" className="relative w-full bg-[#F7FAFD] text-night">
+    <section id="avis" data-tone="dark-panel" aria-labelledby="avis-title" className="bg-shade bg-grid relative w-full text-ivory">
       <div className="mx-auto flex max-w-6xl flex-col gap-8 px-6 pb-12 pt-24 md:flex-row md:items-end md:justify-between md:px-10 md:pt-32">
         <div>
           <h2 id="avis-title" className="font-serif text-4xl leading-[1.1] sm:text-5xl">{t.title}</h2>
-          <p className="mt-4 text-sm text-night/70">{c.reviewsLabel}</p>
+          <p className="mt-4 text-sm text-ivory/75">{c.reviewsLabel}</p>
         </div>
         <div className="flex gap-3">
           <button type="button" aria-label={stopped ? t.play : t.pause} aria-pressed={stopped} onClick={() => setStopped(!stopped)} className={arrow}>
@@ -99,7 +99,7 @@ export default function Testimonials({ lang = "fr" }: { lang?: Lang }) {
       {/* Bandeau : défile seul, et se fait glisser au doigt, au trackpad ou avec les flèches */}
       <div
         ref={box}
-        className="no-scrollbar flex overflow-x-auto overscroll-x-contain pb-6"
+        className="no-scrollbar flex overflow-x-auto overscroll-x-contain pb-12 pt-2"
         tabIndex={0}
         aria-label={t.aria}
       >
@@ -115,7 +115,7 @@ export default function Testimonials({ lang = "fr" }: { lang?: Lang }) {
       <div className="mx-auto max-w-6xl px-6 pb-20 pt-6 md:px-10 md:pb-28">
         <a
           href={OSTEO_DOCTORANYTIME_URL}
-          className="inline-block py-1 text-base text-night underline decoration-1 underline-offset-4 decoration-night/40 transition-colors duration-300 hover:text-steelDeep hover:decoration-steelDeep"
+          className="inline-block py-1 text-base text-ivory underline decoration-1 underline-offset-4 decoration-ivory/40 transition-colors duration-300 hover:text-steel hover:decoration-steel"
         >
           {t.all}
         </a>

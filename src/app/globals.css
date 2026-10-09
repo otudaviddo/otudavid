@@ -51,6 +51,28 @@ section[id] { scroll-margin-top: 80px; }
 .panel-halo { opacity: .8; background: radial-gradient(70% 60% at 76% 44%, rgba(22,96,164,.10), rgba(22,96,164,0) 70%); }
 /* Accueil en un seul bloc : voile bleu très pâle du côté de la gravure */
 .hero-wash { background: radial-gradient(60% 90% at 82% 55%, rgba(22,96,164,.11), rgba(22,96,164,0) 72%); }
+/* Fond bleu nuit ombré : lumière en haut à gauche, plus sombre vers le bas. */
+.bg-shade { background: radial-gradient(120% 90% at 12% 0%, #1B3F6B 0%, #0E2747 45%, #081629 100%); }
+/* Quadrillage léger, qui s'efface vers les bords et ne passe jamais sous un texte libre. */
+.bg-grid { position: relative; isolation: isolate; }
+.bg-grid::before, .panel-grid {
+  content: ""; pointer-events: none;
+  background-image: linear-gradient(rgba(150,186,232,.10) 1px, transparent 1px), linear-gradient(90deg, rgba(150,186,232,.10) 1px, transparent 1px);
+  background-size: 36px 36px;
+}
+.bg-grid::before {
+  position: absolute; inset: 0; z-index: -1;
+  -webkit-mask-image: radial-gradient(ellipse 80% 75% at 60% 60%, #000 25%, transparent 80%);
+  mask-image: radial-gradient(ellipse 80% 75% at 60% 60%, #000 25%, transparent 80%);
+}
+/* Accueil : quadrillage côté dessin (en haut à droite), jamais derrière le texte en bas à gauche. */
+.panel-grid {
+  -webkit-mask-image: radial-gradient(ellipse 60% 55% at 78% 32%, #000 15%, transparent 75%);
+  mask-image: radial-gradient(ellipse 60% 55% at 78% 32%, #000 15%, transparent 75%);
+}
+/* Cartes qui ressortent du fond sombre */
+.card-lift { background: #fff; box-shadow: 0 1px 0 rgba(255,255,255,.7) inset, 0 34px 60px -26px rgba(0,0,0,.65), 0 12px 24px -14px rgba(0,0,0,.4); transition: transform .4s ease, box-shadow .4s ease; }
+.card-lift:hover { transform: translateY(-4px); box-shadow: 0 1px 0 rgba(255,255,255,.7) inset, 0 44px 70px -26px rgba(0,0,0,.7), 0 14px 28px -14px rgba(0,0,0,.45); }
 .panel-glow {
   box-shadow: inset 0 0 0 1px rgba(22,96,164,.45), inset 0 0 90px rgba(22,96,164,.08);
 }
