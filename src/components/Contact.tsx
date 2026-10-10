@@ -20,7 +20,7 @@ export default function Contact({ lang = "fr" }: { lang?: Lang }) {
       />
       <div className="relative mx-auto max-w-6xl px-6 pb-36 pt-24 md:px-10 md:py-32">
         <div>
-          <h2 id="contact-title" className="font-serif text-4xl leading-[1.1] sm:text-5xl">{t.title}</h2>
+          <h2 id="contact-title" className="h-display font-serif">{t.title}</h2>
           <p className="mt-4 text-base text-night/65">David Otu, {c.title}</p>
         </div>
 

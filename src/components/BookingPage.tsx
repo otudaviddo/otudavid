@@ -1,7 +1,7 @@
 import { site } from "@/config/site";
 import SoinSections from "@/components/SoinSections";
 import { content, type Lang } from "@/i18n";
-import FaqCarousel from "@/components/FaqCarousel";
+import FaqList from "@/components/FaqList";
 import FaqSchema from "@/components/FaqSchema";
 import Approach from "@/components/Approach";
 import { UrgentSection } from "@/components/Urgent";
@@ -110,7 +110,7 @@ export default function BookingPage({ kind, lang = "fr" }: { kind: "osteo" | "ki
 
       <SoinSections items={mine} lang={lang} />
       <Approach lang={lang} />
-      <FaqCarousel items={faq} tone="light" id="faq" lang={lang} />
+      <FaqList items={faq} id="faq" lang={lang} tint />
     </>
   );
 }

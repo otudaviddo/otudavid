@@ -7,7 +7,8 @@ import Parcours from "@/components/Parcours";
 import Testimonials from "@/components/Testimonials";
 import Contact from "@/components/Contact";
 import MobileBooking from "@/components/MobileBooking";
-import FaqCarousel from "@/components/FaqCarousel";
+import FaqList from "@/components/FaqList";
+import Reveal from "@/components/Reveal";
 import FaqSchema from "@/components/FaqSchema";
 import TrustBand from "@/components/TrustBand";
 import Approach from "@/components/Approach";
@@ -75,7 +76,8 @@ export default function HomePage({ lang = "fr" }: { lang?: Lang }) {
       <Approach lang={lang} />
       <Parcours lang={lang} />
       <FaqSchema items={c.faqHome} />
-      <FaqCarousel items={c.faqHome} tone="dark" id="faq" lang={lang} />
+      <FaqList items={c.faqHome} id="faq" lang={lang} />
+      <Reveal />
       <Contact lang={lang} />
       <MobileBooking lang={lang} />
     </>

@@ -22,7 +22,7 @@ export default function SoinSections({ items, lang = "fr" }: { items: Soin[]; la
   return (
     <section id="motifs" data-tone="light" aria-labelledby="motifs-title" className="w-full bg-white text-night">
       <div className="mx-auto max-w-5xl px-6 py-24 md:px-10 md:py-28">
-        <h2 id="motifs-title" className="font-serif text-4xl leading-[1.1] sm:text-5xl">{t.title}</h2>
+        <h2 id="motifs-title" className="h-display font-serif">{t.title}</h2>
         <div className="mt-14 border-t border-night/15">
           {items.map((s) => (
             <details key={s.slug} id={s.slug} className="group scroll-mt-24 border-b border-night/15">

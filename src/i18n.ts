@@ -52,8 +52,8 @@ const uiFr = {
   ],
   trustAria: "En bref",
   parcours: { title: "Parcours", formation: "Formation", experience: "Expérience", languages: "Langues" },
-  avis: { title: "Ce que disent les patients", prev: "Avis précédents", next: "Avis suivants", all: "Voir tous les avis sur Doctoranytime", aria: "Avis de patients, faites défiler horizontalement", pause: "Mettre en pause le défilement des avis", play: "Reprendre le défilement des avis" },
-  faq: { title: "Questions fréquentes", prev: "Question précédente", next: "Question suivante" },
+  avis: { title: "Ce que disent les patients", prev: "Avis précédents", next: "Avis suivants", all: "Voir tous les avis sur Doctoranytime", aria: "Avis de patients, faites défiler horizontalement", pause: "Mettre en pause le défilement des avis", play: "Reprendre le défilement des avis", more: "Afficher plus d'avis", less: "Afficher moins d'avis", count: "avis vérifiés" },
+  faq: { title: "Questions fréquentes", prev: "Question précédente", next: "Question suivante", other: "Une autre question ?", call: "Appelez directement, je vous réponds entre deux séances." },
   contact: {
     title: "Contact", phoneMail: "Téléphone & e-mail", cabinet: "Cabinet", cabinetLink: "Le cabinet", route: "Itinéraire",
     footSoins: "Soins", footCabinets: "Cabinets", cabIx: "Ostéopathe & kiné à Ixelles", cabWs: "Ostéopathe & kiné à Woluwe-Saint-Pierre",
@@ -138,8 +138,8 @@ const uiEn: typeof uiFr = {
   ],
   trustAria: "At a glance",
   parcours: { title: "Background", formation: "Education", experience: "Experience", languages: "Languages" },
-  avis: { title: "What patients say", prev: "Previous reviews", next: "Next reviews", all: "See all reviews on Doctoranytime", aria: "Patient reviews, scroll horizontally", pause: "Pause the reviews", play: "Resume the reviews" },
-  faq: { title: "Frequently asked questions", prev: "Previous question", next: "Next question" },
+  avis: { title: "What patients say", prev: "Previous reviews", next: "Next reviews", all: "See all reviews on Doctoranytime", aria: "Patient reviews, scroll horizontally", pause: "Pause the reviews", play: "Resume the reviews", more: "Show more reviews", less: "Show fewer reviews", count: "verified reviews" },
+  faq: { title: "Frequently asked questions", prev: "Previous question", next: "Next question", other: "Another question?", call: "Just call, I answer between sessions." },
   contact: {
     title: "Contact", phoneMail: "Phone & email", cabinet: "Practice", cabinetLink: "The practice", route: "Directions",
     footSoins: "Care", footCabinets: "Practices", cabIx: "Osteopath & physio in Ixelles", cabWs: "Osteopath & physio in Woluwe-Saint-Pierre",

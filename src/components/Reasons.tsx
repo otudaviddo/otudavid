@@ -38,7 +38,7 @@ export default function Reasons({ lang = "fr" }: { lang?: Lang }) {
     <section id="motifs" data-tone="navy" aria-labelledby="motifs-accueil-title" className="relative w-full overflow-hidden bg-ivory text-night">
       <div className="relative mx-auto max-w-6xl px-6 py-24 md:px-10 md:py-28">
         <div className="max-w-2xl">
-          <h2 id="motifs-accueil-title" className="font-serif text-4xl leading-[1.1] sm:text-5xl">{t.title}</h2>
+          <h2 id="motifs-accueil-title" className="h-display font-serif">{t.title}</h2>
           <p className="mt-5 text-base leading-relaxed text-night/80">{t.pick}</p>
           <div className="mt-7 flex flex-wrap gap-3">
             <a href={c.routes.kine} className={pill}>{c.disciplines.kine.label}</a>

@@ -205,7 +205,7 @@ export default function Choice({ d, image, engraving, dark = false, facts, posit
         <span className="text-sm text-steel">
           {pro}
         </span>
-        <span className="font-serif text-[clamp(2.6rem,11vw,3.4rem)] leading-none text-ivory md:text-[clamp(2.8rem,4.4vw,4.6rem)]">{d.label}</span>
+        <span className="mask-line font-serif text-[clamp(3rem,13vw,4rem)] leading-[0.95] tracking-[-0.025em] text-ivory md:text-[clamp(3.4rem,5.6vw,6.5rem)]"><span className={`mask-up ${kind === "kine" ? "d2" : ""}`}>{d.label}</span></span>
         <span className="h-px w-12 bg-ivory/40 transition-all duration-700 group-hover:w-24 group-hover:bg-steel" />
         {facts && (
           <span className="flex flex-col gap-1.5 text-sm leading-snug text-ivory/85 md:text-[15px]">

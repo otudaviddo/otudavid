@@ -20,7 +20,7 @@ export default function Approach({ lang = "fr" }: { lang?: Lang }) {
     <section id="approche" data-tone="light" aria-labelledby="approche-title" className="w-full bg-white text-night">
       <div className="mx-auto grid max-w-6xl gap-12 px-6 py-24 md:grid-cols-[4fr_8fr] md:gap-20 md:px-10 md:py-32">
         <div className="md:sticky md:top-28 md:self-start">
-          <h2 id="approche-title" className="font-serif text-4xl leading-[1.1] sm:text-5xl">{title}</h2>
+          <h2 id="approche-title" className="h-display font-serif">{title}</h2>
           <p className="mt-6 text-base leading-relaxed text-night/80">
             {en ? approachEn.intro : "Ostéopathie et kinésithérapie réunies dans une même logique : comprendre, soulager, puis rendre le corps plus résistant, fondée sur les données scientifiques les plus récentes."}
           </p>

@@ -15,6 +15,11 @@ const config: Config = {
         steelDeep: "rgb(var(--c-steelDeep) / <alpha-value>)",
         ivoryDeep: "rgb(var(--c-ivoryDeep) / <alpha-value>)",
       },
+      // Texte courant un peu plus grand : plus lisible, plus « haut de gamme »
+      fontSize: {
+        sm: ["0.9375rem", { lineHeight: "1.5" }],
+        base: ["1.0625rem", { lineHeight: "1.65" }],
+      },
       fontFamily: {
         serif: ["var(--font-serif)", "Georgia", "serif"],
         sans: ["var(--font-sans)", "system-ui", "sans-serif"],
